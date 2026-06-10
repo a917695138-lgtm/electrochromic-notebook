@@ -279,18 +279,16 @@ var expandedRow = null;
 
 // ====== INIT ======
 function init() {
-  // DB from external data.js takes priority; fall back to localStorage/embedded
+  // DB from external data.js takes priority
   if (DB.length === 0) {
-    // Always use DB from data.js (remote) or embedded (local)
-    // Only use localStorage as fallback when opened as local file
-    if (DB.length === 0 || window.location.protocol === "file:") {
-      var stored = localStorage.getItem("labdb");
-      if (stored) {
-        try { DB = JSON.parse(stored); } catch(e) { loadEmbedded(); }
-      } else {
-        loadEmbedded();
-      }
-    }
+    var stored = localStorage.getItem("labdb");
+    if (stored) { try { DB = JSON.parse(stored); } catch(e) { loadEmbedded(); } }
+    else { loadEmbedded(); }
+  }
+  checkPassword();
+  populateFilters();
+  renderList();
+  updateStats();
 }
 
 function loadEmbedded() {
@@ -826,12 +824,12 @@ document.addEventListener("keydown",function(e){
 document.getElementById("modalNew").addEventListener("click",function(e){ if(e.target===this) closeNewMenu(); });
 document.getElementById("modalName").addEventListener("click",function(e){ if(e.target===this) closeNameModal(); });
 
-init();
-</script>
+
+// ====== PASSWORD ======
 
 // ====== PASSWORD ======
 var PW_UNLOCKED = false;
-var PW_HASH = "17af846e75e1a69eba1a40b481a6804d672bea303611bc7309fca80505a5fa78"; // SHA256 of your password
+var PW_HASH = "17af846e75e1a69eba1a40b481a6804d672bea303611bc7309fca80505a5fa78";
 function checkPassword() {
   document.getElementById("pwGate").style.display = "flex";
   document.getElementById("listView").classList.add("pw-locked");
@@ -859,5 +857,6 @@ async function sha256(msg) {
   var buf = await crypto.subtle.digest("SHA-256", enc);
   return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,"0")).join("");
 }
-</body>
-</html>
+
+init();
+</script>

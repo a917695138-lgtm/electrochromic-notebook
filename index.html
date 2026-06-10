@@ -267,16 +267,16 @@ var expandedRow = null;
 function init() {
   // DB from external data.js takes priority; fall back to localStorage/embedded
   if (DB.length === 0) {
-    var stored = localStorage.getItem("labdb");
-    if (stored) {
-      try { DB = JSON.parse(stored); } catch(e) { loadEmbedded(); }
-    } else {
-      loadEmbedded();
+    // Always use DB from data.js (remote) or embedded (local)
+    // Only use localStorage as fallback when opened as local file
+    if (DB.length === 0 || window.location.protocol === "file:") {
+      var stored = localStorage.getItem("labdb");
+      if (stored) {
+        try { DB = JSON.parse(stored); } catch(e) { loadEmbedded(); }
+      } else {
+        loadEmbedded();
+      }
     }
-  }
-  populateFilters();
-  renderList();
-  updateStats();
 }
 
 function loadEmbedded() {

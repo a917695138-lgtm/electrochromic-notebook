@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "origin-pro": {
+      "cwd": ".",
+      "command": "py",
+      "args": ["-3.9", "./server.py"]
+    }
+  }
+}

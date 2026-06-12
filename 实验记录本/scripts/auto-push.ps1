@@ -1,6 +1,6 @@
 ﻿# auto-push.ps1 - File watcher that auto-syncs and pushes on changes
 $ErrorActionPreference = "Stop"
-$projectDir = Split-Path -Parent $PSScriptRoot
+$projectDir = "D:\Users\ao\Documents\电致变色\实验记录本"
 $git = "C:\Program Files\Git\bin\git.exe"
 $python = "C:\Program Files\Python39\python.exe"
 

@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = "Stop"
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-Set-Location (Split-Path -Parent $PSScriptRoot)
+Set-Location "D:\Users\ao\Documents\电致变色"
 $git = "C:\Program Files\Git\bin\git.exe"
 $python = "C:\Program Files\Python39\python.exe"
 
@@ -11,16 +11,16 @@ Write-Host ""
 
 # Step 1: Sync data
 Write-Host "[1/3] 同步数据..." -ForegroundColor Yellow
-& $python scripts\sync-data.py
+& $python 实验记录本\scripts\sync-data.py
 Write-Host ""
 
 # Step 2: Sync index.html
 Write-Host "[2/3] 同步 index.html..." -ForegroundColor Yellow
-Copy-Item "实验记录本.html" "index.html" -Force
-& $git add data.js db-data.json index.html
+Copy-Item "实验记录本\实验记录本.html" "实验记录本\index.html" -Force
+& $git add 实验记录本\data.js 实验记录本\db-data.json 实验记录本\index.html
 $status = & $git status --short
 if ($status) {
-    & $git commit -m "Auto-sync: update data.js and index.html"
+    & $git commit -m "Auto-sync: update notebook data"
     Write-Host "  已提交更新"
 } else {
     Write-Host "  无新变更"
@@ -37,7 +37,7 @@ try {
         Write-Host "  推送成功！" -ForegroundColor Green
         Write-Host ""
         Write-Host "  手机访问：" -ForegroundColor Cyan
-        Write-Host "  https://a917695138-lgtm.github.io/electrochromic-notebook/" -ForegroundColor White
+        Write-Host "  https://a917695138-lgtm.github.io/electrochromic-notebook/实验记录本/实验记录本.html" -ForegroundColor White
         Write-Host "========================================" -ForegroundColor Green
     }
 } catch {

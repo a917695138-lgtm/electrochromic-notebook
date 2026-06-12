@@ -2,7 +2,7 @@
 import socketserver
 
 PORT = 8765
-PROJECT_DIR = r"D:\Users\ao\Documents\电致变色"
+PROJECT_DIR = r"D:\Users\ao\Documents\电致变色\实验记录本"
 
 class NotebookHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):

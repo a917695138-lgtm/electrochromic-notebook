@@ -2,7 +2,7 @@
 import json
 import os
 
-PROJECT_DIR = r"D:\Users\ao\Documents\电致变色"
+PROJECT_DIR = r"D:\Users\ao\Documents\电致变色\实验记录本"
 FOLDERS = ["experiments", "methods", "notes", "data", "reminders"]
 
 records = []

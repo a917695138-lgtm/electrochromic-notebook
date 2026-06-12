@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = "Stop"
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-Set-Location "D:\Users\ao\Documents\电致变色"
+Set-Location (Split-Path -Parent (Split-Path -Parent $PSScriptRoot))
 $git = "C:\Program Files\Git\bin\git.exe"
 $python = "C:\Program Files\Python39\python.exe"
 
@@ -45,3 +45,4 @@ try {
 }
 
 Read-Host "按 Enter 退出"
+

@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = "Stop"
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-Set-Location (Split-Path -Parent (Split-Path -Parent $PSScriptRoot))
+Set-Location (Split-Path -Parent $PSScriptRoot)
 $git = "C:\Program Files\Git\bin\git.exe"
 $python = "C:\Program Files\Python39\python.exe"
 
@@ -11,7 +11,7 @@ Write-Host ""
 
 # Step 1: Sync data
 Write-Host "[1/3] 同步数据..." -ForegroundColor Yellow
-& $python sync-data.py
+& $python scripts\sync-data.py
 Write-Host ""
 
 # Step 2: Sync index.html
@@ -45,4 +45,5 @@ try {
 }
 
 Read-Host "按 Enter 退出"
+
 

@@ -1,6 +1,6 @@
 ﻿# auto-push.ps1 - File watcher that auto-syncs and pushes on changes
 $ErrorActionPreference = "Stop"
-$projectDir = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
+$projectDir = Split-Path -Parent $PSScriptRoot
 $git = "C:\Program Files\Git\bin\git.exe"
 $python = "C:\Program Files\Python39\python.exe"
 
@@ -24,7 +24,7 @@ $action = {
     Write-Host "$(Get-Date -Format 'HH:mm:ss') 检测到文件变更，同步中..." -ForegroundColor Yellow
 
     # Sync data
-    & $python sync-data.py 2>&1 | Out-Null
+    & $python scripts\sync-data.py 2>&1 | Out-Null
     Copy-Item "实验记录本.html" "index.html" -Force
 
     # Commit
@@ -56,4 +56,5 @@ try {
 } finally {
     $watcher.Dispose()
 }
+
 

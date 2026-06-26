@@ -25,10 +25,10 @@ $action = {
 
     # Sync data
     & $python scripts\sync-data.py 2>&1 | Out-Null
-    Copy-Item "实验记录本.html" "index.html" -Force
+    Copy-Item "index.html" "实验记录本.html" -Force
 
     # Commit
-    & $git add data.js db-data.json index.html 2>&1 | Out-Null
+    & $git add . 2>&1 | Out-Null
     $status = & $git status --short
     if ($status) {
         & $git commit -m "Auto-sync: experiment update" 2>&1 | Out-Null
@@ -56,5 +56,6 @@ try {
 } finally {
     $watcher.Dispose()
 }
+
 
 

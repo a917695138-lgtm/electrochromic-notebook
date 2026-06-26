@@ -75,6 +75,7 @@ body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-
 
 .type-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
 .type-dot.experiment{background:#2563eb}
+.type-dot.plan{background:#0891b2}
 .type-dot.method{background:#7c3aed}
 .type-dot.note{background:#059669}
 .type-dot.data{background:#d97706}
@@ -193,6 +194,7 @@ body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-
     <div class="stats">
       <span>总计 <b id="statTotal">0</b></span>
       <span>实验 <b id="statExp">0</b></span>
+      <span>方案 <b id="statPlan">0</b></span>
       <span>方法 <b id="statMet">0</b></span>
       <span>本月 <b id="statMonth">0</b></span>
     </div>
@@ -241,6 +243,7 @@ body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-
     <h3>新建记录</h3>
     <div class="type-options">
       <button class="btn" onclick="newRec('experiment')" style="text-align:left"><span class="type-dot experiment"></span>实验</button>
+      <button class="btn" onclick="newRec('plan')" style="text-align:left"><span class="type-dot plan"></span>实验方案</button>
       <button class="btn" onclick="newRec('method')" style="text-align:left"><span class="type-dot method"></span>方法</button>
       <button class="btn" onclick="newRec('note')" style="text-align:left"><span class="type-dot note"></span>笔记</button>
       <button class="btn" onclick="newRec('data')" style="text-align:left"><span class="type-dot data"></span>数据</button>
@@ -269,8 +272,8 @@ body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-
 <script>
 // ====== GLOBALS ======
 var DB = typeof DB !== "undefined" ? DB : [];
-var TYPES = {experiment:"实验",method:"方法",note:"笔记",data:"数据",reminder:"提醒"};
-var TYPE_CLASSES = {experiment:"experiment",method:"method",note:"note",data:"data",reminder:"reminder"};
+var TYPES = {experiment:"实验",plan:"实验方案",method:"方法",note:"笔记",data:"数据",reminder:"提醒"};
+var TYPE_CLASSES = {experiment:"experiment",plan:"plan",method:"method",note:"note",data:"data",reminder:"reminder"};
 var STATUS_COLORS = {planned:"#6b7280","in-progress":"#2563eb",completed:"#16a34a",pending:"#d97706",done:"#16a34a"};
 var STATUS_LABELS = {planned:"计划中","in-progress":"进行中",completed:"已完成",pending:"待处理",done:"已完成"};
 var sortKey = "date", sortDesc = true;
@@ -566,15 +569,17 @@ function filter() {
 function updateStats() {
   var now = new Date();
   var thisMonth = now.getFullYear() + "-" + String(now.getMonth()+1).padStart(2,"0");
-  var total = DB.length, expCount = 0, metCount = 0, monthCount = 0;
+  var total = DB.length, expCount = 0, planCount = 0, metCount = 0, monthCount = 0;
   for (var i = 0; i < DB.length; i++) {
     var m = parseFM(DB[i].content);
     if (m.type === "experiment") expCount++;
+    if (m.type === "plan") planCount++;
     if (m.type === "method") metCount++;
     if (m.date && m.date.substring(0,7) === thisMonth) monthCount++;
   }
   document.getElementById("statTotal").textContent = total;
   document.getElementById("statExp").textContent = expCount;
+  document.getElementById("statPlan").textContent = planCount;
   document.getElementById("statMet").textContent = metCount;
   document.getElementById("statMonth").textContent = monthCount;
 }
@@ -713,7 +718,8 @@ function doSave() {
   saveDB();
   dirty = false;
   document.getElementById("dirtyTag").style.display = "none";
-  showToast("已保存");
+  syncRecordToDisk(DB[curIdx]);
+  showToast("已保存，正在同步到 GitHub Pages");
   // Return to read view
   openRead(curIdx);
 }
@@ -807,6 +813,22 @@ function doImport() {
 
 // ====== UTILS ======
 function saveDB() { try { localStorage.setItem("labdb",JSON.stringify(DB)); } catch(e) {} }
+function syncRecordToDisk(record) {
+  if (!record || location.protocol === "file:") return;
+  fetch("/api/save", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(record)
+  }).then(function(res){
+    return res.json().then(function(data){
+      if (!res.ok || !data.ok) throw new Error(data.error || "同步失败");
+      showToast("已保存并开始后台同步");
+    });
+  }).catch(function(err){
+    showToast("已本地保存；请用 start-server.bat 打开以自动同步");
+    console.error(err);
+  });
+}
 function showToast(msg) {
   var el = document.getElementById("toast");
   el.textContent = msg;

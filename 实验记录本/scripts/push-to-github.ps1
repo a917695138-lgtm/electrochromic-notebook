@@ -30,19 +30,18 @@ if ($status) {
 Write-Host ""
 
 Write-Host "[3/3] 推送到 GitHub..." -ForegroundColor Yellow
-try {
-    & $git push origin master
-    if ($LASTEXITCODE -eq 0) {
-        Write-Host ""
-        Write-Host "========================================" -ForegroundColor Green
-        Write-Host "  推送成功！" -ForegroundColor Green
-        Write-Host ""
-        Write-Host "  访问地址：" -ForegroundColor Cyan
-        Write-Host "  https://a917695138-lgtm.github.io/electrochromic-notebook/?t=2" -ForegroundColor White
-        Write-Host "========================================" -ForegroundColor Green
-    }
-} catch {
-    Write-Host "推送失败: $_" -ForegroundColor Red
+& $git push origin master
+if ($LASTEXITCODE -eq 0) {
+    Write-Host ""
+    Write-Host "========================================" -ForegroundColor Green
+    Write-Host "  推送成功！" -ForegroundColor Green
+    Write-Host ""
+    Write-Host "  访问地址：" -ForegroundColor Cyan
+    Write-Host "  https://a917695138-lgtm.github.io/electrochromic-notebook/?t=2" -ForegroundColor White
+    Write-Host "========================================" -ForegroundColor Green
+} else {
+    Write-Host "推送失败，请稍后重试或检查网络/GitHub 认证。" -ForegroundColor Red
+    exit $LASTEXITCODE
 }
 
 if (-not $NoPause) {

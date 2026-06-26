@@ -733,10 +733,12 @@ function markDirty() {
 function doDelete() {
   if (curIdx < 0) return;
   if (!confirm("确定删除「"+(parseFM(DB[curIdx].content).title||DB[curIdx].name)+"」？")) return;
+  var deleted = DB[curIdx];
   DB.splice(curIdx,1);
   saveDB();
+  syncDeleteFromDisk(deleted);
   goBack();
-  showToast("已删除");
+  showToast("已删除，正在同步到 GitHub Pages");
 }
 
 function goBack() {
@@ -826,6 +828,22 @@ function syncRecordToDisk(record) {
     });
   }).catch(function(err){
     showToast("已本地保存；请用 start-server.bat 打开以自动同步");
+    console.error(err);
+  });
+}
+function syncDeleteFromDisk(record) {
+  if (!record || location.protocol === "file:") return;
+  fetch("/api/delete", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({folder: record.folder, name: record.name})
+  }).then(function(res){
+    return res.json().then(function(data){
+      if (!res.ok || !data.ok) throw new Error(data.error || "同步失败");
+      showToast("已删除并开始后台同步");
+    });
+  }).catch(function(err){
+    showToast("已本地删除；请用 start-server.bat 打开以自动同步");
     console.error(err);
   });
 }

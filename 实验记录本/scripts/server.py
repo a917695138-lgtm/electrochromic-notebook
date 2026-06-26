@@ -23,6 +23,9 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
         if self.path == "/api/save":
             self.save_record()
             return
+        if self.path == "/api/delete":
+            self.delete_record()
+            return
         self.send_error(404, "Not found")
 
     def save_record(self):
@@ -44,6 +47,27 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
             os.makedirs(folder_path, exist_ok=True)
             with open(target_path, "w", encoding="utf-8", newline="\n") as handle:
                 handle.write(content)
+
+            self.sync_notebook()
+            self.send_json({"ok": True, "path": f"{folder}/{name}"})
+        except Exception as exc:
+            self.send_json({"ok": False, "error": str(exc)}, status=500)
+
+    def delete_record(self):
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            payload = json.loads(self.rfile.read(length).decode("utf-8"))
+            folder = self.safe_segment(payload.get("folder", ""))
+            name = self.safe_segment(payload.get("name", ""))
+            if not folder or not name.endswith(".md"):
+                raise ValueError("Invalid delete payload")
+
+            target_path = os.path.realpath(os.path.join(PROJECT_DIR, folder, name))
+            project_path = os.path.realpath(PROJECT_DIR)
+            if not target_path.startswith(project_path + os.sep):
+                raise ValueError("Path escapes notebook directory")
+            if os.path.exists(target_path):
+                os.remove(target_path)
 
             self.sync_notebook()
             self.send_json({"ok": True, "path": f"{folder}/{name}"})

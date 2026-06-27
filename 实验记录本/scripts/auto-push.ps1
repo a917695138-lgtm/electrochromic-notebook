@@ -47,6 +47,7 @@ Register-ObjectEvent $watcher "Changed" -Action $action | Out-Null
 Register-ObjectEvent $watcher "Created" -Action $action | Out-Null
 Register-ObjectEvent $watcher "Deleted" -Action $action | Out-Null
 Register-ObjectEvent $watcher "Renamed" -Action $action | Out-Null
+$watcher.EnableRaisingEvents = $true
 
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "  实验记录本自动推送监控已启动" -ForegroundColor Cyan

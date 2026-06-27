@@ -2,9 +2,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;url=实验记录本/实验记录本.html">
+<title>实验记录本</title>
+<script>
+(function(){
+  var target = "实验记录本/实验记录本.html" + (location.search || "") + (location.hash || "");
+  location.replace(target);
+})();
+</script>
 </head>
 <body>
-<a href="实验记录本/实验记录本.html">实验记录本</a>
+<a id="link" href="实验记录本/实验记录本.html">实验记录本</a>
+<script>
+document.getElementById("link").href = "实验记录本/实验记录本.html" + (location.search || "") + (location.hash || "");
+</script>
 </body>
 </html>

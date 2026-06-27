@@ -273,6 +273,7 @@ body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-
 // ====== GLOBALS ======
 var DB = typeof DB !== "undefined" ? DB : [];
 var TYPES = {experiment:"实验",plan:"实验方案",method:"方法",note:"笔记",data:"数据",reminder:"提醒"};
+var TYPE_FOLDERS = {experiment:"experiments",plan:"plans",method:"methods",note:"notes",data:"data",reminder:"reminders"};
 var TYPE_CLASSES = {experiment:"experiment",plan:"plan",method:"method",note:"note",data:"data",reminder:"reminder"};
 var STATUS_COLORS = {planned:"#6b7280","in-progress":"#2563eb",completed:"#16a34a",pending:"#d97706",done:"#16a34a"};
 var STATUS_LABELS = {planned:"计划中","in-progress":"进行中",completed:"已完成",pending:"待处理",done:"已完成"};
@@ -766,7 +767,7 @@ function newRec(type) {
     var today = new Date().toISOString().slice(0,10);
     var title = name.replace(".md","");
     var content = "---\ntype: "+type+"\ntitle: "+title+"\ndate: "+today+"\ntags: []\nmodified: "+today+"\n---\n\n# "+(TYPES[type]||type)+"记录\n";
-    DB.push({folder:type+"s",name:name,content:content});
+    DB.push({folder:folderForType(type),name:name,content:content});
     saveDB();
     closeNameModal();
     openEditor(DB.length-1);
@@ -800,7 +801,7 @@ function doImport() {
         var found = -1;
         for (var j=0;j<DB.length;j++){ if(DB[j].name===f.name){found=j;break;} }
         if (found>=0) DB[found].content = c;
-        else { var pm = parseFM(c); DB.push({folder:(pm.type||"method")+"s",name:f.name,content:c}); }
+        else { var pm = parseFM(c); DB.push({folder:folderForType(pm.type||"method"),name:f.name,content:c}); }
         loaded++;
         if (loaded===files.length){ saveDB(); location.reload(); }
       };
@@ -812,6 +813,7 @@ function doImport() {
 
 // ====== UTILS ======
 function saveDB() { try { localStorage.setItem("labdb",JSON.stringify(DB)); } catch(e) {} }
+function folderForType(type) { return TYPE_FOLDERS[type] || "notes"; }
 function syncRecordToDisk(record) {
   if (!record || location.protocol === "file:") return;
   fetch("/api/save", {
@@ -821,10 +823,10 @@ function syncRecordToDisk(record) {
   }).then(function(res){
     return res.json().then(function(data){
       if (!res.ok || !data.ok) throw new Error(data.error || "同步失败");
-      showToast("已保存并开始后台同步");
+      showToast(data.message || "已保存并推送到 GitHub Pages");
     });
   }).catch(function(err){
-    showToast("已本地保存；请用 start-server.bat 打开以自动同步");
+    showToast("同步失败：请检查服务器窗口、网络代理或 GitHub 认证");
     console.error(err);
   });
 }
@@ -837,10 +839,10 @@ function syncDeleteFromDisk(record) {
   }).then(function(res){
     return res.json().then(function(data){
       if (!res.ok || !data.ok) throw new Error(data.error || "同步失败");
-      showToast("已删除并开始后台同步");
+      showToast(data.message || "已删除并推送到 GitHub Pages");
     });
   }).catch(function(err){
-    showToast("已本地删除；请用 start-server.bat 打开以自动同步");
+    showToast("同步失败：请检查服务器窗口、网络代理或 GitHub 认证");
     console.error(err);
   });
 }

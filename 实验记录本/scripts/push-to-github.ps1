@@ -7,6 +7,16 @@ $ErrorActionPreference = "Stop"
 Set-Location "D:\Users\ao\Documents\电致变色"
 $git = "C:\Program Files\Git\bin\git.exe"
 $python = "C:\Program Files\Python39\python.exe"
+$proxy = "http://127.0.0.1:7897"
+
+$httpProxy = & $git config --local --get http.proxy
+$httpsProxy = & $git config --local --get https.proxy
+if (-not $httpProxy) {
+    & $git config --local http.proxy $proxy
+}
+if (-not $httpsProxy) {
+    & $git config --local https.proxy $proxy
+}
 
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "  推送实验记录本到 GitHub Pages" -ForegroundColor Cyan

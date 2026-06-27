@@ -3,12 +3,14 @@ import json
 import os
 import socketserver
 import subprocess
+import threading
 
 PORT = 8765
 PROJECT_DIR = r"D:\Users\ao\Documents\电致变色\实验记录本"
 ROOT_DIR = r"D:\Users\ao\Documents\电致变色"
 PYTHON = r"C:\Program Files\Python39\python.exe"
 POWERSHELL = r"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+SYNC_LOCK = threading.Lock()
 
 
 class NotebookHandler(http.server.SimpleHTTPRequestHandler):
@@ -48,8 +50,8 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
             with open(target_path, "w", encoding="utf-8", newline="\n") as handle:
                 handle.write(content)
 
-            self.sync_notebook()
-            self.send_json({"ok": True, "path": f"{folder}/{name}"})
+            result = self.sync_notebook()
+            self.send_json({"ok": True, "path": f"{folder}/{name}", **result})
         except Exception as exc:
             self.send_json({"ok": False, "error": str(exc)}, status=500)
 
@@ -69,8 +71,8 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
             if os.path.exists(target_path):
                 os.remove(target_path)
 
-            self.sync_notebook()
-            self.send_json({"ok": True, "path": f"{folder}/{name}"})
+            result = self.sync_notebook()
+            self.send_json({"ok": True, "path": f"{folder}/{name}", **result})
         except Exception as exc:
             self.send_json({"ok": False, "error": str(exc)}, status=500)
 
@@ -81,30 +83,27 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
         return value
 
     def sync_notebook(self):
-        subprocess.run(
-            [PYTHON, os.path.join(PROJECT_DIR, "scripts", "sync-data.py")],
-            cwd=PROJECT_DIR,
-            check=True,
-        )
-        src = os.path.join(PROJECT_DIR, "index.html")
-        dst = os.path.join(PROJECT_DIR, "实验记录本.html")
-        with open(src, "r", encoding="utf-8") as source, open(dst, "w", encoding="utf-8", newline="\n") as target:
-            target.write(source.read())
-
-        subprocess.Popen(
-            [
-                POWERSHELL,
-                "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                os.path.join(PROJECT_DIR, "scripts", "push-to-github.ps1"),
-                "-NoPause",
-            ],
-            cwd=ROOT_DIR,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-        )
+        with SYNC_LOCK:
+            result = subprocess.run(
+                [
+                    POWERSHELL,
+                    "-NoProfile",
+                    "-ExecutionPolicy",
+                    "Bypass",
+                    "-File",
+                    os.path.join(PROJECT_DIR, "scripts", "push-to-github.ps1"),
+                    "-NoPause",
+                ],
+                cwd=ROOT_DIR,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+            )
+            if result.returncode != 0:
+                details = (result.stdout + "\n" + result.stderr).strip()
+                raise RuntimeError(details or "GitHub Pages sync failed")
+            return {"synced": True, "message": "已同步并推送到 GitHub Pages"}
 
     def send_json(self, data, status=200):
         body = json.dumps(data, ensure_ascii=False).encode("utf-8")

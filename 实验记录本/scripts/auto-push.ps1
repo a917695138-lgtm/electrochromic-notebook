@@ -1,6 +1,7 @@
 ﻿# auto-push.ps1 - File watcher that auto-syncs and pushes on changes
 $ErrorActionPreference = "Stop"
 $projectDir = "D:\Users\ao\Documents\电致变色\实验记录本"
+$rootDir = "D:\Users\ao\Documents\电致变色"
 $git = "C:\Program Files\Git\bin\git.exe"
 $python = "C:\Program Files\Python39\python.exe"
 
@@ -8,7 +9,7 @@ $watcher = New-Object System.IO.FileSystemWatcher
 $watcher.Path = $projectDir
 $watcher.Filter = "*.md"
 $watcher.IncludeSubdirectories = $true
-$watcher.NotifyFilter = [System.IO.NotifyFilters]::LastWrite -bor [System.IO.NotifyFilters]::CreationTime
+$watcher.NotifyFilter = [System.IO.NotifyFilters]::FileName -bor [System.IO.NotifyFilters]::LastWrite -bor [System.IO.NotifyFilters]::CreationTime
 $watcher.EnableRaisingEvents = $false
 
 $script:lastSync = Get-Date
@@ -20,15 +21,15 @@ $action = {
     $script:lastSync = $now
     Start-Sleep -Milliseconds $script:debounceMs
 
-    Set-Location $projectDir
+    Set-Location $rootDir
     Write-Host "$(Get-Date -Format 'HH:mm:ss') 检测到文件变更，同步中..." -ForegroundColor Yellow
 
     # Sync data
-    & $python scripts\sync-data.py 2>&1 | Out-Null
-    Copy-Item "index.html" "实验记录本.html" -Force
+    & $python "实验记录本\scripts\sync-data.py" 2>&1 | Out-Null
+    Copy-Item "实验记录本\index.html" "实验记录本\实验记录本.html" -Force
 
     # Commit
-    & $git add . 2>&1 | Out-Null
+    & $git add "实验记录本" 2>&1 | Out-Null
     $status = & $git status --short
     if ($status) {
         & $git commit -m "Auto-sync: experiment update" 2>&1 | Out-Null
@@ -43,6 +44,9 @@ $action = {
 }
 
 Register-ObjectEvent $watcher "Changed" -Action $action | Out-Null
+Register-ObjectEvent $watcher "Created" -Action $action | Out-Null
+Register-ObjectEvent $watcher "Deleted" -Action $action | Out-Null
+Register-ObjectEvent $watcher "Renamed" -Action $action | Out-Null
 
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "  实验记录本自动推送监控已启动" -ForegroundColor Cyan

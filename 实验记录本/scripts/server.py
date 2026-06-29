@@ -47,7 +47,8 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
                 raise ValueError("Path escapes notebook directory")
 
             folder_path.mkdir(parents=True, exist_ok=True)
-            target_path.write_text(content, encoding="utf-8", newline="\n")
+            with target_path.open("w", encoding="utf-8", newline="\n") as handle:
+                handle.write(content)
 
             result = self.sync_notebook()
             self.send_json({"ok": True, "path": f"{folder}/{name}", **result})

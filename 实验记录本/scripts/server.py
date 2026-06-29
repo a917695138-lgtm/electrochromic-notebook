@@ -1,6 +1,5 @@
 import http.server
 import json
-import os
 import socketserver
 import subprocess
 import threading
@@ -109,7 +108,7 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
             if result.returncode != 0:
                 details = (result.stdout + "\n" + result.stderr).strip()
                 raise RuntimeError(details or "GitHub Pages sync failed")
-            return {"synced": True, "message": "已同步并推送到 GitHub Pages"}
+            return {"synced": True, "message": "Synced and pushed to GitHub Pages"}
 
     def send_json(self, data, status=200):
         body = json.dumps(data, ensure_ascii=False).encode("utf-8")
@@ -120,7 +119,7 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def log_message(self, format, *args):
-        print(f"[{self.client_address[0]}] {format % args}")
+        print(f"[{self.client_address[0]}] {format % args}", flush=True)
 
 
 class ReusableTCPServer(socketserver.TCPServer):
@@ -129,11 +128,11 @@ class ReusableTCPServer(socketserver.TCPServer):
 
 if __name__ == "__main__":
     with ReusableTCPServer(("127.0.0.1", PORT), NotebookHandler) as httpd:
-        print("实验记录本服务器已启动")
-        print(f"本地访问: http://localhost:{PORT}/实验记录本.html")
-        print("保存/删除记录后会自动写入 Markdown，并同步推送到 GitHub Pages")
-        print("按 Ctrl+C 停止")
+        print("Notebook server started", flush=True)
+        print(f"Local URL: http://127.0.0.1:{PORT}/index.html", flush=True)
+        print("Save/delete writes Markdown files and syncs to GitHub Pages", flush=True)
+        print("Press Ctrl+C to stop", flush=True)
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
-            print("\n服务器已停止")
+            print("\nServer stopped", flush=True)

@@ -2,7 +2,7 @@ $ErrorActionPreference = "SilentlyContinue"
 
 $NotebookDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Server = Join-Path $NotebookDir "scripts\server.py"
-$Url = "http://localhost:8765/实验记录本.html"
+$Url = "http://localhost:8765/index.html"
 $OutLog = Join-Path $NotebookDir "server-start.out.log"
 $ErrLog = Join-Path $NotebookDir "server-start.err.log"
 

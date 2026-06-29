@@ -13,6 +13,7 @@ Thumbs.db
 # Temp
 tmp-data.json
 *.lnk
+实验记录本/server-start*.log
 
 # Node
 node_modules/

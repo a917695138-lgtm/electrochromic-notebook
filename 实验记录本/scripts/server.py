@@ -4,18 +4,19 @@ import os
 import socketserver
 import subprocess
 import threading
+from pathlib import Path
+
 
 PORT = 8765
-PROJECT_DIR = r"D:\Users\ao\Documents\电致变色\实验记录本"
-ROOT_DIR = r"D:\Users\ao\Documents\电致变色"
-PYTHON = r"C:\Program Files\Python39\python.exe"
+PROJECT_DIR = Path(__file__).resolve().parents[1]
+ROOT_DIR = PROJECT_DIR.parent
 POWERSHELL = r"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
 SYNC_LOCK = threading.Lock()
 
 
 class NotebookHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=PROJECT_DIR, **kwargs)
+        super().__init__(*args, directory=str(PROJECT_DIR), **kwargs)
 
     def end_headers(self):
         self.send_header("Cache-Control", "no-store")
@@ -40,15 +41,13 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
             if not folder or not name.endswith(".md") or not isinstance(content, str):
                 raise ValueError("Invalid record payload")
 
-            folder_path = os.path.realpath(os.path.join(PROJECT_DIR, folder))
-            target_path = os.path.realpath(os.path.join(folder_path, name))
-            project_path = os.path.realpath(PROJECT_DIR)
-            if not target_path.startswith(project_path + os.sep):
+            folder_path = (PROJECT_DIR / folder).resolve()
+            target_path = (folder_path / name).resolve()
+            if not self.is_inside_project(target_path):
                 raise ValueError("Path escapes notebook directory")
 
-            os.makedirs(folder_path, exist_ok=True)
-            with open(target_path, "w", encoding="utf-8", newline="\n") as handle:
-                handle.write(content)
+            folder_path.mkdir(parents=True, exist_ok=True)
+            target_path.write_text(content, encoding="utf-8", newline="\n")
 
             result = self.sync_notebook()
             self.send_json({"ok": True, "path": f"{folder}/{name}", **result})
@@ -64,12 +63,11 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
             if not folder or not name.endswith(".md"):
                 raise ValueError("Invalid delete payload")
 
-            target_path = os.path.realpath(os.path.join(PROJECT_DIR, folder, name))
-            project_path = os.path.realpath(PROJECT_DIR)
-            if not target_path.startswith(project_path + os.sep):
+            target_path = (PROJECT_DIR / folder / name).resolve()
+            if not self.is_inside_project(target_path):
                 raise ValueError("Path escapes notebook directory")
-            if os.path.exists(target_path):
-                os.remove(target_path)
+            if target_path.exists():
+                target_path.unlink()
 
             result = self.sync_notebook()
             self.send_json({"ok": True, "path": f"{folder}/{name}", **result})
@@ -82,6 +80,13 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
             return ""
         return value
 
+    def is_inside_project(self, path):
+        try:
+            path.relative_to(PROJECT_DIR)
+            return True
+        except ValueError:
+            return False
+
     def sync_notebook(self):
         with SYNC_LOCK:
             result = subprocess.run(
@@ -91,10 +96,10 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
                     "-ExecutionPolicy",
                     "Bypass",
                     "-File",
-                    os.path.join(PROJECT_DIR, "scripts", "push-to-github.ps1"),
+                    str(PROJECT_DIR / "scripts" / "push-to-github.ps1"),
                     "-NoPause",
                 ],
-                cwd=ROOT_DIR,
+                cwd=str(ROOT_DIR),
                 capture_output=True,
                 text=True,
                 encoding="utf-8",
@@ -117,11 +122,15 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
         print(f"[{self.client_address[0]}] {format % args}")
 
 
+class ReusableTCPServer(socketserver.TCPServer):
+    allow_reuse_address = True
+
+
 if __name__ == "__main__":
-    with socketserver.TCPServer(("0.0.0.0", PORT), NotebookHandler) as httpd:
+    with ReusableTCPServer(("127.0.0.1", PORT), NotebookHandler) as httpd:
         print("实验记录本服务器已启动")
         print(f"本地访问: http://localhost:{PORT}/实验记录本.html")
-        print("保存记录后会自动同步并推送到 GitHub Pages")
+        print("保存/删除记录后会自动写入 Markdown，并同步推送到 GitHub Pages")
         print("按 Ctrl+C 停止")
         try:
             httpd.serve_forever()

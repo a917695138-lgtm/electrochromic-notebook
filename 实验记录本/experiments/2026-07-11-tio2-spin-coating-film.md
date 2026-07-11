@@ -1,7 +1,7 @@
 ---
 type: experiment
 title: "TiO2旋涂浆料制备及分层制膜样品编号记录"
-date: "2026-07-14"
+date: "2026-07-11"
 modified: "2026-07-11"
 tags: [TiO2, 旋涂, 制膜, 打孔, 分层]
 project: "电致变色"

@@ -7,17 +7,17 @@
 /* ===== FONTS & BASE ===== */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap');
 :root {
-  --c-text: #1a1a1a;
-  --c-muted: #666;
-  --c-border: #ddd;
-  --c-bg: #f8f7f4;
+  --c-text: #172033;
+  --c-muted: #5f6b7a;
+  --c-border: #d7e1ec;
+  --c-bg: #f4f7fb;
   --c-surface: #fff;
   --c-accent: #2563eb;
   --c-volt: #2563eb;
   --c-temp: #d97706;
   --c-conc: #059669;
   --c-warn: #dc2626;
-  --c-tag: #7c3aed;
+  --c-tag: #3f51b5;
   --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
   --font-text: "Noto Serif SC", Georgia, "Times New Roman", serif;
   --radius: 6px;
@@ -26,7 +26,7 @@
 body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-height:1.6}
 
 /* ===== TOP BAR ===== */
-.topbar{display:flex;align-items:center;gap:12px;padding:10px 24px;background:var(--c-surface);border-bottom:1px solid var(--c-border);position:sticky;top:0;z-index:30}
+.topbar{display:flex;align-items:center;gap:12px;padding:10px 24px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--c-border);position:sticky;top:0;z-index:30}
 .topbar h1{font-size:15px;font-weight:700;letter-spacing:-0.01em}
 .topbar .spacer{flex:1}
 .topbar .stats{display:flex;gap:16px;font-size:11px;color:var(--c-muted)}
@@ -42,7 +42,7 @@ body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-
 .btn.ghost:hover{background:#f0f0f0;color:var(--c-text)}
 
 /* ===== FILTER BAR ===== */
-.filters{display:flex;gap:8px;padding:8px 24px;background:var(--c-surface);border-bottom:1px solid var(--c-border);align-items:center;flex-shrink:0;flex-wrap:wrap}
+.filters{display:flex;gap:8px;padding:8px 24px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--c-border);align-items:center;flex-shrink:0;flex-wrap:wrap;position:sticky;top:52px;z-index:25}
 .filters select,.filters input{padding:5px 10px;border:1px solid #d0d0d0;border-radius:var(--radius);font-size:12px;outline:none;background:var(--c-surface);font-family:var(--font-ui)}
 .filters input.search{flex:1;min-width:160px;max-width:320px}
 .filters .cnt{font-size:11px;color:var(--c-muted);margin-left:auto}
@@ -53,25 +53,30 @@ body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-
 .main-area.read,.main-area.edit{padding:16px 24px 24px}
 
 /* ===== LIST VIEW ===== */
-.month-group{margin-bottom:8px}
-.month-header{display:flex;align-items:center;gap:8px;padding:10px 14px;font-size:13px;font-weight:600;color:var(--c-muted);cursor:pointer;user-select:none;border-radius:var(--radius);margin:4px 0;white-space:nowrap}
-.month-header:hover{background:#f0f0f0}
+.month-group{margin-bottom:12px}
+.month-header{display:flex;align-items:center;gap:10px;padding:11px 14px;font-size:13px;font-weight:700;color:var(--c-text);cursor:pointer;user-select:none;border-radius:8px 8px 0 0;margin:4px 0 0;white-space:nowrap;background:var(--c-surface);border:1px solid var(--c-border);border-bottom:none}
+.month-header:hover{background:#f8fbff}
 .month-header .chevron{font-size:10px;transition:transform .2s;display:inline-block;width:14px}
 .month-header.collapsed .chevron{transform:rotate(-90deg)}
-.month-header .count{font-size:11px;font-weight:400;color:#999}
+.month-header .count{font-size:11px;font-weight:500;color:var(--c-muted)}
+.month-header .month-meta{margin-left:auto;font-size:11px;color:var(--c-muted);font-weight:500}
 
-.record-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:4px}
-.record-table thead th{text-align:left;padding:8px 14px;background:#fafafa;border-bottom:1px solid var(--c-border);font-weight:600;color:var(--c-muted);font-size:11px;text-transform:uppercase;letter-spacing:.03em;position:sticky;top:52px;z-index:5}
-.record-table tbody td{padding:8px 14px;border-bottom:1px solid #f0f0f0;vertical-align:middle;white-space:nowrap}
+.month-body{background:var(--c-surface);border:1px solid var(--c-border);border-radius:0 0 8px 8px;overflow:hidden}
+.record-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:0}
+.record-table thead th{text-align:left;padding:10px 14px;background:rgba(248,250,252,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--c-border);font-weight:700;color:var(--c-muted);font-size:11px;text-transform:uppercase;letter-spacing:.03em;position:sticky;top:104px;z-index:5}
+.record-table tbody td{padding:10px 14px;border-bottom:1px solid #edf2f7;vertical-align:top;white-space:nowrap}
 .record-table tbody tr{cursor:pointer;transition:background .1s}
-.record-table tbody tr:hover{background:#f5f7ff}
+.record-table tbody tr:nth-child(even){background:#fbfdff}
+.record-table tbody tr:hover{background:#eef6ff}
 .record-table .col-date{width:90px;color:var(--c-muted);font-size:12px;white-space:nowrap}
 .record-table .col-type{width:60px;white-space:nowrap}
 .record-table .col-proj{width:80px;font-size:12px;white-space:nowrap}
-.record-table .col-title{font-weight:500}
+.record-table .col-title{font-weight:500;white-space:normal;min-width:320px}
 .record-table .col-status{width:70px;white-space:nowrap}
 .record-table .col-tags{max-width:200px}
 .record-table .col-expand{width:30px;text-align:center;color:#ccc;font-size:14px}
+.record-title{font-size:13px;font-weight:700;line-height:1.4;color:var(--c-text)}
+.record-snippet{margin-top:3px;font-size:11px;line-height:1.45;color:var(--c-muted);white-space:normal;max-width:54ch}
 
 .type-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
 .type-dot.experiment{background:#2563eb}
@@ -92,18 +97,25 @@ body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-
 
 .empty-state{text-align:center;padding:60px 20px;color:#999;font-family:var(--font-text)}
 
-/* ===== READ VIEW ===== */
-.read-container{max-width:780px;margin:0 auto;background:var(--c-surface);border-radius:8px;border:1px solid var(--c-border);overflow:hidden}
-.read-top{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--c-border)}
-.read-top h2{font-size:16px;font-weight:700;font-family:var(--font-text);flex:1}
-.read-top .read-meta{font-size:11px;color:var(--c-muted)}
-.read-body{font-family:var(--font-text)}
-.read-fm{display:flex;flex-wrap:wrap;gap:6px 20px;padding:12px 20px;background:#fafafa;border-bottom:1px solid var(--c-border);font-size:12px}
-.read-fm .fm-item{display:flex;gap:4px;align-items:baseline;white-space:nowrap}
-.read-fm .fm-key{color:var(--c-muted);white-space:nowrap}
-.read-fm .fm-val{font-weight:500}
-.read-fm .fm-tags{display:flex;gap:3px;flex-wrap:wrap}
-.read-content{padding:20px 24px;font-size:14px;line-height:1.9}
+.read-container{max-width:1260px;margin:0 auto;background:transparent;border:none;overflow:visible}
+.read-shell{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+.read-main{min-width:0;display:grid;gap:12px}
+.read-hero{background:var(--c-surface);border:1px solid var(--c-border);border-radius:10px;padding:18px 20px;box-shadow:0 1px 0 rgba(15,23,42,.03);position:relative;overflow:hidden}
+.read-hero:before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--hero-accent,#2563eb)}
+.read-hero-top{display:flex;gap:16px;align-items:flex-start}
+.read-hero-title{flex:1;min-width:0}
+.read-hero h2{font-size:22px;line-height:1.35;font-weight:700;font-family:var(--font-text);margin:0 0 6px}
+.read-path{font-size:11px;color:var(--c-muted);word-break:break-all}
+.read-excerpt{margin-top:10px;color:#253040;font-size:13px;line-height:1.85;max-width:72ch}
+.read-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.read-chip{display:inline-flex;align-items:center;gap:6px;padding:3px 8px;border-radius:999px;background:#f2f6ff;font-size:11px;color:#274167;white-space:nowrap}
+.read-chip strong{font-weight:700}
+.read-fm{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px 14px;padding:14px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:10px;font-size:12px;box-shadow:0 1px 0 rgba(15,23,42,.03)}
+.read-fm .fm-item{display:flex;gap:8px;align-items:flex-start;white-space:normal}
+.read-fm .fm-key{color:var(--c-muted);white-space:nowrap;flex:0 0 auto}
+.read-fm .fm-val{font-weight:600;min-width:0}
+.read-fm .fm-tags{display:flex;gap:4px;flex-wrap:wrap}
+.read-content{padding:18px 20px;font-size:14px;line-height:1.9;background:var(--c-surface);border:1px solid var(--c-border);border-radius:10px;box-shadow:0 1px 0 rgba(15,23,42,.03);font-family:var(--font-text)}
 .read-content h1{font-size:18px;font-weight:700;margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid #eee}
 .read-content h2{font-size:15px;font-weight:700;margin:14px 0 8px;color:#333}
 .read-content h3{font-size:13px;font-weight:700;margin:10px 0 6px;color:var(--c-muted)}
@@ -129,7 +141,46 @@ body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-
 .hl-warn{border-left:3px solid var(--c-warn);padding-left:10px;background:#fef5f5;margin:6px 0;display:block}
 .read-content .sep{text-align:center;color:#ccc;margin:16px 0;letter-spacing:4px}
 
-.read-bottom{padding:14px 20px;border-top:1px solid var(--c-border);display:flex;gap:8px}
+.read-aside{position:sticky;top:104px;display:grid;gap:12px}
+.side-panel{background:var(--c-surface);border:1px solid var(--c-border);border-radius:10px;padding:12px 14px;box-shadow:0 1px 0 rgba(15,23,42,.03)}
+.side-panel h3{font-size:12px;font-weight:700;margin-bottom:8px;color:#24324b}
+.summary-banner{background:#f8fbff}
+.summary-banner .label{font-size:11px;color:var(--c-muted);margin-bottom:4px}
+.summary-banner .value{font-size:13px;line-height:1.8;color:#111}
+.meta-list{display:grid;gap:8px;font-size:12px}
+.meta-row{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.meta-key{color:var(--c-muted)}
+.meta-val{font-weight:600;text-align:right;min-width:0}
+.toc-list{display:grid;gap:4px;max-height:340px;overflow:auto;padding-right:4px}
+.toc-item{font-size:12px;line-height:1.5;color:#334155;text-decoration:none;padding:4px 6px;border-radius:6px;display:block}
+.toc-item:hover{background:#f3f4f6}
+.toc-item.l2{padding-left:18px}
+.toc-item.l3{padding-left:30px;font-size:11px;color:#475569}
+.related-list{display:flex;flex-wrap:wrap;gap:6px}
+.rel-chip{border:1px solid #cbd5e1;background:#f8fafc;color:#1f2937;border-radius:999px;padding:4px 8px;font-size:11px;cursor:pointer}
+.rel-chip:hover{background:#eef6ff;border-color:#a5c8ff}
+.rel-chip.dim{cursor:default;opacity:.7}
+.raw-source{margin-top:12px;border:1px solid var(--c-border);border-radius:10px;background:var(--c-surface);overflow:hidden}
+.raw-source summary{cursor:pointer;padding:10px 14px;font-size:12px;font-weight:700;color:#334155;list-style:none}
+.raw-source summary::-webkit-details-marker{display:none}
+.raw-source pre{margin:0;border:none;border-top:1px solid var(--c-border);background:#fbfbfb;max-height:300px;overflow:auto;padding:12px 16px}
+
+@media (max-width: 1100px) {
+  .read-shell{grid-template-columns:1fr}
+  .read-aside{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media (max-width: 720px) {
+  .topbar{padding:10px 14px;gap:8px}
+  .filters{padding:8px 14px;top:50px}
+  .main-area{padding-left:14px;padding-right:14px}
+  .record-table{min-width:760px}
+  .month-body{overflow:auto}
+  .read-aside{grid-template-columns:1fr}
+  .read-hero h2{font-size:18px}
+  .read-content{padding:16px}
+  .read-fm{grid-template-columns:1fr}
+}
 
 /* ===== EDIT VIEW ===== */
 .edit-container{max-width:900px;margin:0 auto}
@@ -275,6 +326,7 @@ var DB = typeof DB !== "undefined" ? DB : [];
 var TYPES = {experiment:"实验",plan:"实验方案",method:"方法",note:"笔记",data:"数据",reminder:"提醒"};
 var TYPE_FOLDERS = {experiment:"experiments",plan:"plans",method:"methods",note:"notes",data:"data",reminder:"reminders"};
 var TYPE_CLASSES = {experiment:"experiment",plan:"plan",method:"method",note:"note",data:"data",reminder:"reminder"};
+var TYPE_ACCENTS = {experiment:"#2563eb",plan:"#0891b2",method:"#7c3aed",note:"#059669",data:"#d97706",reminder:"#dc2626"};
 var STATUS_COLORS = {planned:"#6b7280","in-progress":"#2563eb",completed:"#16a34a",pending:"#d97706",done:"#16a34a"};
 var STATUS_LABELS = {planned:"计划中","in-progress":"进行中",completed:"已完成",pending:"待处理",done:"已完成"};
 var sortKey = "date", sortDesc = true;
@@ -391,23 +443,63 @@ function highlightData(text) {
   return text;
 }
 
+function makeSummary(body) {
+  if (!body) return "";
+  var text = body.replace(/^#+\s.*$/gm, "")
+    .replace(/```[\s\S]*?```/g, "")
+    .replace(/\|/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!text) return "";
+  return text.slice(0, 180) + (text.length > 180 ? "..." : "");
+}
+
+function slugifyText(text, fallback) {
+  var id = String(text || "").replace(/[`*_]/g, "").trim().toLowerCase().replace(/[^\w\u4e00-\u9fa5]+/g, "-").replace(/^-+|-+$/g, "");
+  return id || fallback || "sec";
+}
+
+function buildToc(body) {
+  if (!body) return [];
+  var lines = body.split(/\r?\n/);
+  var toc = [];
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i];
+    var m = line.match(/^(#{1,3})\s+(.+)$/);
+    if (!m) continue;
+    var level = m[1].length;
+    var text = m[2].replace(/[`*_]/g, "").trim();
+    var id = slugifyText(text, "sec-" + i);
+    toc.push({level: level, text: text, id: id});
+  }
+  return toc;
+}
+
+function renderToc(toc) {
+  if (!toc || !toc.length) return '<div style="font-size:12px;color:var(--c-muted)">正文没有标题结构</div>';
+  var html = '<div class="toc-list">';
+  for (var i = 0; i < toc.length; i++) {
+    html += '<a class="toc-item l' + toc[i].level + '" href="#' + toc[i].id + '">' + escHtml(toc[i].text) + '</a>';
+  }
+  html += '</div>';
+  return html;
+}
+
 // ====== MARKDOWN TO HTML ======
 function renderMarkdown(md) {
   if (!md) return "";
-  var html = md;
-  // Code blocks first
-  html = html.replace(/```(\w*)\n([\s\S]*?)```/g, function(_,lang,code){ return '<pre><code>'+escHtml(code)+'<\/code><\/pre>'; });
-  html = escHtml(html.replace(/```[\s\S]*?```/g, ''));
-  // Put code blocks back - actually escHtml first, then handle code
-  html = escHtml(md);
-  html = html.replace(/```(\w*)\n([\s\S]*?)```/g, '<pre><code>$2<\/code><\/pre>');
+  var html = escHtml(md);
+  // Code blocks
+  html = html.replace(/```(\w*)\n([\s\S]*?)```/g, function(_,lang,code){ return '<pre><code>'+code+'<\/code><\/pre>'; });
   html = html.replace(/`([^`]+)`/g, '<code>$1<\/code>');
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1<\/strong>');
   html = html.replace(/\*(.+?)\*/g, '<em>$1<\/em>');
-  html = html.replace(/^#### (.+)$/gm, '<h3>$1<\/h3>');
-  html = html.replace(/^### (.+)$/gm, '<h3>$1<\/h3>');
-  html = html.replace(/^## (.+)$/gm, '<h2>$1<\/h2>');
-  html = html.replace(/^# (.+)$/gm, '<h1>$1<\/h1>');
+  html = html.replace(/^(#{1,3}) (.+)$/gm, function(_, hashes, text) {
+    var level = hashes.length;
+    var id = slugifyText(text, "sec");
+    if (!id) id = "sec";
+    return '<h' + level + ' id="' + id + '">' + text + '</h' + level + '>';
+  });
   // Three-line tables
   html = html.replace(/^\|(.+)\|$/gm, function(line) {
     var cells = line.slice(1,-1).split("|");
@@ -450,16 +542,26 @@ function renderList() {
     var month = months[mi];
     var indices = groups[month];
     var label = month === "----" ? "未标注日期" : month.replace("-","年")+"月";
+    var monthProjects = {};
+    var monthTypes = {};
+    for (var mp = 0; mp < indices.length; mp++) {
+      var mm = parseFM(DB[indices[mp]].content);
+      if (mm.project) monthProjects[mm.project] = true;
+      if (mm.type) monthTypes[mm.type] = true;
+    }
+    var projectCount = Object.keys(monthProjects).length;
+    var typeCount = Object.keys(monthTypes).length;
     html += '<div class="month-group">';
-    html += '<div class="month-header" onclick="toggleMonth(this)"><span class="chevron">▼</span> '+label+' <span class="count">'+indices.length+' 条</span></div>';
+    html += '<div class="month-header" onclick="toggleMonth(this)"><span class="chevron">▼</span> '+label+' <span class="count">'+indices.length+' 条</span><span class="month-meta">'+projectCount+' 个项目 · '+typeCount+' 种类型</span></div>';
     html += '<div class="month-body">';
-    html += '<table class="record-table"><thead><tr><th>日期</th><th></th><th>项目</th><th>标题</th><th>状态</th><th>标签</th><th></th></tr></thead><tbody>';
+    html += '<table class="record-table"><thead><tr><th>日期</th><th>类型</th><th>项目</th><th>记录</th><th>状态</th><th>标签</th><th></th></tr></thead><tbody>';
 
     for (var j = 0; j < indices.length; j++) {
       var idx = indices[j];
       var d = DB[idx];
       var m = parseFM(d.content);
       var dc = TYPE_CLASSES[m.type] || "";
+      var accent = TYPE_ACCENTS[m.type] || "#2563eb";
       var sc = STATUS_COLORS[m.status] || "#888";
       var sl = STATUS_LABELS[m.status] || m.status || "-";
       var tagsHtml = "";
@@ -468,11 +570,13 @@ function renderList() {
           tagsHtml += '<span class="tag-pill">'+escHtml(m.tags[t])+'<\/span>';
         }
       }
+      var summary = makeSummary(getBody(d.content));
+      var title = escHtml(m.title || d.name);
       html += '<tr onclick="openRead('+idx+')" data-idx="'+idx+'">';
       html += '<td class="col-date">'+escHtml((m.date||"").substring(5))+'<\/td>';
-      html += '<td class="col-type"><span class="type-dot '+dc+'"><\/span>'+escHtml(TYPES[m.type]||"")+'<\/td>';
+      html += '<td class="col-type"><span class="type-dot '+dc+'" style="background:'+accent+'"><\/span>'+escHtml(TYPES[m.type]||"")+'<\/td>';
       html += '<td class="col-proj">'+escHtml(m.project||"-")+'<\/td>';
-      html += '<td class="col-title">'+escHtml(m.title||d.name)+'<\/td>';
+      html += '<td class="col-title"><div class="record-title">'+title+'<\/div><div class="record-snippet">'+escHtml(summary || "无摘要")+'<\/div><\/td>';
       html += '<td class="col-status"><span class="status-badge" style="background:'+sc+';color:#fff">'+escHtml(sl)+'<\/span><\/td>';
       html += '<td class="col-tags">'+(tagsHtml||'<span style="color:#ccc;font-size:10px">-<\/span>')+'<\/td>';
       html += '<td class="col-expand" onclick="event.stopPropagation();togglePreview(this,'+idx+')">▸<\/td>';
@@ -588,37 +692,73 @@ function openRead(idx) {
   var d = DB[idx];
   var m = parseFM(d.content);
   var body = getBody(d.content);
+  var toc = buildToc(body);
+  var summary = makeSummary(body);
+  var relCount = (m.related && m.related.length) ? m.related.length : 0;
+  var color = TYPE_ACCENTS[m.type] || "#2563eb";
   document.getElementById("listView").style.display = "none";
   document.getElementById("editView").style.display = "none";
   document.getElementById("readView").style.display = "";
   
   var container = document.getElementById("readContent");
   var html = '<div class="read-container">';
-  html += '<div class="read-top"><h2>'+escHtml(m.title||d.name)+'<\/h2><span class="read-meta">'+escHtml(d.folder+"/"+d.name)+'<\/span><\/div>';
-  
-  // Frontmatter card
+  html += '<div class="read-shell">';
+  html += '<div class="read-main">';
+  html += '<div class="read-hero" style="--hero-accent:'+color+'">';
+  html += '<div class="read-hero-top"><div class="read-hero-title"><h2>'+escHtml(m.title||d.name)+'<\/h2><div class="read-path">'+escHtml(d.folder+"/"+d.name)+'<\/div><\/div><span class="status-badge" style="background:'+(STATUS_COLORS[m.status]||"#888")+';color:#fff">'+escHtml(STATUS_LABELS[m.status]||m.status||"-")+'<\/span><\/div>';
+  html += '<div class="read-chips">';
+  if (m.type) html += '<span class="read-chip"><strong>类型<\/strong> '+escHtml(TYPES[m.type]||m.type)+'<\/span>';
+  if (m.date) html += '<span class="read-chip"><strong>日期<\/strong> '+escHtml(m.date)+'<\/span>';
+  if (m.project) html += '<span class="read-chip"><strong>项目<\/strong> '+escHtml(m.project)+'<\/span>';
+  if (m.category) html += '<span class="read-chip"><strong>分类<\/strong> '+escHtml(m.category)+'<\/span>';
+  if (m.modified) html += '<span class="read-chip"><strong>更新<\/strong> '+escHtml(m.modified)+'<\/span>';
+  if (relCount) html += '<span class="read-chip"><strong>关联<\/strong> '+relCount+' 条<\/span>';
+  html += '<\/div>';
+  if (summary) html += '<div class="read-excerpt">'+escHtml(summary)+'<\/div>';
+  html += '<\/div>';
   html += '<div class="read-fm">';
-  if (m.type) html += '<span class="fm-item"><span class="fm-key">类型<\/span> <span class="fm-val">'+escHtml(TYPES[m.type]||m.type)+'<\/span><\/span>';
-  if (m.date) html += '<span class="fm-item"><span class="fm-key">日期<\/span> <span class="fm-val">'+escHtml(m.date)+'<\/span><\/span>';
-  if (m.category) html += '<span class="fm-item"><span class="fm-key">分类<\/span> <span class="fm-val">'+escHtml(m.category)+'<\/span><\/span>';
-  if (m.project) html += '<span class="fm-item"><span class="fm-key">项目<\/span> <span class="fm-val">'+escHtml(m.project)+'<\/span><\/span>';
-  if (m.status) html += '<span class="fm-item"><span class="fm-key">状态<\/span> <span class="fm-val"><span class="status-badge" style="background:'+(STATUS_COLORS[m.status]||"#888")+';color:#fff">'+escHtml(STATUS_LABELS[m.status]||m.status)+'<\/span><\/span><\/span>';
   if (m.priority) html += '<span class="fm-item"><span class="fm-key">优先级<\/span> <span class="fm-val">'+escHtml(m.priority)+'<\/span><\/span>';
-  if (m.modified) html += '<span class="fm-item"><span class="fm-key">更新<\/span> <span class="fm-val">'+escHtml(m.modified)+'<\/span><\/span>';
+  if (m.due) html += '<span class="fm-item"><span class="fm-key">截止<\/span> <span class="fm-val">'+escHtml(m.due)+'<\/span><\/span>';
+  if (m.category) html += '<span class="fm-item"><span class="fm-key">分类<\/span> <span class="fm-val">'+escHtml(m.category)+'<\/span><\/span>';
   if (m.tags && m.tags.length > 0) {
-    html += '<span class="fm-item" style="flex-basis:100%"><span class="fm-key">标签<\/span> <span class="fm-tags">';
+    html += '<span class="fm-item" style="grid-column:1/-1"><span class="fm-key">标签<\/span> <span class="fm-tags">';
     for (var ti = 0; ti < m.tags.length; ti++) html += '<span class="tag-pill">'+escHtml(m.tags[ti])+'<\/span>';
     html += '<\/span><\/span>';
   }
+  if (m.related && m.related.length > 0) {
+    html += '<span class="fm-item" style="grid-column:1/-1"><span class="fm-key">相关<\/span> <span class="fm-tags">';
+    for (var ri = 0; ri < m.related.length; ri++) html += '<span class="tag-pill">'+escHtml(m.related[ri])+'<\/span>';
+    html += '<\/span><\/span>';
+  }
   html += '<\/div>';
-  
-  // Body
   html += '<div class="read-content">'+renderMarkdown(body)+'<\/div>';
-  
-  html += '<div class="read-bottom"><button class="btn" onclick="openEditor('+idx+')">编辑<\/button><\/div>';
+  html += '<div class="read-bottom"><button class="btn" onclick="openEditor('+idx+')">编辑<\/button><button class="btn" onclick="scrollToRaw()">原文<\/button><\/div>';
+  html += '<\/div>';
+  html += '<div class="read-aside">';
+  html += '<div class="side-panel summary-banner"><div class="label">快速摘要<\/div><div class="value">'+escHtml(summary || "暂无摘要")+'<\/div><\/div>';
+  html += '<div class="side-panel"><h3>目录<\/h3>'+renderToc(toc)+'<\/div>';
+  html += '<div class="side-panel"><h3>相关记录<\/h3><div class="related-list">'+renderRelated(m.related)+'<\/div><\/div>';
+  html += '<\/div>';
+  html += '<\/div>';
+  html += '<details class="raw-source" id="rawSource"><summary>完整原始 Markdown<\/summary><pre>'+escHtml(d.content)+'<\/pre><\/details>';
   html += '<\/div>';
   container.innerHTML = html;
   window.scrollTo(0,0);
+}
+
+function renderRelated(rel) {
+  if (!rel || !rel.length) return '<span style="font-size:12px;color:var(--c-muted)">暂无</span>';
+  var html = '';
+  for (var i = 0; i < rel.length; i++) {
+    html += '<span class="rel-chip dim">'+escHtml(rel[i])+'<\/span>';
+  }
+  return html;
+}
+
+function scrollToRaw() {
+  var raw = document.getElementById("rawSource");
+  if (raw) raw.open = true;
+  if (raw) raw.scrollIntoView({behavior:"smooth", block:"start"});
 }
 
 // ====== EDIT VIEW ======

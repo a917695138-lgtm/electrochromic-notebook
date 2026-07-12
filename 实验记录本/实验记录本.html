@@ -62,21 +62,20 @@ body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-
 .month-header .month-meta{margin-left:auto;font-size:11px;color:var(--c-muted);font-weight:500}
 
 .month-body{background:var(--c-surface);border:1px solid var(--c-border);border-radius:0 0 8px 8px;overflow:hidden}
-.record-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:0}
-.record-table thead th{text-align:left;padding:10px 14px;background:rgba(248,250,252,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--c-border);font-weight:700;color:var(--c-muted);font-size:11px;text-transform:uppercase;letter-spacing:.03em;position:sticky;top:104px;z-index:5}
-.record-table tbody td{padding:10px 14px;border-bottom:1px solid #edf2f7;vertical-align:top;white-space:nowrap}
+.record-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px;margin-bottom:0}
+.record-table thead th{text-align:left;padding:9px 12px;background:#f8fafc;border-bottom:1px solid var(--c-border);font-weight:700;color:var(--c-muted);font-size:11px;letter-spacing:0;white-space:nowrap}
+.record-table tbody td{padding:9px 12px;border-bottom:1px solid #edf2f7;vertical-align:middle;white-space:nowrap}
 .record-table tbody tr{cursor:pointer;transition:background .1s}
 .record-table tbody tr:nth-child(even){background:#fbfdff}
 .record-table tbody tr:hover{background:#eef6ff}
-.record-table .col-date{width:90px;color:var(--c-muted);font-size:12px;white-space:nowrap}
-.record-table .col-type{width:60px;white-space:nowrap}
-.record-table .col-proj{width:80px;font-size:12px;white-space:nowrap}
-.record-table .col-title{font-weight:500;white-space:normal;min-width:320px}
-.record-table .col-status{width:70px;white-space:nowrap}
-.record-table .col-tags{max-width:200px}
-.record-table .col-expand{width:30px;text-align:center;color:#ccc;font-size:14px}
+.record-table .col-date{width:76px;color:var(--c-muted);font-size:12px;white-space:nowrap}
+.record-table .col-type{width:88px;white-space:nowrap}
+.record-table .col-proj{width:110px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.record-table .col-title{font-weight:500;white-space:normal}
+.record-table .col-status{width:86px;white-space:nowrap}
+.record-table .col-tags{width:220px;overflow:hidden}
+.record-table .col-expand{width:34px;text-align:center;color:#94a3b8;font-size:14px}
 .record-title{font-size:13px;font-weight:700;line-height:1.4;color:var(--c-text)}
-.record-snippet{margin-top:3px;font-size:11px;line-height:1.45;color:var(--c-muted);white-space:normal;max-width:54ch}
 
 .type-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
 .type-dot.experiment{background:#2563eb}
@@ -127,13 +126,12 @@ body{font-family:var(--font-ui);background:var(--c-bg);color:var(--c-text);line-
 .read-content pre code{background:none;padding:0}
 .read-content strong{font-weight:700}
 .read-content em{font-style:italic}
-/* Three-line academic tables */
-.read-content table{width:100%;border-collapse:collapse;margin:12px 0;font-size:12px;font-family:var(--font-ui)}
-.read-content table thead{border-top:2px solid #333;border-bottom:1px solid #333}
-.read-content table thead th{padding:6px 10px;text-align:left;font-weight:600;font-size:11px;color:#333;background:none}
-.read-content table tbody{border-bottom:2px solid #333}
-.read-content table tbody td{padding:6px 10px;border:none;vertical-align:top}
-.read-content table tbody tr:nth-child(even){background:#fafafa}
+.table-wrap{margin:12px 0;overflow:auto;border:1px solid var(--c-border);border-radius:8px;background:#fff}
+.read-content table{width:100%;border-collapse:collapse;font-size:12px;font-family:var(--font-ui)}
+.read-content table thead th{padding:8px 10px;text-align:left;font-weight:700;font-size:11px;color:#24324b;background:#f8fafc;border-bottom:1px solid var(--c-border);white-space:nowrap}
+.read-content table tbody td{padding:8px 10px;border-bottom:1px solid #edf2f7;vertical-align:top}
+.read-content table tbody tr:nth-child(even){background:#fbfdff}
+.read-content table tbody tr:last-child td{border-bottom:none}
 /* Highlight patterns */
 .hl-volt{color:var(--c-volt);font-weight:600}
 .hl-temp{color:var(--c-temp);font-weight:600}
@@ -500,29 +498,44 @@ function renderMarkdown(md) {
     if (!id) id = "sec";
     return '<h' + level + ' id="' + id + '">' + text + '</h' + level + '>';
   });
-  // Three-line tables
-  html = html.replace(/^\|(.+)\|$/gm, function(line) {
-    var cells = line.slice(1,-1).split("|");
-    if (cells.every(function(c){ return /^[\s\-:]+$/.test(c) && c.trim(); })) return "<!--sep-->";
-    return "<tr>" + cells.map(function(c){ return "<td>"+c.trim()+"<\/td>"; }).join("") + "<\/tr>";
+  // Markdown tables
+  html = html.replace(/((?:^\|.*\|\s*(?:\n|$)){2,})/gm, function(block) {
+    var lines = block.trim().split(/\n/).filter(function(line){ return line.trim(); });
+    if (lines.length < 2) return block;
+    var header = parseTableLine(lines[0]);
+    var sep = parseTableLine(lines[1]);
+    if (!header.length || !sep.length || !sep.every(function(c){ return /^[\s\-:]+$/.test(c) && c.trim(); })) return block;
+    var out = '<div class="table-wrap"><table><thead><tr>';
+    out += header.map(function(c){ return '<th>'+c+'<\/th>'; }).join("");
+    out += '<\/tr><\/thead><tbody>';
+    for (var r = 2; r < lines.length; r++) {
+      var cells = parseTableLine(lines[r]);
+      if (!cells.length) continue;
+      out += '<tr>' + cells.map(function(c){ return '<td>'+c+'<\/td>'; }).join("") + '<\/tr>';
+    }
+    out += '<\/tbody><\/table><\/div>';
+    return out;
   });
-  html = html.replace(/<tr>(<td>.*?<\/td>)<\/tr>\s*<!--sep-->\s*<tr>/g, function(_,headerRow){
-    return "<thead><tr>" + headerRow.replace(/td>/g,"th>") + "<\/tr><\/thead><tbody><tr>";
-  });
-  html = html.replace(/<\/tr>\s*$/m, "<\/tr><\/tbody>");
   html = html.replace(/^[\-\*] (.+)$/gm, '<li>$1<\/li>');
   html = html.replace(/^(\d+)\. (.+)$/gm, '<li>$2<\/li>');
   html = html.replace(/((?:<li>.*?<\/li>\n?)+)/g, '<ul>$1<\/ul>');
   html = html.replace(/\n\n+/g, '<\/p><p>');
   html = '<p>' + html + '<\/p>';
   html = html.replace(/<p><\/p>/g, '');
-  html = html.replace(/<p>\s*<(h[1-3]|ul|pre|table|thead)/g, '<$1');
-  html = html.replace(/<\/(h[1-3]|ul|table|tbody)>(\s*<\/p>)?/g, '<\/$1>');
+  html = html.replace(/<p>\s*<(h[1-3]|ul|pre|table|thead|div)/g, '<$1');
+  html = html.replace(/<\/(h[1-3]|ul|table|tbody|div)>(\s*<\/p>)?/g, '<\/$1>');
   // Highlight data
   html = highlightData(html);
   // Separators
   html = html.replace(/^<p>-{3,}<\/p>$/gm, '<p class="sep">&mdash;</p>');
   return html;
+}
+
+function parseTableLine(line) {
+  var text = line.trim();
+  if (text.charAt(0) === "|") text = text.slice(1);
+  if (text.charAt(text.length - 1) === "|") text = text.slice(0, -1);
+  return text.split("|").map(function(c){ return c.trim(); });
 }
 
 // ====== LIST VIEW ======
@@ -554,7 +567,7 @@ function renderList() {
     html += '<div class="month-group">';
     html += '<div class="month-header" onclick="toggleMonth(this)"><span class="chevron">▼</span> '+label+' <span class="count">'+indices.length+' 条</span><span class="month-meta">'+projectCount+' 个项目 · '+typeCount+' 种类型</span></div>';
     html += '<div class="month-body">';
-    html += '<table class="record-table"><thead><tr><th>日期</th><th>类型</th><th>项目</th><th>记录</th><th>状态</th><th>标签</th><th></th></tr></thead><tbody>';
+    html += '<table class="record-table"><thead><tr><th class="col-date">日期</th><th class="col-type">类型</th><th class="col-proj">项目</th><th class="col-title">记录</th><th class="col-status">状态</th><th class="col-tags">标签</th><th class="col-expand"></th></tr></thead><tbody>';
 
     for (var j = 0; j < indices.length; j++) {
       var idx = indices[j];
@@ -570,13 +583,12 @@ function renderList() {
           tagsHtml += '<span class="tag-pill">'+escHtml(m.tags[t])+'<\/span>';
         }
       }
-      var summary = makeSummary(getBody(d.content));
       var title = escHtml(m.title || d.name);
       html += '<tr onclick="openRead('+idx+')" data-idx="'+idx+'">';
       html += '<td class="col-date">'+escHtml((m.date||"").substring(5))+'<\/td>';
       html += '<td class="col-type"><span class="type-dot '+dc+'" style="background:'+accent+'"><\/span>'+escHtml(TYPES[m.type]||"")+'<\/td>';
       html += '<td class="col-proj">'+escHtml(m.project||"-")+'<\/td>';
-      html += '<td class="col-title"><div class="record-title">'+title+'<\/div><div class="record-snippet">'+escHtml(summary || "无摘要")+'<\/div><\/td>';
+      html += '<td class="col-title"><div class="record-title">'+title+'<\/div><\/td>';
       html += '<td class="col-status"><span class="status-badge" style="background:'+sc+';color:#fff">'+escHtml(sl)+'<\/span><\/td>';
       html += '<td class="col-tags">'+(tagsHtml||'<span style="color:#ccc;font-size:10px">-<\/span>')+'<\/td>';
       html += '<td class="col-expand" onclick="event.stopPropagation();togglePreview(this,'+idx+')">▸<\/td>';

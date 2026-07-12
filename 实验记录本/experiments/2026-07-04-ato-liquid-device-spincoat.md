@@ -1,15 +1,15 @@
 ---
 type: experiment
-title: "单双层ATO液态器件测试与旋涂样品编号记录"
+title: "[含测试数据] 单双层ATO液态器件测试与旋涂样品编号记录"
 date: "2026-07-04"
 category: "器件测试"
-tags: [ATO, 液态电解质, LiClO4, ACN, 光谱电化学, 响应时间, 旋涂, 单层, 双层, 三层]
+tags: [测试数据, 数据已整理, ATO, 液态电解质, LiClO4, ACN, 光谱电化学, 响应时间, 旋涂, 单层, 双层, 三层]
 project: "电致变色"
 status: "completed"
 modified: "2026-07-12"
 ---
 
-# 单双层ATO液态器件测试与旋涂样品编号记录
+# [含测试数据] 单双层ATO液态器件测试与旋涂样品编号记录
 
 ## 实验目的
 
@@ -61,15 +61,35 @@ TiO2 旋涂用浆料的乙醇溶液配比为：
 
 ## 四、光谱电化学响应时间数据汇总与分析（2026-07-12补充）
 
+> **数据状态：已整理。** 本记录包含 2026-07-04 批次光谱电化学/CA 响应时间测试数据，已建立结构化 JSON，可用于后续自动汇总、筛选和跨批次对比。
+
 ### 测试体系与数据来源
 
 本次补充汇总 2026-07-04 批次液态电解质器件的光谱电化学响应时间数据。器件体系为 PBI-Cl@TiO2 变色层 / ATO 离子存储层 / LiClO4-ACN 液态电解质，比较单层 ATO 与双层 ATO，以及不同电压窗口和脉冲时间条件下的响应时间与光学对比度。
 
-处理后的汇总文件保存于：
+结构化数据与处理结果保存于：
 
 ```text
+D:\Users\ao\Documents\电致变色\实验记录本\data\2026-07-04-ato-liquid-spectroechem-response-time.json
+D:\Users\ao\Documents\电致变色\实验记录本\data\electrochromic-test-index.json
 D:\Desktop\光谱电化学\ASL\20260704\sp\数据处理\响应时间汇总分析_LiClO4_ACN_ATO_20260704.xlsx
 ```
+
+结构化 JSON 中每个样品固定记录以下字段，便于后续自动提取：
+
+| 字段 | 含义 |
+|------|------|
+| `sample_id` | 稳定样品编号，如 S01 |
+| `sample_name` | 原始测试文件/样品名 |
+| `ato_layers` / `ato_label` | ATO 层数 |
+| `voltage_window` | 测试电压窗口 |
+| `pulse_time_s` | CA 脉冲时间 |
+| `lambda_max_nm` | 最大对比度对应波长 |
+| `max_contrast_percent` | 最大光学对比度 |
+| `recommended_cycle` | 推荐取值循环 |
+| `tc_s` / `tb_s` | 着色/褪色响应时间 |
+| `data_status` | 数据状态：valid 或 needs_review |
+| `quality_note` | 异常、排除或重点说明 |
 
 响应时间取值采用每份数据中正对比度循环；若有效循环数不少于 3，排除 Cycle 1 后，选择 `t_c` / `t_b` 最接近中位数且对比度相近的循环作为推荐循环。
 

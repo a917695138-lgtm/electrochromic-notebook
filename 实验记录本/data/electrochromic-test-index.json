@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "description": "Index of electrochromic test batches with structured data files.",
+  "batches": [
+    {
+      "batch_id": "2026-07-04-ato-liquid-spectroechem-response-time",
+      "date": "2026-07-04",
+      "title": "单双层 ATO 液态 LiClO4/ACN 器件光谱电化学响应时间测试",
+      "has_test_data": true,
+      "test_types": [
+        "spectroelectrochemistry",
+        "chronoamperometry",
+        "response_time"
+      ],
+      "record": "experiments/2026-07-04-ato-liquid-device-spincoat.md",
+      "data_file": "data/2026-07-04-ato-liquid-spectroechem-response-time.json",
+      "summary_excel": "D:/Desktop/光谱电化学/ASL/20260704/sp/数据处理/响应时间汇总分析_LiClO4_ACN_ATO_20260704.xlsx",
+      "tags": [
+        "测试数据",
+        "数据已整理",
+        "光谱电化学",
+        "响应时间",
+        "LiClO4",
+        "ACN",
+        "ATO"
+      ],
+      "key_results": {
+        "valid_sample_count": 8,
+        "excluded_or_review_sample_count": 1,
+        "highest_contrast_sample_id": "S02",
+        "highest_contrast_percent": 64.88,
+        "fastest_balanced_response_sample_id": "S06",
+        "fastest_balanced_response_tc_tb_s": [
+          0.3344,
+          0.4886
+        ],
+        "main_conclusion": "单层 ATO 在 -2 / 0.5 V 条件下给出最高对比度；-3 / 1 V 条件响应最快但对比度降低。双层 ATO 未提升本批液态 LiClO4/ACN 器件的光学对比度。"
+      }
+    }
+  ]
+}

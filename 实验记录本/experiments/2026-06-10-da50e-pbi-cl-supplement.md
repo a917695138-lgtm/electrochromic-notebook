@@ -6,7 +6,7 @@ category: "器件测试"
 tags: [DA50E凝胶, PBI-Cl, 染料配制, PMMA-LiTFSI, CV, CA, 响应时间, 循环稳定性, 染浴]
 project: "电致变色"
 status: "completed"
-modified: "2026-07-11"
+modified: "2026-07-12"
 related:
   - experiments/2026-06-06-re-test.md
   - experiments/2026-06-07-da50e-gel-device.md
@@ -61,7 +61,7 @@ m = n × M
 | 实际称取 PBI-Cl 质量 | 3.62 mg |
 | 最终定容溶剂体积 | 4227 uL（4.227 mL） |
 
-> 备注：原始记录中写作“PB2-Cl”，本条按实验上下文统一整理为 PBI-Cl。
+> 备注：原始染料名称笔误已统一更正为 PBI。
 
 ### 实际浓度校核
 

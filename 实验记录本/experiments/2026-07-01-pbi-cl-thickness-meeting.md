@@ -1,9 +1,9 @@
 ---
 type: experiment
-title: "组会、PBI-Cl染料配制与TiO2薄膜厚度表征记录"
+title: "[含膜厚数据] 组会、PBI-Cl染料配制与TiO2薄膜厚度表征记录"
 date: "2026-07-01"
 category: "组会与表征"
-tags: [组会, PBI-Cl, 染料配制, TiO2, 厚度]
+tags: [含膜厚数据, 数据已整理, 组会, PBI-Cl, 染料配制, TiO2, 厚度]
 project: "电致变色"
 status: "completed"
 modified: "2026-07-12"
@@ -11,7 +11,7 @@ related:
   - experiments/2026-06-30-tio2-film-device-test.md
 ---
 
-# 组会、PBI-Cl染料配制与TiO2薄膜厚度表征记录
+# [含膜厚数据] 组会、PBI-Cl染料配制与TiO2薄膜厚度表征记录
 
 ## 组会
 

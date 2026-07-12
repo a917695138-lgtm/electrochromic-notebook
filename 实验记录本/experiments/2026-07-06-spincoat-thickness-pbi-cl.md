@@ -1,9 +1,9 @@
 ---
 type: experiment
-title: "旋涂样品台阶仪厚度与PBI-Cl染料配制记录"
+title: "[含膜厚数据] 旋涂样品台阶仪厚度与PBI-Cl染料配制记录"
 date: "2026-07-06"
 category: "表征与配制"
-tags: [旋涂, 台阶仪, 厚度, PBI-Cl, 染料配制, DMF]
+tags: [含膜厚数据, 数据已整理, 旋涂, 台阶仪, 厚度, PBI-Cl, 染料配制, DMF]
 project: "电致变色"
 status: "completed"
 modified: "2026-07-12"
@@ -11,7 +11,7 @@ related:
   - experiments/2026-07-04-ato-liquid-device-spincoat.md
 ---
 
-# 旋涂样品台阶仪厚度与PBI-Cl染料配制记录
+# [含膜厚数据] 旋涂样品台阶仪厚度与PBI-Cl染料配制记录
 
 ## 一、旋涂样品台阶仪厚度数据
 
@@ -75,4 +75,3 @@ C实 = n实 / V
 
 - 旋涂样品厚度随层数增加而增大，适合后续和器件性能联动分析。
 - PBI-Cl 染料配制浓度满足目标要求，可继续用于后续染浴实验。
-

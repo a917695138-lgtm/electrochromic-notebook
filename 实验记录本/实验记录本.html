@@ -416,7 +416,12 @@ function loadEmbedded() {
 }
 
 // ====== PARSING ======
+function normalizeMarkdown(content) {
+  return String(content || "").replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+}
+
 function parseFM(content) {
+  content = normalizeMarkdown(content);
   var m = {type:"",title:"",date:"",modified:"",tags:[],project:"",status:"",category:"",priority:"",due:"",related:[]};
   if (!content || content.substring(0,4) !== "---\n") return m;
   var end = content.indexOf("\n---\n", 4);
@@ -440,6 +445,7 @@ function parseFM(content) {
 }
 
 function getBody(content) {
+  content = normalizeMarkdown(content);
   if (!content || content.substring(0,4) !== "---\n") return content || "";
   var end = content.indexOf("\n---\n", 4);
   if (end < 0) return content;
@@ -465,7 +471,7 @@ function populateFilters() {
   var types = [], projects = [], statuses = [];
   for (var i = 0; i < DB.length; i++) {
     var m = parseFM(DB[i].content);
-    if (types.indexOf(m.type) < 0) types.push(m.type);
+    if (m.type && types.indexOf(m.type) < 0) types.push(m.type);
     if (m.project && projects.indexOf(m.project) < 0) projects.push(m.project);
     if (m.status && statuses.indexOf(m.status) < 0) statuses.push(m.status);
   }

@@ -29,6 +29,21 @@ db_json = os.path.join(PROJECT_DIR, "db-data.json")
 with open(db_json, "w", encoding="utf-8") as f:
     json.dump(records, f, ensure_ascii=False)
 
+# Keep the embedded fallback in index.html fresh for offline/cache-failure use.
+index_html = os.path.join(PROJECT_DIR, "index.html")
+with open(index_html, "r", encoding="utf-8") as f:
+    html = f.read()
+start_marker = '<script type="application/json" id="db-data">'
+start = html.find(start_marker)
+if start >= 0:
+    data_start = start + len(start_marker)
+    end = html.find("</script>", data_start)
+    if end >= 0:
+        embedded = "\n" + json.dumps(records, ensure_ascii=False, separators=(",", ":")) + "\n"
+        html = html[:data_start] + embedded + html[end:]
+        with open(index_html, "w", encoding="utf-8") as f:
+            f.write(html)
+
 print(f"Synced {len(records)} records to data.js and db-data.json")
 for r in records:
     print(f"  {r['folder']}/{r['name']}")

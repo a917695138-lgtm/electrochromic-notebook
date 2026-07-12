@@ -417,7 +417,7 @@ function loadEmbedded() {
 
 // ====== PARSING ======
 function normalizeMarkdown(content) {
-  return String(content || "").replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+  return String(content || "").replace(/^\uFEFF/, "").replace(/\r\n/g, "\n").replace(/\r/g, "\n");
 }
 
 function parseFM(content) {

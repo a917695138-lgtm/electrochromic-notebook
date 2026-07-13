@@ -35,6 +35,39 @@
       }
     },
     {
+      "batch_id": "2026-06-30-0616-sample-aging-response-time",
+      "date": "2026-06-30",
+      "title": "6.16 过量浸泡染浴样品放置 14 天后响应时间再测试",
+      "has_test_data": true,
+      "test_types": [
+        "spectroelectrochemistry",
+        "chronoamperometry",
+        "response_time",
+        "aging_retest"
+      ],
+      "record": "experiments/2026-06-30-tio2-film-device-test.md",
+      "data_file": "data/2026-06-30-0616-sample-aging-response-time.json",
+      "summary_excel": "D:/Desktop/光谱电化学/ASL/20260630  0616样品再测试（放置14天）/数据处理/响应时间_CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）（20260630）/响应时间数据.xlsx",
+      "tags": [
+        "测试数据",
+        "数据已整理",
+        "光谱电化学",
+        "响应时间",
+        "放置稳定性",
+        "PBI-Cl",
+        "LiClO4",
+        "浸泡染浴"
+      ],
+      "key_results": {
+        "valid_sample_count": 1,
+        "lambda_max_nm": 587.12,
+        "max_full_trace_delta_t_percent": 36.5178,
+        "representative_tc_s": 0.2756,
+        "representative_tb_s": 0.2773,
+        "main_conclusion": "6.16 过量浸泡染浴样品放置 14 天后，对比度从约 62-63% 降至约 35-36%，但响应时间明显缩短至约 0.28 s。"
+      }
+    },
+    {
       "batch_id": "2026-07-04-ato-liquid-spectroechem-response-time-linear",
       "date": "2026-07-04",
       "title": "单双层 ATO 液态 LiClO4/ACN 器件光谱电化学响应时间测试（线性插值重算）",

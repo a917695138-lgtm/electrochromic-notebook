@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.1",
+  "record_type": "spectroelectrochemical_response_time_batch",
+  "batch_id": "2026-06-30-0616-sample-aging-response-time",
+  "date": "2026-06-30",
+  "modified": "2026-07-13",
+  "title": "6.16 过量浸泡染浴样品放置 14 天后响应时间再测试",
+  "source_experiment": "experiments/2026-06-30-tio2-film-device-test.md",
+  "related_experiments": [
+    "experiments/2026-06-16-dye-bath-uptake.md"
+  ],
+  "system": {
+    "electrochromic_layer": "PBI-Cl@TiO2",
+    "ion_storage_layer": "ATO",
+    "electrolyte": "LiClO4",
+    "source_file_label": "CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）（20260630）",
+    "device_note": "2026-06-16 过量浸泡染浴样品，放置 14 天后于 2026-06-30 再测试"
+  },
+  "source_files": {
+    "electrochemical_excel": "D:/Desktop/光谱电化学/ASL/20260630  0616样品再测试（放置14天）/数据处理/CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）（20260630）.xlsx",
+    "spectra_dir": "D:/Desktop/光谱电化学/ASL/20260630  0616样品再测试（放置14天）/sp/CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）（20260630）",
+    "processed_response_time_excel": "D:/Desktop/光谱电化学/ASL/20260630  0616样品再测试（放置14天）/数据处理/响应时间_CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）（20260630）/响应时间数据.xlsx"
+  },
+  "processing_parameters": {
+    "t0_s": 2.739119993084387,
+    "spectral_file_count": 707,
+    "integration_time_us": 16000,
+    "average_count": 6,
+    "dt_s": 0.096,
+    "wavelength_points": 1044,
+    "wavelength_window_nm": [
+      300,
+      800
+    ]
+  },
+  "response_time_method": {
+    "method": "90% measured threshold with two-point interpolation",
+    "note": "Processed by response_time.py from electrochemical Excel and matching spectra txt files."
+  },
+  "samples": [
+    {
+      "sample_id": "S01",
+      "sample_name": "CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）（20260630）",
+      "voltage_window": "-2 / 0.5 V",
+      "lambda_max_nm": 587.12,
+      "max_full_trace_delta_t_percent": 36.5178,
+      "cycle_count": 4,
+      "representative_cycle": 2,
+      "representative_tc_s": 0.2756,
+      "representative_tb_s": 0.2773,
+      "median_tc_s": 0.2764,
+      "median_tb_s": 0.2732,
+      "mean_tc_s": 0.2884,
+      "std_tc_s": 0.0302,
+      "mean_tb_s": 0.2681,
+      "std_tb_s": 0.0196,
+      "data_status": "valid",
+      "quality_note": "Cycle 4 bleaching segment extends to the final available plateau, but 90% crossing occurs early and remains usable. Compared with 2026-06-16, contrast decreased strongly while response became faster.",
+      "cycles": [
+        {
+          "cycle": 1,
+          "coloring_contrast_percent": 35.5635,
+          "tc_s": 0.2772,
+          "bleaching_contrast_percent": 35.2860,
+          "tb_s": 0.2690,
+          "coloring_start_s": 0.0449,
+          "coloring_end_s": 5.0369,
+          "bleaching_start_s": 5.0369,
+          "bleaching_end_s": 10.0289
+        },
+        {
+          "cycle": 2,
+          "coloring_contrast_percent": 35.1139,
+          "tc_s": 0.2756,
+          "bleaching_contrast_percent": 35.3914,
+          "tb_s": 0.2773,
+          "coloring_start_s": 10.0289,
+          "coloring_end_s": 15.0209,
+          "bleaching_start_s": 15.0209,
+          "bleaching_end_s": 19.9169
+        },
+        {
+          "cycle": 3,
+          "coloring_contrast_percent": 35.3338,
+          "tc_s": 0.3332,
+          "bleaching_contrast_percent": 35.3338,
+          "tb_s": 0.2856,
+          "coloring_start_s": 19.9169,
+          "coloring_end_s": 24.9089,
+          "bleaching_start_s": 24.9089,
+          "bleaching_end_s": 29.9969
+        },
+        {
+          "cycle": 4,
+          "coloring_contrast_percent": 35.2181,
+          "tc_s": 0.2675,
+          "bleaching_contrast_percent": 35.9174,
+          "tb_s": 0.2406,
+          "coloring_start_s": 29.9969,
+          "coloring_end_s": 34.9889,
+          "bleaching_start_s": 34.9889,
+          "bleaching_end_s": 64.9409
+        }
+      ]
+    }
+  ],
+  "analysis_summary": {
+    "valid_sample_count": 1,
+    "lambda_max_nm": 587.12,
+    "max_full_trace_delta_t_percent": 36.5178,
+    "representative_tc_s": 0.2756,
+    "representative_tb_s": 0.2773,
+    "mean_tc_s": 0.2884,
+    "mean_tb_s": 0.2681,
+    "main_conclusion": "6.16 过量浸泡染浴样品放置 14 天后，对比度从约 62-63% 降至约 35-36%，但响应时间明显缩短至约 0.28 s。"
+  }
+}

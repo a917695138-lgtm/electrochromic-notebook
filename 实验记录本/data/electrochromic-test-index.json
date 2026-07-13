@@ -35,6 +35,42 @@
       }
     },
     {
+      "batch_id": "2026-06-17-da-emimtfsi-gel-response-time",
+      "date": "2026-06-17",
+      "title": "2026-06-17 DA/EMIMTFSI 固态电解质器件响应时间数据",
+      "has_test_data": true,
+      "test_types": [
+        "spectroelectrochemistry",
+        "chronoamperometry",
+        "response_time",
+        "solid_electrolyte",
+        "peak_window_review"
+      ],
+      "record": "data/2026-06-17-da-emimtfsi-gel-response-time.md",
+      "data_file": "data/2026-06-17-da-emimtfsi-gel-response-time.json",
+      "summary_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 夹 260613/数据处理/响应时间_CA ASL+DA50%E 夹 -2-1/响应时间数据_二价峰540-680nm.xlsx",
+      "tags": [
+        "测试数据",
+        "数据已整理",
+        "光谱电化学",
+        "响应时间",
+        "DA凝胶",
+        "EMIMTFSI",
+        "PBI-Cl",
+        "二价峰"
+      ],
+      "key_results": {
+        "valid_sample_count": 4,
+        "divalent_peak_window_nm": "540-680",
+        "highest_divalent_contrast_sample_id": "S03",
+        "highest_divalent_contrast_percent": 55.5726,
+        "fastest_representative_coloring_tc_s": 0.4559,
+        "fastest_representative_bleaching_sample_id": "S03",
+        "fastest_representative_bleaching_tb_s": 0.6391,
+        "main_conclusion": "本批 DA/EMIMTFSI 固态电解质响应时间需按 540-680 nm 二价峰窗口取值；50% 样品若按 300-800 nm 全范围会误选 756-761 nm 附近 PBI-Cl 一价峰。50% 未夹2器件二价峰对比度最高且褪色最快。"
+      }
+    },
+    {
       "batch_id": "2026-06-30-0616-sample-aging-response-time",
       "date": "2026-06-30",
       "title": "6.16 过量浸泡染浴样品放置 14 天后响应时间再测试",

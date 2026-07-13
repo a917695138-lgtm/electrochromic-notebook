@@ -1,0 +1,265 @@
+{
+  "schema_version": "1.1",
+  "record_type": "spectroelectrochemical_response_time_batch",
+  "batch_id": "2026-06-17-da-emimtfsi-gel-response-time",
+  "date": "2026-06-17",
+  "modified": "2026-07-14",
+  "title": "2026-06-17 DA/EMIMTFSI 固态电解质器件响应时间数据",
+  "source_experiment": "",
+  "system": {
+    "electrochromic_layer": "PBI-Cl",
+    "electrolyte": "DA solid polymer electrolyte with EMIMTFSI ionic liquid",
+    "ion_storage_or_counter_layer": "FTO-based paired device",
+    "device_note": "Comparison of 50% and 70% EMIMTFSI devices, with and without clip holding of two FTO substrates and solid electrolyte."
+  },
+  "response_time_method": {
+    "method": "90% measured threshold with two-point linear interpolation",
+    "time_step_s": 0.16,
+    "divalent_peak_window_nm": [
+      540,
+      680
+    ],
+    "reason_for_window": "Avoid selecting PBI-Cl monovalent peak near 756-761 nm when extracting DA divalent-peak response time.",
+    "note": "Absorbance matrix and transmittance matrix are generated from all spectra; only maximum-contrast wavelength selection is restricted to the divalent peak window."
+  },
+  "samples": [
+    {
+      "sample_id": "S01",
+      "sample_name": "CA ASL+DA70%E 夹 -2-1",
+      "emimtfsi_percent": 70,
+      "clip_status": "clipped",
+      "spectral_file_count": 332,
+      "t0_s": 2.855134992791477,
+      "dt_s": 0.16,
+      "selection_window_nm": [
+        540,
+        680
+      ],
+      "lambda_max_nm": 591.71,
+      "max_contrast_percent": 51.0629,
+      "full_range_max_lambda_nm": 591.71,
+      "full_range_max_contrast_percent": 51.0629,
+      "cycle_count": 4,
+      "representative_cycle": 2,
+      "representative_tc_s": 0.4568,
+      "representative_tb_s": 1.3818,
+      "data_status": "valid",
+      "quality_note": "No monovalent-peak mis-selection; final bleaching segment is elongated and should be noted separately.",
+      "processed_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+70%E 夹 260605/数据处理/响应时间_CA ASL+DA70%E 夹 -2-1/响应时间数据.xlsx",
+      "raw_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+70%E 夹 260605/数据处理/CA ASL+DA70%E 夹 -2-1.xlsx",
+      "spectra_dir": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+70%E 夹 260605/sp/CA ASL+DA70%E 夹 -2-1",
+      "cycles": [
+        {
+          "cycle": 1,
+          "tc_s": 0.3481,
+          "tb_s": 1.3486,
+          "coloring_contrast_percent": 50.8582,
+          "bleaching_contrast_percent": 44.1399
+        },
+        {
+          "cycle": 2,
+          "tc_s": 0.4568,
+          "tb_s": 1.3818,
+          "coloring_contrast_percent": 44.2098,
+          "bleaching_contrast_percent": 43.8534
+        },
+        {
+          "cycle": 3,
+          "tc_s": 0.3662,
+          "tb_s": 1.4115,
+          "coloring_contrast_percent": 43.836,
+          "bleaching_contrast_percent": 43.836
+        },
+        {
+          "cycle": 4,
+          "tc_s": 0.4568,
+          "tb_s": 4.5973,
+          "coloring_contrast_percent": 43.8186,
+          "bleaching_contrast_percent": 48.39
+        }
+      ]
+    },
+    {
+      "sample_id": "S02",
+      "sample_name": "CA ASL+DA50%E 未夹 -2-1",
+      "emimtfsi_percent": 50,
+      "clip_status": "unclipped",
+      "spectral_file_count": 353,
+      "t0_s": 2.7831329929732647,
+      "dt_s": 0.16,
+      "selection_window_nm": [
+        540,
+        680
+      ],
+      "lambda_max_nm": 603.18,
+      "max_contrast_percent": 52.983,
+      "full_range_max_lambda_nm": 756.67,
+      "full_range_max_contrast_percent": 54.2406,
+      "cycle_count": 4,
+      "representative_cycle": 2,
+      "representative_tc_s": 0.4561,
+      "representative_tb_s": 1.1453,
+      "data_status": "valid_with_peak_window",
+      "quality_note": "Full 300-800 nm search selects monovalent peak at 756.67 nm; divalent peak window is required.",
+      "processed_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 未夹 260613/数据处理/响应时间_CA ASL+DA50%E 未夹 -2-1/响应时间数据_二价峰540-680nm.xlsx",
+      "raw_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 未夹 260613/数据处理/CA ASL+DA50%E 未夹 -2-1.xlsx",
+      "spectra_dir": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 未夹 260613/sp/CA ASL+DA50%E 未夹 -2-1",
+      "cycles": [
+        {
+          "cycle": 1,
+          "tc_s": 0.3507,
+          "tb_s": 1.118,
+          "coloring_contrast_percent": 52.832,
+          "bleaching_contrast_percent": 47.1323
+        },
+        {
+          "cycle": 2,
+          "tc_s": 0.4561,
+          "tb_s": 1.1453,
+          "coloring_contrast_percent": 47.1177,
+          "bleaching_contrast_percent": 46.8721
+        },
+        {
+          "cycle": 3,
+          "tc_s": 0.3647,
+          "tb_s": 1.1601,
+          "coloring_contrast_percent": 46.8135,
+          "bleaching_contrast_percent": 46.8135
+        },
+        {
+          "cycle": 4,
+          "tc_s": 0.4562,
+          "tb_s": 4.5602,
+          "coloring_contrast_percent": 46.8282,
+          "bleaching_contrast_percent": 51.8277
+        }
+      ]
+    },
+    {
+      "sample_id": "S03",
+      "sample_name": "CA ASL+DA50%E 未夹2 -2-1",
+      "emimtfsi_percent": 50,
+      "clip_status": "unclipped",
+      "spectral_file_count": 315,
+      "t0_s": 2.9181249926324426,
+      "dt_s": 0.16,
+      "selection_window_nm": [
+        540,
+        680
+      ],
+      "lambda_max_nm": 603.95,
+      "max_contrast_percent": 55.5726,
+      "full_range_max_lambda_nm": 761.16,
+      "full_range_max_contrast_percent": 57.2572,
+      "cycle_count": 4,
+      "representative_cycle": 3,
+      "representative_tc_s": 0.4559,
+      "representative_tb_s": 0.6391,
+      "data_status": "valid_with_peak_window",
+      "quality_note": "Highest divalent-peak contrast and fastest representative bleaching response among this batch.",
+      "processed_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 未夹 260613/数据处理/响应时间_CA ASL+DA50%E 未夹2 -2-1/响应时间数据_二价峰540-680nm.xlsx",
+      "raw_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 未夹 260613/数据处理/CA ASL+DA50%E 未夹2 -2-1.xlsx",
+      "spectra_dir": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 未夹 260613/sp/CA ASL+DA50%E 未夹2 -2-1",
+      "cycles": [
+        {
+          "cycle": 1,
+          "tc_s": 0.4632,
+          "tb_s": 0.5982,
+          "coloring_contrast_percent": 55.4057,
+          "bleaching_contrast_percent": 53.1958
+        },
+        {
+          "cycle": 2,
+          "tc_s": 0.3648,
+          "tb_s": 0.6823,
+          "coloring_contrast_percent": 53.1696,
+          "bleaching_contrast_percent": 52.7642
+        },
+        {
+          "cycle": 3,
+          "tc_s": 0.4559,
+          "tb_s": 0.6391,
+          "coloring_contrast_percent": 52.7774,
+          "bleaching_contrast_percent": 52.6429
+        },
+        {
+          "cycle": 4,
+          "tc_s": 0.3662,
+          "tb_s": 1.083,
+          "coloring_contrast_percent": 52.6033,
+          "bleaching_contrast_percent": 54.1
+        }
+      ]
+    },
+    {
+      "sample_id": "S04",
+      "sample_name": "CA ASL+DA50%E 夹 -2-1",
+      "emimtfsi_percent": 50,
+      "clip_status": "clipped",
+      "spectral_file_count": 316,
+      "t0_s": 2.7651359930187027,
+      "dt_s": 0.16,
+      "selection_window_nm": [
+        540,
+        680
+      ],
+      "lambda_max_nm": 597.07,
+      "max_contrast_percent": 49.4201,
+      "full_range_max_lambda_nm": 760.41,
+      "full_range_max_contrast_percent": 50.4621,
+      "cycle_count": 4,
+      "representative_cycle": 2,
+      "representative_tc_s": 0.4695,
+      "representative_tb_s": 1.0965,
+      "data_status": "valid_with_peak_window",
+      "quality_note": "Full 300-800 nm search slightly favors monovalent peak at 760.41 nm; final bleaching segment is elongated.",
+      "processed_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 夹 260613/数据处理/响应时间_CA ASL+DA50%E 夹 -2-1/响应时间数据_二价峰540-680nm.xlsx",
+      "raw_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 夹 260613/数据处理/CA ASL+DA50%E 夹 -2-1.xlsx",
+      "spectra_dir": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 夹 260613/sp/CA ASL+DA50%E 夹 -2-1",
+      "cycles": [
+        {
+          "cycle": 1,
+          "tc_s": 0.4424,
+          "tb_s": 1.0142,
+          "coloring_contrast_percent": 49.262,
+          "bleaching_contrast_percent": 44.1259
+        },
+        {
+          "cycle": 2,
+          "tc_s": 0.4695,
+          "tb_s": 1.0965,
+          "coloring_contrast_percent": 44.0812,
+          "bleaching_contrast_percent": 43.9648
+        },
+        {
+          "cycle": 3,
+          "tc_s": 0.4468,
+          "tb_s": 0.9788,
+          "coloring_contrast_percent": 43.9047,
+          "bleaching_contrast_percent": 43.9047
+        },
+        {
+          "cycle": 4,
+          "tc_s": 0.4696,
+          "tb_s": 2.4878,
+          "coloring_contrast_percent": 43.9348,
+          "bleaching_contrast_percent": 46.9251
+        }
+      ]
+    }
+  ],
+  "analysis_summary": {
+    "valid_sample_count": 4,
+    "highest_divalent_contrast_sample_id": "S03",
+    "highest_divalent_contrast_percent": 55.5726,
+    "fastest_representative_coloring_sample_ids": [
+      "S02",
+      "S03"
+    ],
+    "fastest_representative_coloring_tc_s": 0.4559,
+    "fastest_representative_bleaching_sample_id": "S03",
+    "fastest_representative_bleaching_tb_s": 0.6391,
+    "peak_selection_conclusion": "Use 540-680 nm for DA divalent peak response-time extraction; 50% devices otherwise select the PBI-Cl monovalent peak near 756-761 nm.",
+    "main_conclusion": "The second 50% unclipped device shows the best combination of divalent-peak contrast and bleaching speed. The 50% clipped device has similar coloring speed but lower divalent contrast. The 70% clipped device is not affected by the monovalent peak in this dataset."
+  }
+}

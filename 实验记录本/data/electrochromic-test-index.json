@@ -172,6 +172,42 @@
       }
     },
     {
+      "batch_id": "2026-06-30-dae50-size-response-time",
+      "date": "2026-06-30",
+      "title": "DAE50 未夹不同尺寸腔体响应时间重算数据",
+      "has_test_data": true,
+      "test_types": [
+        "spectroelectrochemistry",
+        "chronoamperometry",
+        "response_time",
+        "solid_electrolyte",
+        "cavity_size_screening"
+      ],
+      "record": "experiments/2026-06-30-tio2-film-device-test.md",
+      "data_file": "data/2026-06-30-dae50-size-response-time.json",
+      "summary_excel": "D:/Desktop/光谱电化学/ASL/20260630 ASL+DAP+50%E 未夹 260618 不同尺寸/260630 ASL+DAP+50%E 未夹 260618 不同尺寸/260630 数据处理  DAE50 不同尺寸/响应时间_DAE50_不同尺寸_按二价峰重算结果.xlsx",
+      "tags": [
+        "测试数据",
+        "数据已整理",
+        "光谱电化学",
+        "响应时间",
+        "DAE50",
+        "EMIMTFSI",
+        "固态电解质",
+        "腔体尺寸"
+      ],
+      "key_results": {
+        "valid_sample_count": 3,
+        "divalent_peak_window_nm": "540-680",
+        "fastest_response_sample_id": "S02",
+        "fastest_representative_tc_s": 0.3625,
+        "fastest_representative_tb_s": 0.2732,
+        "highest_contrast_sample_id": "S03",
+        "highest_contrast_percent": 52.6399,
+        "main_conclusion": "2# 11 x 16 mm 腔体响应最快，3# 11 x 16 mm 腔体二价峰对比度最高；固定 587.89 nm 不会误选一价峰，但会略低估二价峰最大对比度。"
+      }
+    },
+    {
       "batch_id": "2026-07-02-pure-pbi-ato-fto-transmittance",
       "date": "2026-07-02",
       "title": "纯PBI、纯ATO、PBI+ATO与纯FTO片子透过率数据",

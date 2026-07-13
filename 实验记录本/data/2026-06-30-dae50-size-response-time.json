@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.1",
+  "record_type": "spectroelectrochemical_response_time_batch",
+  "batch_id": "2026-06-30-dae50-size-response-time",
+  "date": "2026-06-30",
+  "modified": "2026-07-14",
+  "title": "DAE50 未夹不同尺寸腔体响应时间重算数据",
+  "source_experiment": "experiments/2026-06-30-tio2-film-device-test.md",
+  "system": {
+    "electrolyte": "DA solid polymer electrolyte with 50% EMIMTFSI",
+    "clip_status": "unclipped",
+    "device_variable": "double-sided tape cavity size",
+    "electrochromic_layer_size_mm": "10 x 10",
+    "voltage_window": "-2 / +1 V",
+    "pulse_time_s": 5
+  },
+  "source_files": {
+    "original_workbook": "D:/Desktop/光谱电化学/ASL/20260630 ASL+DAP+50%E 未夹 260618 不同尺寸/260630 ASL+DAP+50%E 未夹 260618 不同尺寸/260630 数据处理  DAE50 不同尺寸/响应时间 DAE50 不同尺寸xlsx.xlsx",
+    "recalculated_workbook": "D:/Desktop/光谱电化学/ASL/20260630 ASL+DAP+50%E 未夹 260618 不同尺寸/260630 ASL+DAP+50%E 未夹 260618 不同尺寸/260630 数据处理  DAE50 不同尺寸/响应时间_DAE50_不同尺寸_按二价峰重算结果.xlsx",
+    "analysis_note": "D:/Desktop/光谱电化学/ASL/20260630 ASL+DAP+50%E 未夹 260618 不同尺寸/260630 ASL+DAP+50%E 未夹 260618 不同尺寸/260630 数据处理  DAE50 不同尺寸/响应时间_DAE50_不同尺寸_按二价峰重算分析.md"
+  },
+  "response_time_method": {
+    "method": "90% measured threshold with two-point linear interpolation",
+    "time_origin": "start of optical transmittance transition, not theoretical voltage-switching time",
+    "transmittance_conversion": "T = 100 * 10^(-A)",
+    "peak_selection": "maximum contrast within DA divalent peak window",
+    "divalent_peak_window_nm": [
+      540,
+      680
+    ],
+    "dt_s": 0.096,
+    "quality_note": "Original workbook used fixed 587.89 nm. Recalculation selects per-sample divalent-peak maximum."
+  },
+  "samples": [
+    {
+      "sample_id": "S01",
+      "sample_name": "1# 11 x 11 mm",
+      "cavity_size_mm": "11 x 11",
+      "lambda_max_nm": 594.77,
+      "max_contrast_percent": 51.2179,
+      "original_fixed_wavelength_nm": 587.89,
+      "original_fixed_wavelength_contrast_percent": 50.2631,
+      "monovalent_region_max_contrast_percent": 43.345,
+      "recommended_cycle": 2,
+      "representative_tc_s": 0.4549,
+      "representative_tb_s": 0.3759,
+      "cycle_2_4_mean_tc_s": 0.4491,
+      "cycle_2_4_mean_tb_s": 0.3964,
+      "data_status": "valid",
+      "quality_note": "Cycle 1 coloring is slower and treated as conditioning.",
+      "cycles": [
+        {"cycle": 1, "tc_s": 0.9004, "tb_s": 0.3614, "coloring_contrast_percent": 50.869, "bleaching_contrast_percent": 47.6426},
+        {"cycle": 2, "tc_s": 0.4549, "tb_s": 0.3759, "coloring_contrast_percent": 47.7822, "bleaching_contrast_percent": 47.283},
+        {"cycle": 3, "tc_s": 0.4435, "tb_s": 0.3848, "coloring_contrast_percent": 47.3289, "bleaching_contrast_percent": 47.081},
+        {"cycle": 4, "tc_s": 0.449, "tb_s": 0.4284, "coloring_contrast_percent": 47.1114, "bleaching_contrast_percent": 47.1114}
+      ]
+    },
+    {
+      "sample_id": "S02",
+      "sample_name": "2# 11 x 16 mm",
+      "cavity_size_mm": "11 x 16",
+      "lambda_max_nm": 597.07,
+      "max_contrast_percent": 50.1888,
+      "original_fixed_wavelength_nm": 587.89,
+      "original_fixed_wavelength_contrast_percent": 49.5446,
+      "monovalent_region_max_contrast_percent": 40.1151,
+      "recommended_cycle": 3,
+      "representative_tc_s": 0.3625,
+      "representative_tb_s": 0.2732,
+      "cycle_2_4_mean_tc_s": 0.3314,
+      "cycle_2_4_mean_tb_s": 0.3059,
+      "data_status": "valid",
+      "quality_note": "Fastest representative response in this batch; optical transition lags voltage switching by about 1 s.",
+      "cycles": [
+        {"cycle": 1, "tc_s": 0.5638, "tb_s": 0.3216, "coloring_contrast_percent": 49.7277, "bleaching_contrast_percent": 46.634},
+        {"cycle": 2, "tc_s": 0.3576, "tb_s": 0.3568, "coloring_contrast_percent": 46.7767, "bleaching_contrast_percent": 46.4018},
+        {"cycle": 3, "tc_s": 0.3625, "tb_s": 0.2732, "coloring_contrast_percent": 46.4018, "bleaching_contrast_percent": 46.1534},
+        {"cycle": 4, "tc_s": 0.2741, "tb_s": 0.2876, "coloring_contrast_percent": 46.2062, "bleaching_contrast_percent": 46.4546}
+      ]
+    },
+    {
+      "sample_id": "S03",
+      "sample_name": "3# 11 x 16 mm",
+      "cavity_size_mm": "11 x 16",
+      "lambda_max_nm": 595.54,
+      "max_contrast_percent": 52.6399,
+      "original_fixed_wavelength_nm": 587.89,
+      "original_fixed_wavelength_contrast_percent": 51.8391,
+      "monovalent_region_max_contrast_percent": 45.7447,
+      "recommended_cycle": 3,
+      "representative_tc_s": 0.4163,
+      "representative_tb_s": 0.3617,
+      "cycle_2_4_mean_tc_s": 0.3896,
+      "cycle_2_4_mean_tb_s": 0.3597,
+      "data_status": "valid",
+      "quality_note": "Highest divalent-peak contrast in this batch.",
+      "cycles": [
+        {"cycle": 1, "tc_s": 0.8056, "tb_s": 0.3983, "coloring_contrast_percent": 52.2748, "bleaching_contrast_percent": 48.3355},
+        {"cycle": 2, "tc_s": 0.4201, "tb_s": 0.3379, "coloring_contrast_percent": 48.4738, "bleaching_contrast_percent": 48.0947},
+        {"cycle": 3, "tc_s": 0.4163, "tb_s": 0.3617, "coloring_contrast_percent": 48.1401, "bleaching_contrast_percent": 48.0143},
+        {"cycle": 4, "tc_s": 0.3325, "tb_s": 0.3796, "coloring_contrast_percent": 48.0445, "bleaching_contrast_percent": 48.0445}
+      ]
+    }
+  ],
+  "analysis_summary": {
+    "valid_sample_count": 3,
+    "fastest_response_sample_id": "S02",
+    "fastest_representative_tc_s": 0.3625,
+    "fastest_representative_tb_s": 0.2732,
+    "highest_contrast_sample_id": "S03",
+    "highest_contrast_percent": 52.6399,
+    "main_conclusion": "2# 11 x 16 mm cavity gives the fastest response, while 3# 11 x 16 mm gives the highest divalent-peak contrast. Fixed 587.89 nm does not mis-select the monovalent peak but slightly underestimates divalent-peak contrast."
+  }
+}

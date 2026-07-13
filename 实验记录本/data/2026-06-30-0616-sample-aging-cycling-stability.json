@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.1",
+  "record_type": "cycling_stability_batch",
+  "batch_id": "2026-06-30-0616-sample-aging-cycling-stability",
+  "date": "2026-06-30",
+  "modified": "2026-07-13",
+  "title": "6.16 过量浸泡染浴样品放置 14 天后循环稳定性数据",
+  "source_experiment": "experiments/2026-06-30-tio2-film-device-test.md",
+  "related_experiments": [
+    "experiments/2026-06-16-dye-bath-uptake.md"
+  ],
+  "system": {
+    "electrochromic_layer": "PBI-Cl@TiO2",
+    "ion_storage_layer": "ATO",
+    "electrolyte": "LiClO4",
+    "device_note": "2026-06-16 过量浸泡染浴样品，放置 14 天后于 2026-06-30 测试循环稳定性"
+  },
+  "source_files": {
+    "cycle_1_10_excel": "D:/Desktop/光谱电化学/ASL/20260630  0616样品再测试（放置14天）/数据处理/CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）（20260630）（1-10）.xlsx",
+    "cycle_1_10_spectra_dir": "D:/Desktop/光谱电化学/ASL/20260630  0616样品再测试（放置14天）/sp/CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）（20260630）（1-10）",
+    "cycle_490_500_excel": "D:/Desktop/光谱电化学/ASL/20260630  0616样品再测试（放置14天）/数据处理/CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）（20260630）（490-500）.xlsx",
+    "cycle_490_500_spectra_dir": "D:/Desktop/光谱电化学/ASL/20260630  0616样品再测试（放置14天）/sp/CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）（20260630）（490-500）",
+    "skill_input_zip": "D:/Desktop/光谱电化学/ASL/20260630  0616样品再测试（放置14天）/数据处理/0616样品放置14天后循环稳定性_1-10_490-500.zip",
+    "processed_workbook": "D:/Desktop/光谱电化学/ASL/20260630  0616样品再测试（放置14天）/数据处理/0616样品放置14天后循环稳定性_总数据.xlsx"
+  },
+  "processing_method": {
+    "skill": "cycling-stability",
+    "retention_method": "platform-median contrast at fixed reference wavelength",
+    "reference_wavelength_nm": 587.89,
+    "note": "Skill retention uses the cycle 1-10 block as internal reference. This JSON additionally reports retention relative to the 2026-06-16 pre-storage baseline."
+  },
+  "pre_storage_baseline": {
+    "date": "2026-06-16",
+    "source_data_file": "data/2026-06-16-dye-bath-response-time.json",
+    "baseline_contrast_percent": 62.92,
+    "baseline_definition": "max_coloring_contrast_percent from the 2026-06-16 response-time dataset"
+  },
+  "cycle_blocks": [
+    {
+      "block_label": "1-10",
+      "skill_cycle_label": "1",
+      "spectral_file_count": 728,
+      "platform_median_contrast_percent": 34.448176,
+      "within_block_iqr": 0.094164,
+      "switch_count_used": 20,
+      "envelope_contrast_percent": 35.990674,
+      "method": "platform-median",
+      "retention_vs_day14_initial_percent": 100.0,
+      "retention_vs_2026_06_16_percent": 54.749167
+    },
+    {
+      "block_label": "490-500",
+      "skill_cycle_label": "500",
+      "spectral_file_count": 699,
+      "platform_median_contrast_percent": 32.748890,
+      "within_block_iqr": 0.300808,
+      "switch_count_used": 20,
+      "envelope_contrast_percent": 34.426646,
+      "method": "platform-median",
+      "retention_vs_day14_initial_percent": 95.067123,
+      "retention_vs_2026_06_16_percent": 52.048458
+    }
+  ],
+  "analysis_summary": {
+    "reference_wavelength_nm": 587.89,
+    "pre_storage_baseline_contrast_percent": 62.92,
+    "day14_initial_contrast_percent": 34.448176,
+    "day14_cycle_490_500_contrast_percent": 32.748890,
+    "day14_initial_retention_vs_pre_storage_percent": 54.749167,
+    "cycle_490_500_retention_vs_pre_storage_percent": 52.048458,
+    "cycle_490_500_retention_vs_day14_initial_percent": 95.067123,
+    "storage_loss_percent": 45.250833,
+    "cycling_loss_after_storage_percent": 4.932877,
+    "main_conclusion": "以 2026-06-16 放置前对比度 62.92% 为基准，放置 14 天后 1-10 周期段保持率为 54.75%，490-500 周期段为 52.05%。若只看放置后当天内部循环，490-500 相对 1-10 的保持率为 95.07%，说明主要衰减来自放置过程，放置后的 500 次循环额外衰减较小。"
+  }
+}

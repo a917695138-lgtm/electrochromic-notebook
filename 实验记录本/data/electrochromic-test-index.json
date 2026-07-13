@@ -68,6 +68,39 @@
       }
     },
     {
+      "batch_id": "2026-06-30-0616-sample-aging-cycling-stability",
+      "date": "2026-06-30",
+      "title": "6.16 过量浸泡染浴样品放置 14 天后循环稳定性数据",
+      "has_test_data": true,
+      "test_types": [
+        "spectroelectrochemistry",
+        "cycling_stability",
+        "aging_retest"
+      ],
+      "record": "experiments/2026-06-30-tio2-film-device-test.md",
+      "data_file": "data/2026-06-30-0616-sample-aging-cycling-stability.json",
+      "summary_excel": "D:/Desktop/光谱电化学/ASL/20260630  0616样品再测试（放置14天）/数据处理/0616样品放置14天后循环稳定性_总数据.xlsx",
+      "tags": [
+        "测试数据",
+        "数据已整理",
+        "循环稳定性",
+        "放置稳定性",
+        "PBI-Cl",
+        "LiClO4",
+        "浸泡染浴"
+      ],
+      "key_results": {
+        "valid_sample_count": 1,
+        "reference_wavelength_nm": 587.89,
+        "pre_storage_baseline_contrast_percent": 62.92,
+        "day14_initial_contrast_percent": 34.448176,
+        "day14_cycle_490_500_contrast_percent": 32.74889,
+        "cycle_490_500_retention_vs_day14_initial_percent": 95.067123,
+        "cycle_490_500_retention_vs_pre_storage_percent": 52.048458,
+        "main_conclusion": "以 2026-06-16 放置前对比度 62.92% 为基准，放置 14 天后 1-10 周期段保持率为 54.75%，490-500 周期段为 52.05%；放置后当天内部 490-500 相对 1-10 的保持率为 95.07%。"
+      }
+    },
+    {
       "batch_id": "2026-07-04-ato-liquid-spectroechem-response-time-linear",
       "date": "2026-07-04",
       "title": "单双层 ATO 液态 LiClO4/ACN 器件光谱电化学响应时间测试（线性插值重算）",

@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.1",
+  "record_type": "spectroelectrochemical_response_time_batch",
+  "batch_id": "2026-07-10-xuantu2-spectroechem-response-time-linear",
+  "date": "2026-07-10",
+  "modified": "2026-07-13",
+  "title": "旋涂样品 xuantu2 液态 LiClO4/ACN 光谱电化学响应时间测试（线性插值重算）",
+  "source_experiment": "experiments/2026-07-10-spectroechem-ato.md",
+  "system": {
+    "electrochromic_layer": "PBI-Cl@TiO2",
+    "ion_storage_layer": "ATO",
+    "electrolyte": "LiClO4 in ACN",
+    "device_type": "liquid electrolyte electrochromic device"
+  },
+  "source_files": {
+    "linear_summary_excel": "D:/Desktop/光谱电化学/ASL/20260710/数据处理/线性插值响应时间汇总分析表.xlsx",
+    "linear_summary_excel_beautified": "D:/Desktop/光谱电化学/ASL/20260710/数据处理/线性插值响应时间汇总分析表_美化版.xlsx",
+    "processed_root": "D:/Desktop/光谱电化学/ASL/20260710/数据处理"
+  },
+  "response_time_method": {
+    "method": "90% measured threshold with two-point linear interpolation",
+    "coloring_threshold": "T90 = T_start - 0.9 * (T_start - T_end)",
+    "bleaching_threshold": "T90 = T_start + 0.9 * (T_end - T_start)",
+    "interpolation_formula": "t90 = t0 + (T90 - T0) * (t1 - t0) / (T1 - T0) - t_start",
+    "note": "No whole-segment single-exponential fit; representative value selected by cycle stability, outliers, and valid-cycle statistics."
+  },
+  "samples": [
+    {
+      "sample_id": "S01",
+      "sample_name": "CA_PBI-Cl_1ATO_new LiClO4-xuantu2-1.5-0（5S）",
+      "ato_layers": "single",
+      "ato_label": "单层 ATO",
+      "voltage_window": "-1.5 / 0 V",
+      "pulse_time_s": 5,
+      "lambda_max_nm": 594.01,
+      "max_contrast_percent": 42.7046,
+      "cycle_count": 10,
+      "included_cycles": "1,2,3,4,5,6,7,8,9,10",
+      "excluded_cycles": "",
+      "representative_tc_s": 1.1674,
+      "representative_tb_s": 0.5595,
+      "representative_contrast_percent": 41.6567,
+      "representative_statistic": "均值±标准差",
+      "response_time_method": "90% measured threshold with two-point linear interpolation",
+      "data_status": "valid",
+      "quality_note": "对比度最低且着色最慢"
+    },
+    {
+      "sample_id": "S02",
+      "sample_name": "CA_PBI-Cl_1ATO_new LiClO4-xuantu2-1.8-0.2（5S）",
+      "ato_layers": "single",
+      "ato_label": "单层 ATO",
+      "voltage_window": "-1.8 / 0.2 V",
+      "pulse_time_s": 5,
+      "lambda_max_nm": 593.24,
+      "max_contrast_percent": 43.915,
+      "cycle_count": 10,
+      "included_cycles": "1,2,3,4,5,6,7,8,9,10",
+      "excluded_cycles": "",
+      "representative_tc_s": 1.0585,
+      "representative_tb_s": 0.3134,
+      "representative_contrast_percent": 43.2702,
+      "representative_statistic": "均值±标准差",
+      "response_time_method": "90% measured threshold with two-point linear interpolation",
+      "data_status": "valid",
+      "quality_note": "褪色较快，着色仍偏慢"
+    },
+    {
+      "sample_id": "S03",
+      "sample_name": "CA_PBI-Cl_1ATO_new LiClO4-xuantu2-2-0（5S）(2)",
+      "ato_layers": "single",
+      "ato_label": "单层 ATO",
+      "voltage_window": "-2 / 0 V",
+      "pulse_time_s": 5,
+      "lambda_max_nm": 594.77,
+      "max_contrast_percent": 44.4191,
+      "cycle_count": 10,
+      "included_cycles": "1,2,3,4,5,6,7,8,9,10",
+      "excluded_cycles": "",
+      "representative_tc_s": 0.654,
+      "representative_tb_s": 0.4915,
+      "representative_contrast_percent": 43.0623,
+      "representative_statistic": "均值±标准差",
+      "response_time_method": "90% measured threshold with two-point linear interpolation",
+      "data_status": "valid",
+      "quality_note": "最高对比度并列，综合响应较均衡"
+    },
+    {
+      "sample_id": "S04",
+      "sample_name": "CA_PBI-Cl_1ATO_new LiClO4-xuantu2-2-0.5（5S）",
+      "ato_layers": "single",
+      "ato_label": "单层 ATO",
+      "voltage_window": "-2 / 0.5 V",
+      "pulse_time_s": 5,
+      "lambda_max_nm": 593.24,
+      "max_contrast_percent": 44.4191,
+      "cycle_count": 10,
+      "included_cycles": "1,2,3,4,5,6,7,8,9,10",
+      "excluded_cycles": "",
+      "representative_tc_s": 0.7303,
+      "representative_tb_s": 0.2989,
+      "representative_contrast_percent": 43.5954,
+      "representative_statistic": "均值±标准差",
+      "response_time_method": "90% measured threshold with two-point linear interpolation",
+      "data_status": "valid",
+      "quality_note": "最高对比度并列，褪色最快"
+    }
+  ],
+  "analysis_summary": {
+    "valid_sample_count": 4,
+    "highest_contrast_sample_ids": [
+      "S03",
+      "S04"
+    ],
+    "highest_contrast_percent": 44.4191,
+    "fastest_coloring_sample_id": "S03",
+    "fastest_coloring_tc_s": 0.654,
+    "fastest_bleaching_sample_id": "S04",
+    "fastest_bleaching_tb_s": 0.2989,
+    "main_conclusion": "线性插值重算后，-2 / 0 V 与 -2 / 0.5 V 条件对比度最高；-2 / 0 V 着色更快，-2 / 0.5 V 褪色最快。"
+  }
+}

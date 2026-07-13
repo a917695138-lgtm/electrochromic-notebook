@@ -44,6 +44,10 @@ if start >= 0:
         with open(index_html, "w", encoding="utf-8") as f:
             f.write(html)
 
+mirror_html = os.path.join(PROJECT_DIR, "实验记录本.html")
+with open(mirror_html, "w", encoding="utf-8") as f:
+    f.write(html)
+
 print(f"Synced {len(records)} records to data.js and db-data.json")
 for r in records:
     print(f"  {r['folder']}/{r['name']}")

@@ -11,7 +11,7 @@ related:
   - experiments/2026-06-07-da50e-gel-device.md
   - experiments/2026-06-10-da50e-pbi-cl-supplement.md
   - experiments/2026-06-16-dye-bath-uptake.md
-  - experiments/2026-06-24-da-gel-optimization-design.md
+  - plans/2026-06-24-da-gel-optimization-design.md
 ---
 
 # DA凝胶稳定性前提下器件综合性能优化方案（TiO2/PBI/ATO/器件结构）

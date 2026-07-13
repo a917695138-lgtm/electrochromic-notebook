@@ -1,11 +1,12 @@
 ﻿---
-type: experiment
+type: plan
 title: "器件非电解质部分优化实验设计（TiO2/PBI/ATO/器件结构）"
 date: "2026-06-24"
-category: "实验设计"
+category: "实验方案"
 tags: [TiO2优化, PBI锚定, ATO优化, 器件结构, 实验设计, 文献依据]
 project: "电致变色"
 status: "planned"
+modified: "2026-07-14"
 ---
 
 # 器件非电解质部分优化实验设计

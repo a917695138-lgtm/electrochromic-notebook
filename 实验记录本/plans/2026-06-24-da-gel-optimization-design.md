@@ -1,11 +1,12 @@
 ﻿---
-type: experiment
+type: plan
 title: "DA凝胶电解质器件优化实验设计（PEG-F/M3/EMIMTFSI/LiTFSI体系）"
 date: "2026-06-24"
-category: "实验设计"
+category: "实验方案"
 tags: [DA凝胶, PEG-F, M3, EMIMTFSI, LiTFSI, Diels-Alder, 对比度优化, 响应时间, 稳定性, 实验设计]
 project: "电致变色"
 status: "planned"
+modified: "2026-07-14"
 ---
 
 # DA凝胶电解质器件优化实验设计

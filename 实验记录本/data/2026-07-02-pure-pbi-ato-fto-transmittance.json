@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.1",
+  "record_type": "uv_vis_transmittance_batch",
+  "batch_id": "2026-07-02-pure-pbi-ato-fto-transmittance",
+  "date": "2026-07-02",
+  "modified": "2026-07-14",
+  "title": "纯PBI、纯ATO、PBI+ATO与纯FTO片子透过率计算",
+  "source_experiment": "experiments/2026-07-02-pure-pbi-ato-fto-transmittance.md",
+  "system": {
+    "measurement_type": "UV-Vis transmittance from absorbance spectra",
+    "target_wavelength_nm": 587.89,
+    "calculation": "T(%) = 10^(-A) * 100",
+    "materials": [
+      "纯PBI片子",
+      "纯ATO片子",
+      "PBI+ATO",
+      "纯FTO片子"
+    ]
+  },
+  "source_files": {
+    "spectra_dir": "D:/Desktop/光谱电化学/1 YFW/260627-0702 纯PBI片子/260702 UV",
+    "mapping_excel": "D:/Desktop/光谱电化学/1 YFW/260627-0702 纯PBI片子/260702 纯PBI片子透过率测试.xlsx",
+    "pure_fto_spectrum": "D:/Desktop/光谱电化学/1 YFW/260627-0702 纯PBI片子/Pure FTO.txt",
+    "processed_excel": "D:/Desktop/光谱电化学/1 YFW/260627-0702 纯PBI片子/260702 纯PBI_ATO_PBI+ATO_FTO透过率计算结果.xlsx"
+  },
+  "category_summary_587_89_nm": [
+    {
+      "category": "纯PBI片子",
+      "valid_sample_count": 9,
+      "mean_transmittance_percent": 72.4809,
+      "std_transmittance_percent": 1.7400,
+      "min_transmittance_percent": 68.8652,
+      "max_transmittance_percent": 74.4732
+    },
+    {
+      "category": "纯ATO片子",
+      "subtype": "双层",
+      "valid_sample_count": 5,
+      "mean_transmittance_percent": 71.2685,
+      "std_transmittance_percent": 2.9005,
+      "min_transmittance_percent": 66.2217,
+      "max_transmittance_percent": 73.4514
+    },
+    {
+      "category": "纯ATO片子",
+      "subtype": "单层",
+      "valid_sample_count": 5,
+      "mean_transmittance_percent": 76.4909,
+      "std_transmittance_percent": 0.5795,
+      "min_transmittance_percent": 75.8578,
+      "max_transmittance_percent": 77.2681
+    },
+    {
+      "category": "PBI+ATO",
+      "valid_sample_count": 2,
+      "mean_transmittance_percent": 54.4223,
+      "std_transmittance_percent": 2.7457,
+      "min_transmittance_percent": 52.4807,
+      "max_transmittance_percent": 56.3638
+    },
+    {
+      "category": "纯FTO片子",
+      "valid_sample_count": 1,
+      "mean_transmittance_percent": 84.1395,
+      "std_transmittance_percent": 0,
+      "min_transmittance_percent": 84.1395,
+      "max_transmittance_percent": 84.1395
+    }
+  ],
+  "sample_results_587_89_nm": [
+    {"category": "纯PBI片子", "sample": "75", "absorbance": 0.162, "transmittance_percent": 68.8652, "status": "OK"},
+    {"category": "纯PBI片子", "sample": "2", "absorbance": 0.128, "transmittance_percent": 74.4732, "status": "OK"},
+    {"category": "纯PBI片子", "sample": "14", "absorbance": 0.143, "transmittance_percent": 71.9449, "status": "OK"},
+    {"category": "纯PBI片子", "sample": "76", "absorbance": 0.132, "transmittance_percent": 73.7904, "status": "OK"},
+    {"category": "纯PBI片子", "sample": "9", "absorbance": 0.143, "transmittance_percent": 71.9449, "status": "OK"},
+    {"category": "纯PBI片子", "sample": "6", "absorbance": 0.131, "transmittance_percent": 73.9605, "status": "OK"},
+    {"category": "纯PBI片子", "sample": "3", "absorbance": 0.132, "transmittance_percent": 73.7904, "status": "OK"},
+    {"category": "纯PBI片子", "sample": "73", "absorbance": 0.144, "transmittance_percent": 71.7794, "status": "OK"},
+    {"category": "纯PBI片子", "sample": "77", "absorbance": 0.144, "transmittance_percent": 71.7794, "status": "OK"},
+    {"category": "纯ATO片子", "subtype": "双层", "sample": "61", "absorbance": 0.134, "transmittance_percent": 73.4514, "status": "OK"},
+    {"category": "纯ATO片子", "subtype": "双层", "sample": "69", "absorbance": 0.179, "transmittance_percent": 66.2217, "status": "OK"},
+    {"category": "纯ATO片子", "subtype": "双层", "sample": "72", "absorbance": 0.141, "transmittance_percent": 72.2770, "status": "OK"},
+    {"category": "纯ATO片子", "subtype": "双层", "sample": "67", "absorbance": 0.145, "transmittance_percent": 71.6143, "status": "OK"},
+    {"category": "纯ATO片子", "subtype": "双层", "sample": "70", "absorbance": 0.138, "transmittance_percent": 72.7780, "status": "OK"},
+    {"category": "纯ATO片子", "subtype": "单层", "sample": "9", "absorbance": 0.114, "transmittance_percent": 76.9130, "status": "OK"},
+    {"category": "纯ATO片子", "subtype": "单层", "sample": "13", "absorbance": 0.120, "transmittance_percent": 75.8578, "status": "OK"},
+    {"category": "纯ATO片子", "subtype": "单层", "sample": "8", "absorbance": 0.112, "transmittance_percent": 77.2681, "status": "OK"},
+    {"category": "纯ATO片子", "subtype": "单层", "sample": "10", "absorbance": 0.118, "transmittance_percent": 76.2079, "status": "OK"},
+    {"category": "纯ATO片子", "subtype": "单层", "sample": "12", "absorbance": 0.118, "transmittance_percent": 76.2079, "status": "OK"},
+    {"category": "PBI+ATO", "sample": "76+72", "absorbance": 0.280, "transmittance_percent": 52.4807, "status": "OK"},
+    {"category": "PBI+ATO", "sample": "76+11", "absorbance": 0.249, "transmittance_percent": 56.3638, "status": "OK"},
+    {"category": "纯FTO片子", "sample": "Pure FTO", "absorbance": 0.075, "transmittance_percent": 84.1395, "status": "OK"},
+    {"category": "纯载玻片", "sample": "纯载玻片", "absorbance": 0.057, "transmittance_percent": 87.7001, "status": "Excel参考值"}
+  ],
+  "missing_or_reference_items": [
+    {"category": "纯PBI片子", "sample": "4", "excel_absorbance": 0.140, "status": "未找到光谱文件"},
+    {"category": "纯PBI片子", "sample": "76 斜", "excel_absorbance": 0.138, "status": "未找到光谱文件"},
+    {"category": "纯ATO片子", "subtype": "单层", "sample": "11", "excel_absorbance": 0.111, "status": "未找到光谱文件"},
+    {"category": "PBI+ATO", "sample": "76+70", "excel_absorbance": 0.264, "status": "未找到光谱文件"},
+    {"category": "纯载玻片", "sample": "纯载玻片", "excel_absorbance": 0.057, "status": "仅Excel参考值，无光谱文件"}
+  ],
+  "key_results": {
+    "main_conclusion": "在587.89 nm处，纯FTO透过率最高，为84.14%；PBI+ATO叠加后透过率最低，平均54.42%；纯ATO单层平均透过率76.49%，高于纯ATO双层71.27%；纯PBI平均透过率72.48%。",
+    "data_quality_note": "编号4、76斜、ATO单层11、PBI+ATO 76+70未找到匹配光谱文件，未参与分类平均。"
+  }
+}

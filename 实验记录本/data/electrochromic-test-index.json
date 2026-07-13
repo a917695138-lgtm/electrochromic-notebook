@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "description": "Index of electrochromic test batches with structured data files.",
-  "modified": "2026-07-13",
+  "modified": "2026-07-14",
   "batches": [
     {
       "batch_id": "2026-06-16-dye-bath-response-time",
@@ -133,6 +133,38 @@
         "fastest_bleaching_condition_id": "C04",
         "fastest_bleaching_tb_s": 0.12,
         "main_conclusion": "双层 ATO 器件在四组条件下均表现为着色明显慢于褪色：着色约 1.68-2.18 s，褪色约 0.12-0.26 s；该现象促成 2026-07-04 单层/双层 ATO 不同条件对比实验。"
+      }
+    },
+    {
+      "batch_id": "2026-07-02-pure-pbi-ato-fto-transmittance",
+      "date": "2026-07-02",
+      "title": "纯PBI、纯ATO、PBI+ATO与纯FTO片子透过率数据",
+      "has_test_data": true,
+      "test_types": [
+        "uv_vis",
+        "transmittance",
+        "optical_spectra"
+      ],
+      "record": "experiments/2026-07-02-pure-pbi-ato-fto-transmittance.md",
+      "data_file": "data/2026-07-02-pure-pbi-ato-fto-transmittance.json",
+      "summary_excel": "D:/Desktop/光谱电化学/1 YFW/260627-0702 纯PBI片子/260702 纯PBI_ATO_PBI+ATO_FTO透过率计算结果.xlsx",
+      "tags": [
+        "测试数据",
+        "数据已整理",
+        "UV-Vis",
+        "透过率",
+        "PBI",
+        "ATO",
+        "FTO"
+      ],
+      "key_results": {
+        "reference_wavelength_nm": 587.89,
+        "pure_pbi_mean_transmittance_percent": 72.4809,
+        "pure_ato_double_mean_transmittance_percent": 71.2685,
+        "pure_ato_single_mean_transmittance_percent": 76.4909,
+        "pbi_ato_mean_transmittance_percent": 54.4223,
+        "pure_fto_transmittance_percent": 84.1395,
+        "main_conclusion": "在 587.89 nm 处，纯 FTO 透过率最高，为 84.14%；PBI+ATO 叠加后透过率最低，平均 54.42%；纯 ATO 单层平均透过率 76.49%，高于纯 ATO 双层 71.27%。"
       }
     },
     {

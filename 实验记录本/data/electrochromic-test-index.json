@@ -4,6 +4,37 @@
   "modified": "2026-07-13",
   "batches": [
     {
+      "batch_id": "2026-06-16-dye-bath-response-time",
+      "date": "2026-06-16",
+      "title": "过量浸泡染浴器件 PBI-Cl/ATO/LiClO4 响应时间数据",
+      "has_test_data": true,
+      "test_types": [
+        "spectroelectrochemistry",
+        "chronoamperometry",
+        "response_time"
+      ],
+      "record": "experiments/2026-06-16-dye-bath-uptake.md",
+      "data_file": "data/2026-06-16-dye-bath-response-time.json",
+      "summary_excel": "D:/Desktop/光谱电化学/ASL/20260616/数据处理/响应时间CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）/响应时间数据.xlsx",
+      "tags": [
+        "测试数据",
+        "数据已整理",
+        "光谱电化学",
+        "响应时间",
+        "PBI-Cl",
+        "LiClO4",
+        "浸泡染浴"
+      ],
+      "key_results": {
+        "valid_sample_count": 1,
+        "lambda_max_nm": 594.77,
+        "max_coloring_contrast_percent": 62.92,
+        "stable_cycle_representative_tc_s": 1.04,
+        "stable_cycle_representative_tb_s": 0.56,
+        "main_conclusion": "过量浸泡染浴器件在 594.77 nm 处可达到约 62-63% 对比度；后续稳定循环中着色时间约 1.04 s，褪色时间约 0.56-0.64 s。"
+      }
+    },
+    {
       "batch_id": "2026-07-04-ato-liquid-spectroechem-response-time-linear",
       "date": "2026-07-04",
       "title": "单双层 ATO 液态 LiClO4/ACN 器件光谱电化学响应时间测试（线性插值重算）",

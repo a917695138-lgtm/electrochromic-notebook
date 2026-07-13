@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.1",
+  "record_type": "spectroelectrochemical_response_time_batch",
+  "batch_id": "2026-06-16-dye-bath-response-time",
+  "date": "2026-06-16",
+  "modified": "2026-07-13",
+  "title": "过量浸泡染浴器件 PBI-Cl/ATO/LiClO4 响应时间数据",
+  "source_experiment": "experiments/2026-06-16-dye-bath-uptake.md",
+  "system": {
+    "electrochromic_layer": "PBI-Cl@TiO2",
+    "ion_storage_layer": "ATO",
+    "electrolyte": "LiClO4",
+    "source_file_label": "CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）",
+    "device_note": "归入 2026-06-16 过量浸泡染浴器件记录"
+  },
+  "source_files": {
+    "response_time_excel": "D:/Desktop/光谱电化学/ASL/20260616/数据处理/响应时间CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）/响应时间数据.xlsx",
+    "summary_sheet": "max对比度"
+  },
+  "response_time_method": {
+    "method": "90% threshold values extracted from processed Excel summary",
+    "note": "This entry records the processed workbook results directly; raw spectra were not reprocessed in this notebook update."
+  },
+  "samples": [
+    {
+      "sample_id": "S01",
+      "sample_name": "CA_PBI-Cl_ATO_LiClO4-UVF_-20.5（jinpao）",
+      "voltage_window": "-2 / 0.5 V",
+      "lambda_max_nm": 594.77,
+      "cycle_count": 4,
+      "representative_tc_s": 1.04,
+      "representative_tb_s": 0.56,
+      "representative_contrast_percent": 63.0,
+      "all_cycle_mean_tc_s": 1.16,
+      "all_cycle_mean_tb_s": 0.58,
+      "stable_cycle_mean_tc_s": 1.04,
+      "stable_cycle_mean_tb_s": 0.60,
+      "data_status": "valid",
+      "quality_note": "Cycle 1 着色响应较慢；Cycle 3-4 着色时间稳定为 1.04 s。旧记录中的 1.04 s / 0.56 s 对应后续稳定循环的代表值。",
+      "cycles": [
+        {
+          "cycle": 1,
+          "coloring_contrast_percent": 62.92,
+          "tc_s": 1.44,
+          "bleaching_contrast_percent": 61.81,
+          "tb_s": 0.56,
+          "coloring_start_s": 0.0999,
+          "coloring_end_s": 5.0599,
+          "coloring_90_s": 1.5399,
+          "bleaching_start_s": 5.0599,
+          "bleaching_end_s": 10.0999,
+          "bleaching_90_s": 5.6199
+        },
+        {
+          "cycle": 2,
+          "coloring_contrast_percent": 61.90,
+          "tc_s": 1.12,
+          "bleaching_contrast_percent": 61.58,
+          "tb_s": 0.56,
+          "coloring_start_s": 10.0999,
+          "coloring_end_s": 15.0599,
+          "coloring_90_s": 11.2199,
+          "bleaching_start_s": 15.0599,
+          "bleaching_end_s": 20.0999,
+          "bleaching_90_s": 15.6199
+        },
+        {
+          "cycle": 3,
+          "coloring_contrast_percent": 61.60,
+          "tc_s": 1.04,
+          "bleaching_contrast_percent": 61.91,
+          "tb_s": 0.56,
+          "coloring_start_s": 20.0999,
+          "coloring_end_s": 25.0599,
+          "coloring_90_s": 21.1399,
+          "bleaching_start_s": 25.0599,
+          "bleaching_end_s": 30.0999,
+          "bleaching_90_s": 25.6199
+        },
+        {
+          "cycle": 4,
+          "coloring_contrast_percent": 61.84,
+          "tc_s": 1.04,
+          "bleaching_contrast_percent": 61.99,
+          "tb_s": 0.64,
+          "coloring_start_s": 30.0999,
+          "coloring_end_s": 35.0599,
+          "coloring_90_s": 31.1399,
+          "bleaching_start_s": 35.0599,
+          "bleaching_end_s": 42.6599,
+          "bleaching_90_s": 35.6999
+        }
+      ]
+    }
+  ],
+  "analysis_summary": {
+    "valid_sample_count": 1,
+    "lambda_max_nm": 594.77,
+    "max_coloring_contrast_percent": 62.92,
+    "all_cycle_mean_tc_s": 1.16,
+    "all_cycle_mean_tb_s": 0.58,
+    "stable_cycle_representative_tc_s": 1.04,
+    "stable_cycle_representative_tb_s": 0.56,
+    "main_conclusion": "过量浸泡染浴器件在 594.77 nm 处可达到约 62-63% 对比度；后续稳定循环中着色时间约 1.04 s，褪色时间约 0.56-0.64 s。"
+  }
+}

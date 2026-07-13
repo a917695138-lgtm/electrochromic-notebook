@@ -101,6 +101,41 @@
       }
     },
     {
+      "batch_id": "2026-06-30-double-ato-condition-response-time",
+      "date": "2026-06-30",
+      "title": "双层 ATO 液态器件不同测试条件响应时间筛选",
+      "has_test_data": true,
+      "test_types": [
+        "spectroelectrochemistry",
+        "chronoamperometry",
+        "response_time",
+        "condition_screening"
+      ],
+      "record": "experiments/2026-06-30-tio2-film-device-test.md",
+      "data_file": "data/2026-06-30-double-ato-condition-response-time.json",
+      "summary_excel": "D:/Desktop/光谱电化学/ASL/20260630 ASL 液态双层ATO（探讨不同测试条件的响应时间）(2)/20260630 ASL 液态（探讨不同测试条件的响应时间）/260630 数据处理/不同测试条件 响应时间.xlsx",
+      "tags": [
+        "测试数据",
+        "数据已整理",
+        "光谱电化学",
+        "响应时间",
+        "ATO",
+        "双层ATO",
+        "条件筛选",
+        "液态电解质"
+      ],
+      "key_results": {
+        "valid_condition_count": 4,
+        "highest_representative_contrast_condition_id": "C03",
+        "highest_representative_contrast_percent": 52.72,
+        "fastest_coloring_condition_id": "C04",
+        "fastest_coloring_tc_s": 1.68,
+        "fastest_bleaching_condition_id": "C04",
+        "fastest_bleaching_tb_s": 0.12,
+        "main_conclusion": "双层 ATO 器件在四组条件下均表现为着色明显慢于褪色：着色约 1.68-2.18 s，褪色约 0.12-0.26 s；该现象促成 2026-07-04 单层/双层 ATO 不同条件对比实验。"
+      }
+    },
+    {
       "batch_id": "2026-07-04-ato-liquid-spectroechem-response-time-linear",
       "date": "2026-07-04",
       "title": "单双层 ATO 液态 LiClO4/ACN 器件光谱电化学响应时间测试（线性插值重算）",

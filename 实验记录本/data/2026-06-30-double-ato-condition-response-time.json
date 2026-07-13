@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.1",
+  "record_type": "spectroelectrochemical_response_time_batch",
+  "batch_id": "2026-06-30-double-ato-condition-response-time",
+  "date": "2026-06-30",
+  "modified": "2026-07-13",
+  "title": "双层 ATO 液态器件不同测试条件响应时间筛选",
+  "source_experiment": "experiments/2026-06-30-tio2-film-device-test.md",
+  "related_experiments": [
+    "experiments/2026-07-04-ato-liquid-device-spincoat.md"
+  ],
+  "system": {
+    "electrochromic_layer": "PBI-Cl@TiO2",
+    "ion_storage_layer": "ATO",
+    "ato_layers": "double",
+    "electrolyte": "liquid electrolyte, same ASL liquid-device series as LiClO4/ACN tests",
+    "device_type": "liquid electrolyte electrochromic device",
+    "purpose": "compare response-time changes under different voltage windows and pulse durations for a double-layer ATO device"
+  },
+  "source_files": {
+    "summary_excel": "D:/Desktop/光谱电化学/ASL/20260630 ASL 液态双层ATO（探讨不同测试条件的响应时间）(2)/20260630 ASL 液态（探讨不同测试条件的响应时间）/260630 数据处理/不同测试条件 响应时间.xlsx"
+  },
+  "response_time_method": {
+    "method": "90% threshold from workbook summary",
+    "source_sheet": "结果汇总",
+    "note": "Values are taken from the workbook's processed summary table. Representative rows use the stable-cycle summary at the right side of the sheet."
+  },
+  "conditions": [
+    {
+      "condition_id": "C01",
+      "ato_layers": "double",
+      "voltage_window": "-2 / 0 V",
+      "coloring_voltage_v": -2,
+      "bleaching_voltage_v": 0,
+      "pulse_time_s": 5,
+      "representative_contrast_percent": 52.61,
+      "representative_tc_s": 2.18,
+      "representative_tb_s": 0.26,
+      "tc_tb_ratio": 8.38,
+      "workbook_summary_contrast_percent": 50.62,
+      "workbook_summary_tc_s": 2.346,
+      "workbook_summary_bleaching_contrast_percent": 52.48,
+      "workbook_summary_tb_s": 0.261,
+      "assessment": "对比度高，褪色充分，着色基本充分",
+      "cycles": [
+        {
+          "cycle": 1,
+          "coloring_contrast_percent": 52.79,
+          "tc_s": 2.857,
+          "bleaching_contrast_percent": 52.08,
+          "tb_s": 0.264
+        },
+        {
+          "cycle": 2,
+          "coloring_contrast_percent": 52.57,
+          "tc_s": 2.258,
+          "bleaching_contrast_percent": 52.57,
+          "tb_s": 0.283
+        },
+        {
+          "cycle": 3,
+          "coloring_contrast_percent": 52.61,
+          "tc_s": 2.184,
+          "bleaching_contrast_percent": 52.61,
+          "tb_s": 0.288
+        },
+        {
+          "cycle": 4,
+          "coloring_contrast_percent": 52.65,
+          "tc_s": 2.087,
+          "bleaching_contrast_percent": 52.65,
+          "tb_s": 0.212
+        }
+      ],
+      "data_status": "valid"
+    },
+    {
+      "condition_id": "C02",
+      "ato_layers": "double",
+      "voltage_window": "-2 / 0 V",
+      "coloring_voltage_v": -2,
+      "bleaching_voltage_v": 0,
+      "pulse_time_s": 3,
+      "representative_contrast_percent": 50.91,
+      "representative_tc_s": 1.83,
+      "representative_tb_s": 0.21,
+      "tc_tb_ratio": 8.71,
+      "workbook_summary_contrast_percent": 50.62,
+      "workbook_summary_tc_s": 1.913,
+      "workbook_summary_bleaching_contrast_percent": 50.45,
+      "workbook_summary_tb_s": 0.219,
+      "assessment": "时间短，但着色不够充分",
+      "cycles": [
+        {
+          "cycle": 1,
+          "coloring_contrast_percent": 49.78,
+          "tc_s": 2.158,
+          "bleaching_contrast_percent": 49.21,
+          "tb_s": 0.245
+        },
+        {
+          "cycle": 2,
+          "coloring_contrast_percent": 50.83,
+          "tc_s": 1.873,
+          "bleaching_contrast_percent": 50.69,
+          "tb_s": 0.188
+        },
+        {
+          "cycle": 3,
+          "coloring_contrast_percent": 50.86,
+          "tc_s": 1.842,
+          "bleaching_contrast_percent": 50.86,
+          "tb_s": 0.257
+        },
+        {
+          "cycle": 4,
+          "coloring_contrast_percent": 51.03,
+          "tc_s": 1.779,
+          "bleaching_contrast_percent": 51.03,
+          "tb_s": 0.188,
+          "note": "3 s window"
+        },
+        {
+          "cycle": 4,
+          "bleaching_contrast_percent": 51.45,
+          "tb_s": 0.190,
+          "note": "taken to the end of trace"
+        }
+      ],
+      "data_status": "valid"
+    },
+    {
+      "condition_id": "C03",
+      "ato_layers": "double",
+      "voltage_window": "-2 / +0.5 V",
+      "coloring_voltage_v": -2,
+      "bleaching_voltage_v": 0.5,
+      "pulse_time_s": 5,
+      "representative_contrast_percent": 52.72,
+      "representative_tc_s": 2.07,
+      "representative_tb_s": 0.24,
+      "tc_tb_ratio": 8.63,
+      "workbook_summary_contrast_percent": 52.79,
+      "workbook_summary_tc_s": 2.219,
+      "workbook_summary_bleaching_contrast_percent": 52.60,
+      "workbook_summary_tb_s": 0.238,
+      "assessment": "综合最好",
+      "cycles": [
+        {
+          "cycle": 1,
+          "coloring_contrast_percent": 52.95,
+          "tc_s": 2.675,
+          "bleaching_contrast_percent": 52.24,
+          "tb_s": 0.223
+        },
+        {
+          "cycle": 2,
+          "coloring_contrast_percent": 52.70,
+          "tc_s": 2.160,
+          "bleaching_contrast_percent": 52.56,
+          "tb_s": 0.262
+        },
+        {
+          "cycle": 3,
+          "coloring_contrast_percent": 52.66,
+          "tc_s": 2.077,
+          "bleaching_contrast_percent": 52.80,
+          "tb_s": 0.279
+        },
+        {
+          "cycle": 4,
+          "coloring_contrast_percent": 52.81,
+          "tc_s": 1.962,
+          "bleaching_contrast_percent": 52.81,
+          "tb_s": 0.187,
+          "note": "5 s window"
+        },
+        {
+          "cycle": 4,
+          "bleaching_contrast_percent": 53.38,
+          "tb_s": 0.190,
+          "note": "taken to the end of trace"
+        }
+      ],
+      "data_status": "valid"
+    },
+    {
+      "condition_id": "C04",
+      "ato_layers": "double",
+      "voltage_window": "-2 / +0.5 V",
+      "coloring_voltage_v": -2,
+      "bleaching_voltage_v": 0.5,
+      "pulse_time_s": 3,
+      "representative_contrast_percent": 51.09,
+      "representative_tc_s": 1.68,
+      "representative_tb_s": 0.12,
+      "tc_tb_ratio": 14.00,
+      "workbook_summary_contrast_percent": 50.77,
+      "workbook_summary_tc_s": 1.774,
+      "workbook_summary_bleaching_contrast_percent": 50.56,
+      "workbook_summary_tb_s": 0.125,
+      "assessment": "褪色最快，但着色不够充分",
+      "cycles": [
+        {
+          "cycle": 1,
+          "coloring_contrast_percent": 49.81,
+          "tc_s": 2.068,
+          "bleaching_contrast_percent": 49.10,
+          "tb_s": 0.153
+        },
+        {
+          "cycle": 2,
+          "coloring_contrast_percent": 51.03,
+          "tc_s": 1.733,
+          "bleaching_contrast_percent": 50.88,
+          "tb_s": 0.092
+        },
+        {
+          "cycle": 3,
+          "coloring_contrast_percent": 51.00,
+          "tc_s": 1.686,
+          "bleaching_contrast_percent": 51.00,
+          "tb_s": 0.163
+        },
+        {
+          "cycle": 4,
+          "coloring_contrast_percent": 51.25,
+          "tc_s": 1.610,
+          "bleaching_contrast_percent": 51.25,
+          "tb_s": 0.092,
+          "note": "3 s window"
+        },
+        {
+          "cycle": 4,
+          "bleaching_contrast_percent": 51.81,
+          "tb_s": 0.094,
+          "note": "taken to the end of trace"
+        }
+      ],
+      "data_status": "valid"
+    }
+  ],
+  "key_results": {
+    "valid_condition_count": 4,
+    "highest_representative_contrast_condition_id": "C03",
+    "highest_representative_contrast_percent": 52.72,
+    "fastest_coloring_condition_id": "C04",
+    "fastest_coloring_tc_s": 1.68,
+    "fastest_bleaching_condition_id": "C04",
+    "fastest_bleaching_tb_s": 0.12,
+    "main_observation": "Double-layer ATO device shows strong coloring/bleaching asymmetry: coloring takes about 1.68-2.18 s while bleaching takes only about 0.12-0.26 s under the tested conditions.",
+    "follow_up": "This observation motivated the 2026-07-04 comparison of single-layer and double-layer ATO devices under different voltage conditions."
+  }
+}

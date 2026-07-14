@@ -1,12 +1,12 @@
 ---
 type: experiment
-title: "[含UV-Vis透过率数据] 纯PBI、纯ATO、PBI+ATO与纯FTO片子透过率测试"
-date: "2026-07-02"
-category: "光谱表征"
-tags: [含UV-Vis透过率数据, 数据已整理, UV-Vis, 透过率, PBI, ATO, FTO, PBI+ATO]
-project: "电致变色"
-status: "completed"
-modified: "2026-07-14"
+title: [含UV-Vis透过率数据] 纯PBI、纯ATO、PBI+ATO与纯FTO片子透过率测试
+date: 2026-07-02
+category: 光谱表征
+tags: ["含UV-Vis透过率数据","数据已整理","UV-Vis","透过率","PBI","ATO","FTO","PBI+ATO"]
+project: 电致变色
+status: completed
+modified: 2026-07-14
 ---
 
 # [含UV-Vis透过率数据] 纯PBI、纯ATO、PBI+ATO与纯FTO片子透过率测试
@@ -39,7 +39,7 @@ modified: "2026-07-14"
 | 纯PBI片子 | - | 9 | 72.48 | 1.74 | 68.87 | 74.47 |
 | 纯ATO片子 | 双层 | 5 | 71.27 | 2.90 | 66.22 | 73.45 |
 | 纯ATO片子 | 单层 | 5 | 76.49 | 0.58 | 75.86 | 77.27 |
-| PBI+ATO | - | 2 | 54.42 | 2.75 | 52.48 | 56.36 |
+| PBI+2ATO | - | 2 | 54.42 | 2.75 | 52.48 | 56.36 |
 | 纯FTO片子 | - | 1 | 84.14 | 0.00 | 84.14 | 84.14 |
 
 ## 587.89 nm样品级结果

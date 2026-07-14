@@ -767,6 +767,19 @@ function dateCellLabel(meta) {
   return "-";
 }
 
+function getCollapseState(key, defaultCollapsed) {
+  try {
+    var saved = localStorage.getItem("notebook-collapse-" + key);
+    if (saved === "1") return true;
+    if (saved === "0") return false;
+  } catch(e) {}
+  return !!defaultCollapsed;
+}
+
+function renderMonthHeaderAttrs(key, collapsed) {
+  return ' class="month-header'+(collapsed ? ' collapsed' : '')+'" data-collapse-key="'+escAttr(key)+'" onclick="toggleMonth(this)" aria-expanded="'+(collapsed ? 'false' : 'true')+'"';
+}
+
 function renderRecordRows(indices) {
   var html = "";
   for (var j = 0; j < indices.length; j++) {
@@ -813,12 +826,14 @@ function renderRecordTable(indices) {
   return html;
 }
 
-function renderListSection(title, caption, indices, className) {
+function renderListSection(title, caption, indices, className, defaultCollapsed) {
   if (!indices.length) return "";
   var stats = listSectionStats(indices);
+  var key = className || title;
+  var collapsed = getCollapseState(key, defaultCollapsed);
   var html = '<div class="month-group section-group '+className+'">';
-  html += '<button type="button" class="month-header" onclick="toggleMonth(this)" aria-expanded="true"><span class="chevron" aria-hidden="true">▼</span><span class="section-heading"><span class="section-title">'+escHtml(title)+'<\/span><span class="section-caption">'+escHtml(caption)+'<\/span><\/span><span class="count">'+indices.length+' 条</span><span class="month-meta">'+stats.projects+' 个项目 · '+stats.types+' 种类型</span></button>';
-  html += '<div class="month-body">';
+  html += '<button type="button"'+renderMonthHeaderAttrs(key, collapsed)+'><span class="chevron" aria-hidden="true">▼</span><span class="section-heading"><span class="section-title">'+escHtml(title)+'<\/span><span class="section-caption">'+escHtml(caption)+'<\/span><\/span><span class="count">'+indices.length+' 条</span><span class="month-meta">'+stats.projects+' 个项目 · '+stats.types+' 种类型</span></button>';
+  html += '<div class="month-body"'+(collapsed ? ' style="display:none"' : '')+'>';
   html += renderRecordTable(indices);
   html += '<\/div><\/div>';
   return html;
@@ -841,8 +856,8 @@ function renderList() {
   sortRecordIndices(datedRecords);
 
   var html = "";
-  html += renderListSection("实验方案", "计划、方案统一归档；不混入按日期实验记录", planRecords, "plan-section");
-  html += renderListSection("实验方法", "测试方法与制备 SOP 单独索引；不再归入未标注日期", methodRecords, "method-section");
+  html += renderListSection("实验方案", "计划、方案统一归档；不混入按日期实验记录", planRecords, "plan-section", true);
+  html += renderListSection("实验方法", "测试方法与制备 SOP 单独索引；不再归入未标注日期", methodRecords, "method-section", true);
 
   var groups = {};
   for (var di = 0; di < datedRecords.length; di++) {
@@ -858,9 +873,11 @@ function renderList() {
     var indices = groups[month];
     var label = month === "----" ? "其他未标注日期" : month.replace("-","年")+"月";
     var stats = listSectionStats(indices);
+    var monthKey = "month-" + month;
+    var collapsed = getCollapseState(monthKey, false);
     html += '<div class="month-group">';
-    html += '<button type="button" class="month-header" onclick="toggleMonth(this)" aria-expanded="true"><span class="chevron" aria-hidden="true">▼</span> '+label+' <span class="count">'+indices.length+' 条</span><span class="month-meta">'+stats.projects+' 个项目 · '+stats.types+' 种类型</span></button>';
-    html += '<div class="month-body">';
+    html += '<button type="button"'+renderMonthHeaderAttrs(monthKey, collapsed)+'><span class="chevron" aria-hidden="true">▼</span> '+label+' <span class="count">'+indices.length+' 条</span><span class="month-meta">'+stats.projects+' 个项目 · '+stats.types+' 种类型</span></button>';
+    html += '<div class="month-body"'+(collapsed ? ' style="display:none"' : '')+'>';
     html += renderRecordTable(indices);
     html += '<\/div><\/div>';
   }
@@ -874,8 +891,13 @@ function renderList() {
 function toggleMonth(el) {
   el.classList.toggle("collapsed");
   var body = el.nextElementSibling;
-  body.style.display = el.classList.contains("collapsed") ? "none" : "";
-  el.setAttribute("aria-expanded", el.classList.contains("collapsed") ? "false" : "true");
+  var collapsed = el.classList.contains("collapsed");
+  body.style.display = collapsed ? "none" : "";
+  el.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  var key = el.getAttribute("data-collapse-key");
+  if (key) {
+    try { localStorage.setItem("notebook-collapse-" + key, collapsed ? "1" : "0"); } catch(e) {}
+  }
 }
 
 function rowKeyOpen(event, idx) {

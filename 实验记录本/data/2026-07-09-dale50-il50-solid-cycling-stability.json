@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.1",
+  "record_type": "cycling_stability_batch",
+  "batch_id": "2026-07-09-dale50-il50-solid-cycling-stability",
+  "date": "2026-07-09",
+  "modified": "2026-07-14",
+  "title": "2026-07-09 DALE50 固态电解质50%离子液体11×16腔体循环稳定性数据",
+  "source_experiment": "experiments/2026-07-09-dale50-il50-solid-cycling-stability.md",
+  "related_experiments": [
+    "experiments/2026-06-30-tio2-film-device-test.md"
+  ],
+  "system": {
+    "sample_name": "DALE50 固态电解质 50% 离子液体器件",
+    "electrolyte": "固态电解质，50% 离子液体",
+    "ionic_liquid_fraction_percent": 50,
+    "cavity_method": "双面胶围腔",
+    "cavity_size_mm": "11 x 16",
+    "voltage_window": "-1.8 / 0.2 V",
+    "pulse_time_s": 3,
+    "test_note": "2026-07-09 长循环测试；文件路径标记为 260709 DALE50 -2+0.5、-1.8+0.2V 260618 3 11-16 长循环"
+  },
+  "source_files": {
+    "spectra_root": "D:/Desktop/光谱电化学/1 YFW/260709 DALE50 -2+0.5、-1.8+0.2V 260618 3 11-16 长循环/sp",
+    "excel_root": "D:/Desktop/光谱电化学/1 YFW/260709 DALE50 -2+0.5、-1.8+0.2V 260618 3 11-16 长循环/数据处理/-1.8-0.2长循环",
+    "processed_workbook": "D:/Desktop/光谱电化学/1 YFW/260709 DALE50 -2+0.5、-1.8+0.2V 260618 3 11-16 长循环/数据处理/-1.8-0.2长循环/稳定性总数据_固态电解质_-1.8-0.2_3s.xlsx"
+  },
+  "processing_method": {
+    "skill": "cycling-stability",
+    "input_mode": "direct spectra folders plus matching electrochemical xlsx files",
+    "matching_rule": "match spectra and xlsx by parenthesized cycle range in filename, e.g. (990-1000)",
+    "retention_method": "platform-median contrast at fixed reference wavelength",
+    "reference_wavelength_nm": 597.83,
+    "wavelength_window_nm": "300-800"
+  },
+  "cycle_blocks": [
+    {
+      "block_label": "1-10",
+      "representative_cycle": 10,
+      "spectral_file_count": 1452,
+      "lambda_max_nm": 597.83,
+      "platform_median_contrast_percent": 46.717498,
+      "retention_vs_initial_percent": 100.0,
+      "within_block_iqr": 0.500552,
+      "switch_count_used": 20,
+      "envelope_contrast_percent": 48.90108,
+      "method": "platform-median"
+    },
+    {
+      "block_label": "490-500",
+      "representative_cycle": 500,
+      "spectral_file_count": 1623,
+      "lambda_max_nm": 598.60,
+      "platform_median_contrast_percent": 46.706022,
+      "retention_vs_initial_percent": 99.975434,
+      "within_block_iqr": 0.111656,
+      "switch_count_used": 20,
+      "envelope_contrast_percent": 49.525611,
+      "method": "platform-median"
+    },
+    {
+      "block_label": "990-1000",
+      "representative_cycle": 1000,
+      "spectral_file_count": 1433,
+      "lambda_max_nm": 597.83,
+      "platform_median_contrast_percent": 45.818653,
+      "retention_vs_initial_percent": 98.075999,
+      "within_block_iqr": 0.144359,
+      "switch_count_used": 20,
+      "envelope_contrast_percent": 46.868916,
+      "method": "platform-median"
+    },
+    {
+      "block_label": "1990-2000",
+      "representative_cycle": 2000,
+      "spectral_file_count": 1389,
+      "lambda_max_nm": 597.83,
+      "platform_median_contrast_percent": 44.484266,
+      "retention_vs_initial_percent": 95.219709,
+      "within_block_iqr": 0.105639,
+      "switch_count_used": 20,
+      "envelope_contrast_percent": 45.50552,
+      "method": "platform-median"
+    },
+    {
+      "block_label": "2990-3000",
+      "representative_cycle": 3000,
+      "spectral_file_count": 1241,
+      "lambda_max_nm": 597.83,
+      "platform_median_contrast_percent": 43.297257,
+      "retention_vs_initial_percent": 92.678886,
+      "within_block_iqr": 0.069866,
+      "switch_count_used": 20,
+      "envelope_contrast_percent": 44.20245,
+      "method": "platform-median"
+    },
+    {
+      "block_label": "3990-4000",
+      "representative_cycle": 4000,
+      "spectral_file_count": 1388,
+      "lambda_max_nm": 597.83,
+      "platform_median_contrast_percent": 42.611087,
+      "retention_vs_initial_percent": 91.210122,
+      "within_block_iqr": 0.097483,
+      "switch_count_used": 20,
+      "envelope_contrast_percent": 43.719582,
+      "method": "platform-median"
+    },
+    {
+      "block_label": "4990-5000",
+      "representative_cycle": 5000,
+      "spectral_file_count": 1743,
+      "lambda_max_nm": 597.83,
+      "platform_median_contrast_percent": 41.671982,
+      "retention_vs_initial_percent": 89.199942,
+      "within_block_iqr": 0.216628,
+      "switch_count_used": 20,
+      "envelope_contrast_percent": 44.432368,
+      "method": "platform-median"
+    }
+  ],
+  "analysis_summary": {
+    "reference_wavelength_nm": 597.83,
+    "initial_contrast_percent": 46.717498,
+    "cycle_5000_contrast_percent": 41.671982,
+    "cycle_5000_retention_percent": 89.199942,
+    "absolute_contrast_loss_percent_points": 5.045516,
+    "main_conclusion": "DALE50 50%离子液体固态电解质器件在 -1.8 / 0.2 V、3 s 条件下循环至 5000 次后平台中位对比度由 46.72% 降至 41.67%，保持率为 89.20%，整体衰减平滑且未出现突发失效。"
+  }
+}

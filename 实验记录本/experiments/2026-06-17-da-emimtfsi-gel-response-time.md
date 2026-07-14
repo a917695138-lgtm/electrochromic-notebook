@@ -1,17 +1,19 @@
 ---
-type: data
-title: "[光谱电化学数据] 2026-06-17 DA/EMIMTFSI 固态电解质器件响应时间"
+type: experiment
+title: "[含光谱电化学数据] 2026-06-17 DA/EMIMTFSI 固态电解质器件响应时间"
 date: "2026-06-17"
+category: "光谱电化学测试"
+project: "电致变色"
+status: "completed"
 modified: "2026-07-14"
-source_experiment: ""
 data_type: "spectroelectrochemical_response_time"
-tags: [光谱电化学数据, 数据已整理, 响应时间, DA凝胶, EMIMTFSI, PBI-Cl, 二价峰]
+tags: [含光谱电化学数据, 数据已整理, 响应时间, DA凝胶, EMIMTFSI, PBI-Cl, 二价峰]
 related:
   - experiments/2026-06-07-da50e-gel-device.md
   - plans/2026-06-24-da-gel-optimization-design.md
 ---
 
-# 数据记录：2026-06-17 DA/EMIMTFSI 固态电解质器件响应时间
+# 实验记录：2026-06-17 DA/EMIMTFSI 固态电解质器件响应时间测试
 
 ## 数据来源
 

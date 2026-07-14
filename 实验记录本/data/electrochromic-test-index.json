@@ -46,7 +46,7 @@
         "solid_electrolyte",
         "peak_window_review"
       ],
-      "record": "data/2026-06-17-da-emimtfsi-gel-response-time.md",
+      "record": "experiments/2026-06-17-da-emimtfsi-gel-response-time.md",
       "data_file": "data/2026-06-17-da-emimtfsi-gel-response-time.json",
       "summary_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 夹 260613/数据处理/响应时间_CA ASL+DA50%E 夹 -2-1/响应时间数据_二价峰540-680nm.xlsx",
       "tags": [

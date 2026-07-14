@@ -5,7 +5,7 @@
   "date": "2026-06-17",
   "modified": "2026-07-14",
   "title": "2026-06-17 DA/EMIMTFSI 固态电解质器件响应时间数据",
-  "source_experiment": "",
+  "source_experiment": "experiments/2026-06-17-da-emimtfsi-gel-response-time.md",
   "system": {
     "electrochromic_layer": "PBI-Cl",
     "electrolyte": "DA solid polymer electrolyte with EMIMTFSI ionic liquid",

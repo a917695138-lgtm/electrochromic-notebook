@@ -342,6 +342,44 @@
         "cycle_5000_retention_percent": 89.199942,
         "main_conclusion": "DALE50 50%离子液体固态电解质器件在 -1.8 / 0.2 V、3 s 条件下循环至 5000 次后平台中位对比度由 46.72% 降至 41.67%，保持率为 89.20%，整体衰减平滑且未出现突发失效。"
       }
+    },
+    {
+      "batch_id": "2026-07-11-dale50-il50-voltage-response-time",
+      "date": "2026-07-11",
+      "title": "2026-07-11 DALE50 50%离子液体固态电解质11×16腔体电压-响应时间测试",
+      "has_test_data": true,
+      "test_types": [
+        "spectroelectrochemistry",
+        "chronoamperometry",
+        "response_time",
+        "solid_electrolyte",
+        "voltage_screening"
+      ],
+      "record": "experiments/2026-07-11-dale50-il50-voltage-response-time.md",
+      "data_file": "data/2026-07-11-dale50-il50-voltage-response-time.json",
+      "summary_excel": "D:/Desktop/光谱电化学/1 YFW/260711 DALE30和50 不同电压响应时间 单层ATO/sp/DALE50-2 11-16 mm/数据处理/响应时间汇总分析_DALE50-2_11-16mm.xlsx",
+      "tags": [
+        "测试数据",
+        "数据已整理",
+        "光谱电化学",
+        "响应时间",
+        "固态电解质",
+        "DALE50",
+        "离子液体",
+        "11x16",
+        "电压筛选"
+      ],
+      "key_results": {
+        "valid_sample_count": 6,
+        "highest_contrast_sample_id": "S06",
+        "highest_contrast_percent": 65.5571,
+        "fastest_coloring_sample_id": "S05",
+        "fastest_coloring_tc_s": 0.2522,
+        "fastest_bleaching_sample_id": "S06",
+        "fastest_bleaching_tb_s": 0.8475,
+        "recommended_voltage_window": "-2 / 0.5 V",
+        "main_conclusion": "电压窗口由 -1.5 / 0 V 扩大至 -2 / 0.5 V 时，最大透过率调制幅度从 45.99% 提升至 65.56%。-1.9 / 0.4 V 着色最快，-2 / 0.5 V 对比度最高且褪色最快，综合最优。"
+      }
     }
   ]
 }

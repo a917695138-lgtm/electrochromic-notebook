@@ -99,7 +99,7 @@ body{overflow-x:hidden}
 .month-body{background:var(--c-surface);border:1px solid var(--c-border);border-radius:0 0 8px 8px;overflow:hidden;box-shadow:var(--shadow-sm)}
 .record-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px;margin-bottom:0}
 .record-table thead th{text-align:left;padding:10px 12px;background:#f7fafc;border-bottom:1px solid var(--c-border);font-weight:800;color:var(--c-muted);font-size:11px;letter-spacing:0;white-space:nowrap}
-.record-table tbody td{padding:10px 12px;border-bottom:1px solid #edf2f7;vertical-align:middle;white-space:nowrap}
+.record-table tbody td{padding:10px 12px;border-bottom:1px solid #edf2f7;vertical-align:top;white-space:nowrap}
 .record-table tbody tr{cursor:pointer;transition:background .1s}
 .record-table tbody tr:nth-child(even){background:#fbfcfe}
 .record-table tbody tr:hover{background:#f0f7ff}
@@ -112,10 +112,23 @@ body{overflow-x:hidden}
 .record-table .col-status{width:86px;white-space:nowrap}
 .record-table .col-tags{width:220px;overflow:hidden}
 .record-table .col-expand{width:34px;text-align:center;color:#94a3b8;font-size:14px}
+.record-title-stack{display:grid;gap:6px;min-width:0}
 .record-title{font-size:13px;font-weight:800;line-height:1.45;color:var(--c-text);min-width:0;overflow-wrap:anywhere}
 .record-title-btn{display:inline;text-align:left;border:0;background:transparent;color:inherit;font:inherit;font-weight:800;cursor:pointer;padding:0;overflow-wrap:anywhere}
 .record-title-btn:hover{color:var(--c-accent)}
 .record-title-btn:focus-visible{outline:3px solid rgba(249,115,22,.28);outline-offset:3px;border-radius:4px}
+.row-toc{max-width:100%;border:1px solid #e2eaf3;border-radius:8px;background:#fbfdff;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.row-toc>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:6px;min-width:0;padding:5px 7px;color:#334155;font-size:11px;font-weight:850;line-height:1.35;white-space:normal;overflow-wrap:anywhere}
+.row-toc>summary::-webkit-details-marker{display:none}
+.row-toc>summary:before{content:"▸";flex:0 0 auto;color:#64748b;font-size:10px}
+.row-toc[open]>summary:before{content:"▾"}
+.row-toc:not([open])>summary{background:#f8fafc;border-radius:8px}
+.row-toc-count{flex:0 0 auto;margin-left:auto;padding:1px 6px;border-radius:999px;background:#eef2ff;color:#475569;font-size:10px;font-weight:800;white-space:nowrap}
+.row-toc>.home-toc-list{padding:0 7px 7px;max-height:260px;overflow:auto}
+.row-toc .home-toc-list{gap:3px}
+.row-toc .home-toc-list ul{margin-top:3px}
+.row-toc .home-toc-node{font-size:11px;line-height:1.4}
+.row-toc .home-toc-node details>summary,.row-toc .home-toc-node.leaf{padding:2px 5px}
 
 .type-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
 .type-dot.experiment{background:#2563eb}
@@ -767,6 +780,9 @@ function renderRecordRows(indices) {
     var titleText = m.title || d.name;
     var titleHtml = renderTitleWithBadges(titleText);
     var titleAttr = escAttr(titleText);
+    var body = getBody(d.content);
+    var toc = buildToc(body);
+    var rowIndexHtml = renderRowIndex(m, body, toc);
     var rowClass = hasPbiSignal(d.content) ? ' class="pbi-row"' : "";
     var typeLabel = m.type ? (TYPES[m.type] || m.type) : "-";
     var statusHtml = '<span class="muted-dash">-<\/span>';
@@ -777,7 +793,7 @@ function renderRecordRows(indices) {
     html += '<td class="col-date">'+escHtml(dateCellLabel(m))+'<\/td>';
     html += '<td class="col-type"><span class="type-dot '+dc+'" style="background:'+accent+'"><\/span>'+escHtml(typeLabel)+'<\/td>';
     html += '<td class="col-proj">'+escHtml(m.project||"-")+'<\/td>';
-    html += '<td class="col-title"><div class="record-title"><button type="button" class="record-title-btn" onclick="event.stopPropagation();openRead('+idx+')">'+titleHtml+'<\/button><\/div><\/td>';
+    html += '<td class="col-title"><div class="record-title-stack"><div class="record-title"><button type="button" class="record-title-btn" onclick="event.stopPropagation();openRead('+idx+')">'+titleHtml+'<\/button><\/div>'+rowIndexHtml+'<\/div><\/td>';
     html += '<td class="col-status">'+statusHtml+'<\/td>';
     html += '<td class="col-tags">'+(tagsHtml||'<span class="muted-dash">-<\/span>')+'<\/td>';
     html += '<td class="col-expand"><button type="button" class="expand-btn" aria-label="展开目录预览：'+titleAttr+'" aria-expanded="false" onclick="event.stopPropagation();togglePreview(this,'+idx+')">▸<\/button><\/td>';
@@ -968,6 +984,24 @@ function renderHomeIndex(meta, body, toc) {
   if (!toc || !toc.length) return '<div class="home-toc-empty">正文没有可索引的标题结构<\/div>';
   var nodes = meta && meta.type === "experiment" ? buildExperimentIndex(meta, body, toc) : tocTree(toc);
   return '<details class="home-toc" open><summary>目录索引<\/summary>'+renderHomeTocNodes(nodes)+'<\/details>';
+}
+
+function rowIndexSummary(nodes, tocCount) {
+  var source = nodes || [];
+  if (source.length === 1 && source[0].children && source[0].children.length) source = source[0].children;
+  var labels = [];
+  for (var i = 0; i < source.length && labels.length < 4; i++) {
+    if (source[i].text) labels.push(source[i].text);
+  }
+  var text = labels.length ? "目录 · " + labels.join(" / ") : "目录";
+  return escHtml(text) + '<span class="row-toc-count">'+tocCount+'项<\/span>';
+}
+
+function renderRowIndex(meta, body, toc) {
+  if (!toc || toc.length < 3) return "";
+  var nodes = meta && meta.type === "experiment" ? buildExperimentIndex(meta, body, toc) : tocTree(toc);
+  if (!nodes || !nodes.length) return "";
+  return '<details class="row-toc" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()"><summary>'+rowIndexSummary(nodes, toc.length)+'<\/summary>'+renderHomeTocNodes(nodes)+'<\/details>';
 }
 
 function extractKeyFacts(body) {

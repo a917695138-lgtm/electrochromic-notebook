@@ -188,6 +188,9 @@ body{overflow-x:hidden}
 .home-toc-node.l1>details>summary{background:#eef6ff;border-color:#cfe3ff;color:#1e3a8a}
 .home-toc-node.l2>details>summary{background:#f8fafc;color:#334155}
 .home-toc-node.leaf.l3{background:#fff;border-color:#edf2f7}
+.home-toc-jump{display:inline;text-align:left;border:0;background:transparent;color:inherit;font:inherit;font-weight:inherit;padding:0;cursor:pointer;overflow-wrap:anywhere}
+.home-toc-jump:hover{color:#1d4ed8;text-decoration:underline;text-underline-offset:2px}
+.home-toc-node.leaf .home-toc-jump{width:100%}
 .home-toc-empty{font-size:12px;color:var(--c-muted);padding:6px 0}
 .inline-link{margin-top:6px;border:0;background:transparent;color:var(--c-accent);cursor:pointer;font-size:11px;font-weight:800;font-family:var(--font-ui);padding:2px 0}
 .inline-link:hover{color:var(--c-pbi)}
@@ -214,9 +217,10 @@ body{overflow-x:hidden}
 .read-fm .fm-val{font-weight:600;min-width:0}
 .read-fm .fm-tags{display:flex;gap:4px;flex-wrap:wrap}
 .read-content{padding:20px 22px;font-size:14px;line-height:1.9;background:var(--c-surface);border:1px solid var(--c-border);border-radius:8px;box-shadow:var(--shadow-sm);font-family:var(--font-text)}
-.read-content h1{font-size:18px;font-weight:700;margin:16px 0 10px;padding-bottom:6px;border-bottom:1px solid #eee;text-wrap:balance;scroll-margin-top:120px}
-.read-content h2{font-size:15px;font-weight:700;margin:14px 0 8px;color:#333;text-wrap:balance;scroll-margin-top:120px}
-.read-content h3{font-size:13px;font-weight:700;margin:10px 0 6px;color:var(--c-muted)}
+.read-content h1{font-size:19px;font-weight:850;margin:18px 0 12px;padding:8px 12px;border-left:5px solid #1d4ed8;border-bottom:1px solid #bfdbfe;border-radius:8px;background:#eff6ff;color:#1e3a8a;text-wrap:balance;scroll-margin-top:120px}
+.read-content h2{font-size:16px;font-weight:820;margin:16px 0 9px;padding:6px 10px;border-left:4px solid #0f766e;border-radius:7px;background:#ecfdf5;color:#115e59;text-wrap:balance;scroll-margin-top:120px}
+.read-content h3{font-size:13px;font-weight:800;margin:12px 0 7px;padding:4px 8px;border-left:3px solid #f97316;border-radius:6px;background:#fff7ed;color:#9a3412;scroll-margin-top:120px}
+.read-content h1:target,.read-content h2:target,.read-content h3:target,.read-content .jump-focus{outline:3px solid rgba(249,115,22,.32);box-shadow:0 0 0 6px rgba(249,115,22,.12)}
 .read-content p{margin:6px 0}
 .read-content ul,.read-content ol{margin:4px 0;padding-left:22px}
 .read-content li{margin:2px 0}
@@ -782,7 +786,7 @@ function renderRecordRows(indices) {
     var titleAttr = escAttr(titleText);
     var body = getBody(d.content);
     var toc = buildToc(body);
-    var rowIndexHtml = renderRowIndex(m, body, toc);
+    var rowIndexHtml = renderRowIndex(m, body, toc, idx);
     var rowClass = hasPbiSignal(d.content) ? ' class="pbi-row"' : "";
     var typeLabel = m.type ? (TYPES[m.type] || m.type) : "-";
     var statusHtml = '<span class="muted-dash">-<\/span>';
@@ -888,24 +892,41 @@ function tocTree(toc) {
     var item = toc[i];
     if (item.level > 3) continue;
     while (stack.length > 1 && stack[stack.length - 1].level >= item.level) stack.pop();
-    var node = {level: item.level, text: item.text, children: []};
+    var node = {level: item.level, text: item.text, id: item.id, children: []};
     stack[stack.length - 1].children.push(node);
     stack.push(node);
   }
   return root;
 }
 
-function renderHomeTocNodes(nodes) {
+function firstNodeTarget(node) {
+  if (!node) return "";
+  if (node.id) return node.id;
+  for (var i = 0; node.children && i < node.children.length; i++) {
+    var childTarget = firstNodeTarget(node.children[i]);
+    if (childTarget) return childTarget;
+  }
+  return "";
+}
+
+function renderTocJump(node, idx) {
+  var text = escHtml(node.text || "");
+  var target = firstNodeTarget(node);
+  if (idx === undefined || idx === null || !target) return text;
+  return '<button type="button" class="home-toc-jump" onclick="event.stopPropagation();jumpToRead('+idx+',\''+escAttr(target)+'\')">'+text+'<\/button>';
+}
+
+function renderHomeTocNodes(nodes, idx) {
   if (!nodes || !nodes.length) return "";
   var html = '<ul class="home-toc-list">';
   for (var i = 0; i < nodes.length; i++) {
     var node = nodes[i];
-    var children = renderHomeTocNodes(node.children);
+    var children = renderHomeTocNodes(node.children, idx);
     html += '<li>';
     if (children) {
-      html += '<div class="home-toc-node l'+node.level+'"><details open><summary>'+escHtml(node.text)+'<\/summary>'+children+'<\/details><\/div>';
+      html += '<div class="home-toc-node l'+node.level+'"><details open><summary>'+renderTocJump(node, idx)+'<\/summary>'+children+'<\/details><\/div>';
     } else {
-      html += '<div class="home-toc-node leaf l'+node.level+'">'+escHtml(node.text)+'<\/div>';
+      html += '<div class="home-toc-node leaf l'+node.level+'">'+renderTocJump(node, idx)+'<\/div>';
     }
     html += '<\/li>';
   }
@@ -932,15 +953,15 @@ function headingBucket(text) {
   return ["其他记录", ""];
 }
 
-function addChildNode(parent, text, level) {
-  var node = {level: level, text: text, children: []};
+function addChildNode(parent, text, level, id) {
+  var node = {level: level, text: text, id: id || "", children: []};
   parent.children.push(node);
   return node;
 }
 
 function buildExperimentIndex(meta, body, toc) {
   var title = (meta && meta.title) ? String(meta.title).replace(/^\[[^\]]+\]\s*/, "") : "实验记录";
-  var root = {level: 1, text: title, children: []};
+  var root = {level: 1, text: title, id: toc[0] && toc[0].id ? toc[0].id : "", children: []};
   var groups = {};
   function groupNode(name) {
     if (!groups[name]) groups[name] = addChildNode(root, name, 1);
@@ -969,7 +990,7 @@ function buildExperimentIndex(meta, body, toc) {
     for (var dl = item.level + 1; dl <= 3; dl++) delete contextByLevel[dl];
     var major = bucket[0], minor = bucket[1];
     var parent = minor ? subgroupNode(major, minor) : groupNode(major);
-    addChildNode(parent, text, minor ? 3 : 2);
+    addChildNode(parent, text, minor ? 3 : 2, item.id);
   }
   var ordered = ["制备实验", "测试", "数据与分析", "结论与后续", "其他记录"];
   var children = [];
@@ -980,10 +1001,10 @@ function buildExperimentIndex(meta, body, toc) {
   return root.children.length ? [root] : tocTree(toc);
 }
 
-function renderHomeIndex(meta, body, toc) {
+function renderHomeIndex(meta, body, toc, idx) {
   if (!toc || !toc.length) return '<div class="home-toc-empty">正文没有可索引的标题结构<\/div>';
   var nodes = meta && meta.type === "experiment" ? buildExperimentIndex(meta, body, toc) : tocTree(toc);
-  return '<details class="home-toc" open><summary>目录索引<\/summary>'+renderHomeTocNodes(nodes)+'<\/details>';
+  return '<details class="home-toc" open><summary>目录索引<\/summary>'+renderHomeTocNodes(nodes, idx)+'<\/details>';
 }
 
 function rowIndexSummary(nodes, tocCount) {
@@ -997,11 +1018,11 @@ function rowIndexSummary(nodes, tocCount) {
   return escHtml(text) + '<span class="row-toc-count">'+tocCount+'项<\/span>';
 }
 
-function renderRowIndex(meta, body, toc) {
+function renderRowIndex(meta, body, toc, idx) {
   if (!toc || toc.length < 3) return "";
   var nodes = meta && meta.type === "experiment" ? buildExperimentIndex(meta, body, toc) : tocTree(toc);
   if (!nodes || !nodes.length) return "";
-  return '<details class="row-toc" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()"><summary>'+rowIndexSummary(nodes, toc.length)+'<\/summary>'+renderHomeTocNodes(nodes)+'<\/details>';
+  return '<details class="row-toc" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()"><summary>'+rowIndexSummary(nodes, toc.length)+'<\/summary>'+renderHomeTocNodes(nodes, idx)+'<\/details>';
 }
 
 function extractKeyFacts(body) {
@@ -1058,7 +1079,7 @@ function togglePreview(el, idx) {
   ipHtml += '<\/div>';
   ipHtml += '<div class="preview-grid">';
   ipHtml += '<div class="preview-panel preview-summary"><div class="preview-label">重点摘要<\/div>'+(summary ? escHtml(summary) : "暂无摘要")+extractKeyFacts(body)+'<div><button type="button" class="inline-link" onclick="openRead('+idx+')">查看全文 →<\/button><\/div><\/div>';
-  ipHtml += '<div class="preview-panel">'+renderHomeIndex(m, body, toc)+'<\/div>';
+  ipHtml += '<div class="preview-panel">'+renderHomeIndex(m, body, toc, idx)+'<\/div>';
   ipHtml += '<\/div><\/div>';
   td.innerHTML = ipHtml;
   prev.appendChild(td);
@@ -1129,7 +1150,11 @@ function updateStats() {
 }
 
 // ====== READ VIEW ======
-function openRead(idx) {
+function jumpToRead(idx, targetId) {
+  openRead(idx, targetId);
+}
+
+function openRead(idx, targetId) {
   curIdx = idx;
   var d = DB[idx];
   var m = parseFM(d.content);
@@ -1186,7 +1211,19 @@ function openRead(idx) {
   html += '<details class="raw-source" id="rawSource"><summary>完整原始 Markdown<\/summary><pre>'+escHtml(d.content)+'<\/pre><\/details>';
   html += '<\/div>';
   container.innerHTML = html;
-  window.scrollTo(0,0);
+  if (targetId) {
+    requestAnimationFrame(function(){
+      var target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({behavior:"smooth", block:"start"});
+        target.classList.add("jump-focus");
+        setTimeout(function(){ target.classList.remove("jump-focus"); }, 2200);
+      }
+      else window.scrollTo(0,0);
+    });
+  } else {
+    window.scrollTo(0,0);
+  }
 }
 
 function renderRelated(rel) {

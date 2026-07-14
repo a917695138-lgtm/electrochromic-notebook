@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.1",
+  "record_type": "uv_vis_transmittance_batch",
+  "batch_id": "2026-07-10-dale-solid-electrolyte-transmittance",
+  "date": "2026-07-10",
+  "modified": "2026-07-14",
+  "title": "2026-07-10 DALE固态电解质夹层透过率测试",
+  "source_experiment": "experiments/2026-07-10-dale-solid-electrolyte-transmittance.md",
+  "related_experiments": [
+    "experiments/2026-07-09-dale50-il50-solid-cycling-stability.md",
+    "experiments/2026-07-10-spectroechem-ato.md",
+    "experiments/2026-07-02-pure-pbi-ato-fto-transmittance.md"
+  ],
+  "system": {
+    "measurement_type": "UV-Vis transmittance from SpectraSuite processed spectra",
+    "purpose": "Estimate how solid electrolyte and blank FTO/ATO夹层 reduce optical contrast near PBI-Cl divalent peaks.",
+    "target_wavelengths_nm": [590.0, 645.0],
+    "peak_basis": "PBI-Cl二价峰位置附近",
+    "sample_design": "无变色层FTO/ATO片子夹固态电解质"
+  },
+  "source_files": {
+    "raw_root": "D:/Desktop/光谱电化学/1 YFW/260710 DALE 透过率",
+    "single_ato": "D:/Desktop/光谱电化学/1 YFW/260710 DALE 透过率/ATO 单层.txt",
+    "double_ato_tape": "D:/Desktop/光谱电化学/1 YFW/260710 DALE 透过率/2-ATO-1 shuangmianjiao.txt",
+    "double_ato_no_tape": "D:/Desktop/光谱电化学/1 YFW/260710 DALE 透过率/ATO 双层 无双面胶.txt",
+    "air_reference_dir": "D:/Desktop/光谱电化学/1 YFW/260710 DALE 透过率/空气 校正",
+    "double_ato_corrected_dir": "D:/Desktop/光谱电化学/1 YFW/260710 DALE 透过率/2-ATO-2 校正",
+    "result_dir": "D:/Desktop/光谱电化学/1 YFW/260710 DALE 透过率/分析结果",
+    "result_workbook": "D:/Desktop/光谱电化学/1 YFW/260710 DALE 透过率/分析结果/dale_transmittance_260710_results.xlsx",
+    "html_report": "D:/Desktop/光谱电化学/1 YFW/260710 DALE 透过率/分析结果/dale_transmittance_260710_report.html"
+  },
+  "processing_method": {
+    "parser": "SpectraSuite文本中Begin Processed Spectral Data后的两列数据",
+    "wavelength_extraction": "linear interpolation at target wavelength",
+    "nearest_raw_wavelengths_nm": [590.18, 645.08],
+    "script": "D:/Desktop/光谱电化学/1 YFW/260710 DALE 透过率/分析结果/analyze_dale_transmittance.py"
+  },
+  "single_configuration_results": [
+    {
+      "configuration": "单层 ATO 一端",
+      "key": "single_ato",
+      "transmittance_590_percent": 80.4340,
+      "transmittance_645_percent": 83.5606
+    },
+    {
+      "configuration": "双层 ATO + 双面胶腔体",
+      "key": "double_ato_tape",
+      "transmittance_590_percent": 71.1689,
+      "transmittance_645_percent": 72.6909
+    },
+    {
+      "configuration": "双层 ATO 无双面胶腔体",
+      "key": "double_ato_no_tape",
+      "transmittance_590_percent": 67.5270,
+      "transmittance_645_percent": 70.9923
+    }
+  ],
+  "configuration_comparison": [
+    {
+      "comparison": "双层 ATO + 双面胶腔体 - 双层 ATO 无双面胶腔体",
+      "delta_590_percent_points": 3.6419,
+      "delta_645_percent_points": 1.6986,
+      "relative_to_no_tape_590_percent": 5.3933,
+      "relative_to_no_tape_645_percent": 2.3927
+    },
+    {
+      "comparison": "单层 ATO 一端 - 双层 ATO 无双面胶腔体",
+      "delta_590_percent_points": 12.9070,
+      "delta_645_percent_points": 12.5683,
+      "relative_to_double_no_tape_590_percent": 19.1138,
+      "relative_to_double_no_tape_645_percent": 17.7038
+    }
+  ],
+  "replicate_quality_summary": {
+    "air_reference_note": "空气校正文件夹00-50条件各3次重复，部分组离散度较大；40、50组CV约14-17%。",
+    "corrected_double_ato_note": "2-ATO-2校正文件夹00和50在590/645 nm处为108-121%，超过物理透过率上限，更可能是参考/校正或光路位置偏差。"
+  },
+  "key_results": {
+    "contrast_scaling_estimate": "固态电解质/FTO/ATO夹层在590/645 nm附近可将绝对透过率对比度按约0.68-0.84的静态透过率系数压低。",
+    "conservative_double_ato_no_tape_scaling": {
+      "590_nm": 0.675,
+      "645_nm": 0.710
+    },
+    "main_conclusion": "固态电解质夹层的初始透过率损失足以解释一部分固态器件相对液态器件的对比度下降；后续应使用与真实器件一致的空白夹层进行背景校正。"
+  }
+}

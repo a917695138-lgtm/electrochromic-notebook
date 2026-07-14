@@ -1,0 +1,17 @@
+﻿folder_key,folder_label,condition,target_nm,n,mean_T_pct,median_T_pct,sd_T_pct,cv_pct,min_T_pct,max_T_pct
+air_reference,air transmittance test,00,590.0,3,85.6026,79.7107,10.4304,12.18,79.4515,97.6457
+air_reference,air transmittance test,00,645.0,3,88.0781,82.2491,11.0416,12.54,81.1725,100.8127
+air_reference,air transmittance test,10,590.0,3,72.1526,71.8264,4.3541,6.03,67.9707,76.6606
+air_reference,air transmittance test,10,645.0,3,73.7339,74.0513,5.6736,7.69,67.9083,79.2421
+air_reference,air transmittance test,20,590.0,3,81.832,78.3682,6.4528,7.89,77.8508,89.2771
+air_reference,air transmittance test,20,645.0,3,84.0711,80.3762,6.869,8.17,79.8403,91.9967
+air_reference,air transmittance test,30,590.0,3,79.923,78.7347,2.8662,3.59,77.842,83.1922
+air_reference,air transmittance test,30,645.0,3,81.8055,80.6175,3.1724,3.88,79.3986,85.4005
+air_reference,air transmittance test,40,590.0,3,76.4562,79.3337,10.9857,14.37,64.3181,85.7167
+air_reference,air transmittance test,40,645.0,3,79.728,82.421,12.1295,15.21,66.4783,90.2847
+air_reference,air transmittance test,50,590.0,3,73.0331,79.2424,12.3632,16.93,58.796,81.0609
+air_reference,air transmittance test,50,645.0,3,76.1474,80.7625,11.5844,15.21,62.9668,84.7129
+double_ato_corrected,double ATO corrected electrolyte test,00,590.0,2,111.2734,111.2734,4.1941,3.77,108.3077,114.2391
+double_ato_corrected,double ATO corrected electrolyte test,00,645.0,2,108.0136,108.0136,2.7622,2.56,106.0604,109.9667
+double_ato_corrected,double ATO corrected electrolyte test,50,590.0,1,120.8254,120.8254,,,120.8254,120.8254
+double_ato_corrected,double ATO corrected electrolyte test,50,645.0,1,119.4666,119.4666,,,119.4666,119.4666

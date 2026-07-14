@@ -1,0 +1,43 @@
+﻿folder_key,folder_label,condition,replicate,target_nm,T_interp_pct,nearest_nm,T_nearest_pct,source_file
+air_reference,air transmittance test,00,1,590.0,79.4515,590.18,79.452,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\00-1.txt
+air_reference,air transmittance test,00,1,645.0,81.1725,645.08,81.127,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\00-1.txt
+air_reference,air transmittance test,00,2,590.0,79.7107,590.18,79.652,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\00-2.txt
+air_reference,air transmittance test,00,2,645.0,82.2491,645.08,82.19,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\00-2.txt
+air_reference,air transmittance test,00,3,590.0,97.6457,590.18,97.604,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\00-3.txt
+air_reference,air transmittance test,00,3,645.0,100.8127,645.08,100.785,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\00-3.txt
+air_reference,air transmittance test,10,1,590.0,76.6606,590.18,76.644,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\10-1.txt
+air_reference,air transmittance test,10,1,645.0,79.2421,645.08,79.216,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\10-1.txt
+air_reference,air transmittance test,10,2,590.0,71.8264,590.18,71.761,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\10-2.txt
+air_reference,air transmittance test,10,2,645.0,74.0513,645.08,74.032,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\10-2.txt
+air_reference,air transmittance test,10,3,590.0,67.9707,590.18,67.933,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\10-3.txt
+air_reference,air transmittance test,10,3,645.0,67.9083,645.08,67.872,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\10-3.txt
+air_reference,air transmittance test,20,1,590.0,77.8508,590.18,77.816,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\20-1.txt
+air_reference,air transmittance test,20,1,645.0,80.3762,645.08,80.366,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\20-1.txt
+air_reference,air transmittance test,20,2,590.0,78.3682,590.18,78.371,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\20-2.txt
+air_reference,air transmittance test,20,2,645.0,79.8403,645.08,79.807,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\20-2.txt
+air_reference,air transmittance test,20,3,590.0,89.2771,590.18,89.27,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\20-3.txt
+air_reference,air transmittance test,20,3,645.0,91.9967,645.08,91.988,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\20-3.txt
+air_reference,air transmittance test,30,1,590.0,83.1922,590.18,83.159,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\30-1.txt
+air_reference,air transmittance test,30,1,645.0,85.4005,645.08,85.404,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\30-1.txt
+air_reference,air transmittance test,30,2,590.0,77.842,590.18,77.829,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\30-2.txt
+air_reference,air transmittance test,30,2,645.0,79.3986,645.08,79.393,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\30-2.txt
+air_reference,air transmittance test,30,3,590.0,78.7347,590.18,78.788,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\30-3.txt
+air_reference,air transmittance test,30,3,645.0,80.6175,645.08,80.578,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\30-3.txt
+air_reference,air transmittance test,40,1,590.0,64.3181,590.18,64.252,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\40-1.txt
+air_reference,air transmittance test,40,1,645.0,66.4783,645.08,66.465,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\40-1.txt
+air_reference,air transmittance test,40,2,590.0,79.3337,590.18,79.287,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\40-2.txt
+air_reference,air transmittance test,40,2,645.0,82.421,645.08,82.409,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\40-2.txt
+air_reference,air transmittance test,40,3,590.0,85.7167,590.18,85.689,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\40-3.txt
+air_reference,air transmittance test,40,3,645.0,90.2847,645.08,90.23,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\40-3.txt
+air_reference,air transmittance test,50,1,590.0,81.0609,590.18,81.023,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\50-1.txt
+air_reference,air transmittance test,50,1,645.0,84.7129,645.08,84.72,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\50-1.txt
+air_reference,air transmittance test,50,2,590.0,58.796,590.18,58.774,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\50-2.txt
+air_reference,air transmittance test,50,2,645.0,62.9668,645.08,62.949,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\50-2.txt
+air_reference,air transmittance test,50,3,590.0,79.2424,590.18,79.231,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\50-3.txt
+air_reference,air transmittance test,50,3,645.0,80.7625,645.08,80.762,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\空气 校正\50-3.txt
+double_ato_corrected,double ATO corrected electrolyte test,00,1,590.0,114.2391,590.18,114.21,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\2-ATO-2 校正\00-1.txt
+double_ato_corrected,double ATO corrected electrolyte test,00,1,645.0,109.9667,645.08,109.939,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\2-ATO-2 校正\00-1.txt
+double_ato_corrected,double ATO corrected electrolyte test,00,2,590.0,108.3077,590.18,108.279,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\2-ATO-2 校正\00-2.txt
+double_ato_corrected,double ATO corrected electrolyte test,00,2,645.0,106.0604,645.08,106.066,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\2-ATO-2 校正\00-2.txt
+double_ato_corrected,double ATO corrected electrolyte test,50,1,590.0,120.8254,590.18,120.792,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\2-ATO-2 校正\50-1.txt
+double_ato_corrected,double ATO corrected electrolyte test,50,1,645.0,119.4666,645.08,119.47,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\2-ATO-2 校正\50-1.txt

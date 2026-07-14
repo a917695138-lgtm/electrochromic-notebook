@@ -1,0 +1,7 @@
+﻿key,label,target_nm,T_interp_pct,nearest_nm,T_nearest_pct,source_file
+single_ato,single ATO side,590.0,80.434,590.18,80.398,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\ATO 单层.txt
+single_ato,single ATO side,645.0,83.5606,645.08,83.559,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\ATO 单层.txt
+double_ato_tape,double ATO side + tape spacer,590.0,71.1689,590.18,71.14,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\2-ATO-1 shuangmianjiao.txt
+double_ato_tape,double ATO side + tape spacer,645.0,72.6909,645.08,72.667,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\2-ATO-1 shuangmianjiao.txt
+double_ato_no_tape,"double ATO side, no tape spacer",590.0,67.527,590.18,67.451,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\ATO 双层 无双面胶.txt
+double_ato_no_tape,"double ATO side, no tape spacer",645.0,70.9923,645.08,70.975,D:\Desktop\光谱电化学\1 YFW\260710 DALE 透过率\ATO 双层 无双面胶.txt

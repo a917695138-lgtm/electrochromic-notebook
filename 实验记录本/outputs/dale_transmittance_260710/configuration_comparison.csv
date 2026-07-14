@@ -1,0 +1,5 @@
+﻿target_nm,comparison,delta_T_pct_points,relative_to_no_tape_pct,relative_to_double_no_tape_pct
+590.0,tape spacer minus no tape spacer,3.6419,5.3933,
+590.0,single ATO side minus double ATO no tape,12.907,,19.1138
+645.0,tape spacer minus no tape spacer,1.6986,2.3927,
+645.0,single ATO side minus double ATO no tape,12.5683,,17.7038

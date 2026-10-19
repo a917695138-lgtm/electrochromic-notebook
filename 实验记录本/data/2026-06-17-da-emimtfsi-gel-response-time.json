@@ -3,7 +3,7 @@
   "record_type": "spectroelectrochemical_response_time_batch",
   "batch_id": "2026-06-17-da-emimtfsi-gel-response-time",
   "date": "2026-06-17",
-  "modified": "2026-07-14",
+  "modified": "2026-07-15",
   "title": "2026-06-17 DA/EMIMTFSI 固态电解质器件响应时间数据",
   "source_experiment": "experiments/2026-06-17-da-emimtfsi-gel-response-time.md",
   "system": {
@@ -43,6 +43,7 @@
       "representative_cycle": 2,
       "representative_tc_s": 0.4568,
       "representative_tb_s": 1.3818,
+      "representative_contrast_percent": 44.2098,
       "data_status": "valid",
       "quality_note": "No monovalent-peak mis-selection; final bleaching segment is elongated and should be noted separately.",
       "processed_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+70%E 夹 260605/数据处理/响应时间_CA ASL+DA70%E 夹 -2-1/响应时间数据.xlsx",
@@ -99,6 +100,7 @@
       "representative_cycle": 2,
       "representative_tc_s": 0.4561,
       "representative_tb_s": 1.1453,
+      "representative_contrast_percent": 47.1177,
       "data_status": "valid_with_peak_window",
       "quality_note": "Full 300-800 nm search selects monovalent peak at 756.67 nm; divalent peak window is required.",
       "processed_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 未夹 260613/数据处理/响应时间_CA ASL+DA50%E 未夹 -2-1/响应时间数据_二价峰540-680nm.xlsx",
@@ -155,6 +157,7 @@
       "representative_cycle": 3,
       "representative_tc_s": 0.4559,
       "representative_tb_s": 0.6391,
+      "representative_contrast_percent": 52.7774,
       "data_status": "valid_with_peak_window",
       "quality_note": "Highest divalent-peak contrast and fastest representative bleaching response among this batch.",
       "processed_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 未夹 260613/数据处理/响应时间_CA ASL+DA50%E 未夹2 -2-1/响应时间数据_二价峰540-680nm.xlsx",
@@ -211,6 +214,7 @@
       "representative_cycle": 2,
       "representative_tc_s": 0.4695,
       "representative_tb_s": 1.0965,
+      "representative_contrast_percent": 44.0812,
       "data_status": "valid_with_peak_window",
       "quality_note": "Full 300-800 nm search slightly favors monovalent peak at 760.41 nm; final bleaching segment is elongated.",
       "processed_excel": "D:/Desktop/光谱电化学/1 YFW/260617 ASL+DAP+50%E 夹 260613/数据处理/响应时间_CA ASL+DA50%E 夹 -2-1/响应时间数据_二价峰540-680nm.xlsx",
@@ -252,6 +256,8 @@
     "valid_sample_count": 4,
     "highest_divalent_contrast_sample_id": "S03",
     "highest_divalent_contrast_percent": 55.5726,
+    "highest_representative_contrast_sample_id": "S03",
+    "highest_representative_contrast_percent": 52.7774,
     "fastest_representative_coloring_sample_ids": [
       "S02",
       "S03"
@@ -260,6 +266,6 @@
     "fastest_representative_bleaching_sample_id": "S03",
     "fastest_representative_bleaching_tb_s": 0.6391,
     "peak_selection_conclusion": "Use 540-680 nm for DA divalent peak response-time extraction; 50% devices otherwise select the PBI-Cl monovalent peak near 756-761 nm.",
-    "main_conclusion": "The second 50% unclipped device shows the best combination of divalent-peak contrast and bleaching speed. The 50% clipped device has similar coloring speed but lower divalent contrast. The 70% clipped device is not affected by the monovalent peak in this dataset."
+    "main_conclusion": "The second 50% unclipped device shows the best combination of representative divalent-peak contrast and bleaching speed. Maximum contrast is retained as peak-cycle information, but representative contrast should be used for cross-sample comparison because Cycle 1 is often higher than later cycles."
   }
 }

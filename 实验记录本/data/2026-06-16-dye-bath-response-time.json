@@ -3,7 +3,7 @@
   "record_type": "spectroelectrochemical_response_time_batch",
   "batch_id": "2026-06-16-dye-bath-response-time",
   "date": "2026-06-16",
-  "modified": "2026-07-13",
+  "modified": "2026-07-15",
   "title": "过量浸泡染浴器件 PBI-Cl/ATO/LiClO4 响应时间数据",
   "source_experiment": "experiments/2026-06-16-dye-bath-uptake.md",
   "system": {
@@ -30,7 +30,8 @@
       "cycle_count": 4,
       "representative_tc_s": 1.04,
       "representative_tb_s": 0.56,
-      "representative_contrast_percent": 63.0,
+      "representative_contrast_percent": 61.60,
+      "representative_contrast_basis": "Cycle 3 coloring contrast; Cycle 1 has the maximum contrast but stable-cycle comparison should use later cycles.",
       "all_cycle_mean_tc_s": 1.16,
       "all_cycle_mean_tb_s": 0.58,
       "stable_cycle_mean_tc_s": 1.04,
@@ -97,10 +98,11 @@
     "valid_sample_count": 1,
     "lambda_max_nm": 594.77,
     "max_coloring_contrast_percent": 62.92,
+    "stable_cycle_representative_contrast_percent": 61.60,
     "all_cycle_mean_tc_s": 1.16,
     "all_cycle_mean_tb_s": 0.58,
     "stable_cycle_representative_tc_s": 1.04,
     "stable_cycle_representative_tb_s": 0.56,
-    "main_conclusion": "过量浸泡染浴器件在 594.77 nm 处可达到约 62-63% 对比度；后续稳定循环中着色时间约 1.04 s，褪色时间约 0.56-0.64 s。"
+    "main_conclusion": "过量浸泡染浴器件在 594.77 nm 处首圈最大对比度约 62.92%，稳定循环代表对比度约 61.60%；后续稳定循环中着色时间约 1.04 s，褪色时间约 0.56-0.64 s。"
   }
 }

@@ -3,7 +3,7 @@
   "record_type": "spectroelectrochemical_response_time_batch",
   "batch_id": "2026-07-04-ato-liquid-spectroechem-response-time-linear",
   "date": "2026-07-04",
-  "modified": "2026-07-13",
+  "modified": "2026-07-15",
   "title": "单双层 ATO 液态 LiClO4/ACN 器件光谱电化学响应时间测试（线性插值重算）",
   "source_experiment": "experiments/2026-07-04-ato-liquid-device-spincoat.md",
   "system": {
@@ -63,7 +63,7 @@
       "representative_statistic": "中位数",
       "response_time_method": "90% measured threshold with two-point linear interpolation",
       "data_status": "valid",
-      "quality_note": "本批最高对比度"
+      "quality_note": "本批最高代表对比度"
     },
     {
       "sample_id": "S03",
@@ -210,10 +210,12 @@
     "valid_sample_count": 9,
     "highest_contrast_sample_id": "S02",
     "highest_contrast_percent": 66.0751,
+    "highest_representative_contrast_sample_id": "S02",
+    "highest_representative_contrast_percent": 64.5486,
     "fastest_coloring_sample_id": "S06",
     "fastest_coloring_tc_s": 0.2047,
     "fastest_bleaching_sample_id": "S06",
     "fastest_bleaching_tb_s": 0.2863,
-    "main_conclusion": "线性插值重算后，单层 ATO 在 -2 / 0.5 V 条件下保持最高对比度；-3 / 1 V 条件综合响应最快但对比度下降。双层 ATO 未提高本批液态 LiClO4/ACN 器件对比度。"
+    "main_conclusion": "线性插值重算后，单层 ATO 在 -2 / 0.5 V 条件下保持最高代表对比度；-3 / 1 V 条件综合响应最快但代表对比度下降。双层 ATO 未提高本批液态 LiClO4/ACN 器件代表对比度。"
   }
 }

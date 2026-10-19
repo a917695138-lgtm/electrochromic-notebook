@@ -44,6 +44,7 @@
       "recommended_cycle": 2,
       "representative_tc_s": 0.4549,
       "representative_tb_s": 0.3759,
+      "representative_contrast_percent": 47.7822,
       "cycle_2_4_mean_tc_s": 0.4491,
       "cycle_2_4_mean_tb_s": 0.3964,
       "data_status": "valid",
@@ -67,6 +68,7 @@
       "recommended_cycle": 3,
       "representative_tc_s": 0.3625,
       "representative_tb_s": 0.2732,
+      "representative_contrast_percent": 46.4018,
       "cycle_2_4_mean_tc_s": 0.3314,
       "cycle_2_4_mean_tb_s": 0.3059,
       "data_status": "valid",
@@ -90,6 +92,7 @@
       "recommended_cycle": 3,
       "representative_tc_s": 0.4163,
       "representative_tb_s": 0.3617,
+      "representative_contrast_percent": 48.1401,
       "cycle_2_4_mean_tc_s": 0.3896,
       "cycle_2_4_mean_tb_s": 0.3597,
       "data_status": "valid",
@@ -109,6 +112,8 @@
     "fastest_representative_tb_s": 0.2732,
     "highest_contrast_sample_id": "S03",
     "highest_contrast_percent": 52.6399,
-    "main_conclusion": "2# 11 x 16 mm cavity gives the fastest response, while 3# 11 x 16 mm gives the highest divalent-peak contrast. Fixed 587.89 nm does not mis-select the monovalent peak but slightly underestimates divalent-peak contrast."
+    "highest_representative_contrast_sample_id": "S03",
+    "highest_representative_contrast_percent": 48.1401,
+    "main_conclusion": "2# 11 x 16 mm cavity gives the fastest response, while 3# 11 x 16 mm gives the highest representative divalent-peak contrast. Maximum contrast is retained as peak-cycle information; representative contrast is preferred for cavity comparison."
   }
 }

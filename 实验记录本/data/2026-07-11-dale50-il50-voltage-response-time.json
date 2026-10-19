@@ -3,7 +3,7 @@
   "record_type": "spectroelectrochemical_response_time_batch",
   "batch_id": "2026-07-11-dale50-il50-voltage-response-time",
   "date": "2026-07-11",
-  "modified": "2026-07-14",
+  "modified": "2026-07-15",
   "title": "2026-07-11 DALE50 50%离子液体固态电解质11×16腔体电压-响应时间测试",
   "source_experiment": "experiments/2026-07-11-dale50-il50-voltage-response-time.md",
   "related_experiments": [
@@ -151,18 +151,20 @@
       "std_tau_b_s": 0.0978,
       "median_coloring_contrast_percent": 53.9984,
       "median_bleaching_contrast_percent": 53.4546,
-      "quality_note": "最大对比度最高，褪色最快，综合最优"
+      "quality_note": "代表对比度最高，褪色最快，综合最优"
     }
   ],
   "analysis_summary": {
     "valid_sample_count": 6,
     "highest_contrast_sample_id": "S06",
     "highest_contrast_percent": 65.5571,
+    "highest_representative_contrast_sample_id": "S06",
+    "highest_representative_contrast_percent": 53.9984,
     "fastest_coloring_sample_id": "S05",
     "fastest_coloring_tc_s": 0.2522,
     "fastest_bleaching_sample_id": "S06",
     "fastest_bleaching_tb_s": 0.8475,
     "recommended_voltage_window": "-2 / 0.5 V",
-    "main_conclusion": "电压窗口由 -1.5 / 0 V 扩大至 -2 / 0.5 V 时，最大透过率调制幅度从 45.99% 提升至 65.56%。-1.9 / 0.4 V 着色最快，-2 / 0.5 V 对比度最高且褪色最快，综合最优。"
+    "main_conclusion": "电压窗口由 -1.5 / 0 V 扩大至 -2 / 0.5 V 时，Cycle 2-10 代表透过率调制幅度从 43.59% 提升至 54.00%。-1.9 / 0.4 V 着色最快，-2 / 0.5 V 代表对比度最高且褪色最快，综合最优。"
   }
 }

@@ -31,7 +31,7 @@
         "max_coloring_contrast_percent": 62.92,
         "stable_cycle_representative_tc_s": 1.04,
         "stable_cycle_representative_tb_s": 0.56,
-        "main_conclusion": "过量浸泡染浴器件在 594.77 nm 处可达到约 62-63% 对比度；后续稳定循环中着色时间约 1.04 s，褪色时间约 0.56-0.64 s。"
+        "main_conclusion": "过量浸泡染浴器件在 594.77 nm 处首圈最大对比度约 62.92%，稳定循环代表对比度约 61.60%；后续稳定循环中着色时间约 1.04 s，褪色时间约 0.56-0.64 s。"
       }
     },
     {
@@ -67,7 +67,7 @@
         "fastest_representative_coloring_tc_s": 0.4559,
         "fastest_representative_bleaching_sample_id": "S03",
         "fastest_representative_bleaching_tb_s": 0.6391,
-        "main_conclusion": "本批 DA/EMIMTFSI 固态电解质响应时间需按 540-680 nm 二价峰窗口取值；50% 样品若按 300-800 nm 全范围会误选 756-761 nm 附近 PBI-Cl 一价峰。50% 未夹2器件二价峰对比度最高且褪色最快。"
+        "main_conclusion": "本批 DA/EMIMTFSI 固态电解质响应时间需按 540-680 nm 二价峰窗口取值；50% 样品若按 300-800 nm 全范围会误选 756-761 nm 附近 PBI-Cl 一价峰。50% 未夹2器件二价峰代表对比度最高且褪色最快。"
       }
     },
     {
@@ -100,7 +100,7 @@
         "max_full_trace_delta_t_percent": 36.5178,
         "representative_tc_s": 0.2756,
         "representative_tb_s": 0.2773,
-        "main_conclusion": "6.16 过量浸泡染浴样品放置 14 天后，对比度从约 62-63% 降至约 35-36%，但响应时间明显缩短至约 0.28 s。"
+        "main_conclusion": "6.16 过量浸泡染浴样品放置 14 天后，代表对比度从约 61.60% 降至约 35.11%，但响应时间明显缩短至约 0.28 s。"
       }
     },
     {
@@ -204,7 +204,7 @@
         "fastest_representative_tb_s": 0.2732,
         "highest_contrast_sample_id": "S03",
         "highest_contrast_percent": 52.6399,
-        "main_conclusion": "2# 11 x 16 mm 腔体响应最快，3# 11 x 16 mm 腔体二价峰对比度最高；固定 587.89 nm 不会误选一价峰，但会略低估二价峰最大对比度。"
+        "main_conclusion": "2# 11 x 16 mm 腔体响应最快，3# 11 x 16 mm 腔体二价峰代表对比度最高；固定 587.89 nm 不会误选一价峰，但会略低估二价峰最大对比度。"
       }
     },
     {
@@ -270,7 +270,7 @@
         "fastest_coloring_tc_s": 0.2047,
         "fastest_bleaching_sample_id": "S06",
         "fastest_bleaching_tb_s": 0.2863,
-        "main_conclusion": "线性插值重算后，单层 ATO 在 -2 / 0.5 V 条件下保持最高对比度；-3 / 1 V 条件综合响应最快但对比度下降。双层 ATO 未提高本批液态 LiClO4/ACN 器件对比度。"
+        "main_conclusion": "线性插值重算后，单层 ATO 在 -2 / 0.5 V 条件下保持最高代表对比度；-3 / 1 V 条件综合响应最快但代表对比度下降。双层 ATO 未提高本批液态 LiClO4/ACN 器件代表对比度。"
       }
     },
     {
@@ -307,7 +307,7 @@
         "fastest_coloring_tc_s": 0.654,
         "fastest_bleaching_sample_id": "S04",
         "fastest_bleaching_tb_s": 0.2989,
-        "main_conclusion": "线性插值重算后，-2 / 0 V 与 -2 / 0.5 V 条件对比度最高；-2 / 0 V 着色更快，-2 / 0.5 V 褪色最快。"
+        "main_conclusion": "线性插值重算后，-2 / 0 V 与 -2 / 0.5 V 条件峰值对比度最高；按代表对比度看 -2 / 0.5 V 略高。-2 / 0 V 着色更快，-2 / 0.5 V 褪色最快。"
       }
     },
     {
@@ -378,7 +378,7 @@
         "fastest_bleaching_sample_id": "S06",
         "fastest_bleaching_tb_s": 0.8475,
         "recommended_voltage_window": "-2 / 0.5 V",
-        "main_conclusion": "电压窗口由 -1.5 / 0 V 扩大至 -2 / 0.5 V 时，最大透过率调制幅度从 45.99% 提升至 65.56%。-1.9 / 0.4 V 着色最快，-2 / 0.5 V 对比度最高且褪色最快，综合最优。"
+        "main_conclusion": "电压窗口由 -1.5 / 0 V 扩大至 -2 / 0.5 V 时，Cycle 2-10 代表透过率调制幅度从 43.59% 提升至 54.00%。-1.9 / 0.4 V 着色最快，-2 / 0.5 V 代表对比度最高且褪色最快，综合最优。"
       }
     }
   ]

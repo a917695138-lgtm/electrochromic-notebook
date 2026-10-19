@@ -4,7 +4,7 @@ title: "电致变色测试数据整理规范"
 category: "数据管理"
 tags: [测试数据, 数据已整理, 实验记录本, JSON, 光谱电化学, 响应时间, 循环稳定性, 膜厚数据]
 project: "电致变色"
-modified: "2026-07-12"
+modified: "2026-07-15"
 ---
 
 # 电致变色测试数据整理规范
@@ -99,6 +99,7 @@ data/electrochromic-test-index.json
 | `pulse_time_s` | 脉冲时间 |
 | `lambda_max_nm` | 最大对比度对应波长 |
 | `max_contrast_percent` | 最大光学对比度 |
+| `representative_contrast_percent` | 代表光学对比度，优先取代表循环或纳入统计循环的中位/均值对比度 |
 | `recommended_cycle` | 推荐取值循环 |
 | `tc_s` | 着色响应时间 |
 | `tb_s` | 褪色响应时间 |
@@ -111,6 +112,7 @@ data/electrochromic-test-index.json
 - 光谱 txt 文件名前缀必须与样品名一致。
 - 若发现混入其他样品、前缀不一致、循环异常或拟合失败，应标记为 `needs_review` 或 `excluded`，不能强行纳入主要结论。
 - 实验记录中的主要结论只基于 `valid` 数据，异常数据必须在“数据质量说明”中单独列出。
+- 响应时间类记录应同时保留最大对比度和代表对比度；当 Cycle 1 明显高于后续循环时，横向比较和结论优先使用代表对比度，最大对比度仅作为峰值信息。
 
 ## 后续自动汇总方式
 

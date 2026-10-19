@@ -21,6 +21,12 @@ class NotebookHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header("Cache-Control", "no-store")
         super().end_headers()
 
+    def do_GET(self):
+        if self.path == "/api/health":
+            self.send_json({"ok": True, "app": "electrochromic-notebook", "port": PORT})
+            return
+        super().do_GET()
+
     def do_POST(self):
         if self.path == "/api/save":
             self.save_record()

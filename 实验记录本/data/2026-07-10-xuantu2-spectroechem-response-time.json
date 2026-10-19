@@ -3,7 +3,7 @@
   "record_type": "spectroelectrochemical_response_time_batch",
   "batch_id": "2026-07-10-xuantu2-spectroechem-response-time-linear",
   "date": "2026-07-10",
-  "modified": "2026-07-13",
+  "modified": "2026-07-15",
   "title": "旋涂样品 xuantu2 液态 LiClO4/ACN 光谱电化学响应时间测试（线性插值重算）",
   "source_experiment": "experiments/2026-07-10-spectroechem-ato.md",
   "system": {
@@ -83,7 +83,7 @@
       "representative_statistic": "均值±标准差",
       "response_time_method": "90% measured threshold with two-point linear interpolation",
       "data_status": "valid",
-      "quality_note": "最高对比度并列，综合响应较均衡"
+      "quality_note": "最高峰值对比度并列，综合响应较均衡"
     },
     {
       "sample_id": "S04",
@@ -103,7 +103,7 @@
       "representative_statistic": "均值±标准差",
       "response_time_method": "90% measured threshold with two-point linear interpolation",
       "data_status": "valid",
-      "quality_note": "最高对比度并列，褪色最快"
+      "quality_note": "最高代表对比度，褪色最快"
     }
   ],
   "analysis_summary": {
@@ -113,10 +113,12 @@
       "S04"
     ],
     "highest_contrast_percent": 44.4191,
+    "highest_representative_contrast_sample_id": "S04",
+    "highest_representative_contrast_percent": 43.5954,
     "fastest_coloring_sample_id": "S03",
     "fastest_coloring_tc_s": 0.654,
     "fastest_bleaching_sample_id": "S04",
     "fastest_bleaching_tb_s": 0.2989,
-    "main_conclusion": "线性插值重算后，-2 / 0 V 与 -2 / 0.5 V 条件对比度最高；-2 / 0 V 着色更快，-2 / 0.5 V 褪色最快。"
+    "main_conclusion": "线性插值重算后，-2 / 0 V 与 -2 / 0.5 V 条件峰值对比度最高；按代表对比度看 -2 / 0.5 V 略高。-2 / 0 V 着色更快，-2 / 0.5 V 褪色最快。"
   }
 }

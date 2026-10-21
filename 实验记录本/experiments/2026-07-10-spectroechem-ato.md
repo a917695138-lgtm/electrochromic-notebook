@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "[含光谱电化学数据] 7.4旋涂样品xuantu2响应时间测试与ATO制备记录"
 date: "2026-07-10"
-category: "器件测试"
-tags: [含光谱电化学数据, 数据已整理, 光谱电化学, ATO, 响应时间, 线性插值, LiClO4, ACN, 旋涂, 单层, FTO]
-project: "电致变色"
+category: "响应时间测试"
+electrolyte: "LiClO4-ACN"
+additive: "无"
+counter_electrode: "1层ATO"
+encapsulation: "打孔注液"
+data_types: [response_time]
 status: "completed"
+tags: [光谱电化学, ATO, 响应时间, 线性插值, LiClO4, ACN, 旋涂, 单层, FTO]
+project: "电致变色"
 modified: "2026-07-15"
 related:
   - experiments/2026-07-04-ato-liquid-device-spincoat.md

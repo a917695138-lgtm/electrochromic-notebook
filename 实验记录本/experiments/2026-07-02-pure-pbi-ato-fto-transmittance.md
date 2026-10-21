@@ -1,12 +1,17 @@
 ---
-type: experiment
-title: [含UV-Vis透过率数据] 纯PBI、纯ATO、PBI+ATO与纯FTO片子透过率测试
-date: 2026-07-02
-category: 光谱表征
-tags: ["含UV-Vis透过率数据","数据已整理","UV-Vis","透过率","PBI","ATO","FTO","PBI+ATO"]
-project: 电致变色
-status: completed
-modified: 2026-07-14
+type: "experiment"
+title: "[含UV-Vis透过率数据] 纯PBI、纯ATO、PBI+ATO与纯FTO片子透过率测试"
+date: "2026-07-02"
+category: "透过率与光谱表征"
+electrolyte: "不涉及"
+additive: "不涉及"
+counter_electrode: "未标注"
+encapsulation: "不涉及"
+data_types: [uvvis]
+status: "completed"
+tags: [UV-Vis, 透过率, PBI, ATO, FTO, PBI+ATO]
+project: "电致变色"
+modified: "2026-07-14"
 ---
 
 # [含UV-Vis透过率数据] 纯PBI、纯ATO、PBI+ATO与纯FTO片子透过率测试

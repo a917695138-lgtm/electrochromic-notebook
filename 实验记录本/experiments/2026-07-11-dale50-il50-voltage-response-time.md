@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "[含光谱电化学数据] 2026-07-11 DALE50 50%离子液体固态电解质11×16腔体电压-响应时间测试"
 date: "2026-07-11"
-category: "光谱电化学"
-tags: [含光谱电化学数据, 数据已整理, DALE50, 固态电解质, 离子液体, ATO, 响应时间, 电压筛选, 11x16]
-project: "电致变色"
+category: "响应时间测试"
+electrolyte: "DALE"
+additive: "EMIMTFSI"
+counter_electrode: "1层ATO"
+encapsulation: "未标注"
+data_types: [response_time]
 status: "completed"
+tags: [DALE50, 固态电解质, 离子液体, ATO, 响应时间, 电压筛选, 11x16]
+project: "电致变色"
 modified: "2026-07-15"
 related:
   - experiments/2026-07-09-dale50-il50-solid-cycling-stability.md

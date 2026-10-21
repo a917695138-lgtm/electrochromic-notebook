@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "[含光谱电化学数据] 2026-10-13 新 PBI-Cl 批次基线性能验证（LiClO4 / 120 μm 沙林膜）"
 date: "2026-10-13"
-category: "光谱电化学"
-tags: [含光谱电化学数据, 数据已整理, 新PBI-Cl批次, 批次验证, LiClO4, 响应时间, 沙林膜]
+category: "响应时间测试"
+electrolyte: "LiClO4-ACN"
+additive: "无"
+counter_electrode: "2层ATO"
+encapsulation: "沙林膜120μm"
+data_types: [response_time]
+status: "needs_review"
+tags: [新PBI-Cl批次, 批次验证, LiClO4, 响应时间, 沙林膜]
 project: "电致变色"
-status: "completed"
 modified: "2026-10-19"
 related:
   - experiments/2026-09-19-liclo4-acn-step-time-and-fade-voltage-response-time.md

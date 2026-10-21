@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "[含光谱电化学数据] 过量浸泡染浴提高二氧化钛吸附量及器件响应时间记录"
 date: "2026-06-16"
-category: "工艺优化"
-tags: [含光谱电化学数据, 数据已整理, 染浴, 二氧化钛, 吸附量, PBI-Cl, ATO, LiClO4, CA, 对比度, 响应时间]
-project: "电致变色"
+category: "响应时间测试"
+electrolyte: "LiClO4-ACN"
+additive: "无"
+counter_electrode: "未标注"
+encapsulation: "未标注"
+data_types: [response_time]
 status: "completed"
+tags: [染浴, 二氧化钛, 吸附量, PBI-Cl, ATO, LiClO4, CA, 对比度, 响应时间]
+project: "电致变色"
 modified: "2026-07-15"
 related:
   - experiments/2026-06-10-da50e-pbi-cl-supplement.md

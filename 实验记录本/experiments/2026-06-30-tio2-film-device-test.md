@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "[含光谱电化学数据][含循环稳定性数据] TiO2薄膜制备与6.16样品放置后再测试记录"
 date: "2026-06-30"
-category: "器件制备与测试"
-tags: [含光谱电化学数据, 含循环稳定性数据, 数据已整理, TiO2, 刮涂, 打孔, 无孔, 液态电解质, PBI-Cl, LiClO4, ATO, 双层ATO, 条件筛选, 响应时间, 循环稳定性, 放置稳定性]
-project: "电致变色"
+category: "响应时间测试"
+electrolyte: "LiClO4-ACN"
+additive: "无"
+counter_electrode: "未标注"
+encapsulation: "未标注"
+data_types: [response_time, cycling]
 status: "completed"
+tags: [TiO2, 刮涂, 打孔, 无孔, 液态电解质, PBI-Cl, LiClO4, ATO, 双层ATO, 条件筛选, 响应时间, 循环稳定性, 放置稳定性]
+project: "电致变色"
 modified: "2026-07-15"
 related:
   - experiments/2026-06-16-dye-bath-uptake.md

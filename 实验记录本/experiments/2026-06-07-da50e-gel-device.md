@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "DA50%E凝胶电解质器件光谱电化学、CV/CA与循环稳定性测试"
 date: "2026-06-07"
-category: "器件测试"
+category: "循环稳定性测试"
+electrolyte: "DALE"
+additive: "无"
+counter_electrode: "未标注"
+encapsulation: "未标注"
+data_types: [cycling, response_time]
+status: "completed"
 tags: [DA50E凝胶, 光谱电化学, CV, CA, 对比度, 响应时间, 循环稳定性]
 project: "电致变色"
-status: "completed"
 modified: "2026-06-29"
 ---
 

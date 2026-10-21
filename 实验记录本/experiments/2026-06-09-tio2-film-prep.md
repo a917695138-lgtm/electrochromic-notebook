@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "TiO2制备样品数量记录"
 date: "2026-06-09"
-category: "器件制备"
+category: "薄膜制备"
+electrolyte: "不涉及"
+additive: "不涉及"
+counter_electrode: "不涉及"
+encapsulation: "不涉及"
+data_types: []
+status: "completed"
 tags: [TiO2, 制膜, 打孔, 无孔]
 project: "电致变色"
-status: "completed"
 modified: "2026-07-11"
 ---
 

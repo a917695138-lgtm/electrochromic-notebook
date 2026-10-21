@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "[含光谱电化学数据] 2026-09-19 LiClO4-ACN 基线体系：步时与褪色电位对响应时间的影响"
 date: "2026-09-19"
-category: "光谱电化学"
-tags: [含光谱电化学数据, 数据已整理, LiClO4, 步长对比, 褪色电位, 响应时间, 0FTO, 沙林膜]
-project: "电致变色"
+category: "响应时间测试"
+electrolyte: "LiClO4-ACN"
+additive: "无"
+counter_electrode: "未标注"
+encapsulation: "沙林膜120μm"
+data_types: [response_time]
 status: "completed"
+tags: [LiClO4, 步长对比, 褪色电位, 响应时间, 0FTO, 沙林膜]
+project: "电致变色"
 modified: "2026-10-19"
 related:
   - experiments/2026-09-18-liclo4-acn-emim-response-time.md

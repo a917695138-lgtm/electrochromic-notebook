@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "DA50%E器件8000次循环后补测、PBI-Cl/2ATO凝胶器件与新染浴器件测试"
 date: "2026-06-10"
-category: "器件测试"
+category: "循环稳定性测试"
+electrolyte: "DALE"
+additive: "无"
+counter_electrode: "2层ATO"
+encapsulation: "未标注"
+data_types: [cycling, response_time]
+status: "completed"
 tags: [DA50E凝胶, PBI-Cl, 染料配制, PMMA-LiTFSI, CV, CA, 响应时间, 循环稳定性, 染浴]
 project: "电致变色"
-status: "completed"
 modified: "2026-07-12"
 related:
   - experiments/2026-06-06-re-test.md

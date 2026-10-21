@@ -1,11 +1,16 @@
 ---
-type: note
+type: "note"
 title: "光谱电化学命名与配方口径（2026-10-19 确认）+ 9–10 月跨批次结论汇总"
 date: "2026-10-19"
 category: "规范与汇总"
+electrolyte: "不涉及"
+additive: "不涉及"
+counter_electrode: "不涉及"
+encapsulation: "不涉及"
+data_types: []
+status: "completed"
 tags: [命名规范, 配方口径, 跨批次汇总, 响应时间, 光谱电化学, 基线校正]
 project: "电致变色"
-status: "completed"
 modified: "2026-10-19"
 related:
   - experiments/2026-09-08-electrolyte-screening-air-baseline-response-time.md

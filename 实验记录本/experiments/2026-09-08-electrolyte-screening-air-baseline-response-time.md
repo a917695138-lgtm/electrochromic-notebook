@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "[含光谱电化学数据] 2026-09-08 四款电解液及加EMIM版本响应时间筛选（空气基线）"
 date: "2026-09-08"
-category: "光谱电化学"
-tags: [含光谱电化学数据, 数据已整理, 电解液筛选, 响应时间, 空气基线, 0FTO, PBI-Cl, ATO, EMIMTFSI]
-project: "电致变色"
+category: "响应时间测试"
+electrolyte: "多体系对比"
+additive: "EMIMTFSI"
+counter_electrode: "2层ATO"
+encapsulation: "未标注"
+data_types: [response_time]
 status: "completed"
+tags: [电解液筛选, 响应时间, 空气基线, 0FTO, PBI-Cl, ATO, EMIMTFSI]
+project: "电致变色"
 modified: "2026-10-19"
 related:
   - experiments/2026-09-08-electrolyte-screening-1fto-baseline-response-time.md

@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "ATO单层与双层样品制备编号记录"
 date: "2026-06-15"
-category: "器件制备"
+category: "薄膜制备"
+electrolyte: "不涉及"
+additive: "不涉及"
+counter_electrode: "不涉及"
+encapsulation: "不涉及"
+data_types: []
+status: "completed"
 tags: [ATO, 单层, 双层, 制膜, 编号]
 project: "电致变色"
-status: "completed"
 modified: "2026-07-12"
 ---
 

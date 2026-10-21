@@ -1,12 +1,17 @@
 ---
-type: experiment
+type: "experiment"
 title: "[含膜厚数据] PBI-Cl染料浸泡与TiO2旋涂/刮涂样品膜厚记录"
 date: "2026-07-13"
-modified: "2026-07-13"
-category: "染料浸泡与膜厚表征"
-tags: [含膜厚数据, 数据已整理, PBI-Cl, 染料浸泡, TiO2, 旋涂, 刮涂, 膜厚]
-project: "电致变色"
+category: "膜厚与形貌表征"
+electrolyte: "不涉及"
+additive: "不涉及"
+counter_electrode: "不涉及"
+encapsulation: "不涉及"
+data_types: [thickness]
 status: "completed"
+tags: [PBI-Cl, 染料浸泡, TiO2, 旋涂, 刮涂, 膜厚]
+project: "电致变色"
+modified: "2026-07-13"
 related:
   - experiments/2026-07-11-tio2-spin-coating-film.md
   - experiments/2026-07-04-ato-liquid-device-spincoat.md

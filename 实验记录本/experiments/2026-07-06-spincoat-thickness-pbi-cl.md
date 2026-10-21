@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "[含膜厚数据] 旋涂样品台阶仪厚度与PBI-Cl染料配制记录"
 date: "2026-07-06"
-category: "表征与配制"
-tags: [含膜厚数据, 数据已整理, 旋涂, 台阶仪, 厚度, PBI-Cl, 染料配制, DMF]
-project: "电致变色"
+category: "膜厚与形貌表征"
+electrolyte: "不涉及"
+additive: "不涉及"
+counter_electrode: "不涉及"
+encapsulation: "不涉及"
+data_types: [thickness]
 status: "completed"
+tags: [旋涂, 台阶仪, 厚度, PBI-Cl, 染料配制, DMF]
+project: "电致变色"
 modified: "2026-07-14"
 related:
   - experiments/2026-07-04-ato-liquid-device-spincoat.md

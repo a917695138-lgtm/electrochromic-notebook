@@ -1,11 +1,16 @@
 ---
-type: experiment
+type: "experiment"
 title: "[含光谱电化学数据] 2026-09-14 120 μm 沙林膜与 100 μm 双面胶隔层对比及 CV 预处理影响"
 date: "2026-09-14"
-category: "光谱电化学"
-tags: [含光谱电化学数据, 数据已整理, 隔层对比, 沙林膜, 双面胶, CV预处理, 响应时间, 0FTO]
+category: "响应时间测试"
+electrolyte: "多体系对比"
+additive: "EMIMTFSI"
+counter_electrode: "未标注"
+encapsulation: "多方式对比"
+data_types: [response_time]
+status: "needs_review"
+tags: [隔层对比, 沙林膜, 双面胶, CV预处理, 响应时间, 0FTO]
 project: "电致变色"
-status: "completed"
 modified: "2026-10-19"
 related:
   - experiments/2026-09-08-electrolyte-screening-air-baseline-response-time.md

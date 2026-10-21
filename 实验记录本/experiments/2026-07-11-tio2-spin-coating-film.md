@@ -1,11 +1,17 @@
 ---
-type: experiment
+type: "experiment"
 title: "TiO2旋涂浆料制备及分层制膜样品编号记录"
 date: "2026-07-11"
-modified: "2026-07-11"
+category: "薄膜制备"
+electrolyte: "不涉及"
+additive: "不涉及"
+counter_electrode: "不涉及"
+encapsulation: "不涉及"
+data_types: []
+status: "needs_review"
 tags: [TiO2, 旋涂, 制膜, 打孔, 分层]
 project: "电致变色"
-status: "completed"
+modified: "2026-07-11"
 ---
 
 # TiO2旋涂浆料制备及分层制膜样品编号记录

@@ -736,9 +736,11 @@ function dateCellLabel(meta) {
   return "-";
 }
 
+// 折叠状态键前缀：改数字即可让旧的展开/折叠记忆整体失效
+var COLLAPSE_PREFIX = "notebook-collapse-v2-";
 function getCollapseState(key, defaultCollapsed) {
   try {
-    var saved = localStorage.getItem("notebook-collapse-" + key);
+    var saved = localStorage.getItem(COLLAPSE_PREFIX + key);
     if (saved === "1") return true;
     if (saved === "0") return false;
   } catch(e) {}
@@ -843,7 +845,8 @@ function renderList() {
     var label = month === "----" ? "其他未标注日期" : month.replace("-","年")+"月";
     var stats = listSectionStats(indices);
     var monthKey = "month-" + month;
-    var collapsed = getCollapseState(monthKey, false);
+    // 默认只展开最近一个月，其余折叠（手动折叠/展开过的按 localStorage 记忆）
+    var collapsed = getCollapseState(monthKey, mi !== 0);
     html += '<div class="month-group">';
     html += '<button type="button"'+renderMonthHeaderAttrs(monthKey, collapsed)+'><span class="chevron" aria-hidden="true">▼</span> '+label+' <span class="count">'+indices.length+' 条</span><span class="month-meta">'+stats.cats+' 个分类 · '+stats.types+' 种类型</span></button>';
     html += '<div class="month-body"'+(collapsed ? ' style="display:none"' : '')+'>';
@@ -865,7 +868,7 @@ function toggleMonth(el) {
   el.setAttribute("aria-expanded", collapsed ? "false" : "true");
   var key = el.getAttribute("data-collapse-key");
   if (key) {
-    try { localStorage.setItem("notebook-collapse-" + key, collapsed ? "1" : "0"); } catch(e) {}
+    try { localStorage.setItem(COLLAPSE_PREFIX + key, collapsed ? "1" : "0"); } catch(e) {}
   }
 }
 

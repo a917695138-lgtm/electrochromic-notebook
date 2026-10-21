@@ -7,6 +7,7 @@ electrolyte: "LiClO4-ACN"
 additive: "无"
 counter_electrode: "未标注"
 encapsulation: "未标注"
+baseline: "空气基线"
 data_types: [response_time, cycling]
 status: "completed"
 tags: [TiO2, 刮涂, 打孔, 无孔, 液态电解质, PBI-Cl, LiClO4, ATO, 双层ATO, 条件筛选, 响应时间, 循环稳定性, 放置稳定性]

@@ -6,10 +6,12 @@ category: "响应时间测试"
 electrolyte: "LiClO4-ACN"
 additive: "无"
 counter_electrode: "2层ATO"
+baseline: "空气基线"
 encapsulation: "沙林膜120μm"
 data_types: [response_time]
-status: "needs_review"
-tags: [新PBI-Cl批次, 批次验证, LiClO4, 响应时间, 沙林膜]
+status: "completed"
+metrics: {"contrast": "62.7%", "coloring": "0.50 s", "bleaching": "0.75 s", "wavelength": "629.9 nm", "basis": "本批最优 new PBI-Cl −2-1（3S）"}
+tags: [新PBI-Cl批次, 批次验证, LiClO4, 响应时间, 沙林膜, 0FTO]
 modified: "2026-10-19"
 related:
   - experiments/2026-09-19-liclo4-acn-step-time-and-fade-voltage-response-time.md
@@ -35,9 +37,9 @@ related:
 | 隔层 | 120 μm 沙林膜 |
 | 电位程序 | −1.8→0 V、−2→0 V、−2→−1 V |
 | 步时 | 3 s / 5 s |
-| 基线 | 本批次文件命名未含 FTO 标记，**待确认是 0FTO 还是 1FTO** |
+| 基线 | 0FTO（空气基线）。文件命名未含 FTO 标记，按约定视为默认空气校准 |
 
-未记录项：新 PBI-Cl 批次与旧批次的合成/制膜差异、基线方式。
+未记录项：新 PBI-Cl 批次与旧批次的合成/制膜差异。
 
 ## 结果
 

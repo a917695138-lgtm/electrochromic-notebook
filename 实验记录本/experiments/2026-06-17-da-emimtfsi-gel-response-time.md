@@ -7,6 +7,7 @@ electrolyte: "DALE"
 additive: "EMIMTFSI"
 counter_electrode: "未标注"
 encapsulation: "未标注"
+baseline: "空气基线"
 data_types: [response_time]
 status: "completed"
 tags: [响应时间, DA凝胶, EMIMTFSI, PBI-Cl, 二价峰]

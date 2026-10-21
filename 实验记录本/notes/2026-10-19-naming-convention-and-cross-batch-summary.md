@@ -7,6 +7,7 @@ electrolyte: "不涉及"
 additive: "不涉及"
 counter_electrode: "不涉及"
 encapsulation: "不涉及"
+baseline: "不涉及"
 data_types: []
 status: "completed"
 tags: [命名规范, 配方口径, 跨批次汇总, 响应时间, 光谱电化学, 基线校正]

@@ -7,6 +7,7 @@ electrolyte: "DALE"
 additive: "无"
 counter_electrode: "未标注"
 encapsulation: "未标注"
+baseline: "空气基线"
 data_types: [uvvis]
 status: "completed"
 tags: [DALE, 固态电解质, ATO, FTO, 透过率, PBI-Cl, 对比度校正]

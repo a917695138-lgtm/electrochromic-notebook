@@ -7,6 +7,7 @@ electrolyte: "DALE"
 additive: "EMIMTFSI"
 counter_electrode: "1层ATO"
 encapsulation: "未标注"
+baseline: "空气基线"
 data_types: [response_time]
 status: "completed"
 tags: [DALE50, 固态电解质, 离子液体, ATO, 响应时间, 电压筛选, 11x16]

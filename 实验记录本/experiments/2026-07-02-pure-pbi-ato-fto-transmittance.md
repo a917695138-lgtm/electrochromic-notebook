@@ -7,6 +7,7 @@ electrolyte: "不涉及"
 additive: "不涉及"
 counter_electrode: "未标注"
 encapsulation: "不涉及"
+baseline: "空气基线"
 data_types: [uvvis]
 status: "completed"
 tags: [UV-Vis, 透过率, PBI, ATO, FTO, PBI+ATO]

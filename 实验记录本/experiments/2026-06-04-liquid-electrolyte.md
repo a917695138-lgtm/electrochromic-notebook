@@ -7,6 +7,7 @@ electrolyte: "LiClO4-ACN"
 additive: "无"
 counter_electrode: "未标注"
 encapsulation: "打孔注液"
+baseline: "空气基线"
 data_types: [cycling, response_time]
 status: "completed"
 tags: [液态电解质, LiClO4, ACN, 手套箱, 打孔器件, CV, CA, 循环稳定性, UV胶]

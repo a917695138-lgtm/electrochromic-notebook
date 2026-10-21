@@ -7,6 +7,7 @@ electrolyte: "不涉及"
 additive: "不涉及"
 counter_electrode: "不涉及"
 encapsulation: "不涉及"
+baseline: "不涉及"
 data_types: []
 status: "completed"
 tags: [ATO, 单层, 双层, 制膜, 编号]

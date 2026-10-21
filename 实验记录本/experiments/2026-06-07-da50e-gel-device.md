@@ -7,6 +7,7 @@ electrolyte: "DALE"
 additive: "无"
 counter_electrode: "未标注"
 encapsulation: "未标注"
+baseline: "空气基线"
 data_types: [cycling, response_time]
 status: "completed"
 tags: [DA50E凝胶, 光谱电化学, CV, CA, 对比度, 响应时间, 循环稳定性]

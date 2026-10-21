@@ -7,6 +7,7 @@ electrolyte: "不涉及"
 additive: "不涉及"
 counter_electrode: "不涉及"
 encapsulation: "不涉及"
+baseline: "不涉及"
 data_types: [thickness]
 status: "completed"
 tags: [PBI-Cl, 染料浸泡, TiO2, 旋涂, 刮涂, 膜厚]

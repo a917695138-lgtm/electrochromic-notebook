@@ -69,6 +69,11 @@ if os.path.isdir(WORKBENCH_DIR):
     with open(os.path.join(workbench_notebook, "index.html"), "w", encoding="utf-8") as f:
         f.write(readonly_html)
     shutil.copy2(data_js, os.path.join(workbench_notebook, "data.js"))
+    # 2026-10-21 拆分后，界面依赖 styles.css 与 app.js，快照必须一并带上
+    for asset in ("styles.css", "app.js"):
+        src = os.path.join(PROJECT_DIR, asset)
+        if os.path.isfile(src):
+            shutil.copy2(src, os.path.join(workbench_notebook, asset))
 
 print(f"Synced {len(records)} records to data.js and db-data.json")
 if os.path.isdir(WORKBENCH_DIR):

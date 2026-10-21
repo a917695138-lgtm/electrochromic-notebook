@@ -7,6 +7,7 @@ electrolyte: "LiClO4-ACN"
 additive: "无"
 counter_electrode: "1层ATO"
 encapsulation: "打孔注液"
+baseline: "空气基线"
 data_types: [response_time]
 status: "completed"
 tags: [光谱电化学, ATO, 响应时间, 线性插值, LiClO4, ACN, 旋涂, 单层, FTO]

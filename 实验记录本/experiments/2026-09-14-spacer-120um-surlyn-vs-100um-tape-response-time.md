@@ -6,9 +6,11 @@ category: "响应时间测试"
 electrolyte: "多体系对比"
 additive: "EMIMTFSI"
 counter_electrode: "未标注"
+baseline: "空气基线"
 encapsulation: "多方式对比"
 data_types: [response_time]
-status: "needs_review"
+status: "completed"
+metrics: {"contrast": "59.8%", "coloring": "0.31 s", "bleaching": "0.73 s", "wavelength": "604.7 nm", "basis": "本组最优 LITFSI-ACN-EMIM 120μm沙林膜 −2-1 后CV（波长存疑，见异常）"}
 tags: [隔层对比, 沙林膜, 双面胶, CV预处理, 响应时间, 0FTO]
 modified: "2026-10-19"
 related:
@@ -81,8 +83,9 @@ related:
 ## 异常
 
 - `LITFSI-ACN-EMIM −2-1（3S）after cv-2`（604.7 nm）与 `LITFSI-ACN −2-1（3S）after cv -1times`（601.6 nm）波长明显低于同组，波长判定存疑。
-- 同为 120 μm 沙林膜 + LITFSI-ACN，"120um"命名组 ΔT 为 43–45%，"120shalin 0FTO"命名组为 51–58%，相差约 13 个百分点。膜种已确认为同一材料，差异来源应在**封装压力/浸润状态或器件个体差异**。
-- 汇总工具曾把 6 条 `after cv` 记录的体系分类判为"未识别"；`after cv` 只是测试顺序标记，体系名在标题前段已给出，2026-10-19 已修正 `classify()`，本次重跑后 18 条全部正确归入 4 个体系。
+- **同体系隔层效应（2026-10-21 修正口径）**：同为 LITFSI-ACN（无 EMIM），100 μm 双面胶 ΔT 为 52.5 / 52.7 / 57.2%，120 μm 沙林膜为 42.4 / 42.4 / 43.3 / 43.4 / 43.6 / 44.8%，**相差 9–13 个百分点**——这才是真正的隔层效应，且方向与"越厚对比度越低"的直觉一致。
+- **此前"13 个百分点"的比较不成立，已更正**：旧表述把"120um 命名组（43–45%）"与"120shalin 命名组（51–58%）"当作同一体系比较，实际两者**电解质不同**——"120um"命名组为 **LITFSI-ACN（无 EMIM）**；"120shalin"命名组为 **KLDTF33-EMIMTFSI 与 LITFSI-ACN-EMIM（均含 EMIM）**。膜种同为 120 μm 沙林膜，故该差异主要来自电解质体系，不归因于封装压力或器件个体差异。
+- 数据版本说明：本批汇总于 2026-10-19 重跑（`summarize_response_time.py` 分类规则修正后），18 条全部归入 4 个体系；工具侧的处理过程记录在 `notes/2026-10-19-naming-convention-and-cross-batch-summary.md`，不在本实验记录中重复。
 
 ## 下一步
 

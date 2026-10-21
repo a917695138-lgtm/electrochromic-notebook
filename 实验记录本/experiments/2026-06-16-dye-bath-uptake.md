@@ -7,6 +7,7 @@ electrolyte: "LiClO4-ACN"
 additive: "无"
 counter_electrode: "未标注"
 encapsulation: "未标注"
+baseline: "空气基线"
 data_types: [response_time]
 status: "completed"
 tags: [染浴, 二氧化钛, 吸附量, PBI-Cl, ATO, LiClO4, CA, 对比度, 响应时间]

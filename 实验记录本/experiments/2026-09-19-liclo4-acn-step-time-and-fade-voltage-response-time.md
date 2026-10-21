@@ -7,8 +7,10 @@ electrolyte: "LiClO4-ACN"
 additive: "无"
 counter_electrode: "未标注"
 encapsulation: "沙林膜120μm"
+baseline: "空气基线"
 data_types: [response_time]
 status: "completed"
+metrics: {"contrast": "61.1%", "coloring": "0.51 s", "bleaching": "0.33 s", "wavelength": "632.2 nm", "basis": "本批最优 LICLO4-ACN −2-1（3S）"}
 tags: [LiClO4, 步长对比, 褪色电位, 响应时间, 0FTO, 沙林膜]
 modified: "2026-10-19"
 related:

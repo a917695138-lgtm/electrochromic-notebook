@@ -7,6 +7,7 @@ electrolyte: "不涉及"
 additive: "不涉及"
 counter_electrode: "不涉及"
 encapsulation: "不涉及"
+baseline: "不涉及"
 data_types: [thickness]
 status: "completed"
 tags: [旋涂, 台阶仪, 厚度, PBI-Cl, 染料配制, DMF]

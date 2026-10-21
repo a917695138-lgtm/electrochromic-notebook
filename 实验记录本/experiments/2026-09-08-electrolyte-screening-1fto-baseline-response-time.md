@@ -7,8 +7,10 @@ electrolyte: "多体系对比"
 additive: "EMIMTFSI"
 counter_electrode: "单层+双层对比"
 encapsulation: "未标注"
+baseline: "1FTO校正"
 data_types: [response_time]
 status: "completed"
+metrics: {"contrast": "63.9%", "coloring": "0.52 s", "bleaching": "0.47 s", "wavelength": "642.0 nm", "basis": "本组最优 LiClO4 1FTO −2-1（3S）"}
 tags: [电解液筛选, 响应时间, 1FTO, 基线校正, 1ATO, 2ATO, PBI-Cl]
 modified: "2026-10-19"
 related:

@@ -7,8 +7,10 @@ electrolyte: "LiClO4-ACN"
 additive: "EMIMTFSI"
 counter_electrode: "未标注"
 encapsulation: "沙林膜120μm"
+baseline: "空气基线"
 data_types: [response_time]
 status: "completed"
+metrics: {"contrast": "59.0%", "coloring": "0.59 s", "bleaching": "0.42 s", "wavelength": "635.2 nm", "basis": "本批最优 LICLO4-ACN-EMIM −2-1（3S）after cv"}
 tags: [LiClO4, EMIMTFSI, 三元电解液, 响应时间, CV预处理, 0FTO, 沙林膜]
 modified: "2026-10-19"
 related:

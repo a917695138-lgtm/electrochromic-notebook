@@ -7,6 +7,7 @@ electrolyte: "DALE"
 additive: "EMIMTFSI"
 counter_electrode: "未标注"
 encapsulation: "未标注"
+baseline: "空气基线"
 data_types: [cycling]
 status: "completed"
 tags: [DALE50, 固态电解质, 离子液体, EMIMTFSI, 11x16, CA, 光谱电化学, 循环稳定性]

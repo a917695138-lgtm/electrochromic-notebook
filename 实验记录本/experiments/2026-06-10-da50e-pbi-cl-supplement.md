@@ -7,6 +7,7 @@ electrolyte: "DALE"
 additive: "无"
 counter_electrode: "2层ATO"
 encapsulation: "未标注"
+baseline: "空气基线"
 data_types: [cycling, response_time]
 status: "completed"
 tags: [DA50E凝胶, PBI-Cl, 染料配制, PMMA-LiTFSI, CV, CA, 响应时间, 循环稳定性, 染浴]

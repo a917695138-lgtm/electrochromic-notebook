@@ -7,8 +7,10 @@ electrolyte: "多体系对比"
 additive: "EMIMTFSI"
 counter_electrode: "2层ATO"
 encapsulation: "未标注"
+baseline: "空气基线"
 data_types: [response_time]
 status: "completed"
+metrics: {"contrast": "55.7%", "coloring": "0.94 s", "bleaching": "0.58 s", "wavelength": "640.5 nm", "basis": "综合最优 LiClO4 −2-1（3S）"}
 tags: [电解液筛选, 响应时间, 空气基线, 0FTO, PBI-Cl, ATO, EMIMTFSI]
 modified: "2026-10-19"
 related:

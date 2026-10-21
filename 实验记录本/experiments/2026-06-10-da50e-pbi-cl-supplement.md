@@ -10,7 +10,6 @@ encapsulation: "未标注"
 data_types: [cycling, response_time]
 status: "completed"
 tags: [DA50E凝胶, PBI-Cl, 染料配制, PMMA-LiTFSI, CV, CA, 响应时间, 循环稳定性, 染浴]
-project: "电致变色"
 modified: "2026-07-12"
 related:
   - experiments/2026-06-06-re-test.md

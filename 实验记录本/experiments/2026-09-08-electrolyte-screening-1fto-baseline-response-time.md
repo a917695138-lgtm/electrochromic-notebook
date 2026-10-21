@@ -10,7 +10,6 @@ encapsulation: "未标注"
 data_types: [response_time]
 status: "completed"
 tags: [电解液筛选, 响应时间, 1FTO, 基线校正, 1ATO, 2ATO, PBI-Cl]
-project: "电致变色"
 modified: "2026-10-19"
 related:
   - experiments/2026-09-08-electrolyte-screening-air-baseline-response-time.md

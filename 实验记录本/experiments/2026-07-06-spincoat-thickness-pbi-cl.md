@@ -10,7 +10,6 @@ encapsulation: "不涉及"
 data_types: [thickness]
 status: "completed"
 tags: [旋涂, 台阶仪, 厚度, PBI-Cl, 染料配制, DMF]
-project: "电致变色"
 modified: "2026-07-14"
 related:
   - experiments/2026-07-04-ato-liquid-device-spincoat.md

@@ -10,7 +10,6 @@ encapsulation: "未标注"
 data_types: [response_time]
 status: "completed"
 tags: [染浴, 二氧化钛, 吸附量, PBI-Cl, ATO, LiClO4, CA, 对比度, 响应时间]
-project: "电致变色"
 modified: "2026-07-15"
 related:
   - experiments/2026-06-10-da50e-pbi-cl-supplement.md

@@ -10,7 +10,6 @@ encapsulation: "多方式对比"
 data_types: [response_time]
 status: "needs_review"
 tags: [隔层对比, 沙林膜, 双面胶, CV预处理, 响应时间, 0FTO]
-project: "电致变色"
 modified: "2026-10-19"
 related:
   - experiments/2026-09-08-electrolyte-screening-air-baseline-response-time.md

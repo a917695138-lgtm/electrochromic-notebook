@@ -10,7 +10,6 @@ encapsulation: "未标注"
 data_types: [cycling, response_time]
 status: "completed"
 tags: [DA50E凝胶, 光谱电化学, CV, CA, 对比度, 响应时间, 循环稳定性]
-project: "电致变色"
 modified: "2026-06-29"
 ---
 

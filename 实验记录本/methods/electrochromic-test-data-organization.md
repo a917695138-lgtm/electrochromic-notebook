@@ -3,7 +3,6 @@ type: method
 title: "电致变色测试数据整理规范"
 category: "数据管理"
 tags: [测试数据, 数据已整理, 实验记录本, JSON, 光谱电化学, 响应时间, 循环稳定性, 膜厚数据]
-project: "电致变色"
 modified: "2026-07-15"
 ---
 

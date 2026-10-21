@@ -4,7 +4,6 @@ title: "DA凝胶稳定性前提下器件综合性能优化方案（TiO2/PBI/ATO/
 date: "2026-06-29"
 category: "实验方案"
 tags: [DA凝胶, TiO2, PBI-Cl, ATO, 器件优化, 对比度, 响应时间, 循环稳定性, 文献依据]
-project: "电致变色"
 status: "planned"
 modified: "2026-06-29"
 related:

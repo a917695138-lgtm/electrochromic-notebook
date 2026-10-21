@@ -10,7 +10,6 @@ encapsulation: "不涉及"
 data_types: []
 status: "completed"
 tags: [TiO2, 制膜, 打孔, 无孔]
-project: "电致变色"
 modified: "2026-07-11"
 ---
 

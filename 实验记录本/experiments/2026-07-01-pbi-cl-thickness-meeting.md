@@ -10,7 +10,6 @@ encapsulation: "不涉及"
 data_types: [thickness]
 status: "completed"
 tags: [组会, PBI-Cl, 染料配制, TiO2, 厚度]
-project: "电致变色"
 modified: "2026-07-12"
 related:
   - experiments/2026-06-30-tio2-film-device-test.md

@@ -48,29 +48,16 @@ if os.path.isdir(WORKBENCH_DIR):
     with open(os.path.join(workbench_data, "research-sync-meta.json"), "w", encoding="utf-8") as f:
         json.dump(sync_meta, f, ensure_ascii=False, indent=2)
 
-# Keep the embedded fallback in index.html fresh for offline/cache-failure use.
+# index.html 已拆壳（2026-10-21）：数据只存 data.js，页面启动时外链加载。
+# 本脚本不再改写 index.html，也不再生成 实验记录本.html 副本（无入口指向它）。
 index_html = os.path.join(PROJECT_DIR, "index.html")
-with open(index_html, "r", encoding="utf-8") as f:
-    html = f.read()
-start_marker = '<script type="application/json" id="db-data">'
-start = html.find(start_marker)
-if start >= 0:
-    data_start = start + len(start_marker)
-    end = html.find("</script>", data_start)
-    if end >= 0:
-        embedded = "\n" + json.dumps(records, ensure_ascii=False, separators=(",", ":")) + "\n"
-        html = html[:data_start] + embedded + html[end:]
-        with open(index_html, "w", encoding="utf-8") as f:
-            f.write(html)
-
-mirror_html = os.path.join(PROJECT_DIR, "实验记录本.html")
-with open(mirror_html, "w", encoding="utf-8") as f:
-    f.write(html)
 
 # Embed a read-only copy of the original notebook viewer inside Pulsework.
 if os.path.isdir(WORKBENCH_DIR):
     workbench_notebook = os.path.join(WORKBENCH_DIR, "notebook")
     os.makedirs(workbench_notebook, exist_ok=True)
+    with open(index_html, "r", encoding="utf-8") as f:
+        html = f.read()
     readonly_style = """<style id="pulsework-readonly">
 #pwGate,button[onclick*="doImport"],button[onclick*="showNewMenu"],button[onclick*="openEditor"],button[onclick*="doDelete"],button[onclick*="doSave"],#dirtyTag,#saveStatus{display:none!important}
 .pulsework-readonly-note{padding:8px 16px;border-bottom:1px solid #d8e0e8;background:#eff6ff;color:#334155;font:700 12px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}

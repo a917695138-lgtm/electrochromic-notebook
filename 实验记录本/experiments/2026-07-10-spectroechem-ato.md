@@ -10,7 +10,6 @@ encapsulation: "打孔注液"
 data_types: [response_time]
 status: "completed"
 tags: [光谱电化学, ATO, 响应时间, 线性插值, LiClO4, ACN, 旋涂, 单层, FTO]
-project: "电致变色"
 modified: "2026-07-15"
 related:
   - experiments/2026-07-04-ato-liquid-device-spincoat.md

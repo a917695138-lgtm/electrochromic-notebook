@@ -10,7 +10,6 @@ encapsulation: "沙林膜120μm"
 data_types: [response_time]
 status: "completed"
 tags: [LiClO4, EMIMTFSI, 三元电解液, 响应时间, CV预处理, 0FTO, 沙林膜]
-project: "电致变色"
 modified: "2026-10-19"
 related:
   - experiments/2026-09-14-spacer-120um-surlyn-vs-100um-tape-response-time.md

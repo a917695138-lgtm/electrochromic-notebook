@@ -41,7 +41,8 @@ FOLDER_RULES = {
     "reminders": {"required": ["type", "title", "date"], "vocab": [], "lists": False},
 }
 LIST_FIELDS = {"data_types": ["response_time", "cycling", "uvvis", "thickness"]}
-SINGLE_VALUE_FIELDS = ["project"]  # 用于告警"字段只有一个取值，筛选无意义"
+# project 字段已于 2026-10-21 废弃；发现残留即告警
+FORBIDDEN_FIELDS = ["project"]
 
 
 def split_fm(text):
@@ -74,7 +75,6 @@ def unq(v):
 def main():
     warnings = []
     files = 0
-    field_values = {k: {} for k in SINGLE_VALUE_FIELDS}
 
     for folder in FOLDERS:
         p = os.path.join(PROJECT_DIR, folder)
@@ -93,6 +93,9 @@ def main():
                 continue
             rule = FOLDER_RULES.get(folder, {"required": [], "vocab": [], "lists": False})
             d = parse(fm)
+            for k in FORBIDDEN_FIELDS:
+                if k in d:
+                    warnings.append("[%s] 含已废弃字段 %s（请删除）" % (rel, k))
             for k in rule["required"]:
                 if k not in d or not unq(d.get(k, "")):
                     warnings.append("[%s] 缺少必填字段 %s" % (rel, k))
@@ -116,13 +119,6 @@ def main():
             dt = unq(d.get("date", ""))
             if dt and not re.match(r"^\d{4}-\d{2}-\d{2}$", dt):
                 warnings.append("[%s] date 格式不是 YYYY-MM-DD: %s" % (rel, dt))
-            for k in SINGLE_VALUE_FIELDS:
-                if k in d:
-                    field_values[k][unq(d[k])] = field_values[k].get(unq(d[k]), 0) + 1
-
-    for k, vals in field_values.items():
-        if len(vals) == 1:
-            warnings.append("[全局] 字段 %s 只有一个取值 %s，作为筛选条件无意义" % (k, list(vals)[0]))
 
     print("校验文件数: %d" % files)
     if warnings:
@@ -131,9 +127,6 @@ def main():
             print("  " + w)
         sys.exit(1)
     print("零告警，全部符合受控词表。")
-    if field_values:
-        for k, vals in field_values.items():
-            print("  %s 取值分布: %s" % (k, vals))
 
 
 if __name__ == "__main__":

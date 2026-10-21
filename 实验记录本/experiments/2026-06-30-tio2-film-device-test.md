@@ -10,7 +10,6 @@ encapsulation: "未标注"
 data_types: [response_time, cycling]
 status: "completed"
 tags: [TiO2, 刮涂, 打孔, 无孔, 液态电解质, PBI-Cl, LiClO4, ATO, 双层ATO, 条件筛选, 响应时间, 循环稳定性, 放置稳定性]
-project: "电致变色"
 modified: "2026-07-15"
 related:
   - experiments/2026-06-16-dye-bath-uptake.md

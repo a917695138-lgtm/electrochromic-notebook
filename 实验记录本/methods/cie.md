@@ -3,7 +3,6 @@ type: method
 title: "CIE色度测试"
 category: "光学性能"
 tags: [CIE, 色坐标, 色度, 电致变色, 吸收光谱]
-project: "电致变色"
 modified: "2026-06-02"
 ---
 

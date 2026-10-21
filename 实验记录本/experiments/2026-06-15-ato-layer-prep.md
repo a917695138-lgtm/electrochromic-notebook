@@ -10,7 +10,6 @@ encapsulation: "不涉及"
 data_types: []
 status: "completed"
 tags: [ATO, 单层, 双层, 制膜, 编号]
-project: "电致变色"
 modified: "2026-07-12"
 ---
 

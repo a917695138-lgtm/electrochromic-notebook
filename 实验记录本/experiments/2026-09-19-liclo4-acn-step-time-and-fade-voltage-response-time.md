@@ -10,7 +10,6 @@ encapsulation: "沙林膜120μm"
 data_types: [response_time]
 status: "completed"
 tags: [LiClO4, 步长对比, 褪色电位, 响应时间, 0FTO, 沙林膜]
-project: "电致变色"
 modified: "2026-10-19"
 related:
   - experiments/2026-09-18-liclo4-acn-emim-response-time.md

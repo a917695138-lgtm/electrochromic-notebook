@@ -10,7 +10,6 @@ encapsulation: "不涉及"
 data_types: []
 status: "completed"
 tags: [命名规范, 配方口径, 跨批次汇总, 响应时间, 光谱电化学, 基线校正]
-project: "电致变色"
 modified: "2026-10-19"
 related:
   - experiments/2026-09-08-electrolyte-screening-air-baseline-response-time.md

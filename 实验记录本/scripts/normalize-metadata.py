@@ -97,7 +97,7 @@ DATA_MARK_TAGS = ["含光谱电化学数据", "含循环稳定性数据", "含UV
 
 FIELD_ORDER = ["type", "title", "date", "category", "electrolyte", "additive",
                "counter_electrode", "encapsulation", "data_types", "status",
-               "tags", "project", "modified", "related"]
+               "tags", "modified", "related"]
 
 
 def split_fm(text):
@@ -217,7 +217,7 @@ def normalize(content, mapping, rel):
     if "modified" in fields:
         fields["modified"] = norm_date(fields["modified"])
 
-    for k in ("title", "project", "type"):
+    for k in ("title", "type"):
         if k in fields:
             fields[k] = strip_quotes(fields[k])
 

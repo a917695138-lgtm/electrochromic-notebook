@@ -3,7 +3,6 @@ type: method
 title: "电致变色器件制备"
 category: "器件制备"
 tags: [器件制备, FTO, TiO2, PBI, ATO, 刮涂, 旋涂, 沙林膜封装]
-project: "电致变色"
 modified: "2026-07-12"
 ---
 

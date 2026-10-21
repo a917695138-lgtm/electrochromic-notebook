@@ -10,7 +10,6 @@ encapsulation: "不涉及"
 data_types: [thickness]
 status: "completed"
 tags: [PBI-Cl, 染料浸泡, TiO2, 旋涂, 刮涂, 膜厚]
-project: "电致变色"
 modified: "2026-07-13"
 related:
   - experiments/2026-07-11-tio2-spin-coating-film.md

@@ -10,7 +10,6 @@ encapsulation: "未标注"
 data_types: [cycling]
 status: "completed"
 tags: [DALE50, 固态电解质, 离子液体, EMIMTFSI, 11x16, CA, 光谱电化学, 循环稳定性]
-project: "电致变色"
 modified: "2026-07-14"
 related:
   - experiments/2026-06-30-tio2-film-device-test.md

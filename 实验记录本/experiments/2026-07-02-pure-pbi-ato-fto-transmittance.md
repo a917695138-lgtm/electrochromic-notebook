@@ -10,7 +10,6 @@ encapsulation: "不涉及"
 data_types: [uvvis]
 status: "completed"
 tags: [UV-Vis, 透过率, PBI, ATO, FTO, PBI+ATO]
-project: "电致变色"
 modified: "2026-07-14"
 ---
 

@@ -10,7 +10,6 @@ encapsulation: "未标注"
 data_types: [uvvis]
 status: "completed"
 tags: [DALE, 固态电解质, ATO, FTO, 透过率, PBI-Cl, 对比度校正]
-project: "电致变色"
 modified: "2026-07-14"
 related:
   - experiments/2026-07-09-dale50-il50-solid-cycling-stability.md

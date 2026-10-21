@@ -10,7 +10,6 @@ encapsulation: "不涉及"
 data_types: []
 status: "needs_review"
 tags: [TiO2, 旋涂, 制膜, 打孔, 分层]
-project: "电致变色"
 modified: "2026-07-11"
 ---
 

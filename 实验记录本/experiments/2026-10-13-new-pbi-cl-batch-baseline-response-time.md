@@ -10,7 +10,6 @@ encapsulation: "沙林膜120μm"
 data_types: [response_time]
 status: "needs_review"
 tags: [新PBI-Cl批次, 批次验证, LiClO4, 响应时间, 沙林膜]
-project: "电致变色"
 modified: "2026-10-19"
 related:
   - experiments/2026-09-19-liclo4-acn-step-time-and-fade-voltage-response-time.md

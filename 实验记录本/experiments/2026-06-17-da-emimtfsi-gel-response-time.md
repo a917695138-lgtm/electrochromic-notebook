@@ -10,7 +10,6 @@ encapsulation: "未标注"
 data_types: [response_time]
 status: "completed"
 tags: [响应时间, DA凝胶, EMIMTFSI, PBI-Cl, 二价峰]
-project: "电致变色"
 modified: "2026-07-15"
 related:
   - experiments/2026-06-07-da50e-gel-device.md

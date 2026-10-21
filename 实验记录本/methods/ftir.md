@@ -3,7 +3,6 @@ type: method
 title: "FTIR测试"
 category: "分子结构分析"
 tags: [FTIR, 红外光谱, 官能团, 化学键]
-project: "电致变色"
 modified: "2026-06-02"
 ---
 

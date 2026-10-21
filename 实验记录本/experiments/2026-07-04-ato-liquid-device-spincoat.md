@@ -10,7 +10,6 @@ encapsulation: "未标注"
 data_types: [response_time]
 status: "completed"
 tags: [ATO, 液态电解质, LiClO4, ACN, 光谱电化学, 响应时间, 线性插值, 旋涂, 单层, 双层]
-project: "电致变色"
 modified: "2026-07-15"
 ---
 

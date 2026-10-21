@@ -10,7 +10,6 @@ encapsulation: "打孔注液"
 data_types: [cycling, response_time]
 status: "completed"
 tags: [液态电解质, LiClO4, ACN, 手套箱, 打孔器件, CV, CA, 循环稳定性, UV胶]
-project: "电致变色"
 modified: "2026-07-12"
 ---
 

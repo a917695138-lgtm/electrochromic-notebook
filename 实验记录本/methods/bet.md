@@ -3,7 +3,6 @@ type: method
 title: "BET测试"
 category: "比表面积与孔结构"
 tags: [BET, 比表面积, 孔径分布, 氮气吸附]
-project: "电致变色"
 modified: "2026-06-02"
 ---
 

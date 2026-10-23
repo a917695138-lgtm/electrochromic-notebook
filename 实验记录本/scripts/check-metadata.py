@@ -41,7 +41,7 @@ FOLDER_RULES = {
     "data": {"required": [], "vocab": [], "lists": False},
     "reminders": {"required": ["type", "title", "date"], "vocab": [], "lists": False},
 }
-LIST_FIELDS = {"data_types": ["response_time", "cycling", "uvvis", "thickness"]}
+LIST_FIELDS = {"data_types": ["response_time", "cycling", "uvvis", "thickness", "sem", "eds"]}
 # project 字段已于 2026-10-21 废弃；发现残留即告警
 FORBIDDEN_FIELDS = ["project"]
 

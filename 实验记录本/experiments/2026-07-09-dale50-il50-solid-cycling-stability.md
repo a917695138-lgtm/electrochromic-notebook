@@ -6,7 +6,7 @@ category: "循环稳定性测试"
 electrolyte: "DALE"
 additive: "EMIMTFSI"
 counter_electrode: "2层ATO"
-encapsulation: "未标注"
+encapsulation: "不涉及"
 baseline: "空气基线"
 data_types: [cycling]
 status: "completed"

@@ -6,7 +6,7 @@ category: "透过率与光谱表征"
 electrolyte: "DALE"
 additive: "无"
 counter_electrode: "单层+双层对比"
-encapsulation: "未标注"
+encapsulation: "不涉及"
 baseline: "空气基线"
 data_types: [uvvis]
 status: "completed"

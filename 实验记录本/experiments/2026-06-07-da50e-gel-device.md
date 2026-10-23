@@ -5,7 +5,7 @@ date: "2026-06-07"
 category: "循环稳定性测试"
 electrolyte: "DALE"
 additive: "无"
-counter_electrode: "未标注"
+counter_electrode: "2层ATO"
 encapsulation: "未标注"
 baseline: "空气基线"
 data_types: [cycling, response_time]

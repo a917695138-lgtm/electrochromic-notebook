@@ -5,7 +5,7 @@ date: "2026-07-10"
 category: "透过率与光谱表征"
 electrolyte: "DALE"
 additive: "无"
-counter_electrode: "未标注"
+counter_electrode: "单层+双层对比"
 encapsulation: "未标注"
 baseline: "空气基线"
 data_types: [uvvis]

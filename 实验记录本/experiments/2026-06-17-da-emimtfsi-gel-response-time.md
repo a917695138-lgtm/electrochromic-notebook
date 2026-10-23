@@ -5,7 +5,7 @@ date: "2026-06-17"
 category: "响应时间测试"
 electrolyte: "DALE"
 additive: "EMIMTFSI"
-counter_electrode: "未标注"
+counter_electrode: "2层ATO"
 encapsulation: "未标注"
 baseline: "空气基线"
 data_types: [response_time]

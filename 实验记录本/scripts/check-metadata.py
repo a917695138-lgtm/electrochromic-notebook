@@ -18,7 +18,7 @@ FOLDERS = ["experiments", "notes", "plans", "methods", "data", "reminders"]
 VOCAB = {
     "category": ["薄膜制备", "染料配制与染浴", "器件组装与封装", "响应时间测试",
                  "循环稳定性测试", "透过率与光谱表征", "膜厚与形貌表征",
-                 "规范与汇总", "组会与讨论"],
+                 "表面与界面表征", "规范与汇总", "组会与讨论"],
     "electrolyte": ["LiClO4-ACN", "LiTFSI-ACN", "DALE", "PMMA凝胶", "多体系对比", "不涉及", "未标注"],
     "additive": ["EMIMTFSI", "无", "不涉及"],
     "counter_electrode": ["1层ATO", "2层ATO", "单层+双层对比", "未标注", "不涉及"],
@@ -41,7 +41,7 @@ FOLDER_RULES = {
     "data": {"required": [], "vocab": [], "lists": False},
     "reminders": {"required": ["type", "title", "date"], "vocab": [], "lists": False},
 }
-LIST_FIELDS = {"data_types": ["response_time", "cycling", "uvvis", "thickness", "sem", "eds"]}
+LIST_FIELDS = {"data_types": ["response_time", "cycling", "uvvis", "thickness", "sem", "eds", "xps"]}
 # project 字段已于 2026-10-21 废弃；发现残留即告警
 FORBIDDEN_FIELDS = ["project"]
 

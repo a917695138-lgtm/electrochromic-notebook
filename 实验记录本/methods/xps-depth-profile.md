@@ -73,7 +73,7 @@ modified: "2026-10-24"
 | 深度剖析 | 4 个样品，按溅射时间分目录：样品 1/2/3 为 0、20、60、180 s；样品 4 仅 1 个采集点 |
 
 > 数据包（VAMAS 文件头）中**未记录**溅射离子能量、束流、溅射速率等参数，
-> 亦无法据此换算实际刻蚀深度（nm）。若要做定量深度标度，需向测试方索取溅射条件与标定值。
+> 因此本次以**溅射时间**为深度轴，不做时间到 nm 的换算。
 
 ## 三、关注的特征峰（文献调研汇总）
 
@@ -100,6 +100,9 @@ modified: "2026-10-24"
 6. *Hybrid Crosslinked Solid Polymer Electrolyte via In-Situ Solidification Enables High-Performance Solid-State Lithium Metal Batteries*
 
 调研原稿：`D:\Desktop\XPS\界面 深度XPS扫描条件调研.docx`
+实测数据：`D:\Desktop\XPS\XPS-2-20125110-23634-155419-20261021_1.zip`
+
+> 原始数据只保留在本地，记录本与 GitHub 上仅记录存放路径，不上传任何谱图数据文件。
 
 ## 四、数据分析要点
 

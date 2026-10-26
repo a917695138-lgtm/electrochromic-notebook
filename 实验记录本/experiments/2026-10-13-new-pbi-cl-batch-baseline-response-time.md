@@ -1,24 +1,29 @@
 ---
 type: "experiment"
-title: "[含光谱电化学数据] 2026-10-13 新 PBI-Cl 批次基线性能验证（LiClO4 / 120 μm 沙林膜）"
+title: "[含光谱电化学数据] 2026-10-13 新 PBI-Cl 批次基线性能验证 + XRD（DALE00-50/PEO/PEG/DAE50）+ 10×10 阵列 TiO₂ 烧制"
 date: "2026-10-13"
 category: "响应时间测试"
-electrolyte: "LiClO4-ACN"
+electrolyte: "多体系对比"
 additive: "无"
 counter_electrode: "2层ATO"
 baseline: "空气基线"
 encapsulation: "沙林膜120μm"
 data_types: [response_time]
-status: "completed"
+status: "needs_review"
 metrics: {"contrast": "62.7%", "coloring": "0.50 s", "bleaching": "0.75 s", "wavelength": "629.9 nm", "basis": "本批最优 new PBI-Cl −2-1（3S）"}
-tags: [新PBI-Cl批次, 批次验证, LiClO4, 响应时间, 沙林膜, 0FTO]
-modified: "2026-10-19"
+tags: [新PBI-Cl批次, 批次验证, LiClO4, 响应时间, 沙林膜, 0FTO, XRD, 10x10阵列, TiO2]
+modified: "2026-10-26"
 related:
   - experiments/2026-09-19-liclo4-acn-step-time-and-fade-voltage-response-time.md
   - experiments/2026-09-18-liclo4-acn-emim-response-time.md
+  - experiments/2026-10-12-cleaning-10x10-array-devices.md
+  - experiments/2026-10-14-double-layer-ato-and-10x10-array-ato.md
+  - notes/2026-10-19-naming-convention-and-cross-batch-summary.md
 ---
 
-# [含光谱电化学数据] 2026-10-13 新 PBI-Cl 批次基线性能验证（LiClO4 / 120 μm 沙林膜）
+# [含光谱电化学数据] 2026-10-13 新 PBI-Cl 批次基线性能验证 + XRD + 10×10 阵列 TiO₂ 烧制
+
+> 同一天的三项工作合并记录：新 PBI-Cl 批次响应时间测试、XRD 物相测试、10×10 阵列展示器件 TiO₂ 烧制。
 
 ## 测试体系与数据来源
 
@@ -70,3 +75,43 @@ related:
 - 确认本批次基线方式后，与 0919 的 ΔT 对比才完全成立。
 
 > 本记录仅含响应时间与光学对比度数据，长循环等其他数据尚未处理，未录入。
+
+---
+
+# 同日其余两项工作
+
+## 一、XRD 测试
+
+| 项目 | 内容 |
+|---|---|
+| 测试对象 | **DALE00 – DALE50、PEO、PEG、DAE50** |
+| 目的 | 对比不同电解质体系的结晶性与物相（DALE 系列 vs 线性聚合物对照 PEO / PEG vs 无锂盐体系 DAE50） |
+
+样品覆盖了三条对照线索：DALE 系列（含 LiTFSI + EMIMTFSI）、无锂盐体系 DAE50、
+以及线型聚醚对照 PEO 与 PEG，用于判断 DA 交联网络对结晶行为的抑制效果。
+
+### 原始数据
+
+- **`D:\Desktop\XRD\原始数据\20261013 DALE00-50  PEO PEG DAE50`**
+- 数据只保留在本地，记录本与 GitHub 上仅登记存放路径，不上传数据文件。
+
+### 待补清单
+
+| # | 待补项 | 说明 |
+|---|---|---|
+| 1 | 测试参数 | 扫描范围、步长、扫速、靶材（Cu Kα？） |
+| 2 | 谱图处理 | 未做物相检索与结晶度计算 |
+
+## 二、烧制 10×10 阵列展示器件的 TiO₂ 层
+
+对 10-12 清洗好的 10×10 阵列展示器件烧制 TiO₂ 层，共 3 片，变色层做法分两组：
+
+| 片数 | 成膜方式 | 变色层尺寸 |
+|---|---|---|
+| 2 片 | **刮涂** | 1.5 × 1.5 cm |
+| 1 片 | **旋涂** | 2 × 2 cm |
+
+> 展示器件在同一批里同时采用刮涂与旋涂两种成膜方式，尺寸也不同，
+> 后续若要做性能对比须注意这是一个混杂变量。
+
+烧结程序见 `methods/device-fabrication.md`（500 ℃ 保温 30 min）。

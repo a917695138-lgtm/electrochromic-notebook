@@ -14,7 +14,7 @@ metrics: {"contrast": "59.8%", "coloring": "0.31 s", "bleaching": "0.73 s", "wav
 tags: [隔层对比, 沙林膜, 双面胶, CV预处理, 响应时间, 0FTO]
 modified: "2026-10-19"
 related:
-  - experiments/2026-09-08-electrolyte-screening-air-baseline-response-time.md
+  - experiments/2026-09-08-electrolyte-screening-response-time.md
   - experiments/2026-09-19-liclo4-acn-step-time-and-fade-voltage-response-time.md
 ---
 

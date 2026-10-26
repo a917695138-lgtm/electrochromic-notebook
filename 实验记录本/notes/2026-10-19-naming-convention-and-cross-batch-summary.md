@@ -13,8 +13,7 @@ status: "completed"
 tags: [命名规范, 配方口径, 跨批次汇总, 响应时间, 光谱电化学, 基线校正, DALE, EO-Li比]
 modified: "2026-10-26"
 related:
-  - experiments/2026-09-08-electrolyte-screening-air-baseline-response-time.md
-  - experiments/2026-09-08-electrolyte-screening-1fto-baseline-response-time.md
+  - experiments/2026-09-08-electrolyte-screening-response-time.md
   - experiments/2026-09-14-spacer-120um-surlyn-vs-100um-tape-response-time.md
   - experiments/2026-09-18-liclo4-acn-emim-response-time.md
   - experiments/2026-09-19-liclo4-acn-step-time-and-fade-voltage-response-time.md

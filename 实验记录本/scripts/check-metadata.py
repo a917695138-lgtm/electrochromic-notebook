@@ -24,7 +24,7 @@ VOCAB = {
     "additive": ["EMIMTFSI", "无", "不涉及"],
     "counter_electrode": ["1层ATO", "2层ATO", "单层+双层对比", "未标注", "不涉及"],
     "encapsulation": ["沙林膜60μm", "沙林膜120μm", "双面胶100μm", "打孔注液", "多方式对比", "未标注", "不涉及"],
-    "baseline": ["空气基线", "1FTO校正", "不涉及", "未标注"],
+    "baseline": ["空气基线", "1FTO校正", "多基线对比", "不涉及", "未标注"],
     "status": ["completed", "needs_review", "in-progress", "planned"],
 }
 # 按文件夹分级：实验类要全套受控字段，方法/方案类不要求电解质与器件字段

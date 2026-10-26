@@ -34,8 +34,8 @@ related:
 
 | 样品 | 配方含义 | 数据位置（155419 数据集） |
 |---|---|---|
-| DALE50 | DA + LiTFSI + EMIMTFSI，离子液体含量 50% | 位置 1 |
-| DALE00 | DA + LiTFSI，离子液体含量 0%（无 EMIMTFSI 对照） | 位置 2 |
+| DALE50 | DA + LiTFSI + EMIMTFSI，**EO : Li = 50** | 位置 1 |
+| DALE00 | DA + LiTFSI，**未添加 EMIMTFSI** 的 DA 体系对照 | 位置 2 |
 | CF DALE50 | DALE50 配方，**非原位固定**电解质器件 | 位置 3 |
 | DAE50 | DA + EMIMTFSI 50%，**无锂盐**体系 | 位置 4 |
 

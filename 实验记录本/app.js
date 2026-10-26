@@ -724,8 +724,11 @@ function filter() {
     var ok = true;
     if (tf && m.type !== tf) ok = false;
     if (sf && m.status !== sf) ok = false;
+    var fsel = ACTIVE_FACETS["__folder"];
+    if (fsel && fsel.length && fsel.indexOf(d.folder) < 0) ok = false;
     for (var fk in ACTIVE_FACETS) {
       if (!Object.prototype.hasOwnProperty.call(ACTIVE_FACETS, fk)) continue;
+      if (fk === "__folder") continue;
       var fvals = ACTIVE_FACETS[fk];
       if (fvals && fvals.length && fvals.indexOf(m[fk] || "") < 0) ok = false;
     }
@@ -1181,6 +1184,7 @@ var SORT_DESC = true;
 var ACTIVE_FACETS = {};
 var VIEW_MODE = "list";
 var FACET_DEFS = [
+  {key:"__folder", label:"文档类型"},
   {key:"category", label:"分类"},
   {key:"electrolyte", label:"电解质"},
   {key:"additive", label:"添加剂"},
@@ -1203,15 +1207,62 @@ function setFilterCount(n) {
 }
 
 // ---------- 分面筛选 ----------
+var FOLDER_LABELS = {"experiments":"实验记录","plans":"实验方案","methods":"方法页","notes":"规范与汇总","reminders":"提醒","data":"数据"};
+var FOLDER_ORDER = ["experiments","plans","methods","notes","reminders","data"];
+
+function folderLabel(f){ return FOLDER_LABELS[f] || f; }
+
+// 当前文档类型筛选范围；未选类型时返回 null（表示全部）
+function facetScope() {
+  var sel = ACTIVE_FACETS["__folder"];
+  if (!sel || !sel.length) return null;
+  var set = {};
+  for (var i = 0; i < sel.length; i++) set[sel[i]] = 1;
+  return set;
+}
+
 function renderFacets() {
   var bar = document.getElementById("facetBar");
   if (!bar) return;
   var html = "";
+  var scope = facetScope();
+  var i, k;
+
+  // 1) 文档类型：一级分面，始终统计全部记录，便于切换
+  var folderVals = {};
+  for (i = 0; i < DB.length; i++) {
+    var f = DB[i].folder;
+    folderVals[f] = (folderVals[f] || 0) + 1;
+  }
+  var fkeys = [];
+  for (var o = 0; o < FOLDER_ORDER.length; o++) {
+    if (folderVals[FOLDER_ORDER[o]]) fkeys.push(FOLDER_ORDER[o]);
+  }
+  for (k in folderVals) {
+    if (Object.prototype.hasOwnProperty.call(folderVals, k) && fkeys.indexOf(k) < 0) fkeys.push(k);
+  }
+  if (fkeys.length >= 2) {
+    html += '<div class="facet-group"><span class="facet-label">文档类型</span>';
+    for (var fk = 0; fk < fkeys.length; fk++) {
+      var fv = fkeys[fk];
+      var fon = (ACTIVE_FACETS["__folder"] || []).indexOf(fv) >= 0;
+      html += '<button type="button" class="facet-chip' + (fon ? ' on' : '') + '" onclick="toggleFacet(\'__folder\',\'' + escAttr(fv) + '\')">' + escHtml(folderLabel(fv)) + ' ' + folderVals[fv] + '</button>';
+    }
+    html += '</div>';
+  }
+
+  // 2) 其余分面：只统计当前文档类型范围内的记录
+  var pool = [];
+  for (i = 0; i < DB.length; i++) {
+    if (scope && !scope[DB[i].folder]) continue;
+    pool.push(DB[i]);
+  }
   for (var fi = 0; fi < FACET_DEFS.length; fi++) {
     var def = FACET_DEFS[fi];
+    if (def.key === "__folder") continue;
     var vals = {};
-    for (var i = 0; i < DB.length; i++) {
-      var m = parseFM(DB[i].content);
+    for (i = 0; i < pool.length; i++) {
+      var m = parseFM(pool[i].content);
       var v = m[def.key] || "";
       if (FACET_SKIP[v]) continue;
       vals[v] = (vals[v] || 0) + 1;
@@ -1219,7 +1270,7 @@ function renderFacets() {
     var keys = Object.keys(vals).sort(function(a,b){ return vals[b]-vals[a]; });
     if (keys.length < 2) continue;
     html += '<div class="facet-group"><span class="facet-label">' + def.label + '</span>';
-    for (var k = 0; k < keys.length; k++) {
+    for (k = 0; k < keys.length; k++) {
       var on = (ACTIVE_FACETS[def.key] || []).indexOf(keys[k]) >= 0;
       html += '<button type="button" class="facet-chip' + (on ? ' on' : '') + '" onclick="toggleFacet(\'' + def.key + '\',\'' + escAttr(keys[k]) + '\')">' + escHtml(keys[k]) + ' ' + vals[keys[k]] + '</button>';
     }
@@ -1250,7 +1301,8 @@ function renderActiveFilters() {
     var label = key;
     for (var f = 0; f < FACET_DEFS.length; f++) if (FACET_DEFS[f].key === key) label = FACET_DEFS[f].label;
     for (var j = 0; j < ACTIVE_FACETS[key].length; j++) {
-      html += '<span class="af-chip">' + escHtml(label) + '：' + escHtml(ACTIVE_FACETS[key][j]) +
+      var shown = (key === "__folder") ? folderLabel(ACTIVE_FACETS[key][j]) : ACTIVE_FACETS[key][j];
+      html += '<span class="af-chip">' + escHtml(label) + '：' + escHtml(shown) +
               '<button type="button" onclick="toggleFacet(\'' + key + '\',\'' + escAttr(ACTIVE_FACETS[key][j]) + '\')" aria-label="移除筛选">✕</button></span>';
     }
   }

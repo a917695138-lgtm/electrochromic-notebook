@@ -1,0 +1,58 @@
+---
+type: "experiment"
+title: "2026-10-28 EIS 阻抗测试（DALE50 / DALE00 / CF DALE50 六个样品）+ 裂缝器件变色展示"
+date: "2026-10-28"
+category: "电化学阻抗测试"
+electrolyte: "DALE"
+additive: "不涉及"
+counter_electrode: "不涉及"
+encapsulation: "不涉及"
+baseline: "不涉及"
+data_types: []
+status: "needs_review"
+tags: [EIS, 电化学阻抗, DALE50, DALE00, CF器件, 裂缝器件, 机械鲁棒性]
+modified: "2026-11-03"
+related:
+  - experiments/2026-10-15-group-meeting-and-eis-test.md
+  - methods/eis.md
+---
+
+# 2026-10-28 EIS 阻抗测试 + 裂缝器件变色展示
+
+## 一、EIS 阻抗测试
+
+### 样品
+
+| 编号 | 体系 |
+|------|------|
+| DALE50-1 | DALE50 |
+| DALE50-2 | DALE50 |
+| DALE00-3 | DALE00（无 EMIMTFSI 对照） |
+| DALE00-4 | DALE00（无 EMIMTFSI 对照） |
+| CF DALE50-5 | CF DALE50（非原位固定电解质器件） |
+| CF DALE50-6 | CF DALE50（原始口述中写作"DF DALE50-6"，2026-11-03 经用户确认为 CF 笔误） |
+
+### 结果
+
+EIS 数据已采集，**未处理**（未做等效电路拟合与离子电导计算）。
+操作流程与拟合步骤见 `methods/eis.md`。
+
+## 二、裂缝器件变色展示
+
+将 **PBI 片（工作片）裂开**，导电后器件**仍可正常变色**。
+
+说明 DALE50 固态电解质的优势：固态电解质膜对断裂的工作片起自支撑与界面保持作用，
+**即使工作片断裂也不破坏变色行为**——液态体系下工作片断裂会导致电解液泄漏、
+导电通路中断，器件随即失效。
+
+## 待补清单
+
+| # | 待补项 | 说明 |
+|---|--------|------|
+| 1 | EIS 原始数据路径 | 未提供，需补记本地路径 |
+| 2 | 测试条件 | 频率范围、振幅、偏置电位、温度、夹具方式 |
+| 3 | 等效电路拟合 | 未做；拟合结果与离子电导待补 |
+
+## 原始数据
+
+- EIS 数据：**待补本地路径**（数据只留本地，记录本不上传数据文件）

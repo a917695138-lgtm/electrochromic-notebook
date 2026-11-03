@@ -215,6 +215,7 @@ body{overflow-x:hidden}
 .read-content h3{font-size:13px;font-weight:800;margin:12px 0 7px;padding:4px 8px;border-left:3px solid #f97316;border-radius:6px;background:#fff7ed;color:#9a3412;scroll-margin-top:120px}
 .read-content h1:target,.read-content h2:target,.read-content h3:target,.read-content .jump-focus{outline:3px solid rgba(249,115,22,.32);box-shadow:0 0 0 6px rgba(249,115,22,.12)}
 .read-content p{margin:6px 0}
+.read-content img{max-width:100%;height:auto;display:block;margin:12px auto;border:1px solid var(--c-border);border-radius:8px;box-shadow:var(--shadow-sm)}
 .read-content ul,.read-content ol{margin:4px 0;padding-left:22px}
 .read-content li{margin:2px 0}
 .read-content code{font-family:var(--font-mono);font-size:12px;background:#f5f5f5;padding:1px 5px;border-radius:3px}

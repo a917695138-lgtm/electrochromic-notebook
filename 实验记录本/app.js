@@ -144,7 +144,7 @@ function normalizeMarkdownHref(href) {
   if (/^[A-Za-z]:[\\/]/.test(out)) out = "file:///" + out.replace(/\\/g, "/");
   if (/^file:\/\//i.test(out)) out = out.replace(/\\/g, "/");
   if (/^(https?:|file:|mailto:)/i.test(out)) return out;
-  if (/^(data|experiments|plans|methods|notes|reminders)\//.test(out)) return out;
+  if (/^(data|experiments|plans|methods|notes|reminders|assets)\//.test(out)) return out;
   if (/^\.\.?\//.test(out)) return out;
   return "";
 }
@@ -272,6 +272,12 @@ function renderMarkdown(md) {
     }
     out += '<\/tbody><\/table><\/div>';
     return out;
+  });
+  // Inline images: ![alt](src)（必须先于链接替换，否则 [alt](src) 会被当成普通链接）
+  html = html.replace(/!\[([^\]\n]*)\]\(([^)\n]+)\)/g, function(_, alt, src) {
+    var safeSrc = normalizeMarkdownHref(src);
+    if (!safeSrc) return alt;
+    return '<img src="' + escAttr(safeSrc) + '" alt="' + escAttr(alt) + '" loading="lazy">';
   });
   html = renderMarkdownLinks(html);
   html = html.replace(/^[\-\*] (.+)$/gm, '<li>$1<\/li>');

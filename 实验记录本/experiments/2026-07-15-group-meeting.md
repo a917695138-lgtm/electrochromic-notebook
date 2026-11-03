@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-07-15 组会"
 date: "2026-07-15"
-category: "组会与讨论"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "不适用"
 data_types: []
 status: "needs_review"
-tags: [组会, 讨论]
+tags: [组会, 讨论, 组会与讨论]
 modified: "2026-10-26"
 ---
 

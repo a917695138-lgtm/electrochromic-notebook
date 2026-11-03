@@ -1,8 +1,9 @@
 ---
 type: method
 title: "AFM测试"
-category: "形貌表征"
-tags: [AFM, 原子力显微镜, 形貌, 粗糙度]
+system: "通用"
+stage: "不适用"
+tags: [AFM, 原子力显微镜, 形貌, 粗糙度, 形貌表征]
 modified: "2026-06-02"
 ---
 

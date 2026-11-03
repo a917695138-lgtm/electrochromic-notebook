@@ -1,7 +1,8 @@
 ---
 type: method
 title: "EDS测试"
-category: "元素分析"
+system: "通用"
+stage: "不适用"
 tags: [EDS, 能谱, 元素分析, SEM]
 modified: "2026-06-02"
 ---

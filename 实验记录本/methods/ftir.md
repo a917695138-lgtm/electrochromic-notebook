@@ -1,8 +1,9 @@
 ---
 type: method
 title: "FTIR测试"
-category: "分子结构分析"
-tags: [FTIR, 红外光谱, 官能团, 化学键]
+system: "通用"
+stage: "不适用"
+tags: [FTIR, 红外光谱, 官能团, 化学键, 分子结构分析]
 modified: "2026-06-02"
 ---
 

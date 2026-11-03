@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-29 染浴 TiO₂ 片 24 个（PBI-Cl 1.00 mM / DMF）"
 date: "2026-10-29"
-category: "染料配制与染浴"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "制备"
 data_types: []
 status: "completed"
-tags: [染浴, PBI-Cl, DMF, TiO2片, 染料配制]
+tags: [染浴, PBI-Cl, DMF, TiO2片, 染料配制, 染料配制与染浴]
 modified: "2026-11-03"
 related:
   - experiments/2026-10-27-cross-section-sem-sei-and-tio2-24pcs.md

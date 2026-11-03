@@ -2,15 +2,11 @@
 type: "experiment"
 title: "[含膜厚数据] 组会、PBI-Cl染料配制与TiO2薄膜厚度表征记录"
 date: "2026-07-01"
-category: "膜厚与形貌表征"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "测试与表征"
 data_types: [thickness]
 status: "completed"
-tags: [组会, PBI-Cl, 染料配制, TiO2, 厚度]
+tags: [组会, PBI-Cl, 染料配制, TiO2, 厚度, 膜厚与形貌表征]
 modified: "2026-07-12"
 related:
   - experiments/2026-06-30-tio2-film-device-test.md

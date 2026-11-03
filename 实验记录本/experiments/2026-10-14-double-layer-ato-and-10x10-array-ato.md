@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-14 制备双层 ATO + 10×10 阵列展示器件 ATO 3 个"
 date: "2026-10-14"
-category: "薄膜制备"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "制备"
 data_types: []
 status: "completed"
-tags: [ATO, 双层ATO, 离子存储层, 10x10阵列, 展示器件]
+tags: [ATO, 双层ATO, 离子存储层, 10x10阵列, 展示器件, 薄膜制备, 2层ATO]
 modified: "2026-10-26"
 related:
   - experiments/2026-10-12-cleaning-10x10-array-devices.md

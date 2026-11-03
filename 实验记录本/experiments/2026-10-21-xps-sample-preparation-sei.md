@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-21 XPS 制样（循环后变色层表面 SEI 分析：DALE50 / DALE00 / CF DALE50 / DAE50）"
 date: "2026-10-21"
-category: "表面与界面表征"
-electrolyte: "DALE"
-additive: "EMIMTFSI"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: []
 status: "needs_review"
-tags: [XPS, SEI层, 制样, DCM冲洗, 碳酸二甲酯, DALE50, DAE50, 循环后失效分析]
+tags: [XPS, SEI层, 制样, DCM冲洗, 碳酸二甲酯, DALE50, DAE50, 循环后失效分析, 表面与界面表征, DALE, EMIMTFSI, 2层ATO]
 modified: "2026-10-24"
 related:
   - experiments/2026-10-22-xps-depth-profile-sei.md

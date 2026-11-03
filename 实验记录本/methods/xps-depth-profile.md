@@ -1,8 +1,9 @@
 ---
 type: method
 title: "XPS 深度剖析（变色层/界面 SEI 分析）"
-category: "表面成分分析"
-tags: [XPS, 深度剖析, Ar离子溅射, SEI层, LiF, Li3N, 荷电校正, 真空转移]
+system: "通用"
+stage: "不适用"
+tags: [XPS, 深度剖析, Ar离子溅射, SEI层, LiF, Li3N, 荷电校正, 真空转移, 表面成分分析]
 modified: "2026-10-24"
 ---
 

@@ -1,8 +1,9 @@
 ---
 type: method
 title: "SEM操作步骤（A003）"
-category: "形貌表征"
-tags: [SEM, 扫描电镜, 形貌, 制样, A003]
+system: "通用"
+stage: "不适用"
+tags: [SEM, 扫描电镜, 形貌, 制样, A003, 形貌表征]
 modified: "2026-10-23"
 ---
 

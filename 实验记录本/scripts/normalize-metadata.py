@@ -1,19 +1,23 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-按受控词表改造实验记录本既有记录的 frontmatter。
+【已停用 / DEPRECATED 2026-11-03】按旧受控词表改造 frontmatter 的历史脚本。
 
-用法:
-    python normalize-metadata.py          预演，只打印改动清单，不写盘
-    python normalize-metadata.py --apply  写盘
+六个旧分面字段（category / electrolyte / additive / counter_electrode /
+encapsulation / baseline）已于 2026-11-03 全部废弃，改为 system + stage 两级分类。
+本脚本若被执行会把废弃字段写回记录，破坏现行规范，故已阻断。
 
-词表定义见:
-    C:\\Users\\ao\\.workbuddy\\skills\\nature-experiment-log\\references\\notebook-metadata-schema.md
+现行迁移脚本：scripts/migrate-system-stage.py
+现行校验脚本：scripts/check-metadata.py
+现行词表：nature-experiment-log/references/notebook-metadata-schema.md
 """
 import os
 import re
 import sys
 import io
+
+print("normalize-metadata.py 已停用（2026-11-03）：请用 migrate-system-stage.py / check-metadata.py。")
+sys.exit(1)
 
 PROJECT_DIR = r"D:\Users\ao\Documents\电致变色\实验记录本"
 FOLDERS = ["experiments", "notes", "plans", "methods"]

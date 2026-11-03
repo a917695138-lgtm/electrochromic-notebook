@@ -1,8 +1,9 @@
 ---
 type: method
 title: "TEM测试"
-category: "形貌表征"
-tags: [TEM, 透射电镜, 形貌, 晶格]
+system: "通用"
+stage: "不适用"
+tags: [TEM, 透射电镜, 形貌, 晶格, 形貌表征]
 modified: "2026-05-28"
 ---
 

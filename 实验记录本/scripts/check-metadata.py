@@ -6,6 +6,11 @@
 用法:
     python check-metadata.py
 零告警才算通过。
+
+2026-11-03 简化口径（用户确认）：
+  旧的 category / electrolyte / additive / counter_electrode / encapsulation / baseline
+  六个分面字段已全部废弃，改为 system(体系) + stage(阶段) 两级分类。
+  旧字段的有信息量取值已移入 tags 与正文，因此列为 FORBIDDEN，发现残留即告警。
 """
 import os
 import re
@@ -16,36 +21,30 @@ PROJECT_DIR = r"D:\Users\ao\Documents\电致变色\实验记录本"
 FOLDERS = ["experiments", "notes", "plans", "methods", "data", "reminders"]
 
 VOCAB = {
-    "category": ["薄膜制备", "染料配制与染浴", "器件组装与封装", "响应时间测试",
-                 "循环稳定性测试", "透过率与光谱表征", "膜厚与形貌表征",
-                 "表面与界面表征", "结构与物相表征", "电化学阻抗测试",
-                 "力学性能测试", "规范与汇总", "组会与讨论",
-                 "电解质配制", "器件展示与现象观察"],
-    "electrolyte": ["LiClO4-ACN", "LiTFSI-ACN", "DALE", "PMMA凝胶", "PAPB", "多体系对比", "不涉及", "未标注"],
-    "additive": ["EMIMTFSI", "无", "不涉及"],
-    "counter_electrode": ["1层ATO", "2层ATO", "单层+双层对比", "未标注", "不涉及"],
-    "encapsulation": ["沙林膜60μm", "沙林膜120μm", "双面胶100μm", "打孔注液", "多方式对比", "未标注", "不涉及"],
-    "baseline": ["空气基线", "1FTO校正", "多基线对比", "不涉及", "未标注"],
+    "system": ["液态电解质", "DALE体系", "PAPB体系", "通用"],
+    "stage": ["制备", "测试与表征", "不适用"],
     "status": ["completed", "needs_review", "in-progress", "planned"],
 }
-# 按文件夹分级：实验类要全套受控字段，方法/方案类不要求电解质与器件字段
+
+# 所有文件夹都要求体系与阶段；实验类额外要求状态与数据类型
 FOLDER_RULES = {
-    "experiments": {"required": ["type", "title", "date", "category"],
-                    "vocab": ["category", "electrolyte", "additive",
-                              "counter_electrode", "encapsulation", "baseline", "status"],
-                    "lists": True},
-    "notes": {"required": ["type", "title", "date", "category"],
-              "vocab": ["category", "electrolyte", "additive",
-                        "counter_electrode", "encapsulation", "status"],
-              "lists": True},
-    "plans": {"required": ["type", "title", "date"], "vocab": [], "lists": False},
-    "methods": {"required": ["type", "title"], "vocab": [], "lists": False},
-    "data": {"required": [], "vocab": [], "lists": False},
-    "reminders": {"required": ["type", "title", "date"], "vocab": [], "lists": False},
+    "experiments": {"required": ["type", "title", "date", "system", "stage", "status"],
+                    "vocab": ["system", "stage", "status"], "lists": True},
+    "notes": {"required": ["type", "title", "date", "system", "stage"],
+              "vocab": ["system", "stage", "status"], "lists": True},
+    "plans": {"required": ["type", "title", "date", "system", "stage"],
+              "vocab": ["system", "stage", "status"], "lists": False},
+    "methods": {"required": ["type", "title", "system", "stage"],
+                "vocab": ["system", "stage", "status"], "lists": False},
+    "data": {"required": ["system", "stage"],
+             "vocab": ["system", "stage", "status"], "lists": False},
+    "reminders": {"required": ["type", "title", "date", "system", "stage"],
+                  "vocab": ["system", "stage", "status"], "lists": False},
 }
 LIST_FIELDS = {"data_types": ["response_time", "cycling", "uvvis", "thickness", "sem", "eds", "xps"]}
-# project 字段已于 2026-10-21 废弃；发现残留即告警
-FORBIDDEN_FIELDS = ["project"]
+# 已废弃字段：发现残留即告警
+FORBIDDEN_FIELDS = ["project", "category", "electrolyte", "additive",
+                    "counter_electrode", "encapsulation", "baseline"]
 
 
 def split_fm(text):
@@ -103,12 +102,10 @@ def main():
                 if k not in d or not unq(d.get(k, "")):
                     warnings.append("[%s] 缺少必填字段 %s" % (rel, k))
             for k in rule["vocab"]:
-                allowed = VOCAB[k]
                 if k not in d:
-                    warnings.append("[%s] 缺少受控字段 %s" % (rel, k))
-                    continue
+                    continue  # 字段缺失由 required 管，这里只校验取值
                 v = unq(d[k])
-                if v not in allowed:
+                if v and v not in VOCAB[k]:
                     warnings.append("[%s] %s 取值不在词表内: %s" % (rel, k, v))
             if rule["lists"]:
                 for k, allowed in LIST_FIELDS.items():

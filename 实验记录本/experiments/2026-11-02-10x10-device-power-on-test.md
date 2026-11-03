@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-11-02 10×10 阵列展示器件通电测试（列变色与相邻列传导现象）"
 date: "2026-11-02"
-category: "器件展示与现象观察"
-electrolyte: "DALE"
-additive: "EMIMTFSI"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: []
 status: "completed"
-tags: [10x10阵列, 展示器件, DALE50, 通电变色, 串扰, 列间传导]
+tags: [10x10阵列, 展示器件, DALE50, 通电变色, 串扰, 列间传导, 器件展示与现象观察, DALE, EMIMTFSI, 2层ATO]
 modified: "2026-11-03"
 related:
   - experiments/2026-10-26-dale50-lamination-10x10-display-device.md

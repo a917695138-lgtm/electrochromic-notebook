@@ -1,8 +1,9 @@
 ---
 type: method
 title: "EIS 电化学阻抗谱测试与分析"
-category: "电化学分析"
-tags: [EIS, 电化学阻抗谱, 离子电导, 等效电路, 拟合, DALE]
+system: "通用"
+stage: "不适用"
+tags: [EIS, 电化学阻抗谱, 离子电导, 等效电路, 拟合, DALE, 电化学分析]
 modified: "2026-10-26"
 ---
 

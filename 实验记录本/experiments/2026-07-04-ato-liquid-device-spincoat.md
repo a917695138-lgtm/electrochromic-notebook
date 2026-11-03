@@ -2,15 +2,11 @@
 type: "experiment"
 title: "[含光谱电化学数据] 单双层ATO液态器件测试与旋涂样品编号记录"
 date: "2026-07-04"
-category: "响应时间测试"
-electrolyte: "LiClO4-ACN"
-additive: "无"
-counter_electrode: "单层+双层对比"
-encapsulation: "未标注"
-baseline: "空气基线"
+system: "液态电解质"
+stage: "测试与表征"
 data_types: [response_time]
 status: "completed"
-tags: [ATO, 液态电解质, LiClO4, ACN, 光谱电化学, 响应时间, 线性插值, 旋涂, 单层, 双层]
+tags: [ATO, 液态电解质, LiClO4, ACN, 光谱电化学, 响应时间, 线性插值, 旋涂, 单层, 双层, 响应时间测试, LiClO4-ACN, 单层+双层对比, 空气基线]
 modified: "2026-07-15"
 ---
 

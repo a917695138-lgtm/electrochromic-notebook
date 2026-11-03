@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-09-28 染浴后处理 + PI 膜腔体失效（无法吸附 PBI-Cl 且 PI 膜溶胀）"
 date: "2026-09-28"
-category: "染料配制与染浴"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "制备"
 data_types: []
 status: "completed"
-tags: [后处理, DCM冲洗, PBI-Cl, PI膜, 腔体失效, 溶胀]
+tags: [后处理, DCM冲洗, PBI-Cl, PI膜, 腔体失效, 溶胀, 染料配制与染浴]
 modified: "2026-10-26"
 related:
   - experiments/2026-09-24-double-layer-ato-and-pi-cavity.md

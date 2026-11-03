@@ -2,15 +2,11 @@
 type: "experiment"
 title: "DA50%E凝胶电解质器件光谱电化学、CV/CA与循环稳定性测试"
 date: "2026-06-07"
-category: "循环稳定性测试"
-electrolyte: "DALE"
-additive: "无"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "空气基线"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: [cycling, response_time]
 status: "completed"
-tags: [DA50E凝胶, 光谱电化学, CV, CA, 对比度, 响应时间, 循环稳定性]
+tags: [DA50E凝胶, 光谱电化学, CV, CA, 对比度, 响应时间, 循环稳定性, 循环稳定性测试, DALE, 2层ATO, 空气基线]
 modified: "2026-06-29"
 ---
 

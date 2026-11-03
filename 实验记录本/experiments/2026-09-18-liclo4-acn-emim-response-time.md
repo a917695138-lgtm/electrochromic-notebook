@@ -2,16 +2,12 @@
 type: "experiment"
 title: "[含光谱电化学数据] 2026-09-18 LiClO4-ACN-EMIM 三元电解液不同电位程序响应时间"
 date: "2026-09-18"
-category: "响应时间测试"
-electrolyte: "LiClO4-ACN"
-additive: "EMIMTFSI"
-counter_electrode: "未标注"
-encapsulation: "沙林膜120μm"
-baseline: "空气基线"
+system: "液态电解质"
+stage: "测试与表征"
 data_types: [response_time]
 status: "completed"
 metrics: {"contrast": "59.0%", "coloring": "0.59 s", "bleaching": "0.42 s", "wavelength": "635.2 nm", "basis": "本批最优 LICLO4-ACN-EMIM −2-1（3S）after cv"}
-tags: [LiClO4, EMIMTFSI, 三元电解液, 响应时间, CV预处理, 0FTO, 沙林膜]
+tags: [LiClO4, EMIMTFSI, 三元电解液, 响应时间, CV预处理, 0FTO, 沙林膜, 响应时间测试, LiClO4-ACN, 沙林膜120μm, 空气基线]
 modified: "2026-10-19"
 related:
   - experiments/2026-09-14-spacer-120um-surlyn-vs-100um-tape-response-time.md

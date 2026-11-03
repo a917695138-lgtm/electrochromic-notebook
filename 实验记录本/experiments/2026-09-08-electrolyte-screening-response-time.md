@@ -2,16 +2,12 @@
 type: "experiment"
 title: "[含光谱电化学数据] 2026-09-08 四款电解液及加EMIM版本响应时间筛选（空气基线 + 1FTO 基线）"
 date: "2026-09-08"
-category: "响应时间测试"
-electrolyte: "多体系对比"
-additive: "EMIMTFSI"
-counter_electrode: "单层+双层对比"
-encapsulation: "未标注"
-baseline: "多基线对比"
+system: "液态电解质"
+stage: "测试与表征"
 data_types: [response_time]
 status: "completed"
 metrics: {"contrast": "55.7%", "coloring": "0.94 s", "bleaching": "0.58 s", "wavelength": "640.5 nm", "basis": "空气基线组综合最优 LiClO4 −2-1（3S）"}
-tags: [电解液筛选, 响应时间, 空气基线, 0FTO, 1FTO, 基线校正, 1ATO, 2ATO, PBI-Cl, EMIMTFSI]
+tags: [电解液筛选, 响应时间, 空气基线, 0FTO, 1FTO, 基线校正, 1ATO, 2ATO, PBI-Cl, EMIMTFSI, 响应时间测试, 多体系对比, 单层+双层对比, 多基线对比]
 modified: "2026-10-26"
 related:
   - experiments/2026-09-14-spacer-120um-surlyn-vs-100um-tape-response-time.md

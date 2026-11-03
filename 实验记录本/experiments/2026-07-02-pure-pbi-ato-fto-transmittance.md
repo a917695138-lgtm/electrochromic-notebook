@@ -2,15 +2,11 @@
 type: "experiment"
 title: "[含UV-Vis透过率数据] 纯PBI、纯ATO、PBI+ATO与纯FTO片子透过率测试"
 date: "2026-07-02"
-category: "透过率与光谱表征"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "未标注"
-encapsulation: "不涉及"
-baseline: "空气基线"
+system: "通用"
+stage: "测试与表征"
 data_types: [uvvis]
 status: "completed"
-tags: [UV-Vis, 透过率, PBI, ATO, FTO, PBI+ATO]
+tags: [UV-Vis, 透过率, PBI, ATO, FTO, PBI+ATO, 透过率与光谱表征, 空气基线]
 modified: "2026-07-14"
 ---
 

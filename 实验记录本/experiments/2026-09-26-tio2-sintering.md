@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-09-26 烧结制备 TiO₂ 层"
 date: "2026-09-26"
-category: "薄膜制备"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "制备"
 data_types: []
 status: "completed"
-tags: [TiO2, 介孔层, 烧结, 不打孔FTO]
+tags: [TiO2, 介孔层, 烧结, 不打孔FTO, 薄膜制备]
 modified: "2026-10-26"
 related:
   - experiments/2026-09-23-fto-cleaning-and-tio2-prep.md

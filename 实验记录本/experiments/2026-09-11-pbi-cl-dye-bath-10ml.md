@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-09-11 PBI-Cl 染浴（10 mL DMF 体系，1×10⁻³ mol/L）"
 date: "2026-09-11"
-category: "染料配制与染浴"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "制备"
 data_types: []
 status: "completed"
-tags: [PBI-Cl, 染浴, DMF, 浓度配比, 打孔FTO]
+tags: [PBI-Cl, 染浴, DMF, 浓度配比, 打孔FTO, 染料配制与染浴]
 modified: "2026-10-26"
 related:
   - experiments/2026-09-09-tio2-layer-on-perforated-fto.md

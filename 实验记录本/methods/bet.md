@@ -1,8 +1,9 @@
 ---
 type: method
 title: "BET测试"
-category: "比表面积与孔结构"
-tags: [BET, 比表面积, 孔径分布, 氮气吸附]
+system: "通用"
+stage: "不适用"
+tags: [BET, 比表面积, 孔径分布, 氮气吸附, 比表面积与孔结构]
 modified: "2026-06-02"
 ---
 

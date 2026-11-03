@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-09-24 双层 ATO 制备 24 片 + PI 膜围 1×1 cm 腔体（编号 43/54/60/63）"
 date: "2026-09-24"
-category: "薄膜制备"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "制备"
 data_types: []
 status: "needs_review"
-tags: [ATO, 双层ATO, 离子存储层, PI膜, 腔体, 编号]
+tags: [ATO, 双层ATO, 离子存储层, PI膜, 腔体, 编号, 薄膜制备, 2层ATO]
 modified: "2026-10-26"
 related:
   - experiments/2026-09-27-dye-bath-tio2-and-pi-fto.md

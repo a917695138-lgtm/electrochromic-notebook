@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-07-20 染浴后处理 + 制备双层 ATO"
 date: "2026-07-20"
-category: "薄膜制备"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "制备"
 data_types: []
 status: "completed"
-tags: [后处理, DCM冲洗, ATO, 双层ATO, 离子存储层]
+tags: [后处理, DCM冲洗, ATO, 双层ATO, 离子存储层, 薄膜制备, 2层ATO]
 modified: "2026-10-26"
 related:
   - experiments/2026-07-19-dye-bath-10ml.md

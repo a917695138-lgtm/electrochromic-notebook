@@ -2,8 +2,9 @@
 type: plan
 title: "非凝胶电解质部分详细优化实验方案（文献依据归档版）"
 date: "2026-06-27"
-category: "实验方案"
-tags: [电致变色, TiO2, PBI, ATO, 器件优化, 对比度, 响应时间, 稳定性, 文献依据]
+system: "通用"
+stage: "不适用"
+tags: [电致变色, TiO2, PBI, ATO, 器件优化, 对比度, 响应时间, 稳定性, 文献依据, 实验方案]
 status: "completed"
 modified: "2026-06-29"
 ---

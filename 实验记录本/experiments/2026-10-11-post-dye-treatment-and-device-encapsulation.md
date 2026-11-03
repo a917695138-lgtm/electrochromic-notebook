@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-11 染浴后处理与器件封装"
 date: "2026-10-11"
-category: "器件组装与封装"
-electrolyte: "LiClO4-ACN"
-additive: "不涉及"
-counter_electrode: "2层ATO"
-encapsulation: "打孔注液"
-baseline: "不涉及"
+system: "液态电解质"
+stage: "制备"
 data_types: []
 status: "needs_review"
-tags: [后处理, DCM冲洗, 封装, 打孔注液, 打孔FTO]
+tags: [后处理, DCM冲洗, 封装, 打孔注液, 打孔FTO, 器件组装与封装, LiClO4-ACN, 2层ATO]
 modified: "2026-10-26"
 related:
   - experiments/2026-10-09-tio2-sintering-perforated-fto.md

@@ -2,15 +2,11 @@
 type: "experiment"
 title: "[含UV-Vis透过率数据] 2026-07-10 DALE固态电解质夹层透过率测试"
 date: "2026-07-10"
-category: "透过率与光谱表征"
-electrolyte: "DALE"
-additive: "无"
-counter_electrode: "单层+双层对比"
-encapsulation: "不涉及"
-baseline: "空气基线"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: [uvvis]
 status: "completed"
-tags: [DALE, 固态电解质, ATO, FTO, 透过率, PBI-Cl, 对比度校正]
+tags: [DALE, 固态电解质, ATO, FTO, 透过率, PBI-Cl, 对比度校正, 透过率与光谱表征, 单层+双层对比, 空气基线]
 modified: "2026-07-14"
 related:
   - experiments/2026-07-09-dale50-il50-solid-cycling-stability.md

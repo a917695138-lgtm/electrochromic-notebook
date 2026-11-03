@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-09-23 FTO 与培养皿清洗 + 不打孔 FTO 上制备 TiO₂ 层 + PBI-Cl 染液配制（500 µL）"
 date: "2026-09-23"
-category: "薄膜制备"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "制备"
 data_types: []
 status: "needs_review"
-tags: [FTO清洗, 培养皿清洗, TiO2, 介孔层, 不打孔, PBI-Cl, 染液配制]
+tags: [FTO清洗, 培养皿清洗, TiO2, 介孔层, 不打孔, PBI-Cl, 染液配制, 薄膜制备]
 modified: "2026-10-26"
 related:
   - experiments/2026-09-09-tio2-layer-on-perforated-fto.md

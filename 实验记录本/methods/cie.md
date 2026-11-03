@@ -1,8 +1,9 @@
 ---
 type: method
 title: "CIE色度测试"
-category: "光学性能"
-tags: [CIE, 色坐标, 色度, 电致变色, 吸收光谱]
+system: "通用"
+stage: "不适用"
+tags: [CIE, 色坐标, 色度, 电致变色, 吸收光谱, 光学性能]
 modified: "2026-06-02"
 ---
 

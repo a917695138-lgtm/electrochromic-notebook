@@ -2,15 +2,11 @@
 type: "experiment"
 title: "[含光谱电化学数据] 2026-06-17 DA/EMIMTFSI 固态电解质器件响应时间"
 date: "2026-06-17"
-category: "响应时间测试"
-electrolyte: "DALE"
-additive: "EMIMTFSI"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "空气基线"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: [response_time]
 status: "completed"
-tags: [响应时间, DA凝胶, EMIMTFSI, PBI-Cl, 二价峰]
+tags: [响应时间, DA凝胶, EMIMTFSI, PBI-Cl, 二价峰, 响应时间测试, DALE, 2层ATO, 空气基线]
 modified: "2026-07-15"
 related:
   - experiments/2026-06-07-da50e-gel-device.md

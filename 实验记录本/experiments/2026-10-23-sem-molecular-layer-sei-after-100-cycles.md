@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-23 循环100次后器件变色分子层 SEM 观察（DALE50 / DALE00 / CF DALE50 / DAE50）"
 date: "2026-10-23"
-category: "膜厚与形貌表征"
-electrolyte: "DALE"
-additive: "EMIMTFSI"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: [sem]
 status: "needs_review"
-tags: [SEM, SEI层, 分子层形貌, DALE50, DALE00, DAE50, CF器件, 循环后失效分析, PBI-Cl]
+tags: [SEM, SEI层, 分子层形貌, DALE50, DALE00, DAE50, CF器件, 循环后失效分析, PBI-Cl, 膜厚与形貌表征, DALE, EMIMTFSI, 2层ATO]
 modified: "2026-10-23"
 related:
   - experiments/2026-07-09-dale50-il50-solid-cycling-stability.md

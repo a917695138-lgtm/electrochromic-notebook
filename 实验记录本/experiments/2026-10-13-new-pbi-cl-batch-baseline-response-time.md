@@ -2,16 +2,12 @@
 type: "experiment"
 title: "[含光谱电化学数据] 2026-10-13 新 PBI-Cl 批次基线性能验证 + XRD（DALE00-50/PEO/PEG/DAE50）+ 10×10 阵列 TiO₂ 烧制"
 date: "2026-10-13"
-category: "响应时间测试"
-electrolyte: "多体系对比"
-additive: "无"
-counter_electrode: "2层ATO"
-baseline: "空气基线"
-encapsulation: "沙林膜120μm"
+system: "液态电解质"
+stage: "测试与表征"
 data_types: [response_time]
 status: "needs_review"
 metrics: {"contrast": "62.7%", "coloring": "0.50 s", "bleaching": "0.75 s", "wavelength": "629.9 nm", "basis": "本批最优 new PBI-Cl −2-1（3S）"}
-tags: [新PBI-Cl批次, 批次验证, LiClO4, 响应时间, 沙林膜, 0FTO, XRD, 10x10阵列, TiO2]
+tags: [新PBI-Cl批次, 批次验证, LiClO4, 响应时间, 沙林膜, 0FTO, XRD, 10x10阵列, TiO2, 响应时间测试, 多体系对比, 2层ATO, 沙林膜120μm, 空气基线]
 modified: "2026-10-26"
 related:
   - experiments/2026-09-19-liclo4-acn-step-time-and-fade-voltage-response-time.md

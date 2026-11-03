@@ -2,15 +2,11 @@
 type: "note"
 title: "命名与配方口径（光谱电化学 2026-10-19 / DALE 2026-10-24、10-26 确认）+ 9–10 月跨批次结论汇总"
 date: "2026-10-19"
-category: "规范与汇总"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "不适用"
 data_types: []
 status: "completed"
-tags: [命名规范, 配方口径, 跨批次汇总, 响应时间, 光谱电化学, 基线校正, DALE, EO-Li比]
+tags: [命名规范, 配方口径, 跨批次汇总, 响应时间, 光谱电化学, 基线校正, DALE, EO-Li比, 规范与汇总]
 modified: "2026-10-26"
 related:
   - experiments/2026-09-08-electrolyte-screening-response-time.md

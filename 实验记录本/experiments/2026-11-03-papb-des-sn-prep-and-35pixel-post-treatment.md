@@ -2,12 +2,8 @@
 type: "experiment"
 title: "2026-11-03 PAPB-DES / PAPB-SN 电解质配制 + 35 像素工作片后处理"
 date: "2026-11-03"
-category: "电解质配制"
-electrolyte: "PAPB"
-additive: "无"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "PAPB体系"
+stage: "制备"
 data_types: []
 status: "needs_review"
 tags: [PAPB, DES, 丁二腈, 电解质配制, 35像素FTO, 后处理]

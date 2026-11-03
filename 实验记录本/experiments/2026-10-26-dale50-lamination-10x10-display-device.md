@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-26 10×10 展示器件 DALE50 贴合并 60 ℃ 烘箱处理 3 天"
 date: "2026-10-26"
-category: "器件组装与封装"
-electrolyte: "DALE"
-additive: "EMIMTFSI"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "DALE体系"
+stage: "制备"
 data_types: []
 status: "completed"
-tags: [10x10阵列, 展示器件, DALE50, 贴合组装, 烘箱固化]
+tags: [10x10阵列, 展示器件, DALE50, 贴合组装, 烘箱固化, 器件组装与封装, DALE, EMIMTFSI, 2层ATO]
 modified: "2026-11-03"
 related:
   - experiments/2026-10-12-cleaning-10x10-array-devices.md

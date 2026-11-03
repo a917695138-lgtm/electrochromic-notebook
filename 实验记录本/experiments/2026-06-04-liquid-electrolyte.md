@@ -2,15 +2,11 @@
 type: "experiment"
 title: "打孔液态电解质器件测试及循环稳定性"
 date: "2026-06-04"
-category: "循环稳定性测试"
-electrolyte: "LiClO4-ACN"
-additive: "无"
-counter_electrode: "未标注"
-encapsulation: "打孔注液"
-baseline: "空气基线"
+system: "液态电解质"
+stage: "测试与表征"
 data_types: [cycling, response_time]
 status: "completed"
-tags: [液态电解质, LiClO4, ACN, 手套箱, 打孔器件, CV, CA, 循环稳定性, UV胶]
+tags: [液态电解质, LiClO4, ACN, 手套箱, 打孔器件, CV, CA, 循环稳定性, UV胶, 循环稳定性测试, LiClO4-ACN, 打孔注液, 空气基线]
 modified: "2026-07-12"
 ---
 

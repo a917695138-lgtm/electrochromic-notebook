@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-22 XPS 深度剖析测试（循环后变色层 SEI：DALE50 / DALE00 / CF DALE50 / DAE50）"
 date: "2026-10-22"
-category: "表面与界面表征"
-electrolyte: "DALE"
-additive: "EMIMTFSI"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: [xps]
 status: "needs_review"
-tags: [XPS, 深度剖析, Ar离子溅射, SEI层, LiF, Li3N, DALE50, DAE50]
+tags: [XPS, 深度剖析, Ar离子溅射, SEI层, LiF, Li3N, DALE50, DAE50, 表面与界面表征, DALE, EMIMTFSI, 2层ATO]
 modified: "2026-10-24"
 related:
   - experiments/2026-10-21-xps-sample-preparation-sei.md

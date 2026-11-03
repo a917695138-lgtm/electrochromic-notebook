@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-09-27 染浴 TiO₂ 片与 4 个 PI 膜 FTO"
 date: "2026-09-27"
-category: "染料配制与染浴"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "制备"
 data_types: []
 status: "needs_review"
-tags: [PBI-Cl, 染浴, TiO2片, PI膜, 腔体, 锚定]
+tags: [PBI-Cl, 染浴, TiO2片, PI膜, 腔体, 锚定, 染料配制与染浴]
 modified: "2026-10-26"
 related:
   - experiments/2026-09-23-fto-cleaning-and-tio2-prep.md

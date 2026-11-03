@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-09-22 DALE 进展讨论"
 date: "2026-09-22"
-category: "组会与讨论"
-electrolyte: "DALE"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "DALE体系"
+stage: "不适用"
 data_types: []
 status: "completed"
-tags: [DALE, 进展讨论, 固态电解质, 组会]
+tags: [DALE, 进展讨论, 固态电解质, 组会, 组会与讨论]
 modified: "2026-10-26"
 related:
   - notes/2026-10-19-naming-convention-and-cross-batch-summary.md

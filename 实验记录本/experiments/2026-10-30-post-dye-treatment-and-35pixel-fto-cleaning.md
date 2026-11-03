@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-30 后处理 PBI 片 + 清洗 35 像素 FTO（带漆铁夹掉漆异常）"
 date: "2026-10-30"
-category: "染料配制与染浴"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "制备"
 data_types: []
 status: "completed"
-tags: [后处理, 35像素FTO, FTO清洗, 掉漆异常, 带漆铁夹]
+tags: [后处理, 35像素FTO, FTO清洗, 掉漆异常, 带漆铁夹, 染料配制与染浴]
 modified: "2026-11-03"
 related:
   - experiments/2026-10-29-dye-bath-tio2-24pcs.md

@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-28 EIS 阻抗测试（DALE50 / DALE00 / CF DALE50 六个样品）+ 裂缝器件变色展示"
 date: "2026-10-28"
-category: "电化学阻抗测试"
-electrolyte: "DALE"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: []
 status: "needs_review"
-tags: [EIS, 电化学阻抗, DALE50, DALE00, CF器件, 裂缝器件, 机械鲁棒性]
+tags: [EIS, 电化学阻抗, DALE50, DALE00, CF器件, 裂缝器件, 机械鲁棒性, 电化学阻抗测试, DALE]
 modified: "2026-11-03"
 related:
   - experiments/2026-10-15-group-meeting-and-eis-test.md

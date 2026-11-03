@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-12 清洗展示用 10×10 阵列器件"
 date: "2026-10-12"
-category: "薄膜制备"
-electrolyte: "不涉及"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "通用"
+stage: "制备"
 data_types: []
 status: "completed"
-tags: [10x10阵列, 展示器件, FTO, 清洗]
+tags: [10x10阵列, 展示器件, FTO, 清洗, 薄膜制备]
 modified: "2026-10-26"
 related:
   - experiments/2026-10-13-new-pbi-cl-batch-baseline-response-time.md

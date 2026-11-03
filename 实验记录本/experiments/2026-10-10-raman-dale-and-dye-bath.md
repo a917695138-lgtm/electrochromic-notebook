@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-10 Raman 光谱测试（DALE00–50，考察 LiTFSI 解离程度）+ PBI-Cl 染浴（5 mL 体系）"
 date: "2026-10-10"
-category: "结构与物相表征"
-electrolyte: "DALE"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: []
 status: "needs_review"
-tags: [Raman, LiTFSI, 解离程度, DALE, PBI-Cl, 染浴, 5mL体系]
+tags: [Raman, LiTFSI, 解离程度, DALE, PBI-Cl, 染浴, 5mL体系, 结构与物相表征]
 modified: "2026-10-26"
 related:
   - experiments/2026-10-09-tio2-sintering-perforated-fto.md

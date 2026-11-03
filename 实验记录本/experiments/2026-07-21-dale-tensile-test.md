@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-07-21 DALE00–50 力学拉伸性能测试（软物质学院）"
 date: "2026-07-21"
-category: "力学性能测试"
-electrolyte: "DALE"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: []
 status: "needs_review"
-tags: [DALE, 力学拉伸, 拉伸性能, 模量, 软物质学院]
+tags: [DALE, 力学拉伸, 拉伸性能, 模量, 软物质学院, 力学性能测试]
 modified: "2026-10-26"
 related:
   - notes/2026-10-19-naming-convention-and-cross-batch-summary.md

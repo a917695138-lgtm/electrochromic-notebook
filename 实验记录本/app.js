@@ -33,7 +33,7 @@ function normalizeMarkdown(content) {
 
 function parseFM(content) {
   content = normalizeMarkdown(content);
-  var m = {type:"",title:"",date:"",modified:"",tags:[],project:"",status:"",category:"",priority:"",due:"",related:[],electrolyte:"",additive:"",counter_electrode:"",encapsulation:"",baseline:"",data_types:[],metrics:null};
+  var m = {type:"",title:"",date:"",modified:"",tags:[],status:"",system:"",stage:"",priority:"",due:"",related:[],data_types:[],metrics:null};
   if (!content || content.substring(0,4) !== "---\n") return m;
   var end = content.indexOf("\n---\n", 4);
   if (end < 0) return m;
@@ -65,11 +65,11 @@ function getBody(content) {
 
 function fmToString(meta) {
   var lines = ["---"];
-  var fields = ["type","title","date","category","electrolyte","additive","counter_electrode","encapsulation","status","tags","priority","due","related","modified"];
+  var fields = ["type","title","date","system","stage","status","data_types","metrics","tags","priority","due","related","modified"];
   for (var i = 0; i < fields.length; i++) {
     var k = fields[i], v = meta[k];
     if (v === undefined || v === null || v === "") continue;
-    if (k === "tags" || k === "related") { lines.push(k + ": " + JSON.stringify(v)); }
+    if (k === "tags" || k === "related" || k === "data_types" || k === "metrics") { lines.push(k + ": " + JSON.stringify(v)); }
     else if (typeof v === "string" && (v.indexOf(":") >= 0 || v.indexOf("#") >= 0 || v.indexOf('"') >= 0)) { lines.push(k + ': "' + v + '"'); }
     else { lines.push(k + ": " + v); }
   }
@@ -327,13 +327,13 @@ function sortRecordIndices(indices) {
 }
 
 function listSectionStats(indices) {
-  var cats = {}, types = {};
+  var systems = {}, types = {};
   for (var i = 0; i < indices.length; i++) {
     var m = parseFM(DB[indices[i]].content);
-    if (m.category) cats[m.category] = true;
+    if (m.system) systems[m.system] = true;
     if (m.type) types[m.type] = true;
   }
-  return {cats: Object.keys(cats).length, types: Object.keys(types).length};
+  return {cats: Object.keys(systems).length, types: Object.keys(types).length};
 }
 
 function dateCellLabel(meta) {
@@ -386,7 +386,7 @@ function renderRecordRows(indices) {
     html += '<tr'+rowClass+' onclick="openRead('+idx+')" onkeydown="rowKeyOpen(event,'+idx+')" tabindex="0" data-idx="'+idx+'">';
     html += '<td class="col-date">'+escHtml(dateCellLabel(m))+'<\/td>';
     html += '<td class="col-type"><span class="type-dot '+dc+'" style="background:'+accent+'"><\/span>'+escHtml(typeLabel)+'<\/td>';
-    html += '<td class="col-cat">'+escHtml(m.category||"-")+'<\/td>';
+    html += '<td class="col-cat">'+escHtml(m.system||"-")+(m.stage && m.stage!=="不适用" ? '<span class="cat-stage">'+escHtml(m.stage)+'<\/span>' : '')+'<\/td>';
     var metricHtml = renderMetricChips(m);
     html += '<td class="col-title"><div class="record-title-stack"><div class="record-title"><button type="button" class="record-title-btn" data-hover="'+idx+'" onmouseenter="showHoverCard(event,'+idx+')" onmouseleave="hideHoverCard()" onclick="event.stopPropagation();openRead('+idx+')">'+titleHtml+'<\/button><\/div>'+metricHtml+rowIndexHtml+'<\/div><\/td>';
     html += '<td class="col-status">'+statusHtml+'<\/td>';
@@ -406,7 +406,7 @@ function renderRecordTable(indices) {
   var html = '<table class="record-table"><thead><tr>'
     + th('col-date','日期/更新','date')
     + th('col-type','类型','type')
-    + th('col-cat','分类','category')
+    + th('col-cat','体系 / 阶段','system')
     + th('col-title','记录','title')
     + th('col-status','状态','status')
     + '<th class="col-tags">标签<\/th><th class="col-expand"><\/th><\/tr><\/thead><tbody>';
@@ -421,7 +421,7 @@ function renderListSection(title, caption, indices, className, defaultCollapsed)
   var key = className || title;
   var collapsed = getCollapseState(key, defaultCollapsed);
   var html = '<div class="month-group section-group '+className+'">';
-  html += '<button type="button"'+renderMonthHeaderAttrs(key, collapsed)+'><span class="chevron" aria-hidden="true">▼</span><span class="section-heading"><span class="section-title">'+escHtml(title)+'<\/span><span class="section-caption">'+escHtml(caption)+'<\/span><\/span><span class="count">'+indices.length+' 条</span><span class="month-meta">'+stats.cats+' 个分类 · '+stats.types+' 种类型</span></button>';
+  html += '<button type="button"'+renderMonthHeaderAttrs(key, collapsed)+'><span class="chevron" aria-hidden="true">▼</span><span class="section-heading"><span class="section-title">'+escHtml(title)+'<\/span><span class="section-caption">'+escHtml(caption)+'<\/span><\/span><span class="count">'+indices.length+' 条</span><span class="month-meta">'+stats.cats+' 个体系 · '+stats.types+' 种类型</span></button>';
   html += '<div class="month-body"'+(collapsed ? ' style="display:none"' : '')+'>';
   html += renderRecordTable(indices);
   html += '<\/div><\/div>';
@@ -699,7 +699,8 @@ function togglePreview(el, idx) {
   var ipHtml = '<div class="preview-shell">';
   ipHtml += '<div class="ip-meta">';
   if (m.type) ipHtml += '<span class="ip-field">类型: <b>'+escHtml(TYPES[m.type]||m.type)+'<\/b><\/span>';
-  if (m.category) ipHtml += '<span class="ip-field">分类: <b>'+escHtml(m.category)+'<\/b><\/span>';
+  if (m.system) ipHtml += '<span class="ip-field">体系: <b>'+escHtml(m.system)+'<\/b><\/span>';
+  if (m.stage) ipHtml += '<span class="ip-field">阶段: <b>'+escHtml(m.stage)+'<\/b><\/span>';
   if (m.priority) ipHtml += '<span class="ip-field">优先级: <b>'+escHtml(m.priority)+'<\/b><\/span>';
   if (m.date) ipHtml += '<span class="ip-field">日期: <b>'+escHtml(m.date)+'<\/b><\/span>';
   ipHtml += '<\/div>';
@@ -739,7 +740,7 @@ function filter() {
       if (fvals && fvals.length && fvals.indexOf(m[fk] || "") < 0) ok = false;
     }
     if (q) {
-      var searchStr = (m.title+" "+d.name+" "+(m.tags||[]).join(" ")+" "+(m.category||"")+" "+body).toLowerCase();
+      var searchStr = (m.title+" "+d.name+" "+(m.tags||[]).join(" ")+" "+(m.system||"")+" "+(m.stage||"")+" "+body).toLowerCase();
       if (searchStr.indexOf(q) < 0) ok = false;
     }
     tr.style.display = ok ? "" : "none";
@@ -810,12 +811,8 @@ function openRead(idx, targetId) {
   html += '<div class="read-chips">';
   if (m.type) html += '<span class="read-chip"><strong>类型<\/strong> '+escHtml(TYPES[m.type]||m.type)+'<\/span>';
   if (m.date) html += '<span class="read-chip"><strong>日期<\/strong> '+escHtml(m.date)+'<\/span>';
-  if (m.category) html += '<span class="read-chip"><strong>分类<\/strong> '+escHtml(m.category)+'<\/span>';
-  if (m.electrolyte && m.electrolyte !== "不涉及") html += '<span class="read-chip"><strong>电解质<\/strong> '+escHtml(m.electrolyte)+'<\/span>';
-  if (m.additive === "EMIMTFSI") html += '<span class="read-chip"><strong>添加剂<\/strong> EMIMTFSI<\/span>';
-  if (m.counter_electrode && m.counter_electrode !== "不涉及" && m.counter_electrode !== "未标注") html += '<span class="read-chip"><strong>对电极<\/strong> '+escHtml(m.counter_electrode)+'<\/span>';
-  if (m.encapsulation && m.encapsulation !== "不涉及" && m.encapsulation !== "未标注") html += '<span class="read-chip"><strong>隔层封装<\/strong> '+escHtml(m.encapsulation)+'<\/span>';
-  if (m.baseline && m.baseline !== "不涉及" && m.baseline !== "未标注") html += '<span class="read-chip"><strong>基线<\/strong> '+escHtml(m.baseline)+'<\/span>';
+  if (m.system) html += '<span class="read-chip"><strong>体系<\/strong> '+escHtml(m.system)+'<\/span>';
+  if (m.stage && m.stage !== "不适用") html += '<span class="read-chip"><strong>阶段<\/strong> '+escHtml(m.stage)+'<\/span>';
   if (m.modified) html += '<span class="read-chip"><strong>更新<\/strong> '+escHtml(m.modified)+'<\/span>';
   if (relCount) html += '<span class="read-chip"><strong>关联<\/strong> '+relCount+' 条<\/span>';
   html += '<\/div>';
@@ -824,7 +821,8 @@ function openRead(idx, targetId) {
   html += '<div class="read-fm">';
   if (m.priority) html += '<span class="fm-item"><span class="fm-key">优先级<\/span> <span class="fm-val">'+escHtml(m.priority)+'<\/span><\/span>';
   if (m.due) html += '<span class="fm-item"><span class="fm-key">截止<\/span> <span class="fm-val">'+escHtml(m.due)+'<\/span><\/span>';
-  if (m.category) html += '<span class="fm-item"><span class="fm-key">分类<\/span> <span class="fm-val">'+escHtml(m.category)+'<\/span><\/span>';
+  if (m.system) html += '<span class="fm-item"><span class="fm-key">体系<\/span> <span class="fm-val">'+escHtml(m.system)+'<\/span><\/span>';
+  if (m.stage) html += '<span class="fm-item"><span class="fm-key">阶段<\/span> <span class="fm-val">'+escHtml(m.stage)+'<\/span><\/span>';
   if (m.tags && m.tags.length > 0) {
     html += '<span class="fm-item" style="grid-column:1/-1"><span class="fm-key">标签<\/span> <span class="fm-tags">';
     for (var ti = 0; ti < m.tags.length; ti++) html += renderTagPill(m.tags[ti]);
@@ -909,8 +907,8 @@ function openEditor(idx) {
     {key:"type",label:"类型",type:"select",options:TYPES},
     {key:"title",label:"标题",type:"text"},
     {key:"date",label:"日期",type:"text"},
-    {key:"category",label:"分类",type:"text"},
-    {key:"project",label:"项目",type:"text"},
+    {key:"system",label:"体系",type:"text"},
+    {key:"stage",label:"阶段",type:"text"},
     {key:"status",label:"状态",type:"select",options:STATUS_LABELS},
     {key:"priority",label:"优先级",type:"text"},
     {key:"due",label:"截止日",type:"text"},
@@ -970,7 +968,7 @@ function switchTab(n) {
 
 function readMetaForm() {
   var m = {};
-  var fields = ["type","title","date","category","project","status","priority","due","tags"];
+  var fields = ["type","title","date","system","stage","status","priority","due","tags"];
   for (var i = 0; i < fields.length; i++) {
     var el = document.getElementById("fm_"+fields[i]);
     if (el) {
@@ -1191,12 +1189,8 @@ var ACTIVE_FACETS = {};
 var VIEW_MODE = "list";
 var FACET_DEFS = [
   {key:"__folder", label:"文档类型"},
-  {key:"category", label:"分类"},
-  {key:"electrolyte", label:"电解质"},
-  {key:"additive", label:"添加剂"},
-  {key:"counter_electrode", label:"对电极"},
-  {key:"encapsulation", label:"隔层"},
-  {key:"baseline", label:"基线"},
+  {key:"system", label:"体系"},
+  {key:"stage", label:"阶段"},
   {key:"status", label:"状态"}
 ];
 var FACET_SKIP = {"不涉及":1, "":1, "-":1};
@@ -1267,8 +1261,11 @@ function renderFacets() {
     var def = FACET_DEFS[fi];
     if (def.key === "__folder") continue;
     var vals = {};
+    var sysSel = ACTIVE_FACETS["system"] || [];
     for (i = 0; i < pool.length; i++) {
       var m = parseFM(pool[i].content);
+      // 阶段分面随体系联动：选中体系后，只统计该体系下的阶段
+      if (def.key === "stage" && sysSel.length && sysSel.indexOf(m.system || "") < 0) continue;
       var v = m[def.key] || "";
       if (FACET_SKIP[v]) continue;
       vals[v] = (vals[v] || 0) + 1;
@@ -1292,6 +1289,8 @@ function toggleFacet(key, val) {
   var p = arr.indexOf(val);
   if (p >= 0) arr.splice(p, 1); else arr.push(val);
   if (!arr.length) delete ACTIVE_FACETS[key];
+  // 体系切换后清空阶段，避免旧阶段筛选残留导致结果为空
+  if (key === "system") delete ACTIVE_FACETS["stage"];
   renderFacets();
   filter();
 }
@@ -1378,8 +1377,8 @@ function doShowHoverCard(ev, idx) {
   card.id = "hoverCard";
   var meta = [];
   if (m.date) meta.push(m.date);
-  if (m.category) meta.push(m.category);
-  if (m.electrolyte && m.electrolyte !== "不涉及") meta.push(m.electrolyte);
+  if (m.system) meta.push(m.system);
+  if (m.stage && m.stage !== "不适用") meta.push(m.stage);
   if (m.status) meta.push(STATUS_LABELS[m.status] || m.status);
   card.innerHTML = '<h4>' + escHtml(m.title || d.name) + '</h4>' +
     '<div class="hc-meta">' + escHtml(meta.join(" · ")) + '</div>' +
@@ -1531,6 +1530,20 @@ function buildCompareRows() {
   }
   return rows;
 }
+// 旧分面字段废弃后，关键实验条件转存到 tags；对比表从这里提取展示
+function condFromTags(m) {
+  var keys = ["沙林膜", "双面胶", "打孔注液", "层ATO", "空气基线", "1FTO校正",
+              "EMIMTFSI", "LiClO4-ACN", "LiTFSI-ACN", "PMMA凝胶", "DALE50", "DALE00"];
+  var out = [];
+  var tags = m.tags || [];
+  for (var i = 0; i < tags.length; i++) {
+    var t = String(tags[i]);
+    for (var k = 0; k < keys.length; k++) {
+      if (t.indexOf(keys[k]) >= 0 && out.indexOf(t) < 0) { out.push(t); break; }
+    }
+  }
+  return out.join(" / ") || "-";
+}
 function renderCompareTable() {
   var rows = buildCompareRows();
   var html = '<div class="viz-section"><h3>跨批次关键指标对比</h3>' +
@@ -1540,17 +1553,16 @@ function renderCompareTable() {
     return html;
   }
   html += '<table class="viz-table"><thead><tr>' +
-    '<th onclick="setSort(\'date\')">日期</th><th>体系</th><th>电解质</th><th>对电极</th><th>隔层</th><th>基线</th>' +
+    '<th onclick="setSort(\'date\')">日期</th><th>记录</th><th>体系</th><th>阶段</th><th>关键条件</th>' +
     '<th>ΔT</th><th>着色</th><th>褪色</th><th>波长</th></tr></thead><tbody>';
   for (var i = 0; i < rows.length; i++) {
     var r = rows[i], m = r.m, mc = m.metrics;
     html += '<tr style="cursor:pointer" onclick="openRead(' + r.idx + ')">' +
       '<td>' + escHtml(m.date || "-") + '</td>' +
       '<td>' + escHtml((m.title || DB[r.idx].name).replace(/^\[[^\]]*\]\s*/, "").slice(0, 30)) + '</td>' +
-      '<td>' + escHtml(m.electrolyte || "-") + '</td>' +
-      '<td>' + escHtml(m.counter_electrode || "-") + '</td>' +
-      '<td>' + escHtml(m.encapsulation || "-") + '</td>' +
-      '<td>' + escHtml(m.baseline || "-") + '</td>' +
+      '<td>' + escHtml(m.system || "-") + '</td>' +
+      '<td>' + escHtml(m.stage || "-") + '</td>' +
+      '<td>' + escHtml(condFromTags(m)) + '</td>' +
       '<td class="num">' + escHtml(mc.contrast || "-") + '</td>' +
       '<td class="num">' + escHtml(mc.coloring || "-") + '</td>' +
       '<td class="num">' + escHtml(mc.bleaching || "-") + '</td>' +
@@ -1575,25 +1587,25 @@ function renderTimeline() {
   var days = Object.keys(byDay).sort();
   var html = '<div class="viz-section"><h3>实验时间轴</h3>' +
     '<div class="viz-hint">' + (days.length ? minD + " 至 " + maxD : "无日期数据") +
-    ' · 每个方块是一天，颜色代表分类，实心=含结构化数据，点击可跳到该天第一条记录</div>';
+    ' · 每个方块是一天，颜色代表体系，实心=含结构化数据，点击可跳到该天第一条记录</div>';
   if (!days.length) { html += '</div>'; return html; }
   var CAT_COLORS = ["#2563eb","#0891b2","#7c3aed","#059669","#d97706","#dc2626","#db2777","#4b5563","#65a30d"];
-  var cats = {};
-  for (var c = 0; c < DB.length; c++) { var cm = parseFM(DB[c].content); if (cm.category) cats[cm.category] = 1; }
-  var catList = Object.keys(cats).sort();
+  var syss = {};
+  for (var c = 0; c < DB.length; c++) { var cm = parseFM(DB[c].content); if (cm.system) syss[cm.system] = 1; }
+  var catList = Object.keys(syss).sort();
 
   html += '<div class="timeline-wrap"><svg width="' + (days.length * 22 + 20) + '" height="86" role="img" aria-label="实验时间轴">';
   for (var d = 0; d < days.length; d++) {
     var day = days[d];
     var first = byDay[day][0];
     var fm = parseFM(DB[first].content);
-    var ci = catList.indexOf(fm.category);
+    var ci = catList.indexOf(fm.system);
     var color = CAT_COLORS[(ci < 0 ? 0 : ci) % CAT_COLORS.length];
     var hasData = fm.data_types && fm.data_types.length;
     var x = 10 + d * 22;
     html += '<rect x="' + x + '" y="18" width="16" height="16" rx="3" fill="' + color + '" fill-opacity="' +
             (hasData ? "1" : "0.32") + '" style="cursor:pointer" onclick="openRead(' + first + ')"><title>' +
-            escHtml(day + " · " + (fm.category || "-") + " · " + (fm.title || "").slice(0, 20)) + '</title></rect>';
+            escHtml(day + " · " + (fm.system || "-") + " · " + (fm.title || "").slice(0, 20)) + '</title></rect>';
     if (byDay[day].length > 1) {
       html += '<text x="' + (x + 8) + '" y="45" font-size="9" fill="#657286" text-anchor="middle">' + byDay[day].length + '</text>';
     }
@@ -1610,17 +1622,14 @@ function renderTimeline() {
 
 // ---------- 数据完整度 ----------
 var COMPLETENESS_FIELDS = [
-  {key:"category", label:"分类"},
-  {key:"electrolyte", label:"电解质"},
-  {key:"counter_electrode", label:"对电极"},
-  {key:"encapsulation", label:"隔层"},
-  {key:"baseline", label:"基线"},
+  {key:"system", label:"体系"},
+  {key:"stage", label:"阶段"},
   {key:"status", label:"状态"},
   {key:"data_types", label:"数据类型"}
 ];
 function renderCompleteness() {
   var html = '<div class="viz-section"><h3>数据完整度</h3>' +
-    '<div class="viz-hint">绿色=已填且有区分度，橙色=填了“未标注”，灰色=不涉及/无。标“未标注”的项需要你补。</div>';
+    '<div class="viz-hint">绿色=已填，灰色=无。细分实验条件（电解质/对电极/隔层/基线）已移入标签与正文。</div>';
   var rows = [];
   for (var i = 0; i < DB.length; i++) {
     var m = parseFM(DB[i].content);

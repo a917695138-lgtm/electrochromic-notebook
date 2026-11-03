@@ -2,16 +2,12 @@
 type: "experiment"
 title: "[含光谱电化学数据] 2026-07-16 旋涂 TiO₂ 器件封装与光谱电化学测试（两层旋涂，对比度均偏低）"
 date: "2026-07-16"
-category: "响应时间测试"
-electrolyte: "LiClO4-ACN"
-additive: "无"
-counter_electrode: "1层ATO"
-encapsulation: "未标注"
-baseline: "未标注"
+system: "液态电解质"
+stage: "测试与表征"
 data_types: [response_time]
 status: "completed"
 metrics: {"contrast": "44.42%", "coloring": "0.9142 s", "bleaching": "0.4486 s", "wavelength": "594.77 nm", "basis": "本组最高对比度/最快着色 2-0（5S）(2)；最快褪色见 1.8-0.2（5S）0.4486 s"}
-tags: [旋涂TiO2, xuantu2, 对比度偏低, LiClO4, 1ATO, 电荷匹配, 响应时间, 光谱电化学]
+tags: [旋涂TiO2, xuantu2, 对比度偏低, LiClO4, 1ATO, 电荷匹配, 响应时间, 光谱电化学, 响应时间测试, LiClO4-ACN, 1层ATO]
 modified: "2026-10-26"
 related:
   - experiments/2026-07-13-pbi-cl-dye-soak-thickness.md

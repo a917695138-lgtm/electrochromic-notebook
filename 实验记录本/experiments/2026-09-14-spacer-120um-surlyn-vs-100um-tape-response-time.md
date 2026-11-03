@@ -2,16 +2,12 @@
 type: "experiment"
 title: "[含光谱电化学数据] 2026-09-14 120 μm 沙林膜与 100 μm 双面胶隔层对比及 CV 预处理影响"
 date: "2026-09-14"
-category: "响应时间测试"
-electrolyte: "多体系对比"
-additive: "EMIMTFSI"
-counter_electrode: "未标注"
-baseline: "空气基线"
-encapsulation: "多方式对比"
+system: "液态电解质"
+stage: "测试与表征"
 data_types: [response_time]
 status: "completed"
 metrics: {"contrast": "59.8%", "coloring": "0.31 s", "bleaching": "0.73 s", "wavelength": "604.7 nm", "basis": "本组最优 LITFSI-ACN-EMIM 120μm沙林膜 −2-1 后CV（波长存疑，见异常）"}
-tags: [隔层对比, 沙林膜, 双面胶, CV预处理, 响应时间, 0FTO]
+tags: [隔层对比, 沙林膜, 双面胶, CV预处理, 响应时间, 0FTO, 响应时间测试, 多体系对比, EMIMTFSI, 多方式对比, 空气基线]
 modified: "2026-10-19"
 related:
   - experiments/2026-09-08-electrolyte-screening-response-time.md

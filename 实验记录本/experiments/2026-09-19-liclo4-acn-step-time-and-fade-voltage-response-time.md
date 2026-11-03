@@ -2,16 +2,12 @@
 type: "experiment"
 title: "[含光谱电化学数据] 2026-09-19 LiClO4-ACN 基线体系：步时与褪色电位对响应时间的影响"
 date: "2026-09-19"
-category: "响应时间测试"
-electrolyte: "LiClO4-ACN"
-additive: "无"
-counter_electrode: "未标注"
-encapsulation: "沙林膜120μm"
-baseline: "空气基线"
+system: "液态电解质"
+stage: "测试与表征"
 data_types: [response_time]
 status: "completed"
 metrics: {"contrast": "61.1%", "coloring": "0.51 s", "bleaching": "0.33 s", "wavelength": "632.2 nm", "basis": "本批最优 LICLO4-ACN −2-1（3S）"}
-tags: [LiClO4, 步长对比, 褪色电位, 响应时间, 0FTO, 沙林膜]
+tags: [LiClO4, 步长对比, 褪色电位, 响应时间, 0FTO, 沙林膜, 响应时间测试, LiClO4-ACN, 沙林膜120μm, 空气基线]
 modified: "2026-10-19"
 related:
   - experiments/2026-09-18-liclo4-acn-emim-response-time.md

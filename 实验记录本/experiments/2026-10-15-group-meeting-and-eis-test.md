@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-15 组会讨论（ATO 串扰 / DALE 烷基链）+ EIS 测试（DALE00-50 等）"
 date: "2026-10-15"
-category: "电化学阻抗测试"
-electrolyte: "DALE"
-additive: "不涉及"
-counter_electrode: "不涉及"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: []
 status: "needs_review"
-tags: [组会, EIS, 电化学阻抗, ATO串扰, 10x10阵列, DALE, 烷基链, 黏度]
+tags: [组会, EIS, 电化学阻抗, ATO串扰, 10x10阵列, DALE, 烷基链, 黏度, 电化学阻抗测试]
 modified: "2026-10-26"
 related:
   - experiments/2026-10-10-raman-dale-and-dye-bath.md

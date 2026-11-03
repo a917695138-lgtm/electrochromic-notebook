@@ -2,15 +2,11 @@
 type: "experiment"
 title: "2026-10-27 截面 SEM 观察 SEI 层（DALE50 / DALE00 / CF DALE50）+ 制备 TiO₂ 片 24 个"
 date: "2026-10-27"
-category: "膜厚与形貌表征"
-electrolyte: "DALE"
-additive: "EMIMTFSI"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "不涉及"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: [sem]
 status: "needs_review"
-tags: [SEM, 截面SEM, SEI层, DALE50, DALE00, CF器件, TiO2制膜]
+tags: [SEM, 截面SEM, SEI层, DALE50, DALE00, CF器件, TiO2制膜, 膜厚与形貌表征, DALE, EMIMTFSI, 2层ATO]
 modified: "2026-11-03"
 related:
   - experiments/2026-10-23-sem-molecular-layer-sei-after-100-cycles.md

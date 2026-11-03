@@ -2,15 +2,11 @@
 type: "experiment"
 title: "[含循环稳定性数据] 2026-07-09 DALE50 固态电解质50%离子液体11×16腔体循环稳定性"
 date: "2026-07-09"
-category: "循环稳定性测试"
-electrolyte: "DALE"
-additive: "EMIMTFSI"
-counter_electrode: "2层ATO"
-encapsulation: "不涉及"
-baseline: "空气基线"
+system: "DALE体系"
+stage: "测试与表征"
 data_types: [cycling]
 status: "completed"
-tags: [DALE50, 固态电解质, 离子液体, EMIMTFSI, 11x16, CA, 光谱电化学, 循环稳定性]
+tags: [DALE50, 固态电解质, 离子液体, EMIMTFSI, 11x16, CA, 光谱电化学, 循环稳定性, 循环稳定性测试, DALE, 2层ATO, 空气基线]
 modified: "2026-07-14"
 related:
   - experiments/2026-06-30-tio2-film-device-test.md

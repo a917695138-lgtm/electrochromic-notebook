@@ -60,10 +60,8 @@ def record_md(path):
     raw = open(path, 'rb').read().decode('utf-8-sig').replace('\r\n', '\n')
     fm, body = parse_fm(raw)
     lines = body.split('\n')
-    # 去内嵌图片行、代码围栏行
-    lines = [l for l in lines
-             if not re.match(r'\s*!\[[^\]]*\]\([^)]*\)\s*$', l)
-             and not re.match(r'^\s*```\w*\s*$', l)]
+    # 去代码围栏行（图片行保留，由 insert_group 分段插入）
+    lines = [l for l in lines if not re.match(r'^\s*```\w*\s*$', l)]
     body = '\n'.join(lines)
     body = re.sub(r'\n{3,}', '\n\n', body).strip() + '\n'
     # H1 之后插入元信息行
@@ -75,6 +73,61 @@ def record_md(path):
     else:
         body = meta + '\n\n' + body
     return fm, body
+
+
+IMG_LINE = re.compile(r'^\s*!\[([^\]]*)\]\(([^)\n]+)\)\s*$')
+
+
+def insert_group(file_id, md, idx, n_groups):
+    """按行扫描：文本段走 markdown 插入，图片行走 doc_insert_image（后补段落分隔符）。"""
+    buf = []
+    n_img = 0
+    for line in md.split('\n'):
+        m = IMG_LINE.match(line)
+        if not m:
+            buf.append(line)
+            continue
+        text = '\n'.join(buf).strip('\n')
+        buf = []
+        if text:
+            tmp = os.path.join(tempfile.gettempdir(), 'nb-print-seg-%03d.md' % n_groups)
+            with open(tmp, 'wb') as f:
+                f.write(text.encode('utf-8'))
+            out = call('doc_insert_markdown', file_id=file_id, idx=idx,
+                       **{'markdown': 'file://%s' % tmp})
+            new = get_idx(out)
+            if new is None:
+                raise RuntimeError('markdown 插入未返回位置: %s' % out[:200])
+            idx = new
+            os.remove(tmp)
+        # 图片：assets/ 相对路径转绝对路径；限制宽度 450px 防超版心
+        rel = m.group(2)
+        abs_path = rel if os.path.isabs(rel) else os.path.join(ROOT, rel.replace('/', os.sep))
+        if os.path.exists(abs_path):
+            out = call('doc_insert_image', file_id=file_id, idx=idx,
+                       image_path=abs_path, w=450)
+            new = get_idx(out)
+            idx = new if new is not None else idx + 1
+            out = call('doc_insert_paragraph', file_id=file_id, idx=idx)
+            new = get_idx(out)
+            idx = new if new is not None else idx + 1
+            n_img += 1
+        else:
+            # 图片文件不存在时降级为文字说明
+            buf.append('*（图：%s）*' % m.group(1))
+    text = '\n'.join(buf).strip('\n')
+    if text:
+        tmp = os.path.join(tempfile.gettempdir(), 'nb-print-seg-%03d.md' % n_groups)
+        with open(tmp, 'wb') as f:
+            f.write(text.encode('utf-8'))
+        out = call('doc_insert_markdown', file_id=file_id, idx=idx,
+                   **{'markdown': 'file://%s' % tmp})
+        new = get_idx(out)
+        if new is None:
+            raise RuntimeError('markdown 插入未返回位置: %s' % out[:200])
+        idx = new
+        os.remove(tmp)
+    return idx, n_img
 
 
 def main():
@@ -116,18 +169,8 @@ def main():
             if new is not None:
                 idx = new
         md = '**%s**\n\n' % d + '\n\n'.join(groups[d])
-        tmp = os.path.join(tempfile.gettempdir(), 'nb-print-%03d.md' % gi)
-        with open(tmp, 'wb') as f:
-            f.write(md.encode('utf-8'))
-        out = call('doc_insert_markdown', file_id=file_id, idx=idx,
-                   **{'markdown': 'file://%s' % tmp})
-        new = get_idx(out)
-        if new is None:
-            print('第 %d 组（%s）未返回插入位置：%s' % (gi, d, out[:300]))
-            sys.exit(1)
-        idx = new
-        print('[%d/%d] %s 完成，idx=%d' % (gi + 1, len(order), d, idx))
-        os.remove(tmp)
+        idx, n_img = insert_group(file_id, md, idx, gi)
+        print('[%d/%d] %s 完成，idx=%d，图 %d 张' % (gi + 1, len(order), d, idx, n_img))
 
     call('save_file', file_id=file_id, file_path=OUT)
     print('已保存：', OUT)

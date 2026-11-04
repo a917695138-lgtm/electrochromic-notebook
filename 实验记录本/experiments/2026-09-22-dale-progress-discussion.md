@@ -24,9 +24,6 @@ DALE 体系（DA 交联网络 + LiTFSI + EMIMTFSI 固态电解质）的阶段性
 
 - **`D:\Desktop\DALE进展\杨飞文-260922 (1).pdf`**
 
-> 讨论材料只保留在本地，记录本与 GitHub 上**仅登记存放路径**，不上传文件本身。
-> 讨论结论待整理后补记，本条先固定资料位置。
-
 ## 待补清单
 
 | # | 待补项 | 说明 |
@@ -35,9 +32,6 @@ DALE 体系（DA 交联网络 + LiTFSI + EMIMTFSI 固态电解质）的阶段性
 
 ## 相关口径
 
-DALE 编号口径见 `notes/2026-10-19-naming-convention-and-cross-batch-summary.md`：
+DALE 编号口径：
 **DALE50 的 50 = EO : Li 摩尔比 = 50**；**DALE00 = 未添加 EMIMTFSI 的 DA 体系对照**。
 
-## 原始数据
-
-本条为讨论记录，无结构化数据文件。

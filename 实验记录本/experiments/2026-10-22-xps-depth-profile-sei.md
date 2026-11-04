@@ -127,7 +127,6 @@ XPS-2-20125110-23634-155419-20261021_1.zip
 ## 原始数据
 
 - `D:\Desktop\XPS\XPS-2-20125110-23634-155419-20261021_1.zip`（3.9 MB，未处理）
-- 方法文档：`methods/xps-depth-profile.md`
 - 制样记录：`experiments/2026-10-21-xps-sample-preparation-sei.md`
 
 > 原始数据只保留在本地，记录本与 GitHub 上仅记录存放路径，不上传任何谱图数据文件。

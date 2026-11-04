@@ -2,7 +2,7 @@
 type: "experiment"
 title: "[含UV-Vis透过率数据] 纯PBI、纯ATO、PBI+ATO与纯FTO片子透过率测试"
 date: "2026-07-02"
-system: "DALE体系"
+system: "液态电解质"
 stage: "测试与表征"
 data_types: [uvvis]
 status: "completed"

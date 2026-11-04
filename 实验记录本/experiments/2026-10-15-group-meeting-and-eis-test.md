@@ -41,8 +41,6 @@ related:
 | 教程视频 | https://www.bilibili.com/video/BV1fgK8zUEZS/?spm_id_from=333.1391.0.0&vd_source=c336829353cfeaac005ab4c1ff5e7b50 |
 | 整理文本 | `D:\Desktop\光谱电化学\EIS\EIS电化学阻抗谱分析流程_含关键截图_打印版_含实验记录表.docx` |
 
-操作流程与拟合步骤另见 `methods/eis.md`。
-
 ## 结果
 
 EIS 数据已采集，**未处理**（未做等效电路拟合与离子电导计算）。

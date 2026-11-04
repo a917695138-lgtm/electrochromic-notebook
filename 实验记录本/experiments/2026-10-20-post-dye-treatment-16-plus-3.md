@@ -22,7 +22,7 @@ related:
 - **16 片**常规 TiO₂ 层
 - **3 片**10×10 阵列展示器件 TiO₂
 
-按 `methods/device-fabrication.md` 的流程执行：DCM 充分冲洗去除未锚定的游离 PBI-Cl，
+按标准流程执行：DCM 充分冲洗去除未锚定的游离 PBI-Cl，
 再 110 ℃ 加热 10 min 干燥。本次无工艺改动。
 
 ## 结果

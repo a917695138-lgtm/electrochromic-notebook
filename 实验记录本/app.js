@@ -787,7 +787,14 @@ function jumpToRead(idx, targetId) {
   openRead(idx, targetId);
 }
 
+// 进入详情页前的列表滚动位置（从列表进入时保存，从阅读页跳转不覆盖）
+var LIST_SCROLL_POS = 0;
+
 function openRead(idx, targetId) {
+  var listViewEl = document.getElementById("listView");
+  if (listViewEl && listViewEl.style.display !== "none") {
+    LIST_SCROLL_POS = window.scrollY || window.pageYOffset || 0;
+  }
   curIdx = idx;
   var d = DB[idx];
   if (d) { try { pushList("notebook-recent", recKey(d), 12); } catch(e) {} }
@@ -1026,7 +1033,8 @@ function goBack() {
   renderList();
   updateStats();
   populateFilters();
-  window.scrollTo(0,0);
+  // 返回列表时恢复进入详情页前的滚动位置，而不是强制回顶部
+  window.scrollTo(0, LIST_SCROLL_POS);
 }
 
 // ====== CREATE ======

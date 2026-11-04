@@ -20,7 +20,7 @@ related:
 
 在**打孔 FTO** 上同工艺制备 TiO₂ 层。打孔片用于侧边注液结构，与不打孔批次区分。
 
-工艺参数见 `methods/device-fabrication.md`，本次无改动。
+本次无工艺改动。
 
 ## 结果
 

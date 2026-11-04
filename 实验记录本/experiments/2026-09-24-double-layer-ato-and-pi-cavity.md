@@ -6,7 +6,7 @@ system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "needs_review"
-tags: [ATO, 双层ATO, 离子存储层, PI膜, 腔体, 编号, 薄膜制备, 2层ATO]
+tags: [ATO, 双层ATO, 离子存储层, PI膜, 腔体, 编号, 薄膜制备, 2层ATO, 无TiO2对照]
 modified: "2026-10-26"
 related:
   - experiments/2026-09-27-dye-bath-tio2-and-pi-fto.md
@@ -14,6 +14,12 @@ related:
 ---
 
 # 2026-09-24 双层 ATO 制备 + PI 膜围腔体
+
+## 批次性质
+
+本批（09-23 不打孔 FTO → 09-24 至 09-28）为**固态电解质（DALE）的无 TiO₂ 对照样**：
+用 PI 膜在 FTO 上围腔体，用于考察不含 TiO₂–PBI 变色层时 DALE 固态电解质的器件行为，
+与常规 TiO₂–PBI 器件对照。
 
 ## 一、双层 ATO 制备
 

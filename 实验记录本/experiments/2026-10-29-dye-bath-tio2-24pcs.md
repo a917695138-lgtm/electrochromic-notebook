@@ -19,7 +19,6 @@ related:
 ## 内容
 
 染浴 10-27 制备的 **24 个 TiO₂ 片**（PBI-Cl / DMF，目标浓度 1 × 10⁻³ mol/L），
-染浴与后处理流程见 `methods/device-fabrication.md`。
 
 ## 染液配制
 

@@ -18,13 +18,11 @@ related:
 
 ## 一、后处理 PBI 片
 
-对 10-29 染浴的 24 个 PBI 片做后处理，流程见 `methods/device-fabrication.md`，无改动。
+对 10-29 染浴的 24 个 PBI 片做后处理，无工艺改动。
 
 ## 二、清洗 35 像素 FTO
 
 清洗 35 像素 FTO（R9 版，左侧双列错位接触区设计，见下图），
-清洗流程见 `methods/device-fabrication.md`。
-
 ![35 像素 FTO 设计图（R9 左侧双列错位接触区）](assets/35pixel-r9-layout.png)
 
 ## 异常

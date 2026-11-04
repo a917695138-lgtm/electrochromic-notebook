@@ -38,7 +38,7 @@ related:
 
 ## 二、制备 TiO₂ 片 24 个
 
-制备 TiO₂ 片 **24 个**，工艺参数见 `methods/device-fabrication.md`，无改动。
+制备 TiO₂ 片 **24 个**，无改动。
 该批 24 片于 10-29 染浴（见 `experiments/2026-10-29-dye-bath-tio2-24pcs.md`）。
 
 ## 待补清单

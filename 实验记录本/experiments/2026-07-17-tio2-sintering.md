@@ -17,7 +17,7 @@ related:
 
 ## 内容
 
-同工艺烧制 TiO₂ 层，工艺参数见 `methods/device-fabrication.md`（刮涂 + 马弗炉 500 ℃ 保温 30 min）。
+同工艺烧制 TiO₂ 层（刮涂 + 马弗炉 500 ℃ 保温 30 min）。
 本次无工艺改动。
 
 ## 结果

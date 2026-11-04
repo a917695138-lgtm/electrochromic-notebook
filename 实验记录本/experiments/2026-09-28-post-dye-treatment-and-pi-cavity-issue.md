@@ -6,7 +6,7 @@ system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "completed"
-tags: [后处理, DCM冲洗, PBI-Cl, PI膜, 腔体失效, 溶胀, 染料配制与染浴]
+tags: [后处理, DCM冲洗, PBI-Cl, PI膜, 腔体失效, 溶胀, 染料配制与染浴, 无TiO2对照]
 modified: "2026-10-26"
 related:
   - experiments/2026-09-24-double-layer-ato-and-pi-cavity.md
@@ -16,14 +16,16 @@ related:
 
 # 2026-09-28 染浴后处理与 PI 膜腔体失效
 
+## 批次性质
+
+本批（09-23 不打孔 FTO → 09-24 至 09-28）为**固态电解质（DALE）的无 TiO₂ 对照样**：PI 膜围腔体用于考察不含 TiO₂–PBI 变色层时 DALE 的器件行为。本条结论是该对照路线的腔体方案本身失效。
+
 ## 一、染浴后处理
 
 对 2026-09-27 染浴后的片子做标准后处理，**工艺同之前**：
 
 - DCM（二氯甲烷）充分冲洗，去除未共价锚定的游离 PBI-Cl
 - 加热干燥
-
-后处理的具体参数见 `methods/device-fabrication.md`。
 
 ## 二、发现的问题：PI 膜腔体方案失效
 

@@ -28,8 +28,6 @@ related:
 ## 二、制备 TiO₂ 层
 
 在不打孔 FTO 上**同之前工艺**制备介孔 TiO₂ 层，无工艺改动。
-清洗、制膜、染浴、后处理的具体参数见 `methods/device-fabrication.md`。
-
 ## 三、PBI-Cl 染液配制（500 µL 体系）
 
 目标浓度 **1×10⁻³ mol/L**，PBI-Cl 分子量 **856.35 g/mol**。

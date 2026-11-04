@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-10-29 染浴 TiO₂ 片 24 个（PBI-Cl 1.00 mM / DMF）"
 date: "2026-10-29"
-system: "通用"
+system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "completed"

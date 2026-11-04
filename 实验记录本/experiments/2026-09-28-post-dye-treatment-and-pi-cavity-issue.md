@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-09-28 染浴后处理 + PI 膜腔体失效（无法吸附 PBI-Cl 且 PI 膜溶胀）"
 date: "2026-09-28"
-system: "通用"
+system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "completed"

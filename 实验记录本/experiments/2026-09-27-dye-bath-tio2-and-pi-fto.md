@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-09-27 染浴 TiO₂ 片与 4 个 PI 膜 FTO"
 date: "2026-09-27"
-system: "通用"
+system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "needs_review"

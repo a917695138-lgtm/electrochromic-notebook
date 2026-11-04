@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-07-20 染浴后处理 + 制备双层 ATO"
 date: "2026-07-20"
-system: "通用"
+system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "completed"

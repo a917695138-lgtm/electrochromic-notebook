@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-09-09 打孔 FTO 上制备 TiO₂ 层"
 date: "2026-09-09"
-system: "通用"
+system: "液态电解质"
 stage: "制备"
 data_types: []
 status: "completed"

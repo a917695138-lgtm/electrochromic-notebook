@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-10-14 制备双层 ATO + 10×10 阵列展示器件 ATO 3 个"
 date: "2026-10-14"
-system: "通用"
+system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "completed"

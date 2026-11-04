@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-09-11 PBI-Cl 染浴（10 mL DMF 体系，1×10⁻³ mol/L）"
 date: "2026-09-11"
-system: "通用"
+system: "液态电解质"
 stage: "制备"
 data_types: []
 status: "completed"

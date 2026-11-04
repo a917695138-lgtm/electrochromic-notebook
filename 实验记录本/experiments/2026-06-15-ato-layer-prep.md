@@ -2,7 +2,7 @@
 type: "experiment"
 title: "ATO单层与双层样品制备编号记录"
 date: "2026-06-15"
-system: "通用"
+system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "completed"

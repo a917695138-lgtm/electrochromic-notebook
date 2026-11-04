@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-10-20 后处理 10-19 染浴的 16 + 3 个片子"
 date: "2026-10-20"
-system: "通用"
+system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "completed"

@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-10-12 清洗展示用 10×10 阵列器件"
 date: "2026-10-12"
-system: "通用"
+system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "completed"

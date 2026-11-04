@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-10-30 后处理 PBI 片 + 清洗 35 像素 FTO（带漆铁夹掉漆异常）"
 date: "2026-10-30"
-system: "通用"
+system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "completed"

@@ -2,7 +2,7 @@
 type: "experiment"
 title: "[含膜厚数据] 旋涂样品台阶仪厚度与PBI-Cl染料配制记录"
 date: "2026-07-06"
-system: "通用"
+system: "DALE体系"
 stage: "测试与表征"
 data_types: [thickness]
 status: "completed"

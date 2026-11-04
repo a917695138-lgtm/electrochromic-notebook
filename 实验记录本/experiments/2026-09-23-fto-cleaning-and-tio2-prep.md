@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-09-23 FTO 与培养皿清洗 + 不打孔 FTO 上制备 TiO₂ 层 + PBI-Cl 染液配制（500 µL）"
 date: "2026-09-23"
-system: "通用"
+system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "needs_review"

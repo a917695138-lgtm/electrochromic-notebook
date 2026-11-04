@@ -2,7 +2,7 @@
 type: "experiment"
 title: "2026-09-24 双层 ATO 制备 24 片 + PI 膜围 1×1 cm 腔体（编号 43/54/60/63）"
 date: "2026-09-24"
-system: "通用"
+system: "DALE体系"
 stage: "制备"
 data_types: []
 status: "needs_review"

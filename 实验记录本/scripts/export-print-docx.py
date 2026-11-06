@@ -1,16 +1,24 @@
 # -*- coding: utf-8 -*-
-"""把实验记录本全部实验记录导出为打印用 Word（美化版）。
+"""把实验记录本全部实验记录导出为打印用 Word（美化版，按月分文件）。
 
 - 数据源：experiments/ 下全部 md（按日期排序）
+- 输出目录：默认 D:\\Desktop\\实验记录\\实验记录打印版\\，每月一个 YYYY-MM.docx
+- 增量更新：某月任一 md 的 mtime 晚于该月 docx（或 docx 不存在）才重建该月，
+  其余月份跳过；删除/大改历史记录后用 --force 或 --month 重建
 - 每个日期一页：日期放大居中加粗置顶（H1）；当天记录标题不重复日期
 - 记录标题（H2 青色）→ 数据类型标签行 → 体系/阶段/标签元信息行 → 正文（H3 橙色）
-- 正文加粗文本用网页着重色 #1D4ED8（XML 后处理，标题除外）
-- 内嵌图片（assets/），跨日期分页
+- 正文加粗文本用网页着重色 #1D4ED8；内嵌图片（assets/），跨日期分页
+- 样式/表格/列表后处理全部在 print_docx_post.py（python-docx，Word 可直接打开）；
+  禁止用 editor_sdk 的 doc_update_named_style 改标题样式（会写出损坏文件）
 
-流程：editor_sdk 插入（markdown + 图片 + 分页符）→ 命名样式整体配色 →
-保存 → XML 后处理正文粗体上色与元信息行灰斜体。
-
-用法：python scripts/export-print-docx.py [输出docx路径]
+用法：
+  python scripts/export-print-docx.py                  # 增量：只重建有变更的月份
+  python scripts/export-print-docx.py --force          # 全部月份强制重建
+  python scripts/export-print-docx.py --month 2026-11  # 指定月份强制重建
+  python scripts/export-print-docx.py --dir <目录>      # 指定输出目录
+  python scripts/export-print-docx.py <单文件.docx>    # 旧版单文件全量导出
+  python scripts/export-print-docx.py --post <docx>    # 只重跑某个 docx 的后处理
+调试开关：环境变量 NB_PRINT_LIMIT=N（单文件模式只导前 N 个日期组）、NB_NO_POST=1（跳过后处理）。
 """
 import json
 import os
@@ -22,9 +30,7 @@ import zipfile
 
 EDSDK_DIR = r'C:\Users\ao\AppData\Local\Programs\WorkBuddy\resources\app.asar.unpacked\resources\plugins\workbuddy-builtin\skills\workbuddy-local-office-edit'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-POST_ONLY = len(sys.argv) > 2 and sys.argv[1] == '--post'
-OUT = (sys.argv[2] if POST_ONLY else
-       (sys.argv[1] if len(sys.argv) > 1 else r'D:\Desktop\实验记录\实验记录打印版.docx'))
+DEFAULT_DIR = r'D:\Desktop\实验记录\实验记录打印版'
 
 # 配色（对齐网页版 read-content：h1 蓝 / h2 青 / h3 橙 / 加粗着重蓝）
 C_H1, C_H2, C_H3, C_H4 = '1E3A8A', '115E59', '9A3412', '374151'
@@ -171,20 +177,6 @@ def insert_group(file_id, md, idx):
     return idx, n_img
 
 
-def apply_styles(file_id):
-    for h, color, size, jc in [(1, C_H1, 16, 'center'), (2, C_H2, 14, 'left'),
-                               (3, C_H3, 12, 'left'), (4, C_H4, 11, 'left')]:
-        calljson('doc_update_named_style', {
-            'file_id': file_id, 'named_style_type': 'HEADING_%d' % h,
-            'paragraph_style': {'jc': jc},
-            'text_style': {'font_size': size, 'bold': True, 'color': color,
-                           'font_family': '黑体'}})
-    calljson('doc_update_named_style', {
-        'file_id': file_id, 'named_style_type': 'NORMAL_TEXT',
-        'paragraph_style': {'line_spacing': 1.4, 'line_spacing_rule': 1},
-        'text_style': {'font_size': 10.5, 'font_family': '宋体'}})
-
-
 VENV_PY = r'C:/Users/ao/.workbuddy/binaries/python/envs/default/Scripts/python.exe'
 
 
@@ -208,31 +200,11 @@ def list_files():
         key=lambda p: (os.path.basename(p)[:10] if re.match(r'\d{4}-\d{2}-\d{2}', os.path.basename(p)) else '9999', p))
 
 
-def main():
-    files = list_files()
-    if POST_ONLY:
-        postprocess_xml(OUT)
-        print('仅后处理完成：', OUT)
-        return
-    groups = {}
-    order = []
-    for p in files:
-        fm, md = record_md(p)
-        d = fm.get('date') or os.path.basename(p)[:10]
-        if d not in groups:
-            groups[d] = []
-            order.append(d)
-        groups[d].append(md)
-    limit = int(os.environ.get('NB_PRINT_LIMIT', '0') or 0)
-    if limit:
-        order = order[:limit]
-        print('（调试）仅导出前 %d 个日期组' % len(order))
-    print('共 %d 条记录、%d 个日期组' % (len(files), len(order)))
-
+def export_doc(order, groups, out_path):
+    """把 order 里的日期组导出为一个 docx（每月一个文件 / 单文件全量共用）。"""
     out = call('create_doc')
     m = re.search(r'file_id=([^\s,]+)', out)
     file_id = m.group(1) if m else None
-    print('file_id =', file_id)
     if not file_id:
         print('create_doc 输出异常：', out[:300])
         sys.exit(1)
@@ -251,15 +223,108 @@ def main():
                 idx = new
         md = '# %s\n\n' % d + '\n\n'.join(groups[d])
         idx, n_img = insert_group(file_id, md, idx)
-        print('[%d/%d] %s 完成，idx=%d，图 %d 张' % (gi + 1, len(order), d, idx, n_img))
+        print('  [%d/%d] %s 完成，图 %d 张' % (gi + 1, len(order), d, n_img))
 
-    # 样式改由 print_docx_post.py 用 python-docx 设置（editor_sdk 改标题样式会产出 Word 不认的文件）
-    call('save_file', file_id=file_id, file_path=OUT)
+    call('save_file', file_id=file_id, file_path=out_path)
     if os.environ.get('NB_NO_POST'):
-        print('（调试）跳过后处理：', OUT)
+        print('（调试）跳过后处理：', out_path)
     else:
-        postprocess_xml(OUT)
-        print('已保存并后处理：', OUT)
+        postprocess_xml(out_path)
+        print('已保存：', out_path)
+
+
+def parse_args(argv):
+    post_path = None
+    month = None
+    force = False
+    out_dir = DEFAULT_DIR
+    single = None
+    i = 0
+    while i < len(argv):
+        a = argv[i]
+        if a == '--post' and i + 1 < len(argv):
+            post_path = argv[i + 1]
+            i += 1
+        elif a == '--month' and i + 1 < len(argv):
+            month = argv[i + 1]
+            i += 1
+        elif a == '--dir' and i + 1 < len(argv):
+            out_dir = argv[i + 1]
+            i += 1
+        elif a == '--force':
+            force = True
+        elif a.endswith('.docx') and single is None:
+            single = a
+        else:
+            print('无法识别参数：', a)
+            sys.exit(2)
+        i += 1
+    return post_path, month, force, out_dir, single
+
+
+def main():
+    post_path, month, force, out_dir, single = parse_args(sys.argv[1:])
+    if post_path:
+        postprocess_xml(post_path)
+        print('仅后处理完成：', post_path)
+        return
+    if month and not re.match(r'^\d{4}-\d{2}$', month):
+        print('--month 需要 YYYY-MM 格式，收到：', month)
+        sys.exit(2)
+
+    files = list_files()
+    groups = {}
+    order = []
+    date_src = {}
+    for p in files:
+        fm, md = record_md(p)
+        d = fm.get('date') or os.path.basename(p)[:10]
+        groups.setdefault(d, []).append(md)
+        date_src.setdefault(d, []).append(p)
+        if d not in order:
+            order.append(d)
+    print('共 %d 条记录、%d 个日期组' % (len(files), len(order)))
+
+    # 旧版单文件全量模式
+    if single:
+        limit = int(os.environ.get('NB_PRINT_LIMIT', '0') or 0)
+        if limit:
+            order = order[:limit]
+            print('（调试）仅导出前 %d 个日期组' % len(order))
+        export_doc(order, groups, single)
+        return
+
+    # 按月分文件
+    months = {}
+    for d in order:
+        months.setdefault(d[:7], []).append(d)
+    if month:
+        if month not in months:
+            print('该月份没有实验记录：', month)
+            return
+        months = {month: months[month]}
+        force = True
+    os.makedirs(out_dir, exist_ok=True)
+
+    todo = []
+    for mo in sorted(months):
+        outp = os.path.join(out_dir, '%s.docx' % mo)
+        if force or not os.path.exists(outp):
+            todo.append((mo, outp))
+            continue
+        newest_md = max(os.path.getmtime(p) for d in months[mo] for p in date_src[d])
+        if newest_md > os.path.getmtime(outp):
+            todo.append((mo, outp))
+        else:
+            print('跳过（无变更）：', os.path.basename(outp))
+    if not todo:
+        print('所有月份均已是最新，无需重建。目录：%s' % out_dir)
+        return
+
+    for mo, outp in todo:
+        print('重建 %s（%d 个日期组）' % (os.path.basename(outp), len(months[mo])))
+        export_doc(months[mo], groups, outp)
+    print('完成：%d 个月份文件已更新于 %s' % (len(todo), out_dir))
 
 
 if __name__ == '__main__':

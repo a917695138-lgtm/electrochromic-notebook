@@ -161,10 +161,17 @@ def _is_step_block(items):
     return hit >= max(2, int(len(items) * 2 / 3.0 + 0.999))
 
 
+def _numbering_element(doc):
+    """文档没有 numbering part 时 python-docx 会抛 NotImplementedError，须防护。"""
+    try:
+        return doc.part.numbering_part.element
+    except NotImplementedError:
+        return None
+
+
 def restyle_lists(doc):
     """列表重构：普通条目变纯文本段（无圆点无序号）；仅真正有先后次序的操作步骤保留 1..n。"""
-    num_map, _ = numbering_maps(doc.part.numbering_part.element
-                                if doc.part.numbering_part else None)
+    num_map, _ = numbering_maps(_numbering_element(doc))
     paras = doc.paragraphs
     kinds = []          # (paragraph, 'decimal' / 'bullet' / None)
     for p in paras:

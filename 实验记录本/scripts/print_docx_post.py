@@ -135,36 +135,91 @@ def color_runs(p):
             r.font.color.rgb = RGBColor.from_string(C_BOLD)
 
 
-def convert_numbers(doc):
-    """列表统一成“一级圆点”：模板的编号定义只有 ilvl 0，嵌套层级无从生效。
+PREFIX_VERBS = (
+    r'(称量|加入|添加|取|称|加|用|将|把|放入|置入|注入|滴|倒|旋涂|刮涂|涂布|冲洗|清洗|超声|浸泡|'
+    r'染色|干燥|烘|烧结|退火|升温|保温|冷却|组装|贴合|封装|拆解|掰|配制|溶解|搅拌|抽真空|旋蒸|'
+    r'沉淀|进行|连接|设置|调节|记录|覆盖|移取|吸取|量取|切割|裁|补充|新制|制备|先|再|随后|'
+    r'然后|最后|重复|循环|洗涤|过滤|密封|观察|静置|过夜|真空|加热|转移|装入|稀释|定容|移液|存放|待)')
+# 句中匹配只用“硬操作”，避免“采用浸泡染浴方法”这类描述被当成步骤
+ANY_VERBS = (
+    r'((?<![采使通应])用|(?<![即])将|把|称量|加入|添加|放入|置入|注入|旋涂|刮涂|涂布|冲洗|清洗|超声|'
+    r'干燥|烘|烧结|退火|升温|保温|冷却|组装|贴合|封装|拆解|掰|配制|溶解|搅拌|抽真空|旋蒸|沉淀|'
+    r'量取|吸取|切割|裁|装入|转移|稀释|定容|移液|密封|加热)')
+ACTION_HEAD = re.compile('^%s' % PREFIX_VERBS)
+ACTION_ANY = re.compile(ANY_VERBS)
 
-    decimal 编号一律改圆点，ilvl 归 0，避免出现没有标记的孤立缩进行。
-    """
-    num_map, bullets = numbering_maps(doc.part.numbering_part.element
-                                      if doc.part.numbering_part else None)
-    target = bullets.get(0)
-    if target is None:
-        return 0
-    changed = 0
-    for p in doc.paragraphs:
+
+def _is_step_block(items):
+    """是否为“有先后次序的操作步骤”：句首是操作动词，或句首 14 字内出现硬操作动词，≥2/3 认定。"""
+    if len(items) < 2:
+        return False
+    hit = 0
+    for t in items:
+        t = re.sub(r'^[\*\s`]+', '', t.strip())
+        if ACTION_HEAD.match(t) or ACTION_ANY.search(t[:14]):
+            hit += 1
+    return hit >= max(2, int(len(items) * 2 / 3.0 + 0.999))
+
+
+def restyle_lists(doc):
+    """列表重构：普通条目变纯文本段（无圆点无序号）；仅真正有先后次序的操作步骤保留 1..n。"""
+    num_map, _ = numbering_maps(doc.part.numbering_part.element
+                                if doc.part.numbering_part else None)
+    paras = doc.paragraphs
+    kinds = []          # (paragraph, 'decimal' / 'bullet' / None)
+    for p in paras:
         pPr = p._p.pPr
         if pPr is None or pPr.numPr is None:
+            kinds.append((p, None))
             continue
         numPr = pPr.numPr
         ilvl_el = numPr.find(qn('w:ilvl'))
         numid_el = numPr.find(qn('w:numId'))
-        cur_id = numid_el.get(qn('w:val')) if numid_el is not None else ''
-        cur_lvl = int(ilvl_el.get(qn('w:val'))) if ilvl_el is not None else 0
-        if cur_id == target and cur_lvl == 0:
+        ilvl = int(ilvl_el.get(qn('w:val'))) if ilvl_el is not None else 0
+        num_id = numid_el.get(qn('w:val')) if numid_el is not None else ''
+        fmt = (num_map.get(num_id) or {}).get(ilvl, 'bullet')
+        kinds.append((p, 'decimal' if fmt == 'decimal' else 'bullet'))
+
+    n_bullet = 0
+    n_max = 0
+    i = 0
+    while i < len(kinds):
+        p, kind = kinds[i]
+        if kind is None:
+            i += 1
             continue
-        if numid_el is None:
-            numid_el = OxmlElement('w:numId')
-            numPr.append(numid_el)
-        numid_el.set(qn('w:val'), target)
-        if ilvl_el is not None:
-            ilvl_el.set(qn('w:val'), '0')
-        changed += 1
-    return changed
+        j = i
+        while j < len(kinds) and kinds[j][1] == kind:
+            j += 1
+        block = kinds[i:j]
+        keep_numbers = (kind == 'decimal' and
+                        _is_step_block([it[0].text for it in block]))
+        num = 0
+        for para, _k in block:
+            pPr = para._p.pPr
+            pPr.remove(pPr.numPr)
+            ind = pPr.find(qn('w:ind'))
+            if ind is not None:
+                pPr.remove(ind)
+            if not len(pPr):
+                para._p.remove(pPr)
+                pPr = None
+            if keep_numbers:
+                num += 1
+                n_max = max(n_max, num)
+                run = OxmlElement('w:r')
+                t = OxmlElement('w:t')
+                t.set('{http://www.w3.org/XML/1998/namespace}space', 'preserve')
+                t.text = '%d. ' % num
+                run.append(t)
+                if pPr is not None:
+                    pPr.addnext(run)
+                else:
+                    para._p.insert(0, run)
+            else:
+                n_bullet += 1
+        i = j
+    return n_bullet, n_max
 
 
 CELL_TXT = re.compile(r'<w:t[^>]*>([^<]*)</w:t>')
@@ -280,7 +335,7 @@ def main():
     doc = Document(path)
     apply_styles(doc)
     avail = page_text_width(doc)
-    n_num = convert_numbers(doc)
+    n_bullet, n_num = restyle_lists(doc)
     for p in doc.paragraphs:
         if is_heading(p):
             p.paragraph_format.keep_with_next = True
@@ -289,7 +344,7 @@ def main():
             color_runs(p)
     fix_tables(doc, avail)
     doc.save(path)
-    print('后处理完成：%s（编号改写 %d 段）' % (path, n_num))
+    print('后处理完成：%s（去圆点 %d 段，步骤编号至 %d）' % (path, n_bullet, n_num))
 
 
 if __name__ == '__main__':

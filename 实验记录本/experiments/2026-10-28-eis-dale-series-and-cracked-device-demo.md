@@ -7,7 +7,7 @@ stage: "测试与表征"
 data_types: []
 status: "needs_review"
 tags: [EIS, 电化学阻抗, DALE50, DALE00, CF器件, 裂缝器件, 机械鲁棒性, 电化学阻抗测试, DALE]
-modified: "2026-11-03"
+modified: "2026-11-16"
 related:
   - experiments/2026-10-15-group-meeting-and-eis-test.md
   - methods/eis.md
@@ -26,7 +26,7 @@ related:
 | DALE00-3 | DALE00（无 EMIMTFSI 对照） |
 | DALE00-4 | DALE00（无 EMIMTFSI 对照） |
 | CF DALE50-5 | CF DALE50（非原位固定电解质器件） |
-| CF DALE50-6 | CF DALE50（原始口述中写作"DF DALE50-6"，2026-11-03 经用户确认为 CF 笔误） |
+| CF DALE50-6 | CF DALE50（非原位固定电解质器件） |
 
 ### 结果
 

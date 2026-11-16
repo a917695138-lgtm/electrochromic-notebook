@@ -7,7 +7,7 @@ stage: "不适用"
 data_types: []
 status: "completed"
 tags: [DALE, 进展讨论, 固态电解质, 组会, 组会与讨论]
-modified: "2026-10-26"
+modified: "2026-11-16"
 related:
   - notes/2026-10-19-naming-convention-and-cross-batch-summary.md
 ---
@@ -29,9 +29,4 @@ DALE 体系（DA 交联网络 + LiTFSI + EMIMTFSI 固态电解质）的阶段性
 | # | 待补项 | 说明 |
 |---|---|---|
 | 1 | 讨论结论 | PDF 中的要点与结论尚未摘录进记录本 |
-
-## 相关口径
-
-DALE 编号口径：
-**DALE50 的 50 = EO : Li 摩尔比 = 50**；**DALE00 = 未添加 EMIMTFSI 的 DA 体系对照**。
 

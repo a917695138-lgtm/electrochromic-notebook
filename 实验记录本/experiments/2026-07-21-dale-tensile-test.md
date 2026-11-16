@@ -7,7 +7,7 @@ stage: "测试与表征"
 data_types: []
 status: "needs_review"
 tags: [DALE, 力学拉伸, 拉伸性能, 模量, 软物质学院, 力学性能测试]
-modified: "2026-10-26"
+modified: "2026-11-16"
 related:
   - notes/2026-10-19-naming-convention-and-cross-batch-summary.md
 ---
@@ -23,9 +23,6 @@ related:
 | 测试地点 | **软物质学院** |
 | 样品 | DALE00 – DALE50 系列 |
 | 测试类型 | 力学拉伸（拉伸强度、断裂伸长率、弹性模量） |
-
-DALE 编号口径：**数字 = EO : Li 摩尔比**（DALE50 = 50），
-**DALE00 = 未添加 EMIMTFSI 的 DA 体系对照**。
 
 ## 结果
 

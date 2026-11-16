@@ -7,7 +7,7 @@ stage: "测试与表征"
 data_types: []
 status: "needs_review"
 tags: [Raman, LiTFSI, 解离程度, DALE, PBI-Cl, 染浴, 5mL体系, 结构与物相表征]
-modified: "2026-10-26"
+modified: "2026-11-16"
 related:
   - experiments/2026-10-09-tio2-sintering-perforated-fto.md
   - experiments/2026-10-11-post-dye-treatment-and-device-encapsulation.md
@@ -25,8 +25,6 @@ related:
 
 通过 TFSI⁻ 特征振动峰（尤其是 S–N–S 弯曲 / CF₃ 相关模式）随配方的变化，
 判断 LiTFSI 在不同 EO : Li 比例下的解离状态，为离子电导与界面行为提供分子层面依据。
-
-DALE 编号口径：**数字 = EO : Li 摩尔比**（DALE50 = 50）。
 
 ## 二、PBI-Cl 染浴（5 mL 体系）
 

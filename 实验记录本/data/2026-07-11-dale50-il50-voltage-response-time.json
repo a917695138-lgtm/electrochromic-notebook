@@ -4,7 +4,7 @@
   "batch_id": "2026-07-11-dale50-il50-voltage-response-time",
   "date": "2026-07-11",
   "modified": "2026-07-15",
-  "title": "2026-07-11 DALE50 50%离子液体固态电解质11×16腔体电压-响应时间测试",
+  "title": "2026-07-11 DALE50 固态电解质11×16腔体电压-响应时间测试",
   "source_experiment": "experiments/2026-07-11-dale50-il50-voltage-response-time.md",
   "related_experiments": [
     "experiments/2026-07-09-dale50-il50-solid-cycling-stability.md",
@@ -12,7 +12,7 @@
   ],
   "system": {
     "sample_name": "DALE50-2",
-    "electrolyte": "50%离子液体固态电解质",
+    "electrolyte": "DALE50 固态电解质（前体 EO : Li = 10:1，DALE00–50 系列中 EMIMTFSI 添加量最高）",
     "ionic_liquid_fraction_percent": 50,
     "ion_storage_layer": "single-layer ATO",
     "cavity_size_mm": "11 x 16",

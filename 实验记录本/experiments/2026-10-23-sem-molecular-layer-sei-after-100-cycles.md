@@ -7,7 +7,7 @@ stage: "测试与表征"
 data_types: [sem]
 status: "needs_review"
 tags: [SEM, SEI层, 分子层形貌, DALE50, DALE00, DAE50, CF器件, 循环后失效分析, PBI-Cl, 膜厚与形貌表征, DALE, EMIMTFSI, 2层ATO]
-modified: "2026-10-23"
+modified: "2026-11-20"
 related:
   - experiments/2026-07-09-dale50-il50-solid-cycling-stability.md
   - experiments/2026-06-30-tio2-film-device-test.md
@@ -26,7 +26,7 @@ related:
 
 | 样品 | 配方含义 | 循环条件 | 观察对象 |
 |---|---|---|---|
-| DALE50 | DA + LiTFSI + EMIMTFSI，**EO : Li = 50** | −2 / 1 V，CA 各 3 s | 变色分子层表面 |
+| DALE50 | DA + LiTFSI + EMIMTFSI，前体 EO : Li = 10:1，系列中 EMIMTFSI 添加量最高 | −2 / 1 V，CA 各 3 s | 变色分子层表面 |
 | DALE00 | DA + LiTFSI，**未添加 EMIMTFSI** 的 DA 体系对照 | −2 / 1 V，CA 各 3 s | 变色分子层表面 |
 | CF DALE50 | DALE50 配方，**非原位固定**电解质器件 | −2 / 1 V，CA 各 3 s | 变色分子层表面 |
 | DAE50 | DA + EMIMTFSI，**无锂盐**（DAE = 无锂盐体系） | −2 / 1 V，CA 各 3 s | 变色分子层表面 |

@@ -7,7 +7,7 @@ stage: "测试与表征"
 data_types: []
 status: "needs_review"
 tags: [XPS, SEI层, 制样, DCM冲洗, 碳酸二甲酯, DALE50, DAE50, 循环后失效分析, 表面与界面表征, DALE, EMIMTFSI, 2层ATO]
-modified: "2026-10-24"
+modified: "2026-11-20"
 related:
   - experiments/2026-10-22-xps-depth-profile-sei.md
   - experiments/2026-10-23-sem-molecular-layer-sei-after-100-cycles.md
@@ -30,7 +30,7 @@ related:
 
 | 样品 | 配方含义 | 数据位置（155419 数据集） |
 |---|---|---|
-| DALE50 | DA + LiTFSI + EMIMTFSI，**EO : Li = 50** | 位置 1 |
+| DALE50 | DA + LiTFSI + EMIMTFSI，前体 EO : Li = 10:1，系列中 EMIMTFSI 添加量最高 | 位置 1 |
 | DALE00 | DA + LiTFSI，**未添加 EMIMTFSI** 的 DA 体系对照 | 位置 2 |
 | CF DALE50 | DALE50 配方，**非原位固定**电解质器件 | 位置 3 |
 | DAE50 | DA + EMIMTFSI 50%，**无锂盐**体系 | 位置 4 |

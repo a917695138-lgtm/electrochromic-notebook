@@ -7,7 +7,7 @@ stage: "测试与表征"
 data_types: []
 status: "needs_review"
 tags: [DALE, 力学拉伸, 拉伸性能, 模量, 软物质学院, 力学性能测试]
-modified: "2026-11-16"
+modified: "2026-11-20"
 related:
   - notes/2026-10-19-naming-convention-and-cross-batch-summary.md
 ---
@@ -38,7 +38,7 @@ related:
 
 ## 下一步
 
-- 归档原始曲线后，把模量与断裂伸长率按 EO : Li 比例作图，看是否存在规律。
+- 归档原始曲线后，把模量与断裂伸长率按 DALE00–50 配方顺序作图，比较 LiTFSI 与 EMIMTFSI 摩尔比对模量和断裂伸长率的影响。
 - 与 10-10 Raman（LiTFSI 解离程度）、10-15 EIS（离子电导）结果交叉，
   判断增塑程度与力学强度之间是否存在此消彼长的关系。
 

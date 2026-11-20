@@ -7,7 +7,7 @@ stage: "测试与表征"
 data_types: [sem]
 status: "needs_review"
 tags: [SEM, 截面SEM, SEI层, DALE50, DALE00, CF器件, TiO2制膜, 膜厚与形貌表征, DALE, EMIMTFSI, 2层ATO]
-modified: "2026-11-03"
+modified: "2026-11-20"
 related:
   - experiments/2026-10-23-sem-molecular-layer-sei-after-100-cycles.md
   - experiments/2026-10-22-xps-depth-profile-sei.md
@@ -28,7 +28,7 @@ related:
 
 | 样品 | 配方含义 |
 |------|---------|
-| DALE50 | DA + LiTFSI + EMIMTFSI，EO : Li = 50 |
+| DALE50 | DA + LiTFSI + EMIMTFSI，前体 EO : Li = 10:1，系列中 EMIMTFSI 添加量最高 |
 | DALE00 | DA + LiTFSI，未添加 EMIMTFSI 的 DA 体系对照 |
 | CF DALE50 | DALE50 配方，非原位固定电解质器件 |
 

@@ -1,13 +1,13 @@
 ---
 type: "note"
-title: "命名与配方口径（光谱电化学 2026-10-19 / DALE 2026-10-24、10-26 确认）+ 9–10 月跨批次结论汇总"
+title: "命名与配方口径（光谱电化学 2026-10-19 / DALE 配方 2026-11-20 更新）+ 9–10 月跨批次结论汇总"
 date: "2026-10-19"
 system: "通用"
 stage: "不适用"
 data_types: []
 status: "completed"
 tags: [命名规范, 配方口径, 跨批次汇总, 响应时间, 光谱电化学, 基线校正, DALE, EO-Li比, 规范与汇总]
-modified: "2026-10-26"
+modified: "2026-11-20"
 related:
   - experiments/2026-09-08-electrolyte-screening-response-time.md
   - experiments/2026-09-14-spacer-120um-surlyn-vs-100um-tape-response-time.md
@@ -32,24 +32,24 @@ related:
 
 原始 .nox 命名规律：`CA_PBI-Cl_2ATO(NEW)_{电解质} {隔层} {FTO设置} {电位}（{步长}）`；2026-10-13 起工作电极改为 `new PBI-Cl`。
 
-## 二、配方口径
+## 二、液态电解液与染浴配方口径
 
 - 锂盐浓度统一 **1 mol/L（1×10⁻³ mol/mL）**。
-- 含 EMIMTFSI 的版本摩尔比 **锂盐 : EMIMTFSI = 1 : 2**（1.00 mmol LiTFSI 配 0.783 g EMIMTFSI）。
+- 液态电解液筛选中，含 EMIMTFSI 的配方摩尔比 **锂盐 : EMIMTFSI = 1 : 2**（1.00 mmol LiTFSI 配 0.783 g EMIMTFSI）。
 - KLD-TF33 = 1 mol/L LiTFSI 储备液（用量 mL 与 LiTFSI mmol 数值 1:1）。
 - S50 配方未说明，待补。
 - PBI-Cl 染浴液浓度 **1×10⁻³ mol/L**，PBI-Cl 分子量 **856.35 g/mol**。
   由此：10 mL DMF 对应 8.5635 mg，500 µL DMF 对应 0.428175 mg。
 
-## 二·补、DALE 编号口径更正（2026-10-24 用户确认，以此为准）
+## 二·补、DALE00–50 配方与编号（2026-11-20 确认）
 
-**DALE 编号中的数字 = DA 网络的 EO 链节单元与 Li⁺ 的摩尔比，即 EO : Li。**
+**加入离子液体前，所有样品前体的环氧乙烷链节与锂离子摩尔比固定为 10:1（EO : Li = 10:1）。** 加入 EMIMTFSI 时，以 **LiTFSI 与 EMIMTFSI 的摩尔比**区分 DALE00–50 各配方。各编号对应的具体投料比以该样品的制备记录为准。
 
 | 编号 | 含义 |
 |---|---|
-| DALE50 | **EO : Li = 50**（DA 网络的 50 个 EO 链节单元对应 1 个 Li⁺）；含 EMIMTFSI |
-| **DALE00** | **未添加 EMIMTFSI 离子液体的对照，仍属 DA 体系**（含 DA 网络与 LiTFSI），不是"无 DA"对照 |
-| DALE10 / 20 / … / 70 | 同一 EO : Li 梯度上的其余取值 |
+| **DALE00** | 保留 DA 网络和 LiTFSI，未添加 EMIMTFSI，作为无离子液体对照 |
+| DALE10、DALE20、DALE30、DALE40 | 采用不同 LiTFSI 与 EMIMTFSI 摩尔比的中间配方 |
+| **DALE50** | DALE00–50 系列中 EMIMTFSI 添加量最高的配方 |
 
 - **DA** = 该体系下的电解质（DA 交联网络骨架，提供 EO 链节）
 - **L** = LiTFSI 锂盐

@@ -4,14 +4,14 @@
   "batch_id": "2026-07-09-dale50-il50-solid-cycling-stability",
   "date": "2026-07-09",
   "modified": "2026-07-14",
-  "title": "2026-07-09 DALE50 固态电解质50%离子液体11×16腔体循环稳定性数据",
+  "title": "2026-07-09 DALE50 固态电解质11×16腔体循环稳定性数据",
   "source_experiment": "experiments/2026-07-09-dale50-il50-solid-cycling-stability.md",
   "related_experiments": [
     "experiments/2026-06-30-tio2-film-device-test.md"
   ],
   "system": {
-    "sample_name": "DALE50 固态电解质 50% 离子液体器件",
-    "electrolyte": "固态电解质，50% 离子液体",
+    "sample_name": "DALE50 固态电解质器件",
+    "electrolyte": "DALE50 固态电解质（前体 EO : Li = 10:1，DALE00–50 系列中 EMIMTFSI 添加量最高）",
     "ionic_liquid_fraction_percent": 50,
     "cavity_method": "双面胶围腔",
     "cavity_size_mm": "11 x 16",
@@ -124,6 +124,6 @@
     "cycle_5000_contrast_percent": 41.671982,
     "cycle_5000_retention_percent": 89.199942,
     "absolute_contrast_loss_percent_points": 5.045516,
-    "main_conclusion": "DALE50 50%离子液体固态电解质器件在 -1.8 / 0.2 V、3 s 条件下循环至 5000 次后平台中位对比度由 46.72% 降至 41.67%，保持率为 89.20%，整体衰减平滑且未出现突发失效。"
+    "main_conclusion": "DALE50 固态电解质器件在 -1.8 / 0.2 V、3 s 条件下循环至 5000 次后平台中位对比度由 46.72% 降至 41.67%，保持率为 89.20%，整体衰减平滑且未出现突发失效。"
   }
 }

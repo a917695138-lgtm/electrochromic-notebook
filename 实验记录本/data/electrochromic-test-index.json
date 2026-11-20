@@ -313,7 +313,7 @@
     {
       "batch_id": "2026-07-09-dale50-il50-solid-cycling-stability",
       "date": "2026-07-09",
-      "title": "2026-07-09 DALE50 固态电解质50%离子液体11×16腔体循环稳定性数据",
+      "title": "2026-07-09 DALE50 固态电解质11×16腔体循环稳定性数据",
       "has_test_data": true,
       "test_types": [
         "spectroelectrochemistry",
@@ -340,13 +340,13 @@
         "initial_contrast_percent": 46.717498,
         "cycle_5000_contrast_percent": 41.671982,
         "cycle_5000_retention_percent": 89.199942,
-        "main_conclusion": "DALE50 50%离子液体固态电解质器件在 -1.8 / 0.2 V、3 s 条件下循环至 5000 次后平台中位对比度由 46.72% 降至 41.67%，保持率为 89.20%，整体衰减平滑且未出现突发失效。"
+        "main_conclusion": "DALE50 固态电解质器件在 -1.8 / 0.2 V、3 s 条件下循环至 5000 次后平台中位对比度由 46.72% 降至 41.67%，保持率为 89.20%，整体衰减平滑且未出现突发失效。"
       }
     },
     {
       "batch_id": "2026-07-11-dale50-il50-voltage-response-time",
       "date": "2026-07-11",
-      "title": "2026-07-11 DALE50 50%离子液体固态电解质11×16腔体电压-响应时间测试",
+      "title": "2026-07-11 DALE50 固态电解质11×16腔体电压-响应时间测试",
       "has_test_data": true,
       "test_types": [
         "spectroelectrochemistry",
